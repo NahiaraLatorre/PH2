@@ -1,27 +1,106 @@
 /* Cabecera */
-header{
-    height: 300px;
-    background-color: #8e4887;
-    padding: 5px;
+
+html, body, header,  footer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    width: 100%;
 }
 
 body{
-	background-color: #d8d8d8;
+    background-color: #d8d8d8;
 }
 
 h1{
-	color: #ffffff;
+    display: inline;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFF;
+    /*left: 40%;*/
+    position: absolute;
+    top: 10%;
+}
+
+header{
+    /*#636CB3;*/
+        
+    color: #FFF;
+    font-weight: bold;
+    font-size: 130%;
+    position: absolute;
+    top: 0px;
+    /* [disabled]right: -35px; */
+    width: 102%;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-attachment: fixed;
+    background-image: url(../img/fondo-cabecera3.png);
+    background-repeat: no-repeat;
+    height: 330px;
+
+    /*height: 300px;
+    background-color: #8e4887;
+    padding: 5px;*/
+}
+
+section{
+    
+    margin: 2%;
 }
 
 
-/**********CLASS*********/
-.imagen{
-		padding: 15px;
+nav ul{ 
+    padding-start: 0px;
+    -webkit-padding-start: 0px;
+    -moz-padding-start: 0px;
+    -o-padding-start: 0px;  
 }
-/* Pie de la pagina (texto) */
-#pie{
-    margin-top: 8px;
+
+nav li{
+    display:inline;
+    margin-left:5%;
+    margin-right:5%;
 }
+
+
+
+header input{
+    background:#FFF;
+    border-radius: 3px 6px 3px 6px;
+    border:2px outset #FFF;
+    box-shadow: 0 0 1px #000;
+    
+    transition: background 1s, box-shadow 1s;
+        
+    margin:1%;
+    padding:1px;
+    
+}
+
+header input:focus{
+    background: #FF9;
+    box-shadow: 0 0 7px #FFF;   
+}
+
+button{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+}
+
+button:hover{
+    background-color: #636CB3;
+    
+}
+
+
 
 /* Pie de la página */
 footer{   
@@ -33,17 +112,113 @@ footer{
     text-align: center;
 }
 
+
+/********   ID    ****************/
+
+/*Cabecera*/
+#ajusta_header{
+    margin-top: 0.3%;
+    width: 90%;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+}
+
+#logo{
+    display: inline;
+    float: left;
+    text-align: center;
+    left: 20%;
+    top: 20%;
+    margin-left: 10%;
+    margin-top: -15%;
+}
+
+#pie{
+    margin-top: 8px;
+}
+
 /* Copyright */
 #derechos{
     display: none;
 }
 
+/**********CLASS*********/
+/*.imagen{
+		padding: 15px;
+}*/
 
+.busi{
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1%;
+    width: 18%;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: -5%;
+    text-align: center;
+}
 
+.bus{
+    color:#fff;
+    display:inline-block;
+    font-weight:bold;
+    padding:1%;
+    width:30%;
+    text-decoration:none;
+    border-radius: 4px;
+    margin-top: -5%;
+    text-align: center;
+}
 
+.busi:hover{
+    background-color: rgba(204,0,51,0.7);
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1%;
+    width: 18%;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: -5%;
+    text-align: center;
+}
 
+.bus:hover{
+    background-color: rgba(204,0,51,0.7);
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1%;
+    width: 30%;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: -5%;
+    text-align: center;
+}
 
+.imagen{
+    float: left;
+    width: 17%;
+    padding: 0.5%;
+    transition: box-shadow 2s;
+    margin-top: 2%;
+}
 
+.imagen ul{
+    text-align:left;
+}
 
+.imagen img{
+    background-color: #f5f5f5; 
+    border: 3px inset #CCC;
+    width:95%;
+    height:auto;
+}
 
+.imagen:hover{
+    box-shadow: 0 0 20px #003;
+
+}
 
