@@ -1,14 +1,38 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
     
     <!-- Enlace al CSS principal -->
     <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+    
+    <!-- Enlace al JavaScript que evalua los formularios -->
+    <script src="JavaScript/formularios.js" language="javascript" type="text/javascript"></script>
 
 	<title>Login</title>
 </head>
 <body>
+
+    <!-- Formulario de acceso -->
+    <form id = "formularioacceso" onsubmit = "acceso(formularioacceso)">
+
+        <!-- Encabezado del formulario de acceso -->
+        <h2 id = "tituloformacceso" class = "tituloformulario" >Acceso</h2>
+
+        <!-- Campo de acceso: nombre de usuario -->
+        <label for = "usuario"> Usuario: </label>
+        <input type = "text" name ="usuario" id = "usuario" autofocus = "autofocus" placeholder = "Nombre de usuario" accesskey = "u" tabindex = "4"/>
+        <br/>
+
+        <!-- Campo de acceso: contraseña -->
+        <label for = "password"> Contrase&ntilde;a: </label>
+        <input type = "password" name = "password" id = "password" autofocus = "autofocus" placeholder = "Contrase&ntilde;a" accesskey = "n" tabindex = "5"/>
+        <br/>
+
+        <!-- Botón para confirmar el acceso -->
+        <input id = "boton" type = "submit" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" />
+
+    </form>
 	
 </body>
 </html>

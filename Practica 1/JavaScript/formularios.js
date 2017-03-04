@@ -22,6 +22,12 @@ function acceso(formularioacceso){
         return;
     }
 
+    if(!primerCaracter(usuario)){
+
+        alert ("El nombre de usuario no puede empezar por un n\u00FAmero");
+        return;
+    }
+
     if (!compruebaCaracteres(usuario, 1)){// Solo puede contener numeros y letras
 
         alert ("El usuario debe contener caracteres alfanum\u00E9ricos");
