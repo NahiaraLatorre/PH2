@@ -1,8 +1,8 @@
-
-
+/* Cabecera */
 header{
-	background-color: #8e4887;
-	padding: 5px;
+    height: 300px;
+    background-color: #8e4887;
+    padding: 5px;
 }
 
 body{
