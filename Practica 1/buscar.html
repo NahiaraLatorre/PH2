@@ -1,206 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-    
-    <!-- Enlace al CSS principal -->
-    <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
-
-	<title>Buscar</title>
-</head>
-<body>
-
-
-
-    <!-- Título de la página -->
-    <h2 class = "titulopagina"> B&uacute;squeda de fotos </h2>
-    
-    <!-- Formulario de búsqueda de fotos -->
-    <form id = "formulariobusqueda" action = "Resultadobusqueda.html" onsubmit = "reg(formulariobusqueda)">
-
-        <!-- Encabezado del formulario -->
-        <h2 id = "tituloformbusqueda" class = "tituloformulario">Datos de la b&uacute;squeda:</h2>
+    <head>
+    	<meta charset="UTF-8">
         
-        <!-- Campo de búsqueda: título -->
-        <label for = "titulobusc"> T&iacute;tulo: </label>
-        <input type = "text" name ="titulobusc" id = "titulobusc" placeholder = "Palabra&#40;s&#41; en el t&iacute;tulo" accesskey = "t" tabindex = "4"/>
+        <!-- Enlace al CSS principal -->
+        <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+
+    	<title>Buscar</title>
+    </head>
+    <body>
+
+        <!-- Título de la página -->
+        <h2 class = "titulopagina"> B&uacute;squeda de fotos </h2>
+        
+        <!-- Formulario de búsqueda de fotos -->
+        <form id = "formulariobusqueda" action = "Resultadobusqueda.html" onsubmit = "reg(formulariobusqueda)">
+
+            <!-- Encabezado del formulario -->
+            <h2 id = "tituloformbusqueda" class = "tituloformulario">Datos de la b&uacute;squeda:</h2>
+            
+            <!-- Campo de búsqueda: título -->
+            <label for = "titulobusc"> T&iacute;tulo: </label>
+            <input type = "text" name ="titulobusc" id = "titulobusc" placeholder = "Palabra&#40;s&#41; en el t&iacute;tulo" accesskey = "t" tabindex = "4"/>
+            <br/>
+            <br>
+            <!-- Campo de búsqueda: texto -->
+            <label for = "textobusc"> Texto: </label>
+            <textarea type = "text" name ="textobusc" id = "textobusc" placeholder = "Texto de busqueda" accesskey = "k" tabindex = "5"></textarea>
+            <br/>
+            <br>
+            <!-- Campo de búsqueda: autor -->
+            <label for = "autorbusc"> Autor: </label>
+            <input type = "autor" name ="autorbusc" id = "autorbusc" placeholder = "Autor de la entrada" accesskey = "w" tabindex = "4"/>
+            <br/>
+            <br>
+            <!-- Campo de búsqueda: fecha -->
+            <span id = "fecha"> Fecha desde: </span>
+
+            <select  id = "diafoto1"  accesskey = "d" tabindex = "6">
+                <option selected value='1'>D&iacute;a</option>
+                <option value='2'>01</option>
+                <option value='3'>02</option>
+                <option value='4'>03</option>
+                <option value='5'>04</option>
+                <option value='6'>05</option>
+                <option value='7'>06</option>
+                <option value='8'>07</option>
+                <option value='9'>08</option>
+                <option value='10'>09</option>
+                <option value='11'>10</option>
+                <option value='12'>11</option>
+                <option value='13'>12</option>
+                <option value='14'>13</option>
+                <option value='15'>14</option>
+                <option value='16'>15</option>
+                <option value='17'>16</option>
+                <option value='18'>17</option>
+                <option value='19'>18</option>
+                <option value='20'>19</option>
+                <option value='21'>20</option>
+                <option value='22'>21</option>
+                <option value='23'>22</option>
+                <option value='24'>23</option>
+                <option value='25'>24</option>
+                <option value='26'>25</option>
+                <option value='27'>26</option>
+                <option value='28'>27</option>
+                <option value='29'>28</option>
+                <option value='30'>29</option>
+                <option value='31'>30</option>
+                <option value='32'>31</option>
+            </select>
+            <select id = "mesfoto1" accesskey = "m" tabindex = "7">
+                <option selected value='1'>Mes</option>
+                <option value='2'>Enero</option>
+                <option value='3'>Febrero</option>
+                <option value='4'>Marzo</option>
+                <option value='5'>Abril</option>
+                <option value='6'>Mayo</option>
+                <option value='7'>Junio</option>
+                <option value='8'>Julio</option>
+                <option value='9'>Agosto</option>
+                <option value='10'>Septiembre</option>
+                <option value='11'>Octubre</option>
+                <option value='12'>Noviembre</option>
+                <option value='13'>Diciembre</option>
+            </select>
+
+            <select id = "anyofoto1" accesskey = "a" tabindex = "8">
+                <option selected value='1'>A&ntilde;o</option>
+                <option value='2'>2015</option>
+                <option value='3'>2014</option>
+                <option value='4'>2013</option>
+                <option value='5'>2012</option>
+                <option value='6'>2011</option>
+                <option value='7'>2010</option>
+                <option value='8'>2009</option>
+                <option value='9'>2008</option>
+                <option value='10'>2007</option>
+                <option value='11'>2006</option>
+                <option value='12'>2005</option>
+                <option value='13'>2004</option>
+                <option value='14'>2003</option>
+                <option value='15'>2002</option>
+                <option value='16'>2001</option>
+                <option value='17'>2000</option>
+                <option value='18'>1999</option>
+                <option value='19'>1998</option>
+                <option value='20'>1997</option>
+                <option value='21'>1996</option>
+                <option value='22'>1995</option>
+            </select>
+            <span>hasta: </span>
+            <select name = "diafoto2" id = "diafoto2"  accesskey = "D" tabindex = "">
+                <option selected value='1'>D&iacute;a</option>
+                <option value='2'>01</option>
+                <option value='3'>02</option>
+                <option value='4'>03</option>
+                <option value='5'>04</option>
+                <option value='6'>05</option>
+                <option value='7'>06</option>
+                <option value='8'>07</option>
+                <option value='9'>08</option>
+                <option value='10'>09</option>
+                <option value='11'>10</option>
+                <option value='12'>11</option>
+                <option value='13'>12</option>
+                <option value='14'>13</option>
+                <option value='15'>14</option>
+                <option value='16'>15</option>
+                <option value='17'>16</option>
+                <option value='18'>17</option>
+                <option value='19'>18</option>
+                <option value='20'>19</option>
+                <option value='21'>20</option>
+                <option value='22'>21</option>
+                <option value='23'>22</option>
+                <option value='24'>23</option>
+                <option value='25'>24</option>
+                <option value='26'>25</option>
+                <option value='27'>26</option>
+                <option value='28'>27</option>
+                <option value='29'>28</option>
+                <option value='30'>29</option>
+                <option value='31'>30</option>
+                <option value='32'>31</option>
+            </select>
+
+            <select name = "mesfoto2" id = "mesfoto2" accesskey = "M" tabindex = "9">
+                <option selected value='1'>Mes</option>
+                <option value='2'>Enero</option>
+                <option value='3'>Febrero</option>
+                <option value='4'>Marzo</option>
+                <option value='5'>Abril</option>
+                <option value='6'>Mayo</option>
+                <option value='7'>Junio</option>
+                <option value='8'>Julio</option>
+                <option value='9'>Agosto</option>
+                <option value='10'>Septiembre</option>
+                <option value='11'>Octubre</option>
+                <option value='12'>Noviembre</option>
+                <option value='13'>Diciembre</option>
+            </select>
+
+            <select name = "anyofoto2" id = "anyofoto2" accesskey = "A" tabindex = "10">
+                <option selected value='1'>A&ntilde;o</option>
+                <option value='2'>2015</option>
+                <option value='3'>2014</option>
+                <option value='4'>2013</option>
+                <option value='5'>2012</option>
+                <option value='6'>2011</option>
+                <option value='7'>2010</option>
+                <option value='8'>2009</option>
+                <option value='9'>2008</option>
+                <option value='10'>2007</option>
+                <option value='11'>2006</option>
+                <option value='12'>2005</option>
+                <option value='13'>2004</option>
+                <option value='14'>2003</option>
+                <option value='15'>2002</option>
+                <option value='16'>2001</option>
+                <option value='17'>2000</option>
+                <option value='18'>1999</option>
+                <option value='19'>1998</option>
+                <option value='20'>1997</option>
+                <option value='21'>1996</option>
+                <option value='22'>1995</option>
+            </select>
+
+            <br/>
+            <br>
+            <!-- Botón para confirmar la búsqueda -->
+            <input type = "submit" name = "buscar" value = "Buscar" accesskey = "b" tabindex = "12"/>
+
+        </form>
         <br/>
-        <br>
-        <!-- Campo de búsqueda: texto -->
-        <label for = "textobusc"> Texto: </label>
-        <textarea type = "text" name ="textobusc" id = "textobusc" placeholder = "Texto de busqueda" accesskey = "k" tabindex = "5"></textarea>
-        <br/>
-        <br>
-        <!-- Campo de búsqueda: autor -->
-        <label for = "autorbusc"> Autor: </label>
-        <input type = "autor" name ="autorbusc" id = "autorbusc" placeholder = "Autor de la entrada" accesskey = "w" tabindex = "4"/>
-        <br/>
-        <br>
-        <!-- Campo de búsqueda: fecha -->
-        <span id = "fecha"> Fecha desde: </span>
+                <main>
+        
+        
+        
+        <section>
+                        
+            <h2> Últimas fotos subidas </h2>
+                <div class="imagen"> 
+                    <a href="detalle_foto.html"> <img src="img/paisaje1.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: A</li>
+                        <li>Autor: Uno</li>
+                        <li>Fecha: 12/12/2001</li>
+                        <li>País: España</li>
+                    </ul>
+                </div>        
+                <div class="imagen">  
+                    <a href="detalle_foto.html"> <img src="img/paisaje2.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: B</li>
+                        <li>Autor: Dos</li>
+                        <li>Fecha: 16/2/2001</li>
+                        <li>País: USA</li>
+                    </ul>
+                </div>
+                <div class="imagen">  
+                   <a href="detalle_foto.html"> <img src="img/paisaje3.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: C</li>
+                        <li>Autor: Tres</li>
+                        <li>Fecha: 4/12/2001</li>
+                        <li>País: Francia</li>
+                    </ul>        
+                </div>
+                <div class="imagen">  
+                    <a href="detalle_foto.html"> <img src="img/paisaje4.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: D</li>
+                        <li>Autor: Cuatro</li>
+                        <li>Fecha: 23/4/2000</li>
+                        <li>País: Alemania</li>
+                    </ul>        
+                </div>
+                <div class="imagen"> 
+                    <a href="detalle_foto.html"> <img src="img/paisaje5.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: E</li>
+                        <li>Autor: Cinco</li>
+                        <li>Fecha: 12/12/1999</li>
+                        <li>País: Marruecos</li>
+                    </ul>       
+                </div>
+                <div class="imagen"> 
+                    <a href="detalle_foto.html"> <img src="img/paisaje6.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: F</li>
+                        <li>Autor: Cinco</li>
+                        <li>Fecha: 12/12/1999</li>
+                        <li>País: Marruecos</li>
+                    </ul>       
+                </div>
+                 <div class="imagen"> 
+                    <a href="detalle_foto.html"> <img src="img/paisaje9.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: G</li>
+                        <li>Autor: Cinco</li>
+                        <li>Fecha: 12/12/1999</li>
+                        <li>País: Alaska</li>
+                    </ul>       
+                </div>
+                <div class="imagen"> 
+                    <a href="detalle_foto.html"> <img src="img/paisaje10.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: G</li>
+                        <li>Autor: Cinco</li>
+                        <li>Fecha: 12/12/1999</li>
+                        <li>País: Alaska</li>
+                    </ul>       
+                </div>
+                <div class="imagen"> 
+                    <a href="detalle_foto.html"> <img src="img/paisaje11.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: Laguna salada de Torrevieja</li>
+                        <li>Autor: Cinco</li>
+                        <li>Fecha: 12/12/1999</li>
+                        <li>País: España</li>
+                    </ul>       
+                </div>
+                <div class="imagen"> 
+                    <a href="detalle_foto.html"> <img src="img/paisaje12.jpg" alt="Imagen" /> </a>
+                    <ul>
+                        <li>Título: Laguna salada de Torre</li>
+                        <li>Autor: Cinco</li>
+                        <li>Fecha: 12/12/1999</li>
+                        <li>País: Sri Lanka</li>
+                    </ul>       
+                </div>
+                
+        </section>
+        </main>
 
-        <select  id = "diafoto1"  accesskey = "d" tabindex = "6">
-            <option selected value='1'>D&iacute;a</option>
-            <option value='2'>01</option>
-            <option value='3'>02</option>
-            <option value='4'>03</option>
-            <option value='5'>04</option>
-            <option value='6'>05</option>
-            <option value='7'>06</option>
-            <option value='8'>07</option>
-            <option value='9'>08</option>
-            <option value='10'>09</option>
-            <option value='11'>10</option>
-            <option value='12'>11</option>
-            <option value='13'>12</option>
-            <option value='14'>13</option>
-            <option value='15'>14</option>
-            <option value='16'>15</option>
-            <option value='17'>16</option>
-            <option value='18'>17</option>
-            <option value='19'>18</option>
-            <option value='20'>19</option>
-            <option value='21'>20</option>
-            <option value='22'>21</option>
-            <option value='23'>22</option>
-            <option value='24'>23</option>
-            <option value='25'>24</option>
-            <option value='26'>25</option>
-            <option value='27'>26</option>
-            <option value='28'>27</option>
-            <option value='29'>28</option>
-            <option value='30'>29</option>
-            <option value='31'>30</option>
-            <option value='32'>31</option>
-        </select>
-        <select id = "mesfoto1" accesskey = "m" tabindex = "7">
-            <option selected value='1'>Mes</option>
-            <option value='2'>Enero</option>
-            <option value='3'>Febrero</option>
-            <option value='4'>Marzo</option>
-            <option value='5'>Abril</option>
-            <option value='6'>Mayo</option>
-            <option value='7'>Junio</option>
-            <option value='8'>Julio</option>
-            <option value='9'>Agosto</option>
-            <option value='10'>Septiembre</option>
-            <option value='11'>Octubre</option>
-            <option value='12'>Noviembre</option>
-            <option value='13'>Diciembre</option>
-        </select>
-
-        <select id = "anyofoto1" accesskey = "a" tabindex = "8">
-            <option selected value='1'>A&ntilde;o</option>
-            <option value='2'>2015</option>
-            <option value='3'>2014</option>
-            <option value='4'>2013</option>
-            <option value='5'>2012</option>
-            <option value='6'>2011</option>
-            <option value='7'>2010</option>
-            <option value='8'>2009</option>
-            <option value='9'>2008</option>
-            <option value='10'>2007</option>
-            <option value='11'>2006</option>
-            <option value='12'>2005</option>
-            <option value='13'>2004</option>
-            <option value='14'>2003</option>
-            <option value='15'>2002</option>
-            <option value='16'>2001</option>
-            <option value='17'>2000</option>
-            <option value='18'>1999</option>
-            <option value='19'>1998</option>
-            <option value='20'>1997</option>
-            <option value='21'>1996</option>
-            <option value='22'>1995</option>
-        </select>
-        <span>hasta: </span>
-        <select name = "diafoto2" id = "diafoto2"  accesskey = "D" tabindex = "">
-            <option selected value='1'>D&iacute;a</option>
-            <option value='2'>01</option>
-            <option value='3'>02</option>
-            <option value='4'>03</option>
-            <option value='5'>04</option>
-            <option value='6'>05</option>
-            <option value='7'>06</option>
-            <option value='8'>07</option>
-            <option value='9'>08</option>
-            <option value='10'>09</option>
-            <option value='11'>10</option>
-            <option value='12'>11</option>
-            <option value='13'>12</option>
-            <option value='14'>13</option>
-            <option value='15'>14</option>
-            <option value='16'>15</option>
-            <option value='17'>16</option>
-            <option value='18'>17</option>
-            <option value='19'>18</option>
-            <option value='20'>19</option>
-            <option value='21'>20</option>
-            <option value='22'>21</option>
-            <option value='23'>22</option>
-            <option value='24'>23</option>
-            <option value='25'>24</option>
-            <option value='26'>25</option>
-            <option value='27'>26</option>
-            <option value='28'>27</option>
-            <option value='29'>28</option>
-            <option value='30'>29</option>
-            <option value='31'>30</option>
-            <option value='32'>31</option>
-        </select>
-
-        <select name = "mesfoto2" id = "mesfoto2" accesskey = "M" tabindex = "9">
-            <option selected value='1'>Mes</option>
-            <option value='2'>Enero</option>
-            <option value='3'>Febrero</option>
-            <option value='4'>Marzo</option>
-            <option value='5'>Abril</option>
-            <option value='6'>Mayo</option>
-            <option value='7'>Junio</option>
-            <option value='8'>Julio</option>
-            <option value='9'>Agosto</option>
-            <option value='10'>Septiembre</option>
-            <option value='11'>Octubre</option>
-            <option value='12'>Noviembre</option>
-            <option value='13'>Diciembre</option>
-        </select>
-
-        <select name = "anyofoto2" id = "anyofoto2" accesskey = "A" tabindex = "10">
-            <option selected value='1'>A&ntilde;o</option>
-            <option value='2'>2015</option>
-            <option value='3'>2014</option>
-            <option value='4'>2013</option>
-            <option value='5'>2012</option>
-            <option value='6'>2011</option>
-            <option value='7'>2010</option>
-            <option value='8'>2009</option>
-            <option value='9'>2008</option>
-            <option value='10'>2007</option>
-            <option value='11'>2006</option>
-            <option value='12'>2005</option>
-            <option value='13'>2004</option>
-            <option value='14'>2003</option>
-            <option value='15'>2002</option>
-            <option value='16'>2001</option>
-            <option value='17'>2000</option>
-            <option value='18'>1999</option>
-            <option value='19'>1998</option>
-            <option value='20'>1997</option>
-            <option value='21'>1996</option>
-            <option value='22'>1995</option>
-        </select>
-
-        <br/>
-        <br>
-        <!-- Botón para confirmar la búsqueda -->
-        <input type = "submit" name = "buscar" value = "Buscar" accesskey = "b" tabindex = "12"/>
-
-    </form>
-    <br/>
-
-    <footer>
-        <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com</p>
-        <p id = "derechos">Copyright &copy; 2017 | Mar&iacute;a S&aacute;nchez y Nahiara Latorre.</p>
-    </footer> 	
-</body>
+        <footer>
+            <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com</p>
+            <p id = "derechos">Copyright &copy; 2017 | Mar&iacute;a S&aacute;nchez y Nahiara Latorre.</p>
+        </footer> 	
+    </body>
 </html>

@@ -102,17 +102,6 @@ button:hover{
 
 
 
-/* Pie de la página */
-footer{   
-    background-color: #8CC0F2;
-    border: 1px solid #FF8C31;
-    font-family: Century Gothic;
-    height: 30px;
-    margin-top: -10px;
-    text-align: center;
-}
-
-
 /********   ID    ****************/
 
 /*Cabecera*/
@@ -220,5 +209,14 @@ footer{
 .imagen:hover{
     box-shadow: 0 0 20px #003;
 
+}
+/* Pie de la página */
+footer{   
+    background-color: #8CC0F2;
+    border: 1px solid #FF8C31;
+    font-family: Century Gothic;
+    height: 30px;
+    margin-top: -10px;
+    text-align: center;
 }
 
