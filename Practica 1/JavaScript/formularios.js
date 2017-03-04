@@ -37,11 +37,6 @@ function registrarse(formularioregistro){
     var password = formularioregistro.password.value;
     var password2 = formularioregistro.password2.value;
     var email = formularioregistro.email.value;
-    var mujer = formularioregistro.sexomujer;
-    var hombre = formularioregistro.sexohombre;
-    var dia = formularioregistro.nacdia.options[nacdia.selectedIndex].value;
-    var mes = formularioregistro.nacmes.options[nacmes.selectedIndex].value;
-    var anyo = formularioregistro.nacanyo.options[nacanyo.selectedIndex].value;
 
     // Usuario no vacio
     if (usuario == ""){
@@ -64,6 +59,12 @@ function registrarse(formularioregistro){
         return;
     }
 
+    if(!primerCaracter(usuario)){
+
+        alert ("El nombre de usuario no puede empezar por un n\u00FAmero");
+        return;
+    }
+
     // Caracteres de usuario
     if (!compruebaCaracteres(usuario, 1)){
 
@@ -72,44 +73,43 @@ function registrarse(formularioregistro){
     }
 
     // Caracteres de la contrasenya
-    if (!compruebaCaracteres(password, 2))
-    {
-        alert ("La contrase\u00F1a debe contener caracteres alfanum\u00E9ricos y _");
+    if (!compruebaCaracteres(password, 2)){
+
+        alert ("La contrase\u00F1a debe contener caracteres alfanum\u00E9ricos y los simbolos (- _)");
         return;
     }
 
     // Longitud de la contrasenya maximo 20 caracteres
-    if (!longitud (6, 20, password))
-    {
+    if (!longitud (6, 20, password)){
+
         alert ("La contrase\u00F1a no puede ser mayor de 20 caracteres");
         return;
     }
 
     // Contrasenya debe tener mayusculas, minusculas y numeros
-    if (!contieneMayMinNum (password))
-    {
+    if (!contieneMayMinNum (password)){
+
         alert ("La contrase\u00F1a debe tener al menos una may\u00FAscula, una min\u00FAscula y un n\u00FAmero");
         return;
     }
 
     // Las contrasenyas deben coincidir
-     if (password != password2)
-    {
+     if (password != password2){
+
         alert ("Las contrase\u00F1as no coinciden");
         return;
     }
 
     // Email no vacio
-    if (email == "")
-    {
+    if (email == ""){
+
         alert ("Debes escribir tu email");
         return;
     }
 
-
     // Email valido
-    if (!emailValido (email))
-    {
+    if (!emailValido (email)){
+
         alert ("El email no es valido");
         return;
     }
@@ -118,24 +118,38 @@ function registrarse(formularioregistro){
 
 /********** Funciones auxiliares **********/
 
-/* Funcion que comprueba que la longitud esta entre una minima y maxima*/
-function longitud(min, max, vari)
-{
-    if ((vari.length >= min) && (vari.length <= max)) 
-    {
+/* Funcion que comprueba que la longitud esta entre una minima y maxima */
+function longitud(min, max, vari){
+
+    if ((vari.length >= min) && (vari.length <= max)){
         return true;
-    } else {
+    }else{
         return false;
     }
 }
 
-/* Funcion que comprueba que el tipo de caracteres son correctos*/
+/* Funcion que comprueba que el primer caracter del usuario no sea un numero */
+function primerCaracter(vari){
+
+    var c; 
+    c = vari.charCodeAt(0);// Cojo la primera posicion del nombre del usuario
+    var tieneNum = true;
+
+    // Compruebo que el primer caracter no tenga numeros
+    if(c >= 48 && c <= 57){
+        tieneNum = false;
+    }
+    return tieneNum;
+}
+
+/* Funcion que comprueba que el tipo de caracteres son correctos */
 function compruebaCaracteres(vari, tipo){   
+
     var i = 0;
     var c;  
     var ok = true;
  
-    // Para comprobar que son caracteres alfanuméricos
+    // Para comprobar que son caracteres alfanumericos
     if(tipo == 1)
     {
         while ( (i<vari.length) && (ok) )
@@ -149,13 +163,13 @@ function compruebaCaracteres(vari, tipo){
         return ok;
     }
  
-    // Para comprobar que son caracteres alfanuméricos y el símbolo _
+    // Para comprobar que son caracteres alfanumericos y los simbolos (_) o (-)
     else if(tipo == 2)
     {
         while ( (i<vari.length) && (ok) )  
         {
             c = vari.charCodeAt(i);
-            if ( (c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57) || (c == 95))
+            if ( (c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57) || (c == 95) || (c == 45))
                 i++;
             else
                 ok = false;
@@ -165,16 +179,17 @@ function compruebaCaracteres(vari, tipo){
 }
 
 /* Funcion que comprueba si hay mayusculas, minusculas y numeros */
-function contieneMayMinNum(vari){//
+function contieneMayMinNum(vari){
 
     var i = 0;
     var c;  
     var tieneMayus = false;    
     var tieneMinus = false;
-    var tieneNum = false;    
+    var tieneNum = false;   
+
     while ( (i<vari.length) ) 
     {
-         c = vari.charCodeAt(i);
+        c = vari.charCodeAt(i);
         if (c >= 65 && c <= 90) 
             tieneMayus = true;
         if (c >= 97 && c <= 122) 
