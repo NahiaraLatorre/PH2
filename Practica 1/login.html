@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-    
-    <!-- Enlace al CSS principal -->
-    <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
-    
-    <!-- Enlace al JavaScript que evalua los formularios -->
-    <script src="JavaScript/formularios.js" language="javascript" type="text/javascript"></script>
+    <head>
+    	<meta charset="UTF-8">
+        <!-- Enlace al CSS principal -->
+        <link rel = "stylesheet" type = "text/css" href = "css/Style.css" title= "Estilo principal"/>
+        
+        <!-- Enlace al JavaScript que evalua los formularios -->
+        <script src="JavaScript/formularios.js" language="javascript" type="text/javascript"></script>
 
-	<title>Login</title>
-</head>
-<body>
+    </head>
+    <body>
+        <header>
+            <!-- Cabecera -->
+            <div id="ajusta_header">
+                <h1>CRAZY TRIP
+                    <small>Cuentanos tu aventura</small>
+                <h1>
+                <a href="index.html" id="logo"> <img src="img/logo.png" alt="Logo CRAZY TIPS" width="80"></a> 
+                <!-- Barra con los enlaces a las demas paginas -->
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="Index.html" class="busi">Inicio</a></li>
+                        <li><a href="Buscar.html" class="bus">Búsqueda</a></li>
+                        <li><a href="Login.html" class="busi">Login</a></li>
+                        <li><a href="Registro.html" class="bus" id="Registro">Registrar</a></li>
+                    </ul>                
+                </nav>
+            </div>
+        </header>
+        </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+        <title>Login</title>
 
-    <!-- Formulario de acceso -->
-    <form id = "formularioacceso" onsubmit = "acceso(formularioacceso)">
 
-        <!-- Encabezado del formulario de acceso -->
-        <h2 id = "tituloformacceso" class = "tituloformulario" >Acceso</h2>
+        <!-- Formulario de acceso -->
+        <form id = "formularioacceso" class="login" onsubmit = "acceso(formularioacceso)">
+            <h3 id = "tituloformacceso" class = "tituloformulario" >Acceso</h2>
+            <!-- Encabezado del formulario de acceso -->
+            <div class="container">
+                
+                <!-- Campo de acceso: nombre de usuario -->
+                <label for = "usuario"> Usuario: </label>
+                <input type = "text" name ="usuario" id = "usuario" autofocus = "autofocus" placeholder = "Nombre de usuario" accesskey = "u" tabindex = "4"/>
+                <br/>
 
-        <!-- Campo de acceso: nombre de usuario -->
-        <label for = "usuario"> Usuario: </label>
-        <input type = "text" name ="usuario" id = "usuario" autofocus = "autofocus" placeholder = "Nombre de usuario" accesskey = "u" tabindex = "4"/>
-        <br/>
+                <!-- Campo de acceso: contraseña -->
+                <label for = "password"> Contrase&ntilde;a: </label>
+                <input type = "password" name = "password" id = "password" autofocus = "autofocus" placeholder = "Contrase&ntilde;a" accesskey = "n" tabindex = "5"/>
+                <br/>
 
-        <!-- Campo de acceso: contraseña -->
-        <label for = "password"> Contrase&ntilde;a: </label>
-        <input type = "password" name = "password" id = "password" autofocus = "autofocus" placeholder = "Contrase&ntilde;a" accesskey = "n" tabindex = "5"/>
-        <br/>
+                <!-- Botón para confirmar el acceso -->
+                <button id = "boton" type = "submit" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" /></button>
+            </div>
+        </form>
 
-        <!-- Botón para confirmar el acceso -->
-        <input id = "boton" type = "submit" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" />
-
-    </form>
-	
-</body>
+    	<footer>
+            <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com</p>
+            <p id = "derechos">Copyright &copy; 2017 | Mar&iacute;a S&aacute;nchez y Nahiara Latorre.</p>
+        </footer> 
+    </body>
 </html>

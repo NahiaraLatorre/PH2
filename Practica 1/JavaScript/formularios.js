@@ -255,6 +255,3 @@ function emailValido(vari){
     return ok;
 }
 
-
-
-

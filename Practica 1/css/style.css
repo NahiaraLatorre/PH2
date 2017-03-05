@@ -1,5 +1,119 @@
-/* Cabecera */
+/* Formulario de acceso */
+#formularioacceso{
+    font-family: Century Gothic;
+    border-style: outset; 
+    border-width: 7px; 
+    background-color: #1ABC9C;
+    border-color: #148F77;
+    height:250px;
+    width: 400px;
+    padding: 70px;
+}
+h3{
+    text-align: center;
+    font-family: Century Gothic;
+    font-size: 200%;
+    padding: -20px;
+    height: 10px;
+}
+button {
+    padding: 25px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: Century Gothic;
+    font-size: 100%;
+}
+.login {
+    margin:auto;
+    padding:90px;
+}
 
+.login input {
+    padding:12px;
+    margin:5px
+    font-size: 100%;
+}
+
+/* Formulario de busqueda */
+#formulariobusqueda 
+{
+    color: #FFFFFF;
+    font-family: Century Gothic;
+    height:250px;
+    margin: 170px;
+    width: 800px;
+
+}
+/* Formulario de busqueda: poner margen a los elementos e alinear las cajas de texto */
+#formulariobusqueda label 
+{   
+    width: 200px;
+    margin: 10px;
+    display: inline-block;
+    font-size: 19px;
+}
+#formulariobusqueda input
+{
+    margin-bottom: 5px;
+    width: 318px;
+}
+#formulariobusqueda input[type = "submit"]
+{
+    margin-bottom: 5px;
+    width: 150px;
+}
+
+/* Formulario de registro*/
+#formularioregistro 
+{
+    color: #FFFFFF;
+    font-family: Century Gothic;
+    height:600px;
+    margin: 170px;
+}
+/* Formulario de registro: poner margen a los elementos e alinear las cajas de texto */
+#formularioregistro label 
+{
+    display: inline-block;
+    margin: 10px;
+    width: 250px;
+    font-size: 19px;
+}
+#formularioregistro input[type = "text"]
+{
+    margin-bottom: 5px;
+    width: 200px;
+}
+#formularioregistro input[type = "radio"]
+{
+    margin-bottom: 5px;
+    width: 40px;
+}
+#formularioregistro input[type = "submit"]
+{
+    margin-bottom: 5px;
+    width: 170px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Cabecera */
 html, body, header,  footer {
     margin: 0;
     padding: 0;
@@ -11,12 +125,16 @@ html, body, header,  footer {
 }
 
 body{
-    background-color: #d8d8d8;
+    background-size: cover;
+    /*background-color: #181818;*/
+    margin-bottom: 0px;
+    padding-bottom: 100px;
+    background-image: url(../img/fondo1.jpg);
 }
 
 h1{
     display: inline;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: Century Gothic;
     font-size: 70px;
     font-style: normal;
     font-weight: bold;
@@ -37,7 +155,7 @@ header{
     top: 0px;
     /* [disabled]right: -35px; */
     width: 102%;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-family: Century Gothic;
     background-attachment: fixed;
     background-image: url(../img/fondo-cabecera3.png);
     background-repeat: no-repeat;
@@ -66,8 +184,6 @@ nav li{
     margin-left:5%;
     margin-right:5%;
 }
-
-
 
 header input{
     background:#FFF;
@@ -100,8 +216,6 @@ button:hover{
     
 }
 
-
-
 /********   ID    ****************/
 
 /*Cabecera*/
@@ -121,15 +235,6 @@ button:hover{
     top: 20%;
     margin-left: 10%;
     margin-top: -15%;
-}
-
-#pie{
-    margin-top: 8px;
-}
-
-/* Copyright */
-#derechos{
-    display: none;
 }
 
 /**********CLASS*********/
@@ -210,13 +315,36 @@ button:hover{
     box-shadow: 0 0 20px #003;
 
 }
+
+
+
+
+
+
+
+
+
+#pie{
+    margin-top: 8px;
+}
+
+/* Copyright */
+#derechos{
+    display: none;
+}
+
 /* Pie de la página */
 footer{   
-    background-color: #8CC0F2;
-    border: 1px solid #FF8C31;
-    font-family: Century Gothic;
-    height: 30px;
-    margin-top: -10px;
+    bottom: 0;
+    position: fixed;
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    clear:both;
     text-align: center;
+    font-family: Century Gothic;
+    background-color: #000000;
+    border: 1px solid #FF8C31;
+    color: #fff;
+    height: 40px;
 }
 
