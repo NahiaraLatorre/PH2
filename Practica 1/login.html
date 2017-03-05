@@ -9,26 +9,27 @@
         <script src="JavaScript/formularios.js" language="javascript" type="text/javascript"></script>
 
     </head>
+    <header>
+        <!-- Cabecera -->
+        <div id="ajusta_header">
+            <h1>CRAZY TRIP
+                <small>Cuentanos tu aventura</small>
+            <h1>
+            <a href="index.html" id="logo"> <img src="img/logo.png" alt="Logo CRAZY TIPS" width="80"></a> 
+            <!-- Barra con los enlaces a las demas paginas -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="Index.html" class="busi">Inicio</a></li>
+                    <li><a href="Buscar.html" class="bus">Búsqueda</a></li>
+                    <li><a href="Login.html" class="busi">Login</a></li>
+                    <li><a href="Registro.html" class="bus" id="Registro">Registrar</a></li>
+                </ul>                
+            </nav>
+        </div>
+    </header>
     <body>
-        <header>
-            <!-- Cabecera -->
-            <div id="ajusta_header">
-                <h1>CRAZY TRIP
-                    <small>Cuentanos tu aventura</small>
-                <h1>
-                <a href="index.html" id="logo"> <img src="img/logo.png" alt="Logo CRAZY TIPS" width="80"></a> 
-                <!-- Barra con los enlaces a las demas paginas -->
-                <nav id="main-nav">
-                    <ul>
-                        <li><a href="Index.html" class="busi">Inicio</a></li>
-                        <li><a href="Buscar.html" class="bus">Búsqueda</a></li>
-                        <li><a href="Login.html" class="busi">Login</a></li>
-                        <li><a href="Registro.html" class="bus" id="Registro">Registrar</a></li>
-                    </ul>                
-                </nav>
-            </div>
-        </header>
-        </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+        
+        </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
         <title>Login</title>
 
 
@@ -49,7 +50,9 @@
                 <br/>
 
                 <!-- Botón para confirmar el acceso -->
-                <button id = "boton" type = "submit" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" /></button>
+                <div id="next_button" align="right">
+                    <button type = "submit" id = "boton" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" />Entrar</button>
+                </div>
             </div>
         </form>
 
