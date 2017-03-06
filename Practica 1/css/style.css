@@ -1,3 +1,12 @@
+/* Logo de la web */
+#logo { 
+    position: relative;
+    top: 5px;
+    left: 100px;
+    width: 40%;
+}
+}
+
 /* Formulario de acceso */
 #formularioacceso{
     font-family: Century Gothic;
@@ -12,6 +21,9 @@
     filter: alpha(opacity=50);
     position: relative;
     bottom: -10px;
+}
+h2{
+    font-family: Century Gothic;
 }
 h3{
     text-align: center;
@@ -244,16 +256,6 @@ button:hover{
     margin-right: auto;
     margin-bottom: auto;
     margin-left: auto;
-}
-
-#logo{
-    display: inline;
-    float: left;
-    text-align: center;
-    left: 20%;
-    top: 20%;
-    margin-left: 10%;
-    margin-top: -15%;
 }
 
 /**********CLASS*********/
