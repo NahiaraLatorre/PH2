@@ -43,6 +43,8 @@ function registrarse(formularioregistro){
     var password = formularioregistro.password.value;
     var password2 = formularioregistro.password2.value;
     var email = formularioregistro.email.value;
+    /*var valido = true;  
+    var valido2 = true; // Para validar mediante las expresiones regulares*/
 
     // Usuario no vacio
     if (usuario == ""){
@@ -119,7 +121,44 @@ function registrarse(formularioregistro){
         alert ("El email no es valido");
         return;
     }
+    /********************************************
+    // Las contrasenyas deben coincidir
+    if (password1 != password2){
 
+        alert ("Las contrase\u00F1as no coinciden");
+        valido = false;
+        return false;
+    }
+    /* Validacion con expresiones regulares del usuario, las contrasenyas y el email
+    
+    // Usuario valido -- expresion regular
+    var er = new RegExp("^[A-Za-z0-9]{6,20}$");    //Admite letras minusculas, mayusculas, y numeros. Entre 3 y 15 caracteres.
+    if(!er.test(usuario))
+    {
+        alert ("Usuario incorrecto. El usuario solo debe contener caracteres alfanumericos.");
+        //valido2 = false;  
+        return false;
+    }
+
+    // Contrasenya valida -- expresion regular
+    var er2 = new RegExp("^((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9_]))[A-Za-z0-9_]{6,20}$");    // Tiene que haber al menos una mayuscula, una minuscula y un numero. 
+    if(!er2.test(password1))                                                // Solo admite caracteres alfanumericos y el subrayado. Entre 6 y 15 caracteres.
+    {
+        alert("La contrasenya ha de tener al menos una mayuscula, una minuscula y un numero. Puede contener el caracter _ - y ha de haber entre 6 y 20 caracteres");
+        //valido2 = false;
+        return false;
+    }
+
+    // Email valido -- expresion regular
+    var er3 = new RegExp("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-z]{2,4}$");
+    if(!er3.test(email))
+    {
+        alert ("El email no es valido.");
+        //valido2 = false;
+        return false;
+    }
+        //return valido;
+    return valido2;*/
 }
 
 /********** Funciones auxiliares **********/

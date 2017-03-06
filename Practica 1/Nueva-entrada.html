@@ -10,10 +10,48 @@
 
 </head>
 <body>
-	<title>Nueva Entrada</title>
+    <header>
+        <!-- Cabecera -->
+        <div id="ajusta_header">
+            <h1>CRAZY TRIP
+                <small>Cuentanos tu aventura</small>
+            <h1>
+            <a href="index.html" id="logo"><img id="logo" src="Img/logo.png" alt="Logo CRAZY TIPS"></a>
+            <!-- Barra con los enlaces a las demas paginas -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="Index.html" class="busi">Inicio</a></li>
+                    <li><a href="Buscar.html" class="bus">Búsqueda</a></li>
+                    <li><a href="Login.html" class="busi">Login</a></li>
+                    <li><a href="Registro.html" class="bus" id="Registro">Registrar</a></li>
+                </ul>                
+            </nav>
+        </div>
+    </header>
+    </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+	<h2 class = "titulopagina">Nueva entrada</h2>
+    
+    <!-- Formulario de búsqueda de fotos -->
+    <form id = "formularioEntradaNueva" action = "Nueba-entrada.html" onsubmit = "reg(formularioEntradaNueva)">
 
-
-
+        <!-- Encabezado del formulario -->
+        <h2 id = "formbNuevaEntrada" class = "formbNuevaEntrada">Datos de la b&uacute;squeda:</h2>
+        
+        <!-- Campo de nueva entrada: título -->
+        <label for = "tituloentrada"> T&iacute;tulo: </label>
+        <input type = "text" name ="tituloentrada" id = "tituloentrada" placeholder = "Palabra&#40;s&#41; en el t&iacute;tulo" accesskey = "t" tabindex = "4"/>
+        <br/>
+        <br>
+        <!-- Campo de nueva entrada: descripcion -->
+        <label for = "textobusc"> Descripci&oacute;n: </label>
+        <textarea type = "text" name ="textobusc" id = "descripcion" placeholder = "Texto descripcion" accesskey = "k" tabindex = "5"></textarea>
+        <br/>
+        <br>
+        <!-- Botón para confirmar la búsqueda -->
+        <input type = "submit" name = "Enviar datos" value = "Enviar" accesskey = "b" tabindex = "12"/>
+    </form>
+    <br/>
+    
     <footer>
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com</p>
         <p id = "derechos">Copyright &copy; 2017 | Mar&iacute;a S&aacute;nchez y Nahiara Latorre.</p>
