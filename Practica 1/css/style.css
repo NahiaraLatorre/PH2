@@ -14,16 +14,6 @@
     bottom: -10px;
 }
 
-<<<<<<< HEAD
-h3{
-    text-align: center;
-    font-family: Century Gothic;
-    font-size: 200%;
-    padding: -40px;
-    height: 10px;
-}
-=======
->>>>>>> origin/master
 button {
     padding: 25px 20px;
     margin: 20px 0;
@@ -60,7 +50,7 @@ input[type=text], input[type=password] {
 
 
 /* Formulario de busqueda */
-#formulariobusqueda, #formularioregistro, #formularioEntradaNueva 
+#formulariobusqueda 
 {
     color: #FFFFFF;
     font-family: Century Gothic;
@@ -70,19 +60,19 @@ input[type=text], input[type=password] {
 
 }
 /* Formulario de busqueda: poner margen a los elementos e alinear las cajas de texto */
-#formulariobusqueda, #formularioregistro, #formularioEntradaNueva label 
+#formulariobusqueda label 
 {   
     width: 200px;
     margin: 10px;
     display: inline-block;
     font-size: 19px;
 }
-#formulariobusqueda, #formularioregistro, #formularioEntradaNueva input
+#formulariobusqueda input
 {
     margin-bottom: 5px;
     width: 318px;
 }
-#formulariobusqueda, #formularioregistro, #formularioEntradaNueva input[type = "submit"]
+#formulariobusqueda input[type = "submit"]
 {
     margin-bottom: 5px;
     width: 150px;
@@ -121,21 +111,6 @@ input[type=text], input[type=password] {
 }
 
 
-<<<<<<< HEAD
-/* Logo de la web */
-#logo { 
-    position: relative;
-    top: -25px;
-    left: 550px;
-    width: 30%;
-}
-
-
-
-
-
-=======
->>>>>>> origin/master
 /* Cabecera */
 html, body, header {
     margin: 0;
@@ -157,31 +132,12 @@ body{
     /*background-image: url(../img/fondo1.jpg);*/
     background-repeat: no-repeat;
 }
-<<<<<<< HEAD
-h2{
-    font-family: Century Gothic;
-    color: #FFF;
-    text-transform: uppercase;
-}
-h1{
-    display: inline;
-    font-family: Century Gothic;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #FFF;
-    /*left: 40%;*/
-    position: absolute;
-    top: 10%;
-=======
 
 
 p{
     font-size:15px;
     margin-left: 450px;
     margin-top: 60px;
->>>>>>> origin/master
 }
 
 
