@@ -2,8 +2,10 @@
 <html lang="en">
     <head>
     	<meta charset="UTF-8">
+        <meta name="description" content="Practica1-PH2">
+        <meta name="author" content="Nahiara&Maria">
         <!-- Enlace al CSS principal -->
-        <link rel = "stylesheet" type = "text/css" href = "css/Style.css" title= "Estilo principal"/>
+        <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
         
         <!-- Enlace al JavaScript que evalua los formularios -->
         <script src="JavaScript/formularios.js" language="javascript" type="text/javascript"></script>
@@ -11,51 +13,51 @@
     </head>
     <body>
         <header>
-        <!-- Cabecera -->
-        <div id="ajusta_header">
-            <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TIPS" width="150"></a> 
-            <!-- Barra con los enlaces a las demas paginas -->
-            <h1>CRAZY TRIP<h1>
-            <p>Comparte tu experiencia en tus viajes con tus amigos</p>
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="Index.html" class="busi" id="Inicio">Inicio</a></li>
-                    <li><a href="Buscar.html" class="busi" id="Busqueda">Búsqueda</a></li>
-                    <li><a href="Login.html" class="buslog" id="Login">Login</a></li>
-                    <li><a href="Registro.html" class="busi" id="Registro">Registrarse</a></li>
-                </ul>                
-            </nav>
-        </div>
+            <!-- Cabecera -->
+            <div id="ajusta_header">
+                <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TIPS" width="150"></a> 
+                <!-- Barra con los enlaces a las demas paginas -->
+                <h1>CRAZY TRIP<h1>
+                <p>Comparte tu experiencia en tus viajes con tus amigos</p>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="Index.html" class="busi" id="Inicio">Inicio</a></li>
+                        <li><a href="Buscar.html" class="busi" id="Busqueda">Búsqueda</a></li>
+                        <li><a href="Login.html" class="buslog" id="Login">Login</a></li>
+                        <li><a href="Registro.html" class="busi" id="Registro">Registrarse</a></li>
+                        <li><a href="Nueva-entrada.html" class="busi" id="Nueva-entrada">Nueva entrada</a></li>
+                    </ul>                
+                </nav>
+            </div>
         </header>
 
         <main>
         
-        </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-        <!-- Formulario de acceso -->
-        <form id = "formularioacceso" class="login" onsubmit = "acceso(formularioacceso)">
-            <h3 id = "tituloformacceso" class = "tituloformulario" >Acceso</h2>
-            <!-- Encabezado del formulario de acceso -->
-            <div class="container">
-                
-                <!-- Campo de acceso: nombre de usuario -->
-                <label for = "usuario"> Usuario: </label>
-                <input type = "text" name ="usuario" id = "usuario" autofocus = "autofocus" placeholder = "Nombre de usuario" accesskey = "u" tabindex = "4"/>
-                <br/>
+            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+            <!-- Formulario de acceso -->
+            <form id = "formularioacceso" class="login" onsubmit = "acceso(formularioacceso)">
+                <h3 id = "tituloformacceso" class = "tituloformulario" >Acceso</h2>
+                <!-- Encabezado del formulario de acceso -->
+                    
+                    <!-- Campo de acceso: nombre de usuario -->
+                    <label for = "usuario"> Usuario: </label>
+                    <input type = "text" name ="usuario" id = "usuario" autofocus = "autofocus" placeholder = "Nombre de usuario" accesskey = "u" tabindex = "4"/>
+                    <br/>
 
-                <!-- Campo de acceso: contraseña -->
-                <label for = "password"> Contrase&ntilde;a: </label>
-                <input type = "password" name = "password" id = "password" autofocus = "autofocus" placeholder = "Contrase&ntilde;a" accesskey = "n" tabindex = "5"/>
-                <br/>
+                    <!-- Campo de acceso: contraseña -->
+                    <label for = "password"> Contrase&ntilde;a: </label>
+                    <input type = "password" name = "password" id = "password" autofocus = "autofocus" placeholder = "Contrase&ntilde;a" accesskey = "n" tabindex = "5"/>
+                    <br/>
 
-                <!-- Botón para confirmar el acceso -->
-                <div id="next_button" align="right">
-                    <button type = "submit" id = "boton" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" />Entrar</button>
-                </div>
-            </div>
-        </form>
-
+                    <!-- Botón para confirmar el acceso -->
+                    <div id="next_button" align="right">
+                        <button type = "submit" id = "boton" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" />Entrar</button>
+                    </div>
+            </form>
+        </main>
     	<footer>
-            <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com</p>
+
+            <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
             <p id = "derechos">Copyright &copy; 2017 | Mar&iacute;a S&aacute;nchez y Nahiara Latorre.</p>
         </footer> 
     </body>

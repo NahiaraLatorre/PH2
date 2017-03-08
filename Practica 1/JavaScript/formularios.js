@@ -22,6 +22,12 @@ function acceso(formularioacceso){
         return;
     }
 
+    if (!longitud (6, 20, password)){// No pude superar los 20 caracteres
+
+        alert ("password incorrecto");
+        return;
+    }
+
     if(!primerCaracter(usuario)){
 
         alert ("El nombre de usuario no puede empezar por un n\u00FAmero");
@@ -30,7 +36,12 @@ function acceso(formularioacceso){
 
     if (!compruebaCaracteres(usuario, 1)){// Solo puede contener numeros y letras
 
-        alert ("El usuario debe contener caracteres alfanum\u00E9ricos");
+        alert ("El usuario debe contener caracteres alfanum\u00E9ricos, sin espacios intermedios");
+        return;
+    }
+    if (!compruebaCaracteres(password, 2)){// Solo puede contener numeros y letras
+
+        alert ("El password debe contener caracteres alfanum\u00E9ricos, sin espacios intermedios (puede contener los signos _ y/o -)");
         return;
     }
 }
