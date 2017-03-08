@@ -272,13 +272,14 @@ main{
 }
 
 .buslog{
-    margin-left: 95px;  
+    margin-left: 80px;  
 }
 
 .busi{
     padding: 1%;
     width: 18%;
     border-radius: 4px;
+
 }
 
 .busi:hover{
@@ -287,6 +288,11 @@ main{
     padding: 1%;
     width: 18%;
 
+}
+
+.busreg{
+    margin-left: 290px;
+    margin-top: -43px;
 }
 
 button{
@@ -416,7 +422,7 @@ button:hover{
     text-align: center;
     left: 25%;
     top: 20%;
-    margin-top: 65px;
+    margin-top: 30px;
 }
 
 #pie{
