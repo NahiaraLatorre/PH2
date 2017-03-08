@@ -1,3 +1,26 @@
+/* Funcion para campos de nueva entrada */
+function nuevaEntrada(formularioEntradaNueva){
+
+    var titulo = formularioEntradaNueva.tituloentrada.value;
+    var descripcion = formularioEntradaNueva.descripcion.value;
+        
+    if (titulo == ""){// No puede estar vacio
+
+        alert ("Debes escribir un titulo para tu entrada");
+        return;
+    }
+    // Longitud del titulo maximo 200 caracteres
+    if (!longitud (1, 200, titulo)){
+
+        alert ("La contrase\u00F1a no puede ser mayor de 200 caracteres");
+        return;
+    }
+    if (descripcion == ""){// No puede estar vacio
+
+        alert ("Debes escribir una descripcion");
+        return;
+    }
+}
 /* Funcion de acceso */
 function acceso(formularioacceso){
 
@@ -6,7 +29,13 @@ function acceso(formularioacceso){
 
     if (nick == ""){// No puede estar vacio
 
-        alert ("Debes escribir tu nombre de usuario");
+        alert ("Debes escribir tu nick");
+        return;
+    }
+
+    if(!primerCaracter(nick)){
+
+        alert ("El nombre de usuario no puede empezar por un n\u00FAmero");
         return;
     }
 
@@ -28,12 +57,6 @@ function acceso(formularioacceso){
         return;
     }
 
-    if(!primerCaracter(nick)){
-
-        alert ("El nombre de usuario no puede empezar por un n\u00FAmero");
-        return;
-    }
-
     if (!compruebaCaracteres(nick, 1)){// Solo puede contener numeros y letras
 
         alert ("El usuario debe contener caracteres alfanum\u00E9ricos, sin espacios intermedios");
@@ -47,7 +70,6 @@ function acceso(formularioacceso){
 }
 
 /* Funcion de registro */
-
 function registrarse(formularioregistro){
     
     var nick = formularioregistro.nick.value;
@@ -57,6 +79,33 @@ function registrarse(formularioregistro){
     var email = formularioregistro.email.value;
     /*var valido = true;  
     var valido2 = true; // Para validar mediante las expresiones regulares*/
+
+    // Nick no vacio
+    if (nick == ""){
+
+        alert ("Debes escribir tu Nick");
+        return;
+    }
+
+    if(!primerCaracter(nick)){
+
+        alert ("El nick no puede empezar por un n\u00FAmero");
+        return;
+    }
+
+    // Longitud de nick maxima 20 caracteres
+    if (!longitud (3, 20, nick)){
+
+        alert ("El nick no puede ser mayor de 20 caracteres");
+        return;
+    }
+
+    // Caracteres de usuario
+    if (!compruebaCaracteres(nick, 1)){
+
+        alert ("El nick debe contener caracteres alfanum\u00E9ricos");
+        return;
+    }
 
     // Usuario no vacio
     if (usuario == ""){
@@ -72,30 +121,10 @@ function registrarse(formularioregistro){
         return;
     }
 
-    // Longitud de usuario maxima 20 caracteres
-    if (!longitud (3, 20, usuario)){
-
-        alert ("El usuario no puede ser mayor de 20 caracteres");
-        return;
-    }
-
-    if(!primerCaracter(usuario)){
-
-        alert ("El nombre de usuario no puede empezar por un n\u00FAmero");
-        return;
-    }
-
-    // Caracteres de usuario
-    if (!compruebaCaracteres(usuario, 1)){
-
-        alert ("El usuario debe contener caracteres alfanum\u00E9ricos");
-        return;
-    }
-
     // Caracteres de la contrasenya
     if (!compruebaCaracteres(password, 2)){
 
-        alert ("La contrase\u00F1a debe contener caracteres alfanum\u00E9ricos y los simbolos (- _)");
+        alert ("La contrase\u00F1a debe contener caracteres alfanum\u00E9ricos y/o los simbolos (- _)");
         return;
     }
 
