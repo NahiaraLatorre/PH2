@@ -1,10 +1,10 @@
 /* Funcion de acceso */
 function acceso(formularioacceso){
 
-    var usuario = formularioacceso.usuario.value;
+    var nick = formularioacceso.nick.value;
     var password = formularioacceso.password.value;
 
-    if (usuario == ""){// No puede estar vacio
+    if (nick == ""){// No puede estar vacio
 
         alert ("Debes escribir tu nombre de usuario");
         return;
@@ -16,7 +16,7 @@ function acceso(formularioacceso){
         return;
     }
 
-    if (!longitud (3, 20, usuario)){// No pude superar los 20 caracteres
+    if (!longitud (3, 20, nick)){// No pude superar los 20 caracteres
 
         alert ("Usuario incorrecto");
         return;
@@ -28,13 +28,13 @@ function acceso(formularioacceso){
         return;
     }
 
-    if(!primerCaracter(usuario)){
+    if(!primerCaracter(nick)){
 
         alert ("El nombre de usuario no puede empezar por un n\u00FAmero");
         return;
     }
 
-    if (!compruebaCaracteres(usuario, 1)){// Solo puede contener numeros y letras
+    if (!compruebaCaracteres(nick, 1)){// Solo puede contener numeros y letras
 
         alert ("El usuario debe contener caracteres alfanum\u00E9ricos, sin espacios intermedios");
         return;
@@ -49,7 +49,8 @@ function acceso(formularioacceso){
 /* Funcion de registro */
 
 function registrarse(formularioregistro){
-
+    
+    var nick = formularioregistro.nick.value;
     var usuario = formularioregistro.usuario.value;
     var password = formularioregistro.password.value;
     var password2 = formularioregistro.password2.value;
