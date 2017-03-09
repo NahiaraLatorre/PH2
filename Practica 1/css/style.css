@@ -1,9 +1,22 @@
-/* Formulario de acceso */
+/* Borra foto 
+body {
+    background-image: url(img/paisaje12.jpg);
+    background-repeat: repeat-y;
+}
+#wrapper {
+    background:url('img/paisaje11.jpg');
+    width:859px;height:231px;
+}
+#button {
+    position:relative;
+    left:787px;
+    top:191px;
+}*/
 
+/* Formulario de acceso */
 *{
     font-family: Century Gothic;
 }
-
 
 #formularioacceso{
     border-style: outset; 
