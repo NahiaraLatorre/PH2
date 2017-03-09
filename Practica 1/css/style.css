@@ -271,6 +271,9 @@ main{
     border-radius: 4px;
 }
 
+
+
+/******* CLASS **************/
 .buslog{
     margin-left: 80px;  
 }
@@ -405,6 +408,77 @@ button:hover{
     list-style:none;
 }
 
+
+.textoEnt{
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.comentEntrada{
+    float: left;
+    width: 30%;
+    transition: box-shadow 2s;
+    margin-top: 2%;
+    margin-left: 2%;
+    font-weight: bold;
+    background-color: #f5f5f5; 
+    border: 3px inset #CCC;
+    height:auto;
+    
+}
+
+.comentEntrada ul{
+    text-align:left;
+}
+
+.comentEntrada ul li{
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.comentEntrada:hover{
+    box-shadow: 0 0 20px #003;
+}
+
+.botonComent{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 10px;
+    margin: 15px 40px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    font-size: 100%;
+
+}
+ 
+.botonComent:hover{
+    background-color: #636CB3;
+    
+}
+
+.hacercoment{
+    float:left;
+    margin-left: 5%;
+}
+
+.formComent{
+    float:left;
+}
+
+.tituloComent{
+    margin-top: 11%;
+    margin-left: 5%;
+}
+
+.textoComent{
+    float: left;
+    margin-left: 5%;
+}
+
 /********   ID    ****************/
 
 /*Cabecera*/
@@ -423,6 +497,11 @@ button:hover{
     left: 25%;
     top: 20%;
     margin-top: 30px;
+}
+
+
+#tituloFoto{
+    color: #903;
 }
 
 #pie{
