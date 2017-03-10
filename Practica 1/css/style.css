@@ -239,6 +239,108 @@ main{
 }
 
 /******* CLASS **************/
+
+
+/*Paginacion*/ /*NO SE TOCA*/
+/*.paginacion {
+	margin:20px 0;
+}
+ 
+.paginacion ul {
+	list-style:none;
+	text-align: center;
+}
+ 
+.paginacion ul li {
+	display:inline-block;
+	margin-right:10px;
+}
+ 
+.paginacion ul li a {
+	display:block;
+	padding:10px 20px;
+	color:#fff;
+	background:#024959;
+	text-decoration: none;
+}
+ 
+.paginacion ul li a:hover {
+	background:#037E8C;
+}
+ 
+.paginacion ul li .active {
+	background:#037E8C;
+	font-weight:bold;
+}*/
+
+/*
+
+.pagination {
+    height: 36px;
+    margin: 18px 0;
+}
+.pagination ul {
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+.pagination li {
+    display: inline;
+}
+.pagination a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    float: left;
+    line-height: 34px;
+    padding: 0 14px;
+    text-decoration: none;
+}
+.pagination a:hover, .pagination .active a {
+    background-color: #F5F5F5;
+}
+.pagination .active a {
+    color: #999999;
+    cursor: default;
+}
+.pagination .disabled a, .pagination .disabled a:hover {
+    background-color: transparent;
+    color: #999999;
+    cursor: default;
+}
+.pagination li:first-child a {
+    border-left-width: 1px;
+    border-radius: 3px 0 0 3px;
+}
+.pagination li:last-child a {
+    border-radius: 0 3px 3px 0;
+}
+.pagination-centered {
+    text-align: center;
+}
+.pagination-right {
+    text-align: right;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
 button{
     background: rgba(4,9,75,1);
     box-shadow: 0 0 1px rgba(4,9,75,1);
@@ -461,14 +563,15 @@ button:hover{
 
 #main-nav {
     position : absolute;
-    width : 100%;   
-    margin-top: 100px;
+    width : 155%;   
+    margin-top: 70px;
     margin-left: auto;
     margin-right: auto;
+    float: left;
 }
 
 #main-nav ul {
-    margin : 0 auto;
+    margin-top: 0;
     list-style : none;
     padding-start: 0px; 
     -webkit-padding-start: 0px;
@@ -482,13 +585,14 @@ button:hover{
     font-size: 20px;
 }*/
 
+
 #main-nav ul li a {
     display : block;
-    width : 20%;
-    font-size : 30px;
-    line-height : 40px;
+    width : 22%;
+    font-size : 25px;
+    line-height : 35px;
     text-align : center;
-    text-decoration : none;
+    text-decoration: none;
     color : #fff;
     float : left;
 }
@@ -502,9 +606,7 @@ button:hover{
     margin-top: auto;
     margin-right: auto;
     margin-bottom: auto;
-    margin-left: auto;
-    width: 100%;
-    /* position: fixed;*/
+    margin-left: 30px;
 }
 
 #logo{
@@ -513,7 +615,6 @@ button:hover{
     left: 25%;
     top: 20%;
     margin-top: 30px;
-    
 }
 
 
