@@ -129,7 +129,7 @@ html, body, header {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
+    /*font-size: 100%;*/
     font: inherit;
     vertical-align: baseline;
     width: 100%;
@@ -152,24 +152,24 @@ p{
 
 
 header{
-    /*#636CB3;*/
-    color: #FFF;
-    font-weight: bold;
-    font-size: 130%;
+    /*font-size: 130%;*/
+    /*position: fixed;*/
     position: absolute;
-    top: 0px;
-    /* [disabled]right: -35px; */
-    width: 102%;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+    top: 0;
     background-size: cover;
     height: 300px;
     background-image: url(../img/fondo-cabecera3.png);
     background-repeat: no-repeat;
-    position: absolute;
-    border: white 10px solid;
+    /*#636CB3;*/
+    /* [disabled]right: -35px; */
+    /*border: white 10px solid;*/
     /*background-color: #8e4887;
     padding: 5px;*/
     /* [disabled]right: -35px; */
+}
+
+main{
+    margin-top: 17%;
 }
 
 section{
@@ -183,23 +183,21 @@ h1{
     display: inline;
     text-transform: uppercase;    
     margin-left: 10px;
-    position: absolute;
+    position: absolute; 
 }
 
 h2{
     color: #903;
     text-align: center;
-    margin: 0;
+    
     padding: 1%;
     font-size: 30px;
-    background-color: #000;
-    width:100%;
-  
-
+    background: rgba(0,0,255,0.5);
+    width:100%; 
 }
 
 h3{
-    text-align: center;
+    text-align: left;
     font-size: 200%;
     padding: -40px;
     height: 10px;
@@ -209,7 +207,6 @@ h4{
     color: #903;
     font-size: 20px;
     padding-left: 20px;
-
 }
 
 a{
@@ -241,76 +238,7 @@ main{
     padding: 15px;
 }
 
-/********************************/
-#main-nav {
-    position : absolute;
-    width : 100%;
-    margin-top: 80px;
-    margin-left: 5px;
-    float: left;
-    list-style:none;
-}
-
-#main-nav ul {
-    margin : 0 auto;
-    width : 940px;
-    list-style : none;
-    padding-start: 0px; 
-    -webkit-padding-start: 0px;
-    -moz-padding-start: 0px;
-    -o-padding-start: 0px; 
-
-}
-
-#main-nav ul li {
-    float : left;
-    padding-left: 50px;
-}
-
-#main-nav ul li a {
-    display : block;
-    width : 150px;
-    font-size : 45px;
-    line-height : 44px;
-    text-align : center;
-    text-decoration : none;
-    color : #fff;
-    float : left;
-
-}
-
-#main-nav ul li a:hover {
-    background-color: rgba(204,0,51,0.7);
-    border-radius: 4px;
-}
-
-
-
 /******* CLASS **************/
-.buslog{
-    margin-left: 80px;  
-}
-
-.busi{
-    padding: 1%;
-    width: 18%;
-    border-radius: 4px;
-
-}
-
-.busi:hover{
-    background-color: rgba(204,0,51,0.7);
-    border-radius: 4px;
-    padding: 1%;
-    width: 18%;
-
-}
-
-.busreg{
-    margin-left: 290px;
-    margin-top: -43px;
-}
-
 button{
     background: rgba(4,9,75,1);
     box-shadow: 0 0 1px rgba(4,9,75,1);
@@ -356,8 +284,17 @@ button:hover{
     -moz-transition: opacity 500ms;
     -o-transition: opacity 500ms;
     -ms-transition: opacity 500ms;
-    transition: opacity 500ms;
+    transition: opacity 500ms;    
 }
+
+/*.imagenIndex2:hover .imagenIndex{
+    filter: blur(6px);
+    z-index: -1;
+    -webkit-transition: all 1s ease-in-out;    
+    transition: all 1s ease-in-out; 
+    position: relative;
+    top:-15em;
+}*/
 
 .imagen:hover{
     box-shadow: 0 0 20px #003;
@@ -414,13 +351,11 @@ button:hover{
     float:left;
     margin-left: 2%;
     font-size: 15px;
-
 }
 
 .contenidoAutor ul{
     list-style:none;
 }
-
 
 .textoEnt{
     font-size: 15px;
@@ -437,7 +372,6 @@ button:hover{
     background-color: #f5f5f5; 
     border: 3px inset #CCC;
     height:auto;
-    
 }
 
 .comentEntrada ul{
@@ -465,14 +399,8 @@ button:hover{
     cursor: pointer;
     width: 30%;
     font-size: 100%;
-
 }
  
-.botonComent:hover{
-    background-color: #636CB3;
-    
-}
-
 .hacercoment{
     float:left;
     margin-left: 5%;
@@ -492,29 +420,106 @@ button:hover{
     margin-left: 5%;
 }
 
+.imagenEnt{
+    margin-top: 8%;
+}
+
+.comentariosEnt{
+    /*margin-top: 25%;*/
+    margin-top: 30%;
+}
+
+.responderComent{
+    /*margin-top: 52%;*/
+    margin-top: 60%;
+    margin-left: 2%;
+}
+
+.respuestaComent{
+    float: left;
+    margin-top:auto;
+    padding: 1%;
+}
+
+.botonResp{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 10px;
+    margin: 10px 2px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    font-size: 100%; 
+}
+
 /********   ID    ****************/
 
 /*Cabecera*/
+
+#main-nav {
+    position : absolute;
+    width : 100%;   
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-nav ul {
+    margin : 0 auto;
+    list-style : none;
+    padding-start: 0px; 
+    -webkit-padding-start: 0px;
+    -moz-padding-start: 0px;
+    -o-padding-start: 0px;
+}
+
+/*#main-nav ul li {
+    float : left;
+    padding-left: 50px;
+    font-size: 20px;
+}*/
+
+#main-nav ul li a {
+    display : block;
+    width : 20%;
+    font-size : 30px;
+    line-height : 40px;
+    text-align : center;
+    text-decoration : none;
+    color : #fff;
+    float : left;
+}
+
+#main-nav ul li a:hover {
+    background-color: rgba(204,0,51,0.7);
+    border-radius: 4px;
+}
+
 #ajusta_header{
-    margin-top: 0.3%;
-    width: 100%;
+    margin-top: auto;
     margin-right: auto;
     margin-bottom: auto;
     margin-left: auto;
+    width: 100%;
+    /* position: fixed;*/
 }
 
 #logo{
     display: inline;
     float: left;
-    text-align: center;
     left: 25%;
     top: 20%;
     margin-top: 30px;
+    
 }
 
 
 #tituloFoto{
     color: #903;
+    margin-top: 1%;
 }
 
 #pie{
