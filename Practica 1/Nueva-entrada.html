@@ -65,26 +65,51 @@
         <label for = "descripcion1"> Descripci&oacute;n 1 </label>
         <br/>
         <textarea type = "text" name ="descripcion" id = "descripcion1" placeholder = "Texto descripcion1" accesskey = "k" tabindex = "5"></textarea><br/>
-        <div class="imagen"> 
-            <img class="desvanecer" src="img/paisaje12.jpg" alt="Imagen" />
+       
+
+
+
+
+       <style type="text/css">
+        #eliminarFoto1, #eliminarFoto2, #eliminarFoto3 {
+            background: #fff;
+            float: left;
+            position: absolute;
+        }
+        
+        .eliminarFoto1, .eliminarFoto2, .eliminarFoto3{
+            float: left;
+        }   
+         
+        </style>
+        <div id="eliminarFoto1">
+            <input type="button" id = "eliminarFoto1" value="X"/>
+            <img class = "eliminarFoto1" width="220px" height="140px" src="img/paisaje12.jpg">
         </div>
+
+
+
         <br><br><br/><br><br/><br><br/><br><br/>
 
         <!-- descripcion 2 -->
         <label for = "descripcion2"> Descripci&oacute;n 2 </label>
         <br/>
         <textarea type = "text" name ="descripcion" id = "descripcion2" placeholder = "Texto descripcion2" accesskey = "k" tabindex = "5"></textarea><br/>
-        <div class="imagen"> 
-            <img class="desvanecer" src="img/paisaje11.jpg" alt="Imagen" />
+
+        <div id="eliminarFoto2">
+            <input type="button" id = "eliminarFoto2" value="X"/>
+            <img class = "eliminarFoto2" width="220px" height="140px" src="img/paisaje11.jpg">
         </div>
+
         <br><br><br/><br><br/><br><br/><br><br/>
 
         <!-- descripcion 3 -->
         <label for = "descripcion3"> Descripci&oacute;n 3 </label>
         <br/>
         <textarea type = "text" name ="descripcion" id = "descripcion3" placeholder = "Texto descripcion3" accesskey = "k" tabindex = "5"></textarea><br/>
-        <div class="imagen"> 
-            <img class="desvanecer" src="img/paisaje10.jpg" alt="Imagen" />
+        <div id="eliminarFoto3">
+            <input type="button" id = "eliminarFoto3" value="X"/>
+            <img class = "eliminarFoto3" width="220px" height="140px" src="img/paisaje10.jpg">
         </div>
         <br><br><br/><br><br/><br><br/><br><br/>
         <br/>
@@ -96,10 +121,6 @@
     <br/>
  
     </section>
-
-    <div id='wrapper'>
-        <input type='button' value=' aplicar ' id="button">
-    </div>
 
     <!--<input type="submit" value="borrar" name="borrar" src="img/paisaje12.jpg" title="Borrar">-->
     <footer>
