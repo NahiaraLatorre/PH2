@@ -20,42 +20,46 @@
         <title>Login</title>
 
     </head>
-    <body>
+<body>
+<main>
+         <!-- Cabecera -->
         <header>
-            <!-- Cabecera -->
-            <div id="ajusta_header">
-                <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TIPS" width="150"></a> 
-                <!-- Barra con los enlaces a las demas paginas -->
-                <h1>CRAZY TRIP<h1>
-                <p>Comparte tu experiencia en tus viajes con tus amigos</p>
-                <nav id="main-nav">
-                    <ul>
-                        <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
-                        <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
-                        <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
-                        <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
-                        <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
-                    </ul>                 
-                </nav>
-            </div>
-        </header>  
-        <main>
+            <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TIPS" width="150"></a> 
+            <h1>CRAZY TRIP<h1>
+            <p>Comparte tu experiencia en tus viajes con tus amigos</p>
+        </header>
+
+        <!--Menú-->
+        <div class = "contenedor">
+            <nav id = "menu">
+            <ul>
+                <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
+                <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+                <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
+                <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
+                <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
+            </ul> 
+
+            </nav>
+        </div>
+
+            <br><br>
             <section>
                 <!-- Formulario de acceso -->
                 <form id = "formularioacceso" class="login" onsubmit = "acceso(formularioacceso)">
                     <h3 id = "tituloformacceso" class = "tituloformulario" >Acceso</h2>
                     <!-- Encabezado del formulario de acceso -->
-
+                        <br><br>
                         <!-- Campo de acceso: nombre de usuario -->
-                        <label for = "nick"> Nick: </label>
+                        <label for = "nick"> Nick </label>
                         <input type = "text" name ="nick" id = "nick" autofocus = "autofocus" placeholder = " Nombre identificativo" accesskey = "u" tabindex = "1" required/>
-                        <br/>
+                        
 
                         <!-- Campo de acceso: contraseña -->
-                        <label for = "password"> Contrase&ntilde;a: </label>
+                        <label for = "password"> Contrase&ntilde;a </label>
                         <input type = "password" name = "password" id = "password" placeholder = "Contrase&ntilde;a" accesskey = "n" tabindex = "5"/>
                         <br/>
-
+                        <br>
                         <!-- Botón para confirmar el acceso -->
                         <div id="next_button" align="right">
                             <button type = "submit" id = "boton" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" />Entrar</button>
@@ -63,7 +67,7 @@
                 </form>
             </section>
         </main>              
-
+        <br><br><br><br><br><br><br><br>
     	<footer>
 
             <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>

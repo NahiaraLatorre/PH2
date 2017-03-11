@@ -1,18 +1,95 @@
-/* Borra foto 
-body {
-    background-image: url(img/paisaje12.jpg);
-    background-repeat: repeat-y;
+/* Logo de nuestra página */
+#logo{
+    /*display: inline;*/
 }
-#wrapper {
-    background:url('img/paisaje11.jpg');
-    width:859px;height:231px;
-}
-#button {
-    position:relative;
-    left:787px;
-    top:191px;
-}*/
 
+/* Cabecera */
+header{
+    background-image: url(../img/cabecera0.png);
+    background-size: cover;
+    height: 320px;
+}
+
+/* Frase cabecera */
+p{
+    font-size:15px;
+    margin-left: 450px;
+    margin-top: 60px;
+}
+
+/* Cuerpo de la página */
+body{
+    background-color: #050505;
+    margin: 0;
+}
+
+section{
+    margin: 2%;
+}
+
+
+/* Menu de navegacion */
+.contenedor
+{
+    width: 100%;
+    max-width: 1340px;
+    margin: auto;
+}
+
+    .contenedor p 
+    {
+        margin-bottom: 40px;
+    }
+
+nav 
+{
+    /*background: #1164BB;*/
+    margin-bottom: 10px;
+    margin-top: -16px;
+    margin-right: auto;
+    margin-left: auto;
+}
+    nav ul
+    {
+        list-style: none;
+        overflow: hidden;
+        padding-start: 0px;
+        -webkit-padding-start: 0px;
+        -moz-padding-start: 0px;
+        -o-padding-start: 0px;
+    }
+        nav ul li 
+        {
+            float: left;
+        }
+            nav ul li a 
+            {
+                display: block;
+                color : #fff;
+                font-size : 23px;
+                text-decoration: none;
+                text-align : center;
+                width : 266px;
+                line-height : 35px;
+                float : left;
+            }
+                nav ul li a:hover
+                {
+                    background-color: rgba(204,0,51,0.7);
+                    border-radius: 4px;
+                }
+
+
+/* Botón para eliminar foto */
+#boton, .eliminarImagen {
+    background: orange;
+    float: left;
+    position: absolute;
+}
+.Imagen1, .Imagen2, .Imagen3{
+    float: left;
+}   
+             
 /* Formulario de acceso */
 *{
     font-family: Century Gothic;
@@ -23,13 +100,13 @@ body {
     border-width: 7px; 
     background-color: #1ABC9C;
     border-color: #148F77;
-    height:250px;
+    height:280px;
     width: 400px;
-    padding: 110px;
+    padding: 180px;
     opacity: 0.8;
     filter: alpha(opacity=50);
     position: relative;
-    bottom: -10px;
+    padding-top: 50px;
 }
 
 button {
@@ -42,7 +119,9 @@ button {
 }
 div#next_button{
     position: relative;
-    bottom: 15px; right: 100px;
+    bottom: 15px; 
+    right: 100px;
+    text-align : center;
 }
 input[type=text], input[type=password] {
     width: 100%;
@@ -51,139 +130,115 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: 100%;
+    text-align : center;
 }
 .login {
+    margin-top: 30px;
     margin:auto;
     padding:90px;
+    text-align : center;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .login input {
+    padding-top: 40px;
     padding:12px;
     margin:5px
     font-size: 100%;
 }
 
-
 /* Formulario de busqueda */
-#formulariobusqueda 
-{
-    color: #FFFFFF;
-    height:250px;
-    margin: 170px;
-    width: 800px;
 
-}
-/* Formulario de busqueda: poner margen a los elementos e alinear las cajas de texto */
-#formulariobusqueda label 
-{   
-    width: 200px;
-    margin: 10px;
+/* Formulario de registro, nueva entrada y búsqueda */
+#formularioEntradaNueva label{
+    text-align: center;
     display: inline-block;
+    margin: 10px;
+    width: 300px;
     font-size: 19px;
 }
-#formulariobusqueda input
-{
-    margin-bottom: 5px;
-    width: 318px;
-}
-#formulariobusqueda input[type = "submit"]
-{
-    margin-bottom: 5px;
-    width: 150px;
+
+#formularioEntradaNueva textarea{
+    display: inline-block;
+    margin: 0px;
+    width: 300px;
+    height: 144px;
+    font-size: 19px;
+    text-align: center;
 }
 
-/* Formulario de registro*/
-#formularioregistro 
+/* Formulario de registro: poner margen a los elementos e alinear las cajas de texto */
+
+#formularioregistro input, #formularioEntradaNueva input[type = "text"]
+{
+    margin-bottom: 5px;
+    width: 200px;
+    text-align : center;
+}
+
+#formularioregistro input, #formularioEntradaNueva input[type = "radio"]
+{
+    margin-bottom: 5px;
+    width: 20px;
+}
+#formularioregistro input, #formularioEntradaNueva input[type = "file"]
+{
+    margin-bottom: 10px;
+
+    margin-left: 0px;
+    width: 300px;
+    text-align: center;
+}
+#formularioregistro input[type = "submit"]
+{
+    margin-bottom: 5px;
+    width: 235px;
+}
+#formularioregistro, #formularioEntradaNueva, #formulariobusqueda
 {
     color: #FFFFFF;
     height:600px;
     margin: 170px;
 }
-/* Formulario de registro: poner margen a los elementos e alinear las cajas de texto */
-#formularioregistro label 
+#formularioregistro label, #formulariobusqueda label 
 {
     display: inline-block;
     margin: 10px;
-    width: 250px;
+    width: 300px;
     font-size: 19px;
 }
-#formularioregistro input[type = "text"]
+#formularioregistro input, #formularioEntradaNueva input[type = "submit"]
 {
+    margin-bottom: 5px;
+    width: 235px;
+}
+#formulariobusqueda input[type = "submit"]{
+
+    margin-bottom: 5px;
+    width: 235px;  
+}
+#formulariobusqueda input[type = "text"]{
     margin-bottom: 5px;
     width: 200px;
-}
-#formularioregistro input[type = "radio"]
-{
-    margin-bottom: 5px;
-    width: 40px;
-}
-#formularioregistro input[type = "submit"]
-{
-    margin-bottom: 5px;
-    width: 170px;
-}
-
-
-/* Cabecera */
-html, body, header {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    /*font-size: 100%;*/
-    font: inherit;
-    vertical-align: baseline;
-    width: 100%;
-}
-
-body{
-    background-size: cover;
-    background-color: #d8d8d8;
-    margin-bottom: 0px;
-    padding-bottom: 100px;
-    /*background-image: url(../img/fondo1.jpg);*/
-    background-repeat: no-repeat;
-}
-
-p{
-    font-size:15px;
-    margin-left: 450px;
-    margin-top: 60px;
+    text-align : center;    
+} 
+#formulariobusqueda textarea{
+    display: inline-block;
+    margin: 0px;
+    width: 300px;
+    height: 144px;
+    font-size: 19px;
+    text-align: center;
 }
 
 
-header{
-    /*font-size: 130%;*/
-    /*position: fixed;*/
-    position: absolute;
-    top: 0;
-    background-size: cover;
-    height: 300px;
-    background-image: url(../img/fondo-cabecera3.png);
-    background-repeat: no-repeat;
-    /*#636CB3;*/
-    /* [disabled]right: -35px; */
-    /*border: white 10px solid;*/
-    /*background-color: #8e4887;
-    padding: 5px;*/
-    /* [disabled]right: -35px; */
-}
-
-main{
-    margin-top: 17%;
-}
-
-section{
-    margin: 2%;
-}
-
+/*************************************************/
 h1{
     color: #FFF;
-    font-size: 80px;
-    font-style: normal;
-    display: inline;
+    font-size: 30px;
     text-transform: uppercase;    
     margin-left: 10px;
-    position: absolute; 
 }
 
 h2{
@@ -219,128 +274,6 @@ a:hover{
     color: #fff;
 }
 
-header input{
-    background:#FFF;
-    border-radius: 3px 6px 3px 6px;
-    border:2px outset #FFF;
-    box-shadow: 0 0 1px #000;
-    transition: background 1s, box-shadow 1s;
-    margin:1%;
-    padding:1px;
-}
-
-header input:focus{
-    background: #FF9;
-    box-shadow: 0 0 7px #FFF;   
-}
-
-main{
-    padding: 15px;
-}
-
-/******* CLASS **************/
-
-
-/*Paginacion*/ /*NO SE TOCA*/
-/*.paginacion {
-	margin:20px 0;
-}
- 
-.paginacion ul {
-	list-style:none;
-	text-align: center;
-}
- 
-.paginacion ul li {
-	display:inline-block;
-	margin-right:10px;
-}
- 
-.paginacion ul li a {
-	display:block;
-	padding:10px 20px;
-	color:#fff;
-	background:#024959;
-	text-decoration: none;
-}
- 
-.paginacion ul li a:hover {
-	background:#037E8C;
-}
- 
-.paginacion ul li .active {
-	background:#037E8C;
-	font-weight:bold;
-}*/
-
-/*
-
-.pagination {
-    height: 36px;
-    margin: 18px 0;
-}
-.pagination ul {
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    display: inline-block;
-    margin-bottom: 0;
-    margin-left: 0;
-}
-.pagination li {
-    display: inline;
-}
-.pagination a {
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-color: #DDDDDD;
-    border-style: solid;
-    border-width: 1px 1px 1px 0;
-    float: left;
-    line-height: 34px;
-    padding: 0 14px;
-    text-decoration: none;
-}
-.pagination a:hover, .pagination .active a {
-    background-color: #F5F5F5;
-}
-.pagination .active a {
-    color: #999999;
-    cursor: default;
-}
-.pagination .disabled a, .pagination .disabled a:hover {
-    background-color: transparent;
-    color: #999999;
-    cursor: default;
-}
-.pagination li:first-child a {
-    border-left-width: 1px;
-    border-radius: 3px 0 0 3px;
-}
-.pagination li:last-child a {
-    border-radius: 0 3px 3px 0;
-}
-.pagination-centered {
-    text-align: center;
-}
-.pagination-right {
-    text-align: right;
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
 button{
     background: rgba(4,9,75,1);
     box-shadow: 0 0 1px rgba(4,9,75,1);
@@ -366,7 +299,6 @@ button:hover{
 
 .imagen ul{
     text-align:left;
-
 }
 
 .imagen div{
@@ -405,7 +337,6 @@ button:hover{
 .comentarios{
     margin-top: 5px;
 }
-
 .coment{
     float: left;
     width: 30%;
@@ -416,7 +347,6 @@ button:hover{
     background-color: #f5f5f5; 
     border: 3px inset #CCC;
     height:auto;
-    
 }
 
 .coment ul{
@@ -557,66 +487,7 @@ button:hover{
     font-size: 100%; 
 }
 
-/********   ID    ****************/
-
-/*Cabecera*/
-
-#main-nav {
-    position : absolute;
-    width : 155%;   
-    margin-top: 70px;
-    margin-left: auto;
-    margin-right: auto;
-    float: left;
-}
-
-#main-nav ul {
-    margin-top: 0;
-    list-style : none;
-    padding-start: 0px; 
-    -webkit-padding-start: 0px;
-    -moz-padding-start: 0px;
-    -o-padding-start: 0px;
-}
-
-/*#main-nav ul li {
-    float : left;
-    padding-left: 50px;
-    font-size: 20px;
-}*/
-
-
-#main-nav ul li a {
-    display : block;
-    width : 22%;
-    font-size : 25px;
-    line-height : 35px;
-    text-align : center;
-    text-decoration: none;
-    color : #fff;
-    float : left;
-}
-
-#main-nav ul li a:hover {
-    background-color: rgba(204,0,51,0.7);
-    border-radius: 4px;
-}
-
-#ajusta_header{
-    margin-top: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-left: 30px;
-}
-
-#logo{
-    display: inline;
-    float: left;
-    left: 25%;
-    top: 20%;
-    margin-top: 30px;
-}
-
+/***************************************/
 
 #tituloFoto{
     color: #903;
@@ -642,7 +513,8 @@ footer{
     padding:15px;
     width:100%;
     bottom:0;
-    filter: alpha(opacity=50);
+    opacity: 0.8;
+    filter:  alpha(opacity=50);
     background-color: #000;
     border: 1px solid #FF8C31;
     color: #fff;
