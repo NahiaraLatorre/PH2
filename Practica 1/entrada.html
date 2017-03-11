@@ -17,29 +17,27 @@
 
 </head>
 <body>
-    <main>
-         <!-- Cabecera -->
-        <header>
-            <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TIPS" width="150"></a> 
-            <h1>CRAZY TRIP<h1>
+    <!-- Cabecera -->
+    <header>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="150"></a> 
+        <h1>CRAZY TRIP
             <p>Comparte tu experiencia en tus viajes con tus amigos</p>
-        </header>
-
+        </h1>
         <!--Menú-->
-        <div class = "contenedor">
-            <nav id = "menu">
-            <ul>
-                <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
-                <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
-                <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
-                <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
-                <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
-            </ul> 
-
+        <section class = "contenedor">
+            <nav id="menu">
+                <ul>
+                    <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
+                    <li><a href="buscar.html id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+                    <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
+                    <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
+                    <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
+                </ul> 
             </nav>
-        </div>
+        </section>
+    </header>  
 
-    
+    <main>
     
         <section>
             <div class="contenido">
@@ -49,52 +47,56 @@
                         <li>Fecha: 25/10/2016</li>
                         <li>Autor: Antonio</li>
                         <li>Descripción: Esta foto fue tomada en mi último viaje a Japón, fuimos en otoño cuando las hojas de los árboles empiezan a caer, creando esta preciosa imagen</li>
-                        <li><a href="#">Nº de fotos: 10</a></li>
-                        <li><a href="#">Nº de comentarios: 15</a></li>
+                        <li><a href="#imagenesEntrada">Nº de fotos: 10</a></li>
+                        <li><a href="#comentariosEnt">Nº de comentarios: 15</a></li>
                     </ul>
-                <div class="imagenesEntrada">
-                    <div class="imagen">  
+
+
+                <a name="imagenesEntrada" id="imagenesEntrada"></a>
+                <h2>Fotos de esta Entrada</h2>
+                <section class="imagenesEntrada">
+                    <figure class="imagen">  
                         <img src="img/paisaje2.jpg" alt="Imagen" /> 
                         <ul>
                             <li>Nº de foto: 2</li>
                             <li>Descripción: Hicimos esta foto en nuestro viaje a Islandia. Fuimos a hacer senderismo y nos encontramos con este paisaje</li>
                         </ul>
-                    </div>
-                    <div class="imagen">  
+                    </figure>
+                    <figure class="imagen">  
                        <img  src="img/paisaje3.jpg" alt="Imagen" /> 
                         <ul>
                             <li>Nº de foto: 3</li>
                             <li>Descripción: Atardecer en una de las mejores playas de Hawai</li>
                         </ul>        
-                    </div>
-                    <div class="imagen">  
+                    </figure>
+                    <figure class="imagen">  
                         <img src="img/paisaje4.jpg" alt="Imagen" /> 
                         <ul>
                             <li>Nº de foto: 4</li>
                             <li>Descripción: Haciendo ejercicio y vimos este precioso atardecer desde lo alto de la montaña</li>
                         </ul>
-                    </div>
-                    <div class="imagen">  
+                    </figure>
+                    <figure class="imagen">  
                        <img src="img/paisaje5.jpg" alt="Imagen" /> 
                         <ul>
                             <li>Nº de foto: 5</li>
                             <li>Descripción: Una imagen tomado en una tarde de otoño</li>
                         </ul>        
-                    </div>
-                    <div class="imagen">  
+                    </figure>
+                    <figure class="imagen">  
                         <img src="img/paisaje6.jpg" alt="Imagen" /> 
                         <ul>
                             <li>Nº de foto: 6</li>
                             <li>Descripción: Una maravilla de la naturaleza escondida en los bosques de España</li>
                         </ul>
-                    </div>
-                </div>
+                    </figure>
+                </section>
 
-
-                <div class="comentariosEnt">
+                <a name="comentariosEnt" id="comentariosEnt"></a>
+                <section class="comentariosEnt" name="comentariosEnt">
                     <h2>Comentarios</h2>
-                        <div class= "comentarios">
-                            <div class="comentEntrada">
+                        <section class= "comentarios">
+                            <article class="comentEntrada">
                                 <h4>COMETARIO 1</h4> 
                                 <ul>
                                     <li>Autor: David</li>
@@ -103,8 +105,9 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                            <div class="comentEntrada"> 
+                            </article>
+
+                            <article class="comentEntrada"> 
                                 <h4>COMETARIO 2</h4> 
                                 <ul>
                                     <li>Autor: Juan</li>
@@ -113,8 +116,9 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>  
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                            <div class="comentEntrada"> 
+                            </article>
+
+                            <article class="comentEntrada"> 
                                 <h4>COMETARIO 3</h4> 
                                 <ul>
                                     <li>Autor: Maria</li>
@@ -123,8 +127,9 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                            <div class="comentEntrada">
+                            </article>
+
+                            <article class="comentEntrada">
                                 <h4>COMETARIO 4</h4> 
                                 <ul>
                                     <li>Autor: Pablo</li>
@@ -133,8 +138,9 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                            <div class="comentEntrada"> 
+                            </article>
+
+                            <article class="comentEntrada"> 
                                 <h4>COMETARIO 5</h4> 
                                 <ul>
                                     <li>Autor: Lucia</li>
@@ -143,8 +149,9 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>  
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                            <div class="comentEntrada"> 
+                            </article>
+
+                            <article class="comentEntrada"> 
                                 <h4>COMETARIO 6</h4> 
                                 <ul>
                                     <li>Autor: Marina</li>
@@ -153,8 +160,9 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                            <div class="comentEntrada">
+                            </article>
+
+                            <article class="comentEntrada">
                                 <h4>COMETARIO 7</h4> 
                                 <ul>
                                     <li>Autor: Manuel</li>
@@ -163,8 +171,9 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                            <div class="comentEntrada"> 
+                            </article>
+
+                            <article class="comentEntrada"> 
                                 <h4>COMETARIO 8</h4> 
                                 <ul>
                                     <li>Autor: Victoria</li>
@@ -173,8 +182,9 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>  
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                            <div class="comentEntrada"> 
+                            </article>
+
+                            <article class="comentEntrada"> 
                                 <h4>COMETARIO 9</h4> 
                                 <ul>
                                     <li>Autor: David</li>
@@ -183,11 +193,10 @@
                                     <li>Título del comentario: Me gusta</li>
                                 </ul>
                                 <button type="button" class="botonComent">Responder</button>
-                            </div>
-                        </div>   
-                    </div> 
-
-                    <div class="responderComent">
+                            </article>
+                        </section>   
+                    </section> 
+                    <section class="responderComent">
                         <h3>Hacer comentario</h3>
                         <form class="respuestaComent">
                             Título: <input type="text" name="tituloResp" placeholder="Escribe un título"><br>
@@ -195,13 +204,12 @@
                             <button type="button" class="botonResp">Comentar</button>
                         </form>
 
-                    </div>
+                    </section>
 
                 </div><!-- Close "contenido -->
 
         </section>
     </main>
-
 
     <footer>
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>

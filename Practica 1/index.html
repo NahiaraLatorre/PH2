@@ -16,35 +16,35 @@
 	<title>Inicio</title>
     
 </head>
-<body>
-    <main>
+<body>    
      <!-- Cabecera -->
     <header>
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="150"></a> 
-        <h1>CRAZY TRIP<h1>
-        <p>Comparte tu experiencia en tus viajes con tus amigos</p>
+        <h1>CRAZY TRIP
+            <p>Comparte tu experiencia en tus viajes con tus amigos</p>
+        </h1>
+        <!--Menú-->
+        <section class = "contenedor">
+            <nav id = "menu">
+                <ul>
+                    <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
+                    <li><a href="buscar.html id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+                    <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
+                    <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
+                    <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
+                </ul> 
+            </nav>
+        </section>
     </header>
 
-        <!--Menú-->
-        <div class = "contenedor">
-            <nav id = "menu">
-            <ul>
-                <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
-                <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
-                <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
-                <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
-                <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
-            </ul> 
-
-            </nav>
-        </div>
-
-    
-    
+    <main>
         <h2> Últimas fotos subidas </h2>
-        <section class="pagination">
+        <section>
             <figure class="imagen"> 
-                <img src="img/paisaje1.jpg" class="desvanecer" alt="Imagen" />
+                <img src="img/paisaje1.jpg" alt="Imagen" />
+                 <figcaption>Es una foto genial, que se hizo en el norte de europa
+                    </br><a class="enlaceFoto" href="entrada.html">Ver mas...</a>
+                 </figcaption>
                 <!--figure class="imagenIndex"><figure class="imagenIndex2">
                     <ul>
                         <li>Esto es una imagen para la practica de ph2</li>
@@ -52,37 +52,49 @@
                     </ul>
                 </figure></figure-->
                 <ul>
-                    <li>Título:<!--a href="entrada.html"--> Japón</li>
+                    <li>Título:<a href="entrada.html"> Japón</a></li>
                     <li>Autor: Antonio</li>
                     <li>Fecha: 12/12/2001</li>
                     <li>Nº de fotos: 10</li>
                     <li>Nº de comentarios: 15</li>
                 </ul>
-            </figure>        
-            <figure class="imagen">  
-                <img class="desvanecer" src="img/paisaje2.jpg" alt="Imagen" /> 
+            </figure>
+
+             <figure class="imagen">  
+                <img src="img/paisaje2.jpg" alt="Imagen" /> 
+                <figcaption>Es una foto genial, que se hizo en el norte de europa
+                    </br><a class="enlaceFoto" href="entrada.html">Ver mas...</a>
+                 </figcaption>
                 <ul>
-                    <li>Título:<!--a href="entrada.html"--> Islandia</li>
+                    <li>Título:<a href="entrada.html"> Islandia</a></li>
                     <li>Autor: Laura</li>
                     <li>Fecha: 16/2/2001</li>
                     <li>Nº de fotos: 14</li>
                     <li>Nº de comentarios: 15</li>
                 </ul>
             </figure>
+
             <figure class="imagen">  
-               <img class="desvanecer" src="img/paisaje3.jpg" alt="Imagen" /> 
+                <img src="img/paisaje3.jpg" alt="Imagen" /> 
+                <figcaption>Es una foto genial, que se hizo en el norte de europa
+                    </br><a class="enlaceFoto" href="entrada.html">Ver mas...</a>
+                </figcaption>
                 <ul>
-                    <li>Título:<!--a href="entrada.html"--> Playa</li>
+                    <li>Título:<a href="entrada.html"> Playa</a></li>
                     <li>Autor: Carlos</li>
                     <li>Fecha: 4/12/2001</li>
                     <li>Nº de fotos: 8</li>
                     <li>Nº de comentarios: 15</li>
                 </ul>        
             </figure>
+
             <figure class="imagen">  
-                <img class="desvanecer" src="img/paisaje4.jpg" alt="Imagen" />
+                <img src="img/paisaje4.jpg" alt="Imagen" />
+                <figcaption>Es una foto genial, que se hizo en el norte de europa
+                    </br><a class="enlaceFoto" href="entrada.html">Ver mas...</a>
+                </figcaption>
                 <ul>
-                    <li>Título:<!--a href="entrada.html"--> Montañas</li>
+                    <li>Título:<a href="entrada.html"> Montañas</a></li>
                     <li>Autor: David</li>
                     <li>Fecha: 23/4/2000</li>
                     <li>Nº de fotos: 12</li>
@@ -90,145 +102,164 @@
 
                 </ul>        
             </figure>
+
             <figure class="imagen"> 
-                <img class="desvanecer" src="img/paisaje5.jpg" alt="Imagen" />
+                <img src="img/paisaje5.jpg" alt="Imagen" />
+                <figcaption>Es una foto genial, que se hizo en el norte de europa
+                    </br><a class="enlaceFoto" href="entrada.html">Ver mas...</a>
+                </figcaption>
                 <ul>
-                    <li>Título:<!--a href="entrada.html"--> Otoño</li>
+                    <li>Título:<a href="entrada.html"> Otoño</a></li>
                     <li>Autor: Paula</li>
                     <li>Fecha: 12/12/1999</li>
                     <li>Nº de fotos: 6</li>
                     <li>Nº de comentarios: 15</li>
                 </ul>       
             </figure>
-            <figure class="imagen"> 
-                <img class="desvanecer" src="img/paisaje6.jpg" alt="Imagen" />
+
+            <!--figure class="imagen"> 
+                <img src="img/paisaje6.jpg" alt="Imagen" />
+                <figcaption>Es una foto genial, que se hizo en el norte de europa
+                    </br><a class="enlaceFoto" href="entrada.html">Ver mas...</a>
+                </figcaption>
                 <ul>
-                    <li>Título: <!--a href="entrada.html"-->Paraíso</li>
+                    <li>Título: <a href="entrada.html">Paraíso</a></li>
                     <li>Autor: Lucía</li>
                     <li>Fecha: 12/12/1999</li>
                     <li>Nº de fotos: 13</li>
                     <li>Nº de comentarios: 15</li>
                 </ul>       
-            </figure>
-        </section> <!--/div class="ultimasImagenes-->
+            </figure-->
 
-            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-
-            <h2> Últimos comentarios subidos </h2>
-            <section class= "comentarios">
-                <div class="coment">
-                    <a href="entrada.html" class="enlaceComent"> 
-                        <h4>COMETARIO 1</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Rio</li>
-                            <li>Título del comentario: Me gusta</li>
-                        </ul>
-                    </a>        
-                </div>
-                <div class="coment"> 
-                    <a href="entrada.html" class="enlaceComent">
-                        <h4>COMETARIO 2</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Paisaje</li>
-                            <li>Título del comentario: Me gusta</li>
-                        </ul>  
-                    </a>      
-                </div>
-                <div class="coment"> 
-                    <a href="entrada.html" class="enlaceComent">
-                        <h4>COMETARIO 3</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Playa</li>
-                            <li>Título del comentario: Me gusta</li>
-                        </ul>
-                    </a>        
-                </div>
-                <div class="coment">
-                    <a href="entrada.html" class="enlaceComent"> 
-                        <h4>COMETARIO 4</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Bosque al sur de Asturias en España, con muchos arboles frutales y pinos</li>
-                            <li>Título del comentario: Me gusta</li>
-                        </ul>    
-                    </a>    
-                </div>
-                <div class="coment"> 
-                    <a href="entrada.html" class="enlaceComent">
-                        <h4>COMETARIO 5</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Montañas</li>
-                            <li>Título del comentario: Esta fotografía esta muy bien hecha, con buena luz y fuen enfoque</li>
-                        </ul>     
-                    </a>   
-                </div>
-                <div class="coment"> 
-                    <a href="entrada.html" class="enlaceComent">
-                        <h4>COMETARIO 6</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Montañas</li>
-                            <li>Título del comentario: Me gusta mucho esta foto, es genial!</li>
-                        </ul>    
-                    </a>    
-                </div>
-                <div class="coment"> 
-                    <a href="entrada.html" class="enlaceComent">
-                        <h4>COMETARIO 7</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Montañas</li>
-                            <li>Título del comentario: Esta muy bien la foto, es precioso el paisaje y son unas vistas maravillosas</li>
-                        </ul>     
-                    </a>   
-                </div>
-                <div class="coment"> 
-                    <a href="entrada.html" class="enlaceComent">
-                        <h4>COMETARIO 8</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Montañas</li>
-                            <li>Título del comentario: Me gusta</li>
-                        </ul> 
-                    </a>       
-                </div>
-                <div class="coment"> 
-                    <a href="entrada.html" class="enlaceComent">
-                        <h4>COMETARIO 9</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Montañas</li>
-                            <li>Título del comentario: Me gusta</li>
-                        </ul> 
-                    </a>       
-                </div>
-                <div class="coment"> 
-                    <a href="entrada.html" class="enlaceComent">
-                        <h4>COMETARIO 10</h4> 
-                        <ul>
-                            <li>Autor: David</li>
-                            <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                            <li>Título: Montañas</li>
-                            <li>Título del comentario: Me gusta esta fotografia, es muy bonita. Me gusta esta fotografia, es muy bonita</li>
-                        </ul>   
-                    </a>     
-                </div>
+            <section class="pag">
+                <ul class="pagination">
+                    <li><a href="#"><i class="icon-left-open"></i>First</a></li>
+                    <li><a href="#">«</a></li>
+                    <li><a class="active" href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">»</a></li>
+                    <li><a href="#">Last<i class="icon-right-open"></i></a></li>
+                </ul>
             </section>
+
+        </section> <!--/section para imagenes-->
+
+        <h2> Últimos comentarios subidos </h2>
+        <section class= "comentarios">
+            <article class="coment">
+                <a href="entrada.html" class="enlaceComent"> 
+                    <h4>COMETARIO 1</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Rio</li>
+                        <li>Título del comentario: Me gusta</li>
+                    </ul>
+                </a>        
+            </article>
+            <article class="coment"> 
+                <a href="entrada.html" class="enlaceComent">
+                    <h4>COMETARIO 2</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Paisaje</li>
+                        <li>Título del comentario: Me gusta</li>
+                    </ul>  
+                </a>      
+            </article>
+            <article class="coment"> 
+                <a href="entrada.html" class="enlaceComent">
+                    <h4>COMETARIO 3</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Playa</li>
+                        <li>Título del comentario: Me gusta</li>
+                    </ul>
+                </a>        
+            </article>
+            <article class="coment">
+                <a href="entrada.html" class="enlaceComent"> 
+                    <h4>COMETARIO 4</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Bosque al sur de Asturias en España, con muchos arboles frutales y pinos</li>
+                        <li>Título del comentario: Me gusta</li>
+                    </ul>    
+                </a>    
+            </article>
+            <article class="coment"> 
+                <a href="entrada.html" class="enlaceComent">
+                    <h4>COMETARIO 5</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Montañas</li>
+                        <li>Título del comentario: Esta fotografía esta muy bien hecha, con buena luz y fuen enfoque</li>
+                    </ul>     
+                </a>   
+            </article>
+            <article class="coment"> 
+                <a href="entrada.html" class="enlaceComent">
+                    <h4>COMETARIO 6</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Montañas</li>
+                        <li>Título del comentario: Me gusta mucho esta foto, es genial!</li>
+                    </ul>    
+                </a>    
+            </article>
+            <article class="coment"> 
+                <a href="entrada.html" class="enlaceComent">
+                    <h4>COMETARIO 7</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Montañas</li>
+                        <li>Título del comentario: Esta muy bien la foto, es precioso el paisaje y son unas vistas maravillosas</li>
+                    </ul>     
+                </a>   
+            </article>
+            <article class="coment"> 
+                <a href="entrada.html" class="enlaceComent">
+                    <h4>COMETARIO 8</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Montañas</li>
+                        <li>Título del comentario: Me gusta</li>
+                    </ul> 
+                </a>       
+            </article>
+            <article class="coment"> 
+                <a href="entrada.html" class="enlaceComent">
+                    <h4>COMETARIO 9</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Montañas</li>
+                        <li>Título del comentario: Me gusta</li>
+                    </ul> 
+                </a>       
+            </article>
+            <article class="coment"> 
+                <a href="entrada.html" class="enlaceComent">
+                    <h4>COMETARIO 10</h4> 
+                    <ul>
+                        <li>Autor: David</li>
+                        <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                        <li>Título: Montañas</li>
+                        <li>Título del comentario: Me gusta esta fotografia, es muy bonita. Me gusta esta fotografia, es muy bonita</li>
+                    </ul>   
+                </a>     
+            </article>
+        </section>
     </main>
-    
+
     <footer>
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id = "derechos">Copyright &copy; 2017 | Mar&iacute;a S&aacute;nchez y Nahiara Latorre.</p>
