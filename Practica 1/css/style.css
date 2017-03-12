@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
 /* Formulario de acceso */
 *{
     font-family: Century Gothic;
 }
 
-
 /* Cabecera */
 header{
-    background-image: url(../img/cabecera0.png);
+    background-image: url(../img/Cabecera.png);
     background-size: cover;
     height: 320px;
 }
@@ -17,9 +17,10 @@ main{
 
 /* Frase cabecera */
 p{
-    font-size:15px;
-    margin-left: 450px;
-    margin-top: 60px;
+    font-size:30px;
+    margin-left: 300px;
+    margin-top: -230px;
+    color: #903;
 }
 
 /* Cuerpo de la página */
@@ -32,7 +33,87 @@ body{
 section{
     margin: 2%;
 }
+/* Menu hamburguesa 0 */
+label[for="ckb-menu"]{
+    cursor:pointer;
+    font-size: 1.4em;
+    font-weight: bold;
+}
 
+#ckb-menu{
+    display: none;
+}
+
+#ckb-menu:checked+nav{
+    max-height: 15em;
+}
+
+@media all and (min-width: 480px){
+
+    nav{
+        max-height: 2em;
+    }
+
+    nav>ul>li:first-of-type{
+        display: none;
+    }
+
+    nav>ul>li{
+        display: inline-block;
+        float: left;
+    }
+
+        nav>ul>li>a{
+            padding: .2em .5em;
+        }
+
+    nav>ul>li:not(:last-of-type){
+        border-right: .1em solid #234;
+    }
+}
+
+/* Menú hamburguesa 1
+.clearfix:before, .clearfix:after{
+    content: "";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix:before{
+    *zoom: 1;/* nos permite escalar 
+}
+nav a#pull{
+    display: none;
+}
+
+@media all and (min-width: 480px){
+
+    nav{
+        border-bottom: 0;
+    }
+
+    nav ul{
+        display: none;
+        height: auto;
+    }
+
+    nav a#pull{
+        display: block;
+        background-color: #2095a0
+        width: 100%;
+        position: relative;
+    }
+    nav a#pull:after{
+        content: "";
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 15px;
+        top:10px;
+    }
+}*/
 
 /* Menu de navegacion */
 .contenedor
@@ -51,7 +132,7 @@ nav
 {
     /*background: #1164BB;*/
     margin-bottom: 10px;
-    margin-top: -70px;
+    margin-top: 181px;
     margin-right: auto;
     margin-left: auto;;
 }
@@ -97,7 +178,7 @@ nav
 .Imagen1, .Imagen2, .Imagen3{
     float: left;
 }   
-             
+/* Formulario acceso */          
 #formularioacceso{
     border-style: outset; 
     border-width: 7px; 
@@ -154,8 +235,51 @@ input[type=text], input[type=password] {
     font-size: 100%;
 }
 
-/* Formulario de busqueda */
+/* Formulario de registro */
+#formularioregistro input[type = "submit"]{
 
+    text-align : center;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    color: white;
+    background: blue;
+    margin-left: 325px;
+}
+/* Formulario de nueva entrada */
+#formularioEntradaNueva input[type = "submit"]{
+
+    text-align : center;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    color: white;
+    background: blue;
+    margin-left: 400px;
+}
+/* Formulario de busqueda */
+#formulariobusqueda input[type = "submit"]{
+
+    text-align : center;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    color: white;
+    background: blue;
+    margin-left: 325px;
+}
 /* Formulario de registro, nueva entrada y búsqueda */
 #formularioEntradaNueva label{
     text-align: left;
@@ -183,12 +307,6 @@ input[type=text], input[type=password] {
     text-align : left;
 }
 
-#formularioregistro input, #formularioEntradaNueva input[type = "radio"]
-{
-    margin-bottom: 5px;
-    width: 20px;
-}
-
 #formularioregistro input, #formularioEntradaNueva input[type = "file"]
 {
     margin-bottom: 10px;
@@ -196,12 +314,6 @@ input[type=text], input[type=password] {
     margin-left: 0px;
     width: 300px;
     text-align: left;
-}
-
-#formularioregistro input[type = "submit"]
-{
-    margin-bottom: 5px;
-    width: 235px;
 }
 
 #formularioregistro, #formularioEntradaNueva, #formulariobusqueda
@@ -217,12 +329,6 @@ input[type=text], input[type=password] {
     margin: 10px;
     width: 300px;
     font-size: 19px;
-}
-
-#formularioregistro input, #formularioEntradaNueva input[type = "submit"]
-{
-    margin-bottom: 5px;
-    width: 235px;
 }
 
 #formulariobusqueda input[type = "submit"]{
@@ -244,6 +350,8 @@ input[type=text], input[type=password] {
     height: 144px;
     font-size: 19px;
     text-align: left;
+    margin-bottom: 5px;
+    width: 200px;
 }
 
 
@@ -251,7 +359,7 @@ input[type=text], input[type=password] {
 
 h1{
     color: #FFF;
-    font-size: 80px;
+    font-size: 50px;
     text-transform: uppercase;    
     margin-left: 10px;
     /*position: absolute; */
@@ -564,13 +672,6 @@ section.pag{
 
 /*****************  ID  **********************/
 
-/*#ajustar_header{
-    margin-top: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-}*/
-
 /* Logo de nuestra página */
 #logo{
     /*display: inline;*/
@@ -583,10 +684,8 @@ section.pag{
     position: absolute;
 }
 
-#tituloReg{
+#tituloReg, #titulobusq, #tituloentr{
     color: #903;
-    margin-top: -120px;
-    position: absolute;
 }
 
 #pie{

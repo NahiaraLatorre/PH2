@@ -7,6 +7,10 @@
 
     <!-- Enlace al CSS principal -->
     <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+    
+    <!-- Enlace al JavaScript que evalua los formularios -->
+    <script src="JavaScript/formularios.js" language="javascript" type="text/javascript"></script>
+    
     <!--Para los iconos-->
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
@@ -19,20 +23,23 @@
 <body>    
      <!-- Cabecera -->
     <header>
-        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="150"></a> 
-        <h1>CRAZY TRIP
-            <p>Comparte tu experiencia en tus viajes con tus amigos</p>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
+        <h1>
+            <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
         </h1>
         <!--Menú-->
-        <section class = "contenedor">
-            <nav id = "menu">
+        <section class = "contenedor" class="clearfix">
+        <input type="checkbox" id="ckb-menu">
+            <nav id = "menu" class="clearfix">
                 <ul>
+                    <li><label for="ckb-menu">&equiv;</label></li>
                     <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
-                    <li><a href="buscar.html id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+                    <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
                     <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
                     <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
                     <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
                 </ul> 
+                <a href="#" id = "pull" >Menú</a>
             </nav>
         </section>
     </header>

@@ -21,16 +21,16 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="150"></a> 
-        <h1>CRAZY TRIP
-            <p>Comparte tu experiencia en tus viajes con tus amigos</p>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
+        <h1>
+            <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
         </h1>
         <!--Menú-->
         <section class = "contenedor">
             <nav id = "menu">
                 <ul>
                     <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
-                    <li><a href="buscar.html id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+                    <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
                     <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
                     <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
                     <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
@@ -42,11 +42,12 @@
     <main>
 
         <section>
+        <h1 id="tituloentr">Nueva entrada</h1>
         <!-- Formulario de búsqueda de fotos -->
         <form id = "formularioEntradaNueva" onsubmit = "nuevaEntrada(formularioEntradaNueva)">
 
             <!-- Encabezado del formulario -->
-            <h2 id = "formbNuevaEntrada" class = "formbNuevaEntrada">Datos de la b&uacute;squeda:</h2>
+            <h2 id = "formbNuevaEntrada" class = "formbNuevaEntrada">Datos de la nueva entrada</h2>
 
             <!-- Campo de nueva entrada: título -->
             <label for = "tituloentrada"> T&iacute;tulo: </label>
@@ -55,11 +56,11 @@
             <br>
 
             <!-- Campo de registro: foto de perfil -->
-            <span id = "subirfoto" >Añadir fotos: </span>
+            <label id = "subirfoto" >Añadir fotos: </label>
 
             <input type = "file" id = "subirfoto" name = "subirfoto" tabindex = "15"> 
-            <br/>
             <br>
+            <br/>
 
             <!-- descripcion 1 -->
             <label for = "descripcion1"> Descripci&oacute;n 1 </label>
@@ -75,7 +76,7 @@
             <br/>
             <textarea type = "text" name ="descripcion" id = "descripcion1" placeholder = "Texto descripcion1" accesskey = "k" tabindex = "5"></textarea><br/>
 
-            <br><br><br/><br><br/><br><br/><br><br/>
+            <br><br><br><br><br><br><br><br><br/>
 
             <!-- descripcion 2 -->
             <label for = "descripcion2"> Descripci&oacute;n 2 </label>
@@ -88,7 +89,7 @@
 
             <textarea type = "text" name ="descripcion" id = "descripcion2" placeholder = "Texto descripcion2" accesskey = "k" tabindex = "5"></textarea><br/>
 
-            <br><br><br/><br><br/><br><br/><br><br/>
+            <br><br><br><br><br><br><br><br><br/>
 
             <!-- descripcion 3 -->
             <label for = "descripcion3"> Descripci&oacute;n 3 </label>
@@ -101,14 +102,10 @@
 
             <textarea type = "text" name ="descripcion" id = "descripcion3" placeholder = "Texto descripcion3" accesskey = "k" tabindex = "5"></textarea><br/>
 
-            <br><br><br/><br><br/><br><br/><br><br/>
-            <br/>
-            <br>
+            <br><br><br><br><br><br><br><br><br><br/>
             <!-- Botón para confirmar la búsqueda -->
             <input type = "submit" name = "Enviar datos" value = "Enviar" accesskey = "b" tabindex = "12"/>
         </form>
-        <br/>
-
         </section>
     </main>
 
