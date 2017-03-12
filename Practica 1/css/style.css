@@ -8,19 +8,21 @@
 header{
     background-image: url(../img/Cabecera.png);
     background-size: cover;
-    height: 320px;
+    height: 350px;
+    width: 100%;
+    
 }
 
-main{
+/*main{
     margin-top: 3%;
-}
+}*/
 
 /* Frase cabecera */
 p{
     font-size:30px;
     margin-left: 300px;
     margin-top: -230px;
-    color: #903;
+    color: #000;
 }
 
 /* Cuerpo de la página */
@@ -33,6 +35,9 @@ body{
 section{
     margin: 2%;
 }
+
+
+/********************************/
 /* Menu hamburguesa 0 */
 label[for="ckb-menu"]{
     cursor:pointer;
@@ -41,12 +46,59 @@ label[for="ckb-menu"]{
 }
 
 #ckb-menu{
-    display: none;
+      display: none;
 }
 
 #ckb-menu:checked+nav{
     max-height: 15em;
 }
+
+nav 
+{
+   /* background: #1164BB;*/
+    margin-bottom: 20px;
+    margin-top: auto
+    margin-right: auto;
+    margin-left: auto;
+    max-height: 2em;
+    overflow: hidden;
+    padding-left: 10%;    
+   /* border-top: .1em solid #234;
+    border-bottom: .1em solid #234;*/
+    transition: max-height 1s;
+}
+
+    nav>ul
+    {
+        list-style: none;
+        -webkit-padding-start: 0px;
+        -moz-padding-start: 0px;
+        -o-padding-start: 0px;
+
+        margin: 0;
+        padding: 0;
+
+    }
+        nav>ul>li 
+        {
+            float: left;
+        }
+            nav>ul>li>a, 
+            label[for="ckb-menu"]{
+                display: block;
+                color : #000;
+                font-size : 23px;
+                text-decoration: none;
+                width : 240px;
+                line-height : 25px;   
+                padding: .2em 0;           
+
+            }
+                nav>ul>li>a:hover
+                {
+                    background-color: rgba(204,0,51,0.7);
+                    /*border-radius: 2px;*/
+                }
 
 @media all and (min-width: 480px){
 
@@ -114,58 +166,6 @@ nav a#pull{
         top:10px;
     }
 }*/
-
-/* Menu de navegacion */
-.contenedor
-{
-    width: 100%;
-    max-width: 1340px;
-    /*margin: auto;*/
-}
-
-    .contenedor p 
-    {
-        margin-bottom: 40px;
-    }
-
-nav 
-{
-    /*background: #1164BB;*/
-    margin-bottom: 10px;
-    margin-top: 181px;
-    margin-right: auto;
-    margin-left: auto;;
-}
-    nav ul
-    {
-        list-style: none;
-        overflow: hidden;
-        padding-start: 0px;
-        -webkit-padding-start: 0px;
-        -moz-padding-start: 0px;
-        -o-padding-start: 0px;
-    }
-        nav ul li 
-        {
-            float: left;
-        }
-            nav ul li a 
-            {
-                display: block;
-                color : #fff;
-                font-size : 23px;
-                text-decoration: none;
-                text-align : center;
-                width : 266px;
-                line-height : 35px;
-                float : left;
-            }
-                nav ul li a:hover
-                {
-                    background-color: rgba(204,0,51,0.7);
-                    border-radius: 4px;
-                }
-
 
 
 /* Botón para eliminar foto */
@@ -287,6 +287,7 @@ input[type=text], input[type=password] {
     margin: 10px;
     width: 300px;
     font-size: 19px;
+    color: #000;
 }
 
 #formularioEntradaNueva textarea{
@@ -310,7 +311,6 @@ input[type=text], input[type=password] {
 #formularioregistro input, #formularioEntradaNueva input[type = "file"]
 {
     margin-bottom: 10px;
-
     margin-left: 0px;
     width: 300px;
     text-align: left;
@@ -320,7 +320,7 @@ input[type=text], input[type=password] {
 {
     color: #FFFFFF;
     height:600px;
-    margin: 170px;
+    /*margin: 170px;*/
 }
 
 #formularioregistro label, #formulariobusqueda label 
@@ -329,6 +329,7 @@ input[type=text], input[type=password] {
     margin: 10px;
     width: 300px;
     font-size: 19px;
+    color: #000;
 }
 
 #formulariobusqueda input[type = "submit"]{
@@ -357,24 +358,34 @@ input[type=text], input[type=password] {
 
 /*************************************************/
 
+#tituloformacceso{
+    text-align: left;
+    font-size: 200%;
+    padding: -40px;
+    height: 10px;
+    background-color: none;
+    color: #000;
+
+}
+
 h1{
     color: #FFF;
     font-size: 50px;
     text-transform: uppercase;    
     margin-left: 10px;
-    /*position: absolute; */
+    /*position: absolute;*/
     font-style: normal;
-    display: inline;
-}
+    display: none;
 
+}
 
 h2{
     color: #903;
-    text-align: center;  
+    text-align: left;  
     padding: 1%;
-    font-size: 30px;
-    background: rgba(0,0,255,0.5);
-    width:100%; 
+    font-size: 50px;
+    /*background: rgba(0,0,255,0.5);*/
+    width:100%;
 }
 
 h3{
@@ -556,20 +567,21 @@ section.pag{
 }
 
 .texto{
-    text-align: center;
+    
     font-size: 30px;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 .contenidoAutor{
     float:left;
     margin-left: 2%;
-    font-size: 15px;
+    font-size: 25px;    
 }
 
 .contenidoAutor ul{
     list-style:none;
+    font-size: 20px;
 }
 
 .textoEnt{
@@ -635,9 +647,9 @@ section.pag{
     margin-left: 5%;
 }
 
-.imagenEnt{
+/*.imagenEnt{
     margin-top: 8%;
-}
+}*/
 
 .comentariosEnt{
     margin-top: 25%;
@@ -678,23 +690,21 @@ section.pag{
 } 
 
 
-#tituloFoto{
+/*#tituloFoto{
     color: #903;
     margin-top: 1%;
     position: absolute;
-}
-
-#tituloReg, #titulobusq, #tituloentr{
-    color: #903;
-}
+}*/
 
 #pie{
     margin-top: 2px;
+    color: #903;
 }
 
 /* Copyright */
 #derechos{
     display: none;
+    color: #903;
 }
 
 /* Pie de la página */
@@ -713,5 +723,7 @@ footer{
     border: 1px solid #FF8C31;
     color: #fff;
     height: 20px;
+    text-align: center;
+    font-size: 10px;
 }
 

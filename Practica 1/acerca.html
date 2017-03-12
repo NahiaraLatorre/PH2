@@ -19,33 +19,37 @@
 <body>
     <header>
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
-        <h1>
-            <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
-        </h1>
-        <!--Menú-->
-        <section class = "contenedor">
-            <nav id = "menu">
-                <ul>
-                    <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
-                    <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
-                    <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
-                    <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
-                    <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
-                </ul> 
-            </nav>
-        </section>
+        <h1>Crazy Trips</h1>
+        <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
+        
     </header>
+    
+    <!--Menú-->
+    <input type="checkbox" id="ckb-menu">
+    <nav>
+        <ul>
+            <li><label for="ckb-menu">&equiv;</label></li>
+            <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
+            <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+            <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
+            <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
+            <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
+            <li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li>
+            
+        </ul> 
+    </nav>
 
     <main>    
         <section>
+            <h1>Acerca</h1>
             <h2>Sobre el proyecto</h2>
-                <div class="contenido">
-                    <p class="texto">Esta es la primera práctica de la asignatura de Programación Hipermedia II del 3º curso de la titulación de Ingeniería Multimedia en la Universidad de Alicante</p>            
-                </div>
+            <article class="contenido">
+                <p class="texto">Esta es la primera práctica de la asignatura de Programación Hipermedia II del 3º curso de la titulación de Ingeniería Multimedia en la Universidad de Alicante</p>            
+            </article>
 
             <h2>Sobre nosotras</h2>
-            <div class="contenidoAutor">
-                <h3 class="autores">Nahiara</h3>
+            <article class="contenidoAutor">
+                <h3>Nahiara</h3>
                 <ul>
                     <li>DNI: 15418382-X</li>
                     <li>Nombre: Nahiara</li>
@@ -53,24 +57,24 @@
                     <li>Grupo de Prácticas: Grupo 4</li>
                     <li>Correo electrónico: nlg20@alu.ua.es</li>
                 </ul>   
-            </div>
-            <div class="contenidoAutor">
-                <h3 class="autores">Maria</h3>
+            </article>
+
+            <article class="contenidoAutor">
+                <h3>Maria</h3>
                 <ul>
-                    <li>DNI: </li>
+                    <li>DNI: 53633093-Z</li>
                     <li>Nombre: María</li>
                     <li>Apellidos: Sánchez Marques</li>
                     <li>Grupo de Prácticas: Grupo 4</li>
                     <li>Correo electrónico: msm16@alu.ua.es</li>
                 </ul> 
-            </div>
-
+            </article>
         </section>
     </main>
 
     <footer>
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
-        <p id = "derechos">Copyright &copy; 2017 | Mar&iacute;a S&aacute;nchez y Nahiara Latorre.</p>
+        <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
 </body>
 </html>
