@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Practica1-PH2">
+    <meta name="author" content="Nahiara&Maria">
+    
+    <!-- Enlace al CSS principal -->
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+    <!--Para los iconos-->
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
+    <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+    
+
+    <title>Entrada</title>
+
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
+        <h1>Crazy Trips</h1>
+        <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
+        
+    </header>  
+    
+    <!--Menú-->
+    <input type="checkbox" id="ckb-menu">
+    <nav>
+        <ul>
+            <li><label for="ckb-menu">&equiv;</label></li>
+            <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
+            <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+            <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
+            <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
+            <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
+            <li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li>
+            
+        </ul> 
+    </nav>
+
+    <main>
+        <section>
+        <h1>Entrada</h1>
+            <h2>JAPÓN</h2>
+            <img src="img/paisaje1.jpg" alt="Imagen" />
+                <ul>
+                    <li>Fecha: 25/10/2016</li>
+                    <li>Autor: Antonio</li>
+                    <li>Descripción: Esta foto fue tomada en mi último viaje a Japón, fuimos en otoño cuando las hojas de los árboles empiezan a caer, creando esta preciosa imagen</li>
+                    <li><a href="#imagenesEntrada">Nº de fotos: 10</a></li>
+                    <li><a href="#comentariosEnt">Nº de comentarios: 15</a></li>
+                </ul>
+
+
+            <a name="imagenesEntrada" id="imagenesEntrada"></a>
+            <h2>Fotos de esta Entrada</h2>
+            <section class="imagenesEntrada">
+                <figure class="imagen">  
+                    <img src="img/paisaje2.jpg" alt="Imagen" /> 
+                    <ul>
+                        <li>Nº de foto: 2</li>
+                        <li>Descripción: Hicimos esta foto en nuestro viaje a Islandia. Fuimos a hacer senderismo y nos encontramos con este paisaje</li>
+                    </ul>
+                </figure>
+                <figure class="imagen">  
+                   <img  src="img/paisaje3.jpg" alt="Imagen" /> 
+                    <ul>
+                        <li>Nº de foto: 3</li>
+                        <li>Descripción: Atardecer en una de las mejores playas de Hawai</li>
+                    </ul>        
+                </figure>
+                <figure class="imagen">  
+                    <img src="img/paisaje4.jpg" alt="Imagen" /> 
+                    <ul>
+                        <li>Nº de foto: 4</li>
+                        <li>Descripción: Haciendo ejercicio y vimos este precioso atardecer desde lo alto de la montaña</li>
+                    </ul>
+                </figure>
+                <figure class="imagen">  
+                   <img src="img/paisaje5.jpg" alt="Imagen" /> 
+                    <ul>
+                        <li>Nº de foto: 5</li>
+                        <li>Descripción: Una imagen tomado en una tarde de otoño</li>
+                    </ul>        
+                </figure>
+                <figure class="imagen">  
+                    <img src="img/paisaje6.jpg" alt="Imagen" /> 
+                    <ul>
+                        <li>Nº de foto: 6</li>
+                        <li>Descripción: Una maravilla de la naturaleza escondida en los bosques de España</li>
+                    </ul>
+                </figure>
+            </section>
+
+            <a name="comentariosEnt" id="comentariosEnt"></a>
+            <section class="comentariosEnt" name="comentariosEnt">
+                <h2>Comentarios</h2>
+                    <section class= "comentarios">
+                        <article class="comentEntrada">
+                            <h4>COMETARIO 1</h4> 
+                            <ul>
+                                <li>Autor: David</li>
+                                <li>Fecha: miércoles, 10/3/2017, 12:20h</li>
+                                <li>Título: Japón</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+
+                        <article class="comentEntrada"> 
+                            <h4>COMETARIO 2</h4> 
+                            <ul>
+                                <li>Autor: Juan</li>
+                                <li>Fecha: miércoles, 7/1/2017, 10:20h</li>
+                                <li>Título: Playa</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>  
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+
+                        <article class="comentEntrada"> 
+                            <h4>COMETARIO 3</h4> 
+                            <ul>
+                                <li>Autor: Maria</li>
+                                <li>Fecha: miércoles, 5/1/2017, 22:35h</li>
+                                <li>Título: Japón</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+
+                        <article class="comentEntrada">
+                            <h4>COMETARIO 4</h4> 
+                            <ul>
+                                <li>Autor: Pablo</li>
+                                <li>Fecha: miércoles, 19/12/2016, 17:30h</li>
+                                <li>Título: Playa</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+
+                        <article class="comentEntrada"> 
+                            <h4>COMETARIO 5</h4> 
+                            <ul>
+                                <li>Autor: Lucia</li>
+                                <li>Fecha: miércoles, 18/12/2016, 09:10h</li>
+                                <li>Título: Bosque</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>  
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+
+                        <article class="comentEntrada"> 
+                            <h4>COMETARIO 6</h4> 
+                            <ul>
+                                <li>Autor: Marina</li>
+                                <li>Fecha: miércoles, 01/12/2016, 12:20h</li>
+                                <li>Título: Japón</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+
+                        <article class="comentEntrada">
+                            <h4>COMETARIO 7</h4> 
+                            <ul>
+                                <li>Autor: Manuel</li>
+                                <li>Fecha: miércoles, 08/11/2017, 12:20h</li>
+                                <li>Título: Montañas</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+
+                        <article class="comentEntrada"> 
+                            <h4>COMETARIO 8</h4> 
+                            <ul>
+                                <li>Autor: Victoria</li>
+                                <li>Fecha: miércoles, 02/11/2017, 16:20h</li>
+                                <li>Título: Japón</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>  
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+
+                        <article class="comentEntrada"> 
+                            <h4>COMETARIO 9</h4> 
+                            <ul>
+                                <li>Autor: David</li>
+                                <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
+                                <li>Título: Japón</li>
+                                <li>Título del comentario: Me gusta</li>
+                            </ul>
+                            <button type="button" class="botonComent">Responder</button>
+                        </article>
+                    </section>   
+                </section> 
+                <section class="responderComent">
+                    <h3>Hacer comentario</h3>
+                    <form class="respuestaComent">
+                        Título: <input type="text" name="tituloResp" placeholder="Escribe un título"><br>
+                        Comentario: <br><textarea rows="4" cols="50" placeholder="Escribe tu comentario"></textarea>
+                        <button type="button" class="botonResp">Comentar</button>
+                    </form>
+
+                </section>
+        </section>
+    </main>
+
+    <footer>
+        <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
+        <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
+    </footer> 
+
+</body>
+</html>

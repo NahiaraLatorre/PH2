@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Practica1-PH2">
+    <meta name="author" content="Nahiara&Maria">
+    
+    <!-- Enlace al CSS principal -->
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+    
+    <!-- Enlace al JavaScript que evalua los formularios -->
+    <script src="JavaScript/formularios.js" language="javascript" type="text/javascript"></script>
+    
+    <!--Para los iconos-->
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
+    <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+
+    <title>Nueva entrada</title>
+
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
+        
+        <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
+        
+    </header>
+
+    <!--Menú-->
+    <input type="checkbox" id="ckb-menu">
+    <nav>
+        <ul>
+            <li><label for="ckb-menu">&equiv;</label></li>
+            <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
+            <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+            <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
+            <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
+            <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
+            <li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li>
+            
+        </ul> 
+    </nav>
+
+    <main>
+        <h1>Nueva entrada</h1>
+        <section>
+            <!-- Formulario de búsqueda de fotos -->
+            <form id = "formularioEntradaNueva" onsubmit = "nuevaEntrada(formularioEntradaNueva)">
+
+                <!-- Encabezado del formulario -->
+                <h2>Datos de la nueva entrada</h2>
+                <!-- Campo de nueva entrada: título -->
+                <label for = "tituloentrada"> T&iacute;tulo: </label>
+                <input type = "text" name ="tituloentrada" id = "tituloentrada" placeholder = "Palabra&#40;s&#41; en el t&iacute;tulo" accesskey = "t" tabindex = "4"/>
+                <br/>
+                <br>
+
+                <!-- Campo de registro: foto de perfil -->
+                <label id = "subirfoto" >Añadir fotos: </label>
+
+                <input type = "file" id = "subirfoto" name = "subirfoto" tabindex = "15"> 
+                <br>
+                <br/>
+
+                <!-- descripcion 1 -->
+                <label for = "descripcion1"> Descripción 1 </label>
+
+                <br/>
+                 
+                <!-- Botón para eliminar imagen1 -->
+                <img class = "Imagen1" width="230px" height="150px" src="img/paisaje12.jpg">
+                <div id="boton"> 
+                    <input class = "eliminarImagen" type="button" value="X"/>
+                </div>
+
+                <br/>
+                <textarea type = "text" name ="descripcion" id = "descripcion1" placeholder = "Texto descripcion1" accesskey = "k" tabindex = "5"></textarea><br/>
+
+                
+
+                <!-- descripcion 2 -->
+                <label for = "descripcion2"> Descripción 2 </label>
+                <br/>
+                <!-- Botón para eliminar imagen1 -->
+                <img class = "Imagen2" width="230px" height="150px" src="img/paisaje11.jpg">
+                <div id="boton"> 
+                    <input class = "eliminarImagen" type="button" value="X"/>
+                </div>
+
+                <textarea type = "text" name ="descripcion" id = "descripcion2" placeholder = "Texto descripcion2" accesskey = "k" tabindex = "5"></textarea><br/>
+
+                
+
+                <!-- descripcion 3 -->
+                <label for = "descripcion3"> Descripción 3 </label>
+                <br/>
+                <!-- Botón para eliminar imagen1 -->
+                <img class = "Imagen3" width="230px" height="150px" src="img/paisaje10.jpg">
+                <div id="boton"> 
+                    <input class = "eliminarImagen" type="button" value="X"/>
+                </div>
+
+                <textarea type = "text" name ="descripcion" id = "descripcion3" placeholder = "Texto descripcion3" accesskey = "k" tabindex = "5"></textarea><br/>
+
+                <br><br><br><br><br><br><br><br><br><br/>
+                <!-- Botón para confirmar la búsqueda -->
+                <input type = "submit" name = "Enviar datos" value = "Enviar" accesskey = "b" tabindex = "12"/>
+            </form>
+        </section>
+    </main>
+
+    <!--<input type="submit" value="borrar" name="borrar" src="img/paisaje12.jpg" title="Borrar">-->
+    <footer>
+        <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
+        <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
+    </footer> 
+
+        
+</body>
+</html>
