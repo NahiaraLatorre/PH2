@@ -1,0 +1,729 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
+/* Formulario de acceso */
+*{
+    font-family: Century Gothic;
+}
+
+/* Cabecera */
+header{
+    background-image: url(../img/Cabecera.png);
+    background-size: cover;
+    height: 350px;
+    width: 100%;
+    
+}
+
+/*main{
+    margin-top: 3%;
+}*/
+
+/* Frase cabecera */
+p{
+    font-size:30px;
+    margin-left: 300px;
+    margin-top: -230px;
+    color: #000;
+}
+
+/* Cuerpo de la página */
+body{
+    /*background-color: #050505;*/
+    background-color: #d8d8d8;
+    margin: 0;
+}
+
+section{
+    margin: 2%;
+}
+
+
+/********************************/
+/* Menu hamburguesa 0 */
+label[for="ckb-menu"]{
+    cursor:pointer;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+#ckb-menu{
+      display: none;
+}
+
+#ckb-menu:checked+nav{
+    max-height: 15em;
+}
+
+nav 
+{
+   /* background: #1164BB;*/
+    margin-bottom: 20px;
+    margin-top: auto
+    margin-right: auto;
+    margin-left: auto;
+    max-height: 2em;
+    overflow: hidden;
+    padding-left: 10%;    
+   /* border-top: .1em solid #234;
+    border-bottom: .1em solid #234;*/
+    transition: max-height 1s;
+}
+
+    nav>ul
+    {
+        list-style: none;
+        -webkit-padding-start: 0px;
+        -moz-padding-start: 0px;
+        -o-padding-start: 0px;
+
+        margin: 0;
+        padding: 0;
+
+    }
+        nav>ul>li 
+        {
+            float: left;
+        }
+            nav>ul>li>a, 
+            label[for="ckb-menu"]{
+                display: block;
+                color : #000;
+                font-size : 23px;
+                text-decoration: none;
+                width : 240px;
+                line-height : 25px;   
+                padding: .2em 0;           
+
+            }
+                nav>ul>li>a:hover
+                {
+                    background-color: rgba(204,0,51,0.7);
+                    /*border-radius: 2px;*/
+                }
+
+@media all and (min-width: 480px){
+
+    nav{
+        max-height: 2em;
+    }
+
+    nav>ul>li:first-of-type{
+        display: none;
+    }
+
+    nav>ul>li{
+        display: inline-block;
+        float: left;
+    }
+
+        nav>ul>li>a{
+            padding: .2em .5em;
+        }
+
+    nav>ul>li:not(:last-of-type){
+        border-right: .1em solid #234;
+    }
+}
+
+/* Menú hamburguesa 1
+.clearfix:before, .clearfix:after{
+    content: "";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix:before{
+    *zoom: 1;/* nos permite escalar 
+}
+nav a#pull{
+    display: none;
+}
+
+@media all and (min-width: 480px){
+
+    nav{
+        border-bottom: 0;
+    }
+
+    nav ul{
+        display: none;
+        height: auto;
+    }
+
+    nav a#pull{
+        display: block;
+        background-color: #2095a0
+        width: 100%;
+        position: relative;
+    }
+    nav a#pull:after{
+        content: "";
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 15px;
+        top:10px;
+    }
+}*/
+
+
+/* Botón para eliminar foto */
+#boton, .eliminarImagen {
+    background: orange;
+    float: left;
+    position: absolute;
+}
+
+.Imagen1, .Imagen2, .Imagen3{
+    float: left;
+}   
+/* Formulario acceso */          
+#formularioacceso{
+    border-style: outset; 
+    border-width: 7px; 
+    background-color: #1ABC9C;
+    border-color: #148F77;
+    height:280px;
+    width: 400px;
+    padding: 180px;
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    position: relative;
+    padding-top: 50px;
+}
+
+button {
+    padding: 25px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    font-size: 150%;
+}
+
+div#next_button{
+    position: relative;
+    bottom: 15px; 
+    right: 100px;
+    text-align : center;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 100%;
+    text-align : left;
+}
+
+.login {
+    margin-top: 30px;
+    margin:auto;
+    padding:90px;
+    text-align : left;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.login input {
+    padding-top: 40px;
+    padding:12px;
+    margin:5px
+    font-size: 100%;
+}
+
+/* Formulario de registro */
+#formularioregistro input[type = "submit"]{
+
+    text-align : center;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    color: white;
+    background: blue;
+    margin-left: 325px;
+}
+/* Formulario de nueva entrada */
+#formularioEntradaNueva input[type = "submit"]{
+
+    text-align : center;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    color: white;
+    background: blue;
+    margin-left: 400px;
+}
+/* Formulario de busqueda */
+#formulariobusqueda input[type = "submit"]{
+
+    text-align : center;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    color: white;
+    background: blue;
+    margin-left: 325px;
+}
+/* Formulario de registro, nueva entrada y búsqueda */
+#formularioEntradaNueva label{
+    text-align: left;
+    display: inline-block;
+    margin: 10px;
+    width: 300px;
+    font-size: 19px;
+    color: #000;
+}
+
+#formularioEntradaNueva textarea{
+    display: inline-block;
+    margin: 0px;
+    width: 300px;
+    height: 144px;
+    font-size: 19px;
+    text-align: left;
+}
+
+/* Formulario de registro: poner margen a los elementos e alinear las cajas de texto */
+
+#formularioregistro input, #formularioEntradaNueva input[type = "text"]
+{
+    margin-bottom: 5px;
+    width: 200px;
+    text-align : left;
+}
+
+#formularioregistro input, #formularioEntradaNueva input[type = "file"]
+{
+    margin-bottom: 10px;
+    margin-left: 0px;
+    width: 300px;
+    text-align: left;
+}
+
+#formularioregistro, #formularioEntradaNueva, #formulariobusqueda
+{
+    color: #FFFFFF;
+    height:600px;
+    /*margin: 170px;*/
+}
+
+#formularioregistro label, #formulariobusqueda label 
+{
+    display: inline-block;
+    margin: 10px;
+    width: 300px;
+    font-size: 19px;
+    color: #000;
+}
+
+#formulariobusqueda input[type = "submit"]{
+
+    margin-bottom: 5px;
+    width: 235px;  
+}
+
+#formulariobusqueda input[type = "text"]{
+    margin-bottom: 5px;
+    width: 200px;
+    text-align : left;    
+} 
+
+#formulariobusqueda textarea{
+    display: inline-block;
+    margin: 0px;
+    width: 300px;
+    height: 144px;
+    font-size: 19px;
+    text-align: left;
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+
+/*************************************************/
+
+#tituloformacceso{
+    text-align: left;
+    font-size: 200%;
+    padding: -40px;
+    height: 10px;
+    background-color: none;
+    color: #000;
+
+}
+
+h1{
+    color: #FFF;
+    font-size: 50px;
+    text-transform: uppercase;    
+    margin-left: 10px;
+    /*position: absolute;*/
+    font-style: normal;
+    display: none;
+
+}
+
+h2{
+    color: #903;
+    text-align: left;  
+    padding: 1%;
+    font-size: 50px;
+    /*background: rgba(0,0,255,0.5);*/
+    width:100%;
+}
+
+h3{
+    text-align: left;
+    font-size: 200%;
+    padding: -40px;
+    height: 10px;
+}
+
+h4{
+    color: #903;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+a{
+    text-decoration:none;
+    color: #754654;
+}
+
+a:hover{
+    text-decoration:none;
+    color: #fff;
+}
+
+button{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+}
+    
+button:hover{
+    background-color: #636CB3;
+    
+}
+
+
+/*****animacion fotos******/
+
+.imagen{
+    float: left;
+    width: 17%;
+    padding: 0.5%;
+    transition: box-shadow 2s;
+    font-weight: bold;
+    margin:1em auto;
+    border .1em solid #234;
+    overflow:hidden;
+    position:relative;
+    /*margin-top: 2%;
+    margin-left: 2%;*/
+    /*height: 10em; */
+    /*width: 10em;*/
+}
+
+.imagen ul{
+    text-align:left;
+}
+
+.imagen figure{
+    text-align:left;
+}
+
+.imagen img{
+    background-color: #f5f5f5; 
+    border: 3px inset #CCC;
+    width:95%;
+    height:auto;
+    opacity:1; 
+    transition: opacity 1s;
+}
+
+.imagen:hover>img{
+    opacity: 0.3;
+}
+
+.imagen:hover{
+    box-shadow: 0 0 20px #003;
+}
+
+/*al ponerlo como absulte se pone en la posicion 0 0 y al ponerle al padre el relative hace que el hijo se adapte a esa posicion*/
+
+.imagen figcaption{
+    position: absolute;
+    top: 0;
+    left:0;
+    /*padding-top: 4%;*/
+    /*padding-left: 6%;*/
+    padding: 8%;
+    opacity:0;
+    transition:opacity 1s;
+    color: #000;
+    font-size: 20px;
+    text-align: left;
+}
+
+figure:hover>figcaption{
+    opacity: 1;
+}
+
+.imagen figcaption>a{
+    display: block;    
+    padding: 5%;
+}
+
+
+/**PAGINACION**/
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+ul.pagination li a.active {
+    /*background-color: #4CAF50;*/
+    background-color: #903;
+    color: white;
+    border-radius: 5px;
+}
+
+ul.pagination li a:hover:not(.active) {
+    background-color: #FFF;
+    border-radius: 5px;
+}
+
+section.pag{
+    text-align: center;
+}
+
+/***/
+
+.comentarios{
+    margin-top: 5px;
+}
+.coment{
+    float: left;
+    width: 30%;
+    transition: box-shadow 2s;
+    margin-top: 2%;
+    margin-left: 2%;
+    font-weight: bold;
+    background-color: #f5f5f5; 
+    border: 3px inset #CCC;
+    height:auto;
+}
+
+.coment ul{
+    text-align:left;
+}
+
+.coment ul li{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+.coment:hover{
+    box-shadow: 0 0 20px #003;
+}
+
+.enlaceComent{
+    color: #000;
+}
+
+.enlaceComent:hover{
+    color: #000;
+}
+
+.texto{
+    
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: auto;
+}
+
+.contenidoAutor{
+    float:left;
+    margin-left: 2%;
+    font-size: 25px;    
+}
+
+.contenidoAutor ul{
+    list-style:none;
+    font-size: 20px;
+}
+
+.textoEnt{
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.comentEntrada{
+    float: left;
+    width: 30%;
+    transition: box-shadow 2s;
+    margin-top: 2%;
+    margin-left: 2%;
+    font-weight: bold;
+    background-color: #f5f5f5; 
+    border: 3px inset #CCC;
+    height:auto;
+}
+
+.comentEntrada ul{
+    text-align:left;
+}
+
+.comentEntrada ul li{
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.comentEntrada:hover{
+    box-shadow: 0 0 20px #003;
+}
+
+.botonComent{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 10px;
+    margin: 15px 40px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    font-size: 100%;
+}
+ 
+.hacercoment{
+    float:left;
+    margin-left: 5%;
+}
+
+.formComent{
+    float:left;
+}
+
+.tituloComent{
+    margin-top: 11%;
+    margin-left: 5%;
+}
+
+.textoComent{
+    float: left;
+    margin-left: 5%;
+}
+
+/*.imagenEnt{
+    margin-top: 8%;
+}*/
+
+.comentariosEnt{
+    margin-top: 25%;
+   /* margin-top: 30%;*/
+}
+
+.responderComent{       
+    /*margin-top: 52%;*/
+    margin-top: 52%;
+    margin-left: 2%;
+}
+
+.respuestaComent{
+    float: left;
+    margin-top:auto;
+    padding: 1%;
+}
+
+.botonResp{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 10px;
+    margin: 10px 2px;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    font-size: 100%; 
+}
+
+/*****************  ID  **********************/
+
+/* Logo de nuestra página */
+#logo{
+    /*display: inline;*/
+} 
+
+
+/*#tituloFoto{
+    color: #903;
+    margin-top: 1%;
+    position: absolute;
+}*/
+
+#pie{
+    margin-top: 2px;
+    color: #903;
+}
+
+/* Copyright */
+#derechos{
+    display: none;
+    color: #903;
+}
+
+/* Pie de la página */
+footer{
+    clear:both;
+    font-weight:75%;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: auto;
+    padding:15px;
+    width:100%;
+    bottom:0;
+    opacity: 0.8;
+    filter:  alpha(opacity=50);
+    background-color: #000;
+    border: 1px solid #FF8C31;
+    color: #fff;
+    height: 20px;
+    text-align: center;
+    font-size: 10px;
+}
+

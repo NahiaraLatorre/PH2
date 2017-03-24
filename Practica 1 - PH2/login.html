@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Practica1-PH2">
+    <meta name="author" content="Nahiara&Maria">
+    <!-- Enlace al CSS principal -->
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+    
+    <!-- Enlace al CSS principal -->
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+    <!--Para los iconos-->
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
+    <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+    
+    <!-- Enlace al JavaScript que evalua los formularios -->
+    <script src="JavaScript/formularios.js" language="javascript" type="text/javascript"></script>
+    
+    <title>Login</title>
+
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
+        <h1>Crazy Trips</h1>
+        <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
+    
+    </header>
+
+    <!--Menú-->
+    <input type="checkbox" id="ckb-menu">
+    <nav>
+        <ul>
+            <li><label for="ckb-menu">&equiv;</label></li>
+            <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
+            <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
+            <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
+            <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
+            <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
+            <li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li>
+            
+        </ul> 
+    </nav>
+
+    <main>
+        <br><br>
+        <section>
+        <h1>Login</h1>
+            <!-- Formulario de acceso -->
+            <form id = "formularioacceso" class="login" onsubmit = "acceso(formularioacceso)">
+                <h2 id = "tituloformacceso" class = "tituloformulario" >Acceso</h2>
+                <!-- Encabezado del formulario de acceso -->
+                    <br>
+                    <!-- Campo de acceso: nombre de usuario -->
+                    <label for = "nick"> Usuario </label>
+                    <input type = "text" name ="nick" id = "nick" autofocus = "autofocus" placeholder = "Nombre de Usuario" accesskey = "u" tabindex = "1" required/>
+                    
+                    <!-- Campo de acceso: contraseña -->
+                    <label for = "password"> Contrase&ntilde;a </label>
+                    <input type = "password" name = "password" id = "password" placeholder = "Contrase&ntilde;a" accesskey = "n" tabindex = "5"/>
+                    <br/>
+                    <br>
+                    <!-- Botón para confirmar el acceso -->
+                    <div id="next_button">
+                        <button type = "submit" id = "boton" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6" />Entrar</button>
+                    </div>
+            </form>
+        </section>
+    </main>              
+    <br><br><br><br><br><br><br><br>
+	<footer>
+
+        <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
+        <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
+    </footer> 
+
+</body>
+</html>
