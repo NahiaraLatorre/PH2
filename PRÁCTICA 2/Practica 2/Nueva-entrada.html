@@ -38,7 +38,6 @@
             <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
             <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
             <li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li>
-            
         </ul> 
     </nav>
 
@@ -57,7 +56,7 @@
                 <br>
 
                 <!-- Campo de registro: foto de perfil -->
-                <label id = "subirfoto" >Añadir fotos: </label>
+                <label id = "TituloSubirfoto" >Añadir fotos: </label>
 
                 <input type = "file" id = "subirfoto" name = "subirfoto" tabindex = "15"> 
                 <br>
@@ -69,41 +68,36 @@
                 <br/>
                  
                 <!-- Botón para eliminar imagen1 -->
-                <img class = "Imagen1" width="230px" height="150px" src="img/paisaje12.jpg">
-                <div id="boton"> 
+                <img class = "Imagen1" alt="personas pescando" src="img/paisaje12.jpg">
+                <div id="boton1"> 
                     <input class = "eliminarImagen" type="button" value="X"/>
                 </div>
 
                 <br/>
-                <textarea type = "text" name ="descripcion" id = "descripcion1" placeholder = "Texto descripcion1" accesskey = "k" tabindex = "5"></textarea><br/>
-
-                
-
+                <textarea class="caja">Escribir comentario . . .</textarea>
+                <br/>
                 <!-- descripcion 2 -->
                 <label for = "descripcion2"> Descripción 2 </label>
                 <br/>
                 <!-- Botón para eliminar imagen1 -->
-                <img class = "Imagen2" width="230px" height="150px" src="img/paisaje11.jpg">
-                <div id="boton"> 
+                <img class = "Imagen2" alt="Lago rosa" src="img/paisaje11.jpg">
+                <div id="boton2"> 
                     <input class = "eliminarImagen" type="button" value="X"/>
                 </div>
-
-                <textarea type = "text" name ="descripcion" id = "descripcion2" placeholder = "Texto descripcion2" accesskey = "k" tabindex = "5"></textarea><br/>
-
-                
-
+                <textarea class="caja">Escribir comentario . . .</textarea>
+                <br/>
                 <!-- descripcion 3 -->
                 <label for = "descripcion3"> Descripción 3 </label>
                 <br/>
                 <!-- Botón para eliminar imagen1 -->
-                <img class = "Imagen3" width="230px" height="150px" src="img/paisaje10.jpg">
-                <div id="boton"> 
+                <img class = "Imagen3" alt="Mundo misterioso" src="img/paisaje10.jpg">
+                <div id="boton3"> 
                     <input class = "eliminarImagen" type="button" value="X"/>
                 </div>
 
-                <textarea type = "text" name ="descripcion" id = "descripcion3" placeholder = "Texto descripcion3" accesskey = "k" tabindex = "5"></textarea><br/>
-
-                <br><br><br><br><br><br><br><br><br><br/>
+                <textarea class="caja">Escribir comentario . . .</textarea>
+               
+                <br><br><br><br><br><br><br><br/>
                 <!-- Botón para confirmar la búsqueda -->
                 <input type = "submit" name = "Enviar datos" value = "Enviar" accesskey = "b" tabindex = "12"/>
             </form>

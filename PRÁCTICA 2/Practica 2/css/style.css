@@ -174,9 +174,13 @@ nav a#pull{
     float: left;
     position: absolute;
 }
+/*********** fotos de nueva entrada ************/
 
 .Imagen1, .Imagen2, .Imagen3{
     float: left;
+    border-radius: 40px;
+    width: 230px; 
+    height: 150px; 
 }   
 /* Formulario acceso */          
 #formularioacceso{
@@ -357,7 +361,6 @@ input[type=text], input[type=password] {
 
 
 /*************************************************/
-
 #tituloformacceso{
     text-align: left;
     font-size: 200%;
