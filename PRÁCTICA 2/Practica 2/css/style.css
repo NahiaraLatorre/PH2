@@ -55,7 +55,7 @@ label[for="ckb-menu"]{
 
 nav 
 {
-   /* background: #1164BB;*/
+   /* background: #1164BB;
     margin-bottom: 20px;
     margin-top: auto
     margin-right: auto;
@@ -64,8 +64,21 @@ nav
     overflow: hidden;
     padding-left: 10%;    
    /* border-top: .1em solid #234;
-    border-bottom: .1em solid #234;*/
-    transition: max-height 1s;
+    border-bottom: .1em solid #234;
+    transition: max-height 1s;*/
+
+    position:absolute;/*Lo ponemos en */
+    width:100%;
+    top:0;
+    left:-110%;
+    border: 1px solid black;
+    height:100%;
+    background-color: white; 
+    opacity: 0.95;
+    transition:all .5s ease;
+    text-align: center;
+    color:black;
+
 }
 
     nav>ul
@@ -76,15 +89,19 @@ nav
         -o-padding-start: 0px;
 
         margin: 0;
-        padding: 0;
+        padding: 0 0 0 0;
 
     }
         nav>ul>li 
         {
-            float: left;
+            /*float: left;*/
+            list-style: none;
+            background-color: #6790AD;
+            border:0.01em solid white;
+            margin: 0.3em;
+            opacity: 1;
         }
-            nav>ul>li>a, 
-            label[for="ckb-menu"]{
+            nav>ul>li>a, label[for="ckb-menu"]{
                 display: block;
                 color : #000;
                 font-size : 23px;
