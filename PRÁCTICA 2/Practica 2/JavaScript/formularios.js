@@ -1,3 +1,27 @@
+/************************************************
+*
+*           DEBERIAMOS BORRAR ESTE
+*
+*
+*           SERIA MEJOR TENER UN JS PARA CADA HTML
+*
+*
+*
+*
+*
+************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
 /* Funcion para campos de nueva entrada */
 function nuevaEntrada(formularioEntradaNueva){
 
@@ -352,30 +376,5 @@ $(function(){
         }
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

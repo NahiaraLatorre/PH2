@@ -11,7 +11,8 @@
     <link rel="icon" href="img/logo-icon.ico" type="image/x-icon"/>
     
     <!-- Enlace al JavaScript que evalua los formularios -->
-    <script src="JavaScript/formularios.js"></script>
+    <script src="JavaScript/funciones.js"></script>
+    <script src="JavaScript/index.js"></script>
     
     <!--Para los iconos-->
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
@@ -22,7 +23,7 @@
 	<title>Inicio</title>
     
 </head>
-<body>    
+<body onload="arranque();arranque_personalizado();">    
      <!-- Cabecera -->
     <header>
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
@@ -41,20 +42,22 @@
             <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
             <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
             <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
-            <li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li>
+            <li><a href="#" id="Logout" onclick="cerrar();"><i class="icon-logout"></i> Logout</a></li>
             
         </ul> 
     </nav>
 
     <main>
-        <h1>Inicio</h1>
         <section id="entradas"></section> <!--/section para imagenes-->
     </main>
-
+    <div class="sangria_default">
+        <h3>Ultimo comentarios:</h3>
+        <h6 for="brefresh" onclick="peticionAJAX_GET2('/practica2/rest/get/comentario.php?prm=usu2&u=10');">Refrescar</h6>
+    </div>
 
     <footer>
-        <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
-        <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
+        <p id="pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
+        <p id="derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
 </body>
 </html>
