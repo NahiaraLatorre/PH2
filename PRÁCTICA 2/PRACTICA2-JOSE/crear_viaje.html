@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>jTravel >Crear viaje</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="stylesheet" type="text/css" href="css/fontello.css"/>
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'/>
+	<script type="text/javascript" src="/practica2/js/crear_viaje.js"></script>
+	<script type="text/javascript" src="/practica2/js/funciones_genericas.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body onload="arranque(); arranque_per();">
+	<div class="zoom" id="zoo"><div class="mensaje" id="mensaje"></div></div>
+	<input type="checkbox" class="checkbox" id="menu-toogle"/>
+	<label for="menu-toogle"><span></span></label>
+	<div id="banner">
+		<img src="img/logotipo.png" height="100" width="100" alt="Logotipo de la pagina">
+		<h1>jTravel</h1>
+		<h3>The Experience</h3>
+	</div>
+	<nav id="menu">
+		<h3>Menu Despegable</h3>
+		<ul id="menu_lista">
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="buscar_viajes.html"><span class="icon-search"></span>Buscar Viaje</a></li>
+			<li><a href="crear_viaje.html"><span class="icon-pencil"></span>Crear Viaje</a></li>
+			<li><a href="registro.html"><span class="icon-user-add-outline"></span>Registro</a></li>
+			<li><a href="registro.html"><span class="icon-users"></span>Perfil</a></li>
+			<li><a href="login.html"><span class="icon-users"></span>Login</a></li>
+			<li><a href="acerca.html"><span class="icon-user"></span>Nosotros</a></li>
+			<li><a href="#" onclick="cerrar();">Cerrar Sesion</a></li>
+		</ul>
+	</nav>
+	<main class="login centrado">
+	<fieldset>
+    <legend>Crear viaje</legend>
+			<header>
+				<h1>Crea tu viaje</h1>
+			</header>
+			<p>Aquí podrás crear tu viaje.</p>
+			<form id="crear_viaje" onsubmit="return envio();">
+				<label for="titulo">Título:</label><br/><input type="text" name="titulo" id="titulo"  class="input" required title="Necesita un título" pattern="^[a-z0-9_-]{3,200}$" />
+				<br/>			
+				<label for="fecha_desde">Fecha desde:</label><br/><input type="text" title="DD/MM/AAAA" placeholder="DD/MM/AAAA" name="fecha_desde" id="fecha_desde"  class="input" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" required="" />
+				<br/>
+				<label for="fecha_hasta">Fecha hasta:</label><br/><input title="DD/MM/AAAA" placeholder="DD/MM/AAAA" type="text" name="fecha_hasta" id="fecha_hasta"  class="input" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$" required />
+				<br/>
+				<label for="descripcion">Descripción:</label><br/><textarea name="descripcion" id="descripcion"  class="input" required ></textarea>
+				<br/>
+				<input name="showsubirfoto" type="button" onclick="subir_foto();" value="Subir fotos" /> 
+				<br>
+				<div id="crearviaje_cont_img" class="imagenesviaje"> 
+
+					<label for="subir">Subir imagen:</label><br/><input type="file" name="subir" id="subir" onchange="	previsualizar()">
+					<p id="archivo_muy_grande_viaje" class = "error"> El archivo no debe superar 2 MB<br> </p>	
+
+					<br/>
+					<input name="borrar" type="button" onclick="borrar_foto(this.parentNode);" value="Borrar foto" /> 
+
+					<br/>
+					<label for="descripcionfoto">Descripción:</label><br/><textarea name="descripcionfoto" id="descripcionfoto"  class="input" ></textarea>
+
+					<img src="img/prueba2.jpg" id="fotoviaje1"> <br> 
+
+				</div>
+				<br>
+				Valoración<br/>
+				<div class="valoracion">
+					<aside class="estrellas" id="valoraciones">
+						<span class="icon-star" onclick="valorac(1);"></span>
+						<span class="icon-star" onclick="valorac(2);"></span>
+						<span class="icon-star" onclick="valorac(3);"></span>
+						<span class="icon-star" onclick="valorac(4);"></span>
+						<span class="icon-star" onclick="valorac(5);"></span>
+					</aside>
+				</div>
+
+				<input type="submit" value="Crear viaje!"/>
+			</form>
+	</fieldset>
+	</main>
+	<footer class="footer">
+		<p>
+			<span>jTravel&copy;</span>
+			<time datetime="2016">2016</time>
+		</p>
+	</footer>
+</body>
+</html>

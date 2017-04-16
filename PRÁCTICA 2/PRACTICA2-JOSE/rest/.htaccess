@@ -1,10 +1,8 @@
 Options +FollowSymLinks
 RewriteEngine On
 
-# Ruta completa desde htdocs hasta la carpeta "rest".
-# Si el path hasta la carpeta es C:\xampp\htdocs\practica2\rest,
-# habría que poner lo siguiente: RewriteBase /practica2/rest/
-RewriteBase /Practica2/rest/
+# Ruta completa desde htdocs hasta el interior de la carpeta rest
+RewriteBase /practica2/rest/
 
 # Con el valor 307 en las reglas de abajo se redirigen todas las
 # peticiones, tanto las peticiones GET como las POST
@@ -27,7 +25,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^login/(.*)$ post/login.php?prm=$1&%{QUERY_STRING} [R=307,L]
 
 ##################################################
-### REGLAS PARA REGISTRO DE USUARIO
+### REGLAS PARA REGISTRO / MODIFICAR DATOS DE USUARIO
 ##################################################
 # Regla que redirige a rest/post/usuario.php
 # Con esta línea de abajo, sólo acepta peticiones POST
@@ -54,21 +52,21 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^comentario/(.*)$ post/comentario.php?prm=$1&%{QUERY_STRING} [R=307,L]
 
 ##################################################
-### REGLAS PARA ENTRADA
+### REGLAS PARA VIAJE
 ##################################################
-# Regla que redirige a rest/get/entrada.php (pedir información sobre entradas)
+# Regla que redirige a rest/get/viaje.php (pedir información sobre viajes)
 # Con esta línea de abajo, sólo acepta peticiones GET
 RewriteCond %{THE_REQUEST} ^GET
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^entrada/(.*)$ get/entrada.php?prm=$1&%{QUERY_STRING} [R=307,L]
+RewriteRule ^viaje/(.*)$ get/viaje.php?prm=$1&%{QUERY_STRING} [R=307,L]
 
-# Regla que redirige a rest/post/entrada.php (guardar info sobre una nueva entrada)
+# Regla que redirige a rest/post/viaje.php (guardar info sobre un nuevo viaje)
 # Con esta línea de abajo, sólo acepta peticiones POST
 RewriteCond %{THE_REQUEST} ^POST
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^entrada/(.*)$ post/entrada.php?prm=$1&%{QUERY_STRING} [R=307,L]
+RewriteRule ^viaje/(.*)$ post/viaje.php?prm=$1&%{QUERY_STRING} [R=307,L]
 
 ##################################################
 ### REGLAS PARA FOTO
