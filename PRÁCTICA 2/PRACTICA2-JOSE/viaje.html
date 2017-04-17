@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>jTravel > Viaje</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="stylesheet" type="text/css" href="css/fontello.css"/>
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'/>
+	<script type="text/javascript" src="/practica2/js/viaje.js"></script>
+	<script type="text/javascript" src="/practica2/js/funciones_genericas.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body onload="arranque();arranque_personalizado();">
+	<div class="zoom" id="zoo"><div class="mensaje" id="mensaje"></div></div>
+	<input type="checkbox" class="checkbox" id="menu-toogle"/>
+	<label for="menu-toogle"><span></span></label>
+	<div id="banner">
+		<img src="img/logotipo.png" height="100" width="100" alt="Logotipo de la pagina">
+		<h1>jTravel</h1>
+		<h3>The Experience</h3>
+	</div>
+	<nav id="menu">
+		<h3>Menu Despegable</h3>
+		<ul id="menu_lista">
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="buscar_viajes.html"><span class="icon-search"></span>Buscar Viaje</a></li>
+			<li><a href="crear_viaje.html"><span class="icon-pencil"></span>Crear Viaje</a></li>
+			<li><a href="registro.html"><span class="icon-user-add-outline"></span>Registro</a></li>
+			<li><a href="registro.html"><span class="icon-users"></span>Perfil</a></li>
+			<li><a href="login.html"><span class="icon-users"></span>Login</a></li>
+			<li><a href="acerca.html"><span class="icon-user"></span>Nosotros</a></li>
+			<li><a href="#" onclick="cerrar();">Cerrar Sesion</a></li>
+		</ul>
+	</nav>
+	<!--aqui empieza el post-->
+	<main class="post">
+			<header>
+				<h1 id="titulo"></h1>
+			</header>
+			<img id="pimagen" src="" class="centrado" alt="imagen de presentacion"/>
+			<div id="descripcion">
+
+			</div>
+			<!--aqui termina el post-->
+			<div class="valoracion">
+				<header>
+					<h3>Valoracion del Viaje</h3>
+				</header>
+				<footer>
+				<aside class="estrellas" id="valora">
+				</aside>
+				<br>
+				</footer>
+			</div>
+			<div class="fotos" id="fotos_realizadas">
+					<!--<p>Preciosas vistas</p><img src="img/prueba2.jpg" alt="primera imagen del viaje"/>-->
+				<footer>
+				</footer>
+			</div>
+			<div class="comentario">
+				<header>
+					<h3>Comentarios</h3>
+				</header>
+				<aside id="comenta">
+					<!--<p><span>Lorem ipsum.</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates?<span class="fecha_comentarios"><time datetime="12/12/1992 19:22">12/12/1992 19:22</time></span></p>-->	
+				</aside>
+				<footer id="campo_comentario">
+					Usted puede publicar su comentario.
+					<br>
+					<form method="POST" onsubmit="return enviar_comentario();">
+						Titulo:<input type="text" id="titulo_en"/>
+						<br/>
+						<textarea style="width:100%;" placeholder="ponga aqui su comentario" id="coment_en"></textarea>
+						<br/>
+						<input type="submit" value="Agregar Comentario"/>
+					</form>
+				</footer>
+			</div>
+			<footer>
+				<h6>Gracias por su tiempo</h6>
+			</footer>
+	</main>
+	<footer class="footer">
+		<p>
+			<span>jTravel&copy;</span>
+			<time datetime="2016">2016</time>
+		</p>
+	</footer>
+</body>
+</html>
