@@ -8,9 +8,6 @@
     <!-- Enlace al CSS principal -->
     <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
     <link rel="icon" href="img/logo-icon.ico" type="image/x-icon"/>
-
-    <!-- Enlace al JavaScript que evalua los formularios -->
-    <script src="JavaScript/formularios.js"></script>
     
     <!--Para los iconos-->
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
@@ -46,34 +43,40 @@
     <main>
         <h1>Registrarse</h1>
         <section>
-            <form id = "formularioregistro" onsubmit = "registrarse(formularioregistro)">
+            <form method="post" id = "formularioregistro" onsubmit = "peticionAJAX_PostRegistro();return false;">
                 <!-- Encabezado del formulario de registro -->
                 <h2>Datos para unirme</h2>
-                <!-- Campo de registro: nombre de usuario -->
-                <label for = "nick"> Nick: </label>
-                <input type = "text" name ="nick" id = "nick" autofocus = "autofocus" placeholder = " Nombre identificativo" accesskey = "u" tabindex = "1" required/>
-                <br/>
+                <!--
                 <br>
+                <div id="usu"></div><p id="no2" class="no"></p>
+                <br>
+                <div id="contra"></div><p id="no" class="no"></p>
+                <br>-->
+
+                <!-- Campo de registro: nick -->
+                 <label class="alinea" for = "nick"> Nick: </label><input type = "text" name ="nick" id = "nick" autofocus = "autofocus" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$" disabled/><br/><br>
                 <!-- Campo de registro: nombre de usuario -->
                 <label for = "usuario"> Nombre de usuario: </label>
-                <input type = "text" name ="usuario" id = "usuario" placeholder = "Nombre de usuario" accesskey = "u" tabindex = "1"/>
+                <input type="text" name ="usuario" placeholder="Nombre de usuario" id="usuario" required>
                 <br/>
                 <br>
+
                 <!-- Campo de registro: contraseña -->
                 <label for = "password"> Introduce contrase&ntilde;a: </label>
-                <input type = "password" name = "password" id = "password" placeholder = "Contrase&ntilde;a" accesskey = "p" tabindex = "2"/>
+                <input type="password" id="password" name = "password" placeholder="Contraseña"
+                required pattern="^[a-zA-Z0-9-_]{1,20}$"><br></div>
                 <br/>
                 <br>
 
                 <!-- Campo de registro: repetir contraseña -->
                 <label for = "password2"> Confirma la contrase&ntilde;a: </label>
-                <input type = "password" name = "password2" id = "password2" placeholder = "Repite contrase&ntilde;a" accesskey = "c" tabindex = "3"/>
+                <input type = "password" name = "password2" id = "password2" placeholder = "Repite contrase&ntilde;a"/>
                 <br/>
                 <br>
 
                 <!-- Campo de registro: correo electrónico -->
                 <label for = "email">Email: </label>
-                <input type = "text" name = "email" id = "email" placeholder = "Correo electr&oacute;nico" accesskey = "e" tabindex = "4"/>
+                <input type="text" id="email" name = "email" placeholder="ejemplo@xxx.xx" required>
                 <br/>
                 <br>
                 <br/>
@@ -91,5 +94,28 @@
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer>
+    <script src="JavaScript/formularios.js"></script>
+    <script type="text/javascript">
+
+    window.onload=inicio;
+    if(sessionStorage.getItem("nick")!=null){
+        
+        document.getElementById("usu").innerHTML='<label class="alinea" for = "nick"> Nick: </label><input type = "text" name ="nick" id = "nick" autofocus = "autofocus" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$" disabled/><br/><br>'; 
+        document.getElementById("password").innerHTML='<label class="alinea" for="contraseña">Contraseña:*</label><input type="password" id="password" placeholder="Introducir contraseña" pattern="^[a-zA-Z0-9-_]{1,20}$">';
+        document.getElementById("password2").innerHTML='<label class="alinea" for="contraseña">Contraseña:*</label><input type="password" id="password2" placeholder="Introducir contraseña" pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
+
+        document.getElementById("email").value=sessionStorage.getItem("email");
+        document.getElementById("nick").value=sessionStorage.getItem("nick");
+        document.getElementById("usuario").value=sessionStorage.getItem("nombre");
+        document.getElementById("nick").value=sessionStorage.getItem("nick");
+        document.getElementById("nombre").required=false;
+        document.getElementById("email").required=false;
+    }else {
+        document.getElementById("usu").innerHTML='<label class="alinea" for="nick">Nick:*</label><input type="text" id="nick" onchange="peticionComprobarLogin(this.value)" placeholder="Introducir nombre" required autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"><br>'; 
+        document.getElementById("password").innerHTML='<label class="alinea" for="password">Contraseña:*</label><input type="password" id="password" placeholder="Introducir contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
+        document.getElementById("password2").innerHTML='<label class="alinea" for="contraseña">Contraseña:*</label><input type="password" id="password2" placeholder="Introducir contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
+    }
+
+    </script>
 </body>
 </html>

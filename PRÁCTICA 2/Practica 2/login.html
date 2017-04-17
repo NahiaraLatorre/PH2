@@ -8,14 +8,10 @@
     <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
     <link rel="icon" href="img/logo-icon.ico" type="image/x-icon"/>
     
-   
     <!--Para los iconos-->
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
     <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
-    
-    <!-- Enlace al JavaScript que evalua los formularios -->
-    <script src="JavaScript/formularios.js"></script>
     
     <title>Login</title>
 
@@ -47,32 +43,38 @@
         <section>
             <h2>Login</h2>
             <!-- Formulario de acceso -->
-            <form id = "formularioacceso" class="login" onsubmit = "acceso(formularioacceso)">
+            <form method="post" id = "formularioacceso" class="login" onsubmit = "peticionAJAX_LOGIN('rest/post/login.php');return false;">
                 <h2 id = "tituloformacceso" class = "tituloformulario" >Acceso</h2>
                 <!-- Encabezado del formulario de acceso -->
-                    <br>
-                    <!-- Campo de acceso: nombre de usuario -->
-                    <label for = "nick"> Usuario </label>
-                    <input type = "text" name ="nick" id = "nick" autofocus = "autofocus" placeholder = "Nombre de Usuario" accesskey = "u" tabindex = "1" required/>
-                    
-                    <!-- Campo de acceso: contraseña -->
-                    <label for = "password"> Contrase&ntilde;a </label>
-                    <input type = "password" name = "password" id = "password" placeholder = "Contrase&ntilde;a" accesskey = "n" tabindex = "5"/>
-                    <br/>
-                    <br>
-                    <!-- Botón para confirmar el acceso -->
-                    <div id="next_button">
-                        <button type = "submit" id = "boton" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6">Entrar</button>
-                    </div>
+                <br>
+                <!-- Campo de acceso: nombre de usuario -->
+                <label for = "nick"> Usuario </label>
+                <input type="text" placeholder="Nombre de Usuario" id="nick" required autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"><br></div>
+                <br>
+                <!-- Campo de acceso: contraseña -->
+                <label for = "password"> Contrase&ntilde;a </label>
+                <input type="password" id="password" placeholder="Introducir Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br></div>
+                <br/>
+                <br>
+                <!-- Botón para confirmar el acceso -->
+                <div id="next_button">
+                    <button type = "submit" id = "boton" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6">Entrar</button>
+                </div>
             </form>
         </section>
     </main>              
     <br><br><br><br><br><br><br><br>
 	<footer>
-
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
+    <script src="JavaScript/formularios.js"></script>
+        <script type="text/javascript">
+            if(sessionStorage.getItem("nick")!=null && sessionStorage.getItem("password")!=null){
+                window.location.assign("index.html")
+            }
+             window.onload=inicio;
 
+    </script>
 </body>
 </html>

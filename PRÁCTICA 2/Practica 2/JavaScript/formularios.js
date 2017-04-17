@@ -1,5 +1,238 @@
-<<<<<<< HEAD
+function crearObjAjax(){
+ var xmlhttp;
+  if(window.XMLHttpRequest) { // Objeto nativo
+   xmlhttp= new XMLHttpRequest(); // Se obtiene el nuevo objeto
+     } 
+     else 
+      if(window.ActiveXObject) { // IE(Windows): objectoActiveX
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+      return xmlhttp;
+}
 
+var obj; // variable que guarda el objeto XMLHttpRequest
+
+function peticionAJAX_LOGIN(url){
+    console.log("ENTRANDO");
+obj= crearObjAjax();
+    if(obj) { // Si se ha creado el objeto, se completa la petición ...
+        // Argumentos:
+        var login= document.getElementById("nick").value;
+        var password= document.getElementById("contrasenya").value;
+        var args= "login=" + login+ "&pwd=" + password;
+        args+= "&v=" + (new Date()).getTime(); // Truco: evita utilizar la cache
+        // Se establece la función (callback) a la que llamar cuando cambie el estado:
+        obj.onreadystatechange= procesarLogin; // función callback: procesarCambio
+        obj.open("POST", url, true); // Se crea petición POST a url, asíncrona ("true")
+        // Es necesario especificar la cabecera "Content-type" para peticiones POST
+        obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        obj.send(args); // Se envía la petición
+        console.log(args);
+  }
+}
+
+function procesarLogin(){
+   if(obj.readyState== 4){ // valor 4: respuesta recibida y lista para ser procesada
+    console.log(obj.status);
+     if(obj.status== 200){ // El valor 200 significa "OK"
+     // Aquí se procesa lo que se haya devuelto:
+     //document.getElementById("miDiv").innerHTML= obj.responseText;
+     var usu=document.getElementById("nick").value;
+     var contra=document.getElementById("contrasenya").value;
+
+     sessionStorage.setItem("nombreUsuario",usu);
+     sessionStorage.setItem("contrasenya",contra);
+
+     var usuario=JSON.parse(obj.responseText);
+     sessionStorage.setItem("email",usuario.EMAIL);
+     sessionStorage.setItem("nombre",usuario.NOMBRE);
+     sessionStorage.setItem("foto",usuario.FOTO);
+     sessionStorage.setItem("clave",usuario.CLAVE);
+     sessionStorage.setItem("fecha",usuario.ULTIMO_ACCESO);
+
+     document.getElementById("mensaje").innerHTML="Bienvenido "+usu+"<br>"+" Tu ultima conexión fue el: "+ sessionStorage.getItem("fecha")+"<div id='cerrar' onclick='cerrarMensajeConIndex()'>Cerrar</div>";
+     document.getElementById("mensaje").style.zIndex="5";
+     document.getElementById("mensaje").style.transition="opacity 1s linear";
+     document.getElementById("mensaje").style.opacity="1";
+
+      document.getElementById("muro").style.opacity="0.3";
+      document.getElementById("muro").style.zIndex="4";
+
+    
+   } 
+   else {
+     document.getElementById("mensaje").innerHTML="Login o contraseña incorrectos <div id='cerrar' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+     document.getElementById("mensaje").style.zIndex="5";
+     document.getElementById("mensaje").style.transition="opacity 1s linear";
+     document.getElementById("mensaje").style.opacity="1";
+
+      document.getElementById("muro").style.opacity="0.3";
+      document.getElementById("muro").style.zIndex="4";
+   }
+  }
+}
+
+function cerrarMensajeConIndex(){
+     document.getElementById("mensaje").style.zIndex="-1";
+     document.getElementById("muro").style.zIndex="-2";
+     document.getElementById("mensaje").style.opacity="0";
+     document.getElementById("muro").style.opacity="0";
+     window.location.assign('index.html');
+}
+function cerrarMensajeConFocus(){
+     document.getElementById("mensaje").style.zIndex="-1";
+     document.getElementById("muro").style.zIndex="-2";
+     document.getElementById("mensaje").style.opacity="0";
+     document.getElementById("muro").style.opacity="0";
+     document.getElementById("nombreUsuarioL").focus();
+}
+function cerrarMensajeConLogin(){
+     document.getElementById("mensaje").style.zIndex="-1";
+     document.getElementById("muro").style.zIndex="-2";
+     document.getElementById("mensaje").style.opacity="0";
+     document.getElementById("muro").style.opacity="0";
+     window.location.assign('login.html');
+}
+
+/*--------------  MODIFICAR  ---------------*/
+
+function inicio(){
+    
+    if(window.sessionStorage){
+        if(sessionStorage.getItem("nombreUsuario")){
+            document.getElementById("menu").innerHTML='<ul><li><label for="ckb-menu">&equiv;</label></li><li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li><li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li><li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li><li><a href="registro.html" onclick="registroInicio()" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li><li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li></ul>';
+        }
+        else{
+            document.getElementById("menu").innerHTML='<ul><li class="navegacion"><a href="index.html">Indice</a><span class="icon-home"></span></li><li class="navegacion"><a href="login.html">Login</a><span class="icon-login"></span></li><li class="navegacion"><a href="registro.html" onclick="registroInicio()">Registro</a><span class="icon-book-open"></span></li><li class="navegacion"><a href="buscar.html">Buscar viajes</a><span class="icon-search"></span></li><li class="navegacion"><a onclick="entrar_viaje()">Crear viaje</a><span class="icon-pencil"></span></li></ul>';
+        }
+    }
+}
+
+function logout(){
+
+    if(window.sessionStorage){
+        
+        sessionStorage.clear();
+            document.getElementById("menu").innerHTML='<ul><li class="navegacion"><a href="index.html">Indice</a><span class="icon-home"></span></li><li class="navegacion"><a href="login.html">Login</a><span class="icon-login"></span></li><li class="navegacion"><a href="registro.html" onclick="registroInicio()">Registro</a><span class="icon-book-open"></span></li><li class="navegacion"><a href="buscar.html">Buscar </a><span class="icon-search"></span></li><li class="navegacion"><a onclick="entrar_viaje()">Nueva entrada</a><span class="icon-pencil"></span></li></ul>';
+    window.location.assign('index.html');
+    }
+}
+
+
+
+function peticionComprobarLogin(value){
+    
+  obj = crearObjAjax();
+  if(obj){ // Si se ha creado el objeto, se completa la petición ...
+    obj.onreadystatechange = procesarComprobarLogin; // función callback: procesarCambio
+    obj.open("GET", "rest/login/"+value, true); // Se crea petición GET a url, asíncrona ("true")
+    obj.send(); // Se envía la petición
+  }
+
+}
+function procesarComprobarLogin(){
+    if(obj.readyState == 4){ 
+        if(obj.status == 200){ 
+           var log=JSON.parse(obj.responseText);
+           var disponible=log.DISPONIBLE;
+         
+          if(disponible=="false"){
+           document.getElementById("no2").innerHTML="<p id='no2' class='no'>Ese login no esta disponible</p>";
+          }
+          else{
+            document.getElementById("no2").innerHTML="";
+          }
+        }
+    }
+}
+
+
+function peticionAJAX_PostRegistro() {
+       
+    url="rest/post/usuario.php";
+    usuarioR = crearObjAjax();
+    var pwd=document.getElementById("password").value;
+    var pw2=document.getElementById("password2").value;
+
+     if(pwd==pw2){//si las contrasenyas son iguales entro
+      if (usuarioR) {
+       
+          var usu=document.getElementById("nombreUsuario").value;
+          
+          var nombre=document.getElementById("usuario").value;
+          var email=document.getElementById("email").value;
+
+          if(window.sessionStorage){
+            var clave=sessionStorage.getItem("clave");
+
+            var args = "login=" + usu + "&pwd=" + pwd + "&pwd2=" + pw2 +"&clave="+clave;
+            if(nombre!=""){
+
+              args+="&nombre="+nombre;
+            }
+            else{
+              args+="&nombre="+sessionStorage.getItem("nombre");
+            }
+            if(email!=""){
+              args+="&email="+email;
+            }
+            else{
+              args+="&email="+sessionStorage.getItem("email");
+            }
+          }else{
+            var args = "login=" + usu + "&pwd=" + pwd + "&pwd2=" + pw2 + "&nombre=" + nombre + "&email=" + email;
+          }
+          
+          args += "&v=" + (new Date()).getTime();
+          console.log(args);
+          usuarioR.onreadystatechange = procesarRegistro2;
+          usuarioR.open("POST", url, true);
+          usuarioR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          usuarioR.send(args);
+        }
+    }else{
+      document.getElementById("no").innerHTML="<p id='no' class='no'>Las contraseñas no coinciden</p>";
+      document.getElementById("password").focus();
+    }
+}
+
+
+function procesarRegistro2(){
+   if(usuarioR.readyState== 4){ // valor 4: respuesta recibida y lista para ser procesada
+    console.log(usuarioR.status);
+     if(usuarioR.status== 200){ // El valor 200 significa "OK"
+     // Aquí se procesa lo que se haya devuelto:
+   if(window.sessionStorage.getItem("nombreUsuario")){
+    document.getElementById("mensaje").innerHTML="Has modificado tu perfil correctamente<div id='cerrar' onclick='cerrarMensajeConLogin()'>Cerrar</div>";
+  }
+  else{
+     document.getElementById("mensaje").innerHTML="Te has registrado correctamente <div id='cerrar' onclick='cerrarMensajeConLogin()'>Cerrar</div>";
+
+  }
+     document.getElementById("mensaje").style.zIndex="5";
+     document.getElementById("mensaje").style.transition="opacity 1s linear";
+     document.getElementById("mensaje").style.opacity="1";
+
+    document.getElementById("muro").style.opacity="0.3";
+    document.getElementById("muro").style.zIndex="4";
+   
+   } else 
+   window.alert("Acceso no Autorizado");
+
+  }
+}
+
+function entrar_viaje(){
+    
+    if(sessionStorage.getItem("nombreUsuario")){
+        window.location.assign("Nueva-entrada.html");
+    }
+    else{
+        window.alert("Debes de estar logueado para acceder a este contenido");
+        window.location.assign("index.html");
+    }
+}
+
+/***********************************************************************************************/
 /************* MOSTRAR FOTO *************/
 function mostrar_foto(){
     
@@ -19,40 +252,12 @@ function comprobarTamanyo(){
   var input = document.getElementById("foto");
   var file = input.files[0];
 
-   if(file.size<500000){
+    if(file.size<500000){
       mostrar_foto()
+    }else{
+        alert("El tamaño de la foto debe de ser menor que 500KB");
     }
-else{
-   alert("El tamaño de la foto debe de ser menor que 500KB");
- }
 }
-
-
-=======
-/************************************************
-*
-*           DEBERIAMOS BORRAR ESTE
-*
-*
-*           SERIA MEJOR TENER UN JS PARA CADA HTML
-*
-*
-*
-*
-*
-************************************************/
->>>>>>> origin/master
-
-
-
-
-
-
-
-
-
-
-
 
 /* Funcion para campos de nueva entrada */
 function nuevaEntrada(formularioEntradaNueva){
@@ -77,320 +282,6 @@ function nuevaEntrada(formularioEntradaNueva){
         return;
     }
 }
-/* Funcion de acceso */
-function acceso(formularioacceso){
-
-    var nick = formularioacceso.nick.value;
-    var password = formularioacceso.password.value;
-
-    if (nick == ""){// No puede estar vacio
-
-        alert ("Debes escribir tu nick");
-        return;
-    }
-
-    if(!primerCaracter(nick)){
-
-        alert ("El nombre de usuario no puede empezar por un n\u00FAmero");
-        return;
-    }
-
-    if (password == ""){// No puede estar vacio
-
-        alert ("Debes escribir tu contrase\u00F1a");
-        return;
-    }
-
-    if (!longitud (3, 20, nick)){// No pude superar los 20 caracteres
-
-        alert ("Usuario incorrecto");
-        return;
-    }
-
-    if (!longitud (6, 20, password)){// No pude superar los 20 caracteres
-
-        alert ("password incorrecto");
-        return;
-    }
-
-    if (!compruebaCaracteres(nick, 1)){// Solo puede contener numeros y letras
-
-        alert ("El usuario debe contener caracteres alfanum\u00E9ricos, sin espacios intermedios");
-        return;
-    }
-    if (!compruebaCaracteres(password, 2)){// Solo puede contener numeros y letras
-
-        alert ("El password debe contener caracteres alfanum\u00E9ricos, sin espacios intermedios (puede contener los signos _ y/o -)");
-        return;
-    }
-}
-
-/* Funcion de registro */
-function registrarse(formularioregistro){
-    
-    var nick = formularioregistro.nick.value;
-    var usuario = formularioregistro.usuario.value;
-    var password = formularioregistro.password.value;
-    var password2 = formularioregistro.password2.value;
-    var email = formularioregistro.email.value;
-    /*var valido = true;  
-    var valido2 = true; // Para validar mediante las expresiones regulares*/
-
-    // Nick no vacio
-    if (nick == ""){
-
-        alert ("Debes escribir tu Nick");
-        return;
-    }
-
-    if(!primerCaracter(nick)){
-
-        alert ("El nick no puede empezar por un n\u00FAmero");
-        return;
-    }
-
-    // Longitud de nick maxima 20 caracteres
-    if (!longitud (3, 20, nick)){
-
-        alert ("El nick no puede ser mayor de 20 caracteres");
-        return;
-    }
-
-    // Caracteres de usuario
-    if (!compruebaCaracteres(nick, 1)){
-
-        alert ("El nick debe contener caracteres alfanum\u00E9ricos");
-        return;
-    }
-
-    // Usuario no vacio
-    if (usuario == ""){
-
-        alert ("Debes escribir tu nombre de usuario");
-        return;
-    }
-
-    // Contrasenya no vacia
-    if (password == ""){
-
-        alert ("Debes escribir tu contrase\u00F1a");
-        return;
-    }
-
-    // Caracteres de la contrasenya
-    if (!compruebaCaracteres(password, 2)){
-
-        alert ("La contrase\u00F1a debe contener caracteres alfanum\u00E9ricos y/o los simbolos (- _)");
-        return;
-    }
-
-    // Longitud de la contrasenya maximo 20 caracteres
-    if (!longitud (6, 20, password)){
-
-        alert ("La contrase\u00F1a no puede ser mayor de 20 caracteres");
-        return;
-    }
-
-    // Contrasenya debe tener mayusculas, minusculas y numeros
-    if (!contieneMayMinNum (password)){
-
-        alert ("La contrase\u00F1a debe tener al menos una may\u00FAscula, una min\u00FAscula y un n\u00FAmero");
-        return;
-    }
-
-    // Las contrasenyas deben coincidir
-     if (password != password2){
-
-        alert ("Las contrase\u00F1as no coinciden");
-        return;
-    }
-
-    // Email no vacio
-    if (email == ""){
-
-        alert ("Debes escribir tu email");
-        return;
-    }
-
-    // Email valido
-    if (!emailValido (email)){
-
-        alert ("El email no es valido");
-        return;
-    }
-    /********************************************
-    // Las contrasenyas deben coincidir
-    if (password1 != password2){
-
-        alert ("Las contrase\u00F1as no coinciden");
-        valido = false;
-        return false;
-    }
-    /* Validacion con expresiones regulares del usuario, las contrasenyas y el email
-    
-    // Usuario valido -- expresion regular
-    var er = new RegExp("^[A-Za-z0-9]{6,20}$");    //Admite letras minusculas, mayusculas, y numeros. Entre 3 y 15 caracteres.
-    if(!er.test(usuario))
-    {
-        alert ("Usuario incorrecto. El usuario solo debe contener caracteres alfanumericos.");
-        //valido2 = false;  
-        return false;
-    }
-
-    // Contrasenya valida -- expresion regular
-    var er2 = new RegExp("^((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9_]))[A-Za-z0-9_]{6,20}$");    // Tiene que haber al menos una mayuscula, una minuscula y un numero. 
-    if(!er2.test(password1))                                                // Solo admite caracteres alfanumericos y el subrayado. Entre 6 y 15 caracteres.
-    {
-        alert("La contrasenya ha de tener al menos una mayuscula, una minuscula y un numero. Puede contener el caracter _ - y ha de haber entre 6 y 20 caracteres");
-        //valido2 = false;
-        return false;
-    }
-
-    // Email valido -- expresion regular
-    var er3 = new RegExp("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-z]{2,4}$");
-    if(!er3.test(email))
-    {
-        alert ("El email no es valido.");
-        //valido2 = false;
-        return false;
-    }
-        //return valido;
-    return valido2;*/
-}
-
-/********** Funciones auxiliares **********/
-
-/* Funcion que comprueba que la longitud esta entre una minima y maxima */
-function longitud(min, max, vari){
-
-    if ((vari.length >= min) && (vari.length <= max)){
-        return true;
-    }else{
-        return false;
-    }
-}
-
-/* Funcion que comprueba que el primer caracter del usuario no sea un numero */
-function primerCaracter(vari){
-
-    var c; 
-    c = vari.charCodeAt(0);// Cojo la primera posicion del nombre del usuario
-    var tieneNum = true;
-
-    // Compruebo que el primer caracter no tenga numeros
-    if(c >= 48 && c <= 57){
-        tieneNum = false;
-    }
-    return tieneNum;
-}
-
-/* Funcion que comprueba que el tipo de caracteres son correctos */
-function compruebaCaracteres(vari, tipo){   
-
-    var i = 0;
-    var c;  
-    var ok = true;
- 
-    // Para comprobar que son caracteres alfanumericos
-    if(tipo == 1)
-    {
-        while ( (i<vari.length) && (ok) )
-        {
-            c = vari.charCodeAt(i);
-            if ( (c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57) )
-                i++;
-            else
-                ok = false;
-        }
-        return ok;
-    }
- 
-    // Para comprobar que son caracteres alfanumericos y los simbolos (_) o (-)
-    else if(tipo == 2)
-    {
-        while ( (i<vari.length) && (ok) )  
-        {
-            c = vari.charCodeAt(i);
-            if ( (c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57) || (c == 95) || (c == 45))
-                i++;
-            else
-                ok = false;
-        }
-        return ok;
-    }   
-}
-
-/* Funcion que comprueba si hay mayusculas, minusculas y numeros */
-function contieneMayMinNum(vari){
-
-    var i = 0;
-    var c;  
-    var tieneMayus = false;    
-    var tieneMinus = false;
-    var tieneNum = false;   
-
-    while ( (i<vari.length) ) 
-    {
-        c = vari.charCodeAt(i);
-        if (c >= 65 && c <= 90) 
-            tieneMayus = true;
-        if (c >= 97 && c <= 122) 
-            tieneMinus = true;
-        if(c >= 48 && c <= 57)
-            tieneNum = true;
-        i++;
-    }
-    if(tieneMayus && tieneMinus && tieneNum)
-        return true;
-    else
-        return false;
-}
-
-/* Funcion que comprueba que el email tiene @ y despues del . tiene entre 2 y 4 caracteres*/
-function emailValido(vari){
-
-    var i = 0;
-    var j = 0;
-    var c;
-    var ok = false;
-    var arroba = false;
-    var dominio = false;
-
-    while ( (i < vari.length) )
-    {
-        c = vari.charCodeAt(i);
-
-        if (c == 64) // Si vemos una arroba
-        {
-            arroba = true;   
-        }
-
-        if (c == 46) // Si vemos un punto miramos cuantos caracteres hay detras
-        {
-            while( (i < vari.length - 1) ) // Cuando llegue a la ultima posicion ya no incrementa la j
-            {
-                j++;
-                i++;
-            }
-
-            if (j >= 2 && j <= 4)   
-            {
-                dominio = true;
-            }
-        }
-
-        i++;
-    }
-    
-    
-    if ((arroba == true) && (dominio == true))
-    {
-        ok = true;
-    }
-
-    return ok;
-}
-
 /* Menú hamburguesa */
 
 $(function(){
