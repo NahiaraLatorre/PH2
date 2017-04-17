@@ -1,3 +1,44 @@
+
+/************* MOSTRAR FOTO *************/
+function mostrar_foto(){
+    
+    var fr= new FileReader();
+    foto=document.getElementById('foto').files[0];
+ 
+    fr.onload=function(){
+    document.getElementById('otrafoto').src=fr.result;
+    }
+    fr.readAsDataURL(foto);
+  document.getElementById("fotoPerfil2").innerHTML="";
+}
+
+
+/*************** COMPROBAR TAMANYO DE LA IMAGEN ****************/
+function comprobarTamanyo(){
+  var input = document.getElementById("foto");
+  var file = input.files[0];
+
+   if(file.size<500000){
+      mostrar_foto()
+    }
+else{
+   alert("El tamaño de la foto debe de ser menor que 500KB");
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Funcion para campos de nueva entrada */
 function nuevaEntrada(formularioEntradaNueva){
 

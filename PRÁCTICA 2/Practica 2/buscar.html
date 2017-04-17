@@ -43,24 +43,25 @@
     <main>
         <!-- Formulario de búsqueda de fotos --> 
         <section>
-            <h1>Búsqueda</h1>
+            <h2>Búsqueda</h2>
+            <!-- Encabezado del formulario -->
+            <h2 id = "tituloformbusqueda" class = "tituloformulario">Datos de la búsqueda</h2>
+
             <form id = "formulariobusqueda" action = "buscar.html" onsubmit = "reg(formulariobusqueda)">
 
-                <!-- Encabezado del formulario -->
-                <h2 id = "tituloformbusqueda" class = "tituloformulario">Datos de la búsqueda</h2>
-
                 <!-- Campo de búsqueda: título -->
-                <label for = "titulobusc"> T&iacute;tulo: </label>
+                <label> T&iacute;tulo: </label>
                 <input type = "text" name ="titulobusc" id = "titulobusc" placeholder = "Palabra&#40;s&#41; en el t&iacute;tulo" accesskey = "t" tabindex = "4"/>
                 <br/>
                 <br>
-                <!-- Campo de búsqueda: texto -->
-                <label for = "textobusc"> Texto: </label>
-                <textarea type = "text" name ="textobusc" id = "textobusc" placeholder = "Texto de busqueda" accesskey = "k" tabindex = "5"></textarea>
+                <!-- Campo de búsqueda: texto 
+                <label for = "textobusc"> Texto: </label>-->
+                <label> Texto: </label>
+                <textarea class="caja" placeholder="Escribir comentario . . .">Escribir comentario . . .</textarea>
                 <br/>
                 <br>
                 <!-- Campo de búsqueda: autor -->
-                <label for = "autorbusc"> Autor: </label>
+                <label> Autor: </label>
                 <input type = "text" name ="autorbusc" id = "autorbusc" placeholder = "Autor de la entrada" accesskey = "w" tabindex = "4"/>
                 <br/>
                 <br>
@@ -142,7 +143,7 @@
                     <option value='22'>1995</option>
                 </select>
                 <span>hasta: </span>
-                <select name = "diafoto2" id = "diafoto2"  accesskey = "D" tabindex = "">
+                <select name = "diafoto2" id = "diafoto2"  accesskey = "D" tabindex = "9">
                     <option selected value='1'>D&iacute;a</option>
                     <option value='2'>01</option>
                     <option value='3'>02</option>

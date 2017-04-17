@@ -7,10 +7,6 @@
     
     <!-- Enlace al CSS principal -->
     <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
-    
-    <!-- Enlace al JavaScript que evalua los formularios -->
-    <script src="JavaScript/formularios.js"></script>
-    
     <!--Para los iconos-->
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
@@ -44,72 +40,48 @@
     <main>
         <h1>Nueva entrada</h1>
         <section>
-            <!-- Formulario de búsqueda de fotos -->
-            <form id = "formularioEntradaNueva" onsubmit = "nuevaEntrada(formularioEntradaNueva)">
+            <!-- Encabezado del formulario -->
+            <h2>Datos de la nueva entrada</h2>
+            <form id = "formularioEntradaNueva" method="post" action="index.html">
 
-                <!-- Encabezado del formulario -->
-                <h2>Datos de la nueva entrada</h2>
                 <!-- Campo de nueva entrada: título -->
-                <label for = "tituloentrada"> T&iacute;tulo: </label>
-                <input type = "text" name ="tituloentrada" id = "tituloentrada" placeholder = "Palabra&#40;s&#41; en el t&iacute;tulo" accesskey = "t" tabindex = "4"/>
-                <br/>
-                <br>
+                <div class="casilla"><label for="titulo" class="alinea">Título:</label>
+                <input type="text"  required id="titulo" placeholder="Introducir título" 
+                 autofocus><br></div>
+                <!-- Campo de nueva entrada: descripción -->
+                <div class="casilla"><label for="descripcion" class="alinea">Descripción:</label>
+                <textarea required class="caja" placeholder="Escribir comentario..."></textarea><br><br></div>
+                <br><br>
 
-                <!-- Campo de registro: foto de perfil -->
-                <label id = "TituloSubirfoto" >Añadir fotos: </label>
 
-                <input type = "file" id = "subirfoto" name = "subirfoto" tabindex = "15"> 
-                <br>
-                <br/>
+                <div class="casilla"><label for="titulo" class="alinea">Subir foto:</label>
 
-                <!-- descripcion 1 -->
-                <label for = "descripcion1"> Descripción 1 </label>
-
-                <br/>
-                 
-                <!-- Botón para eliminar imagen1 -->
-                <img class = "Imagen1" alt="personas pescando" src="img/paisaje12.jpg">
-                <div id="boton1"> 
-                    <input class = "eliminarImagen" type="button" value="X"/>
+                    <br><br>
+                        <div class="crea_imagen" id="fotosViaje">
+                        
+                                <img  alt="Foto del viaje" id="otrafoto"><br>
+                                <input type="file" id="foto" onchange="mostrar_foto()" class="button" value="X"><br>
+                                <textarea required class="caja" placeholder="Escribir comentario..."></textarea>
+                                            
+                        </div>
+                         
+                        <br>
+                            <div class="casilla"><label for="foto" class="alinea">Añadir más fotos:</label><a href="#" onclick="mas_fotos()" class="button">Añadir foto</a></div><br>
+                            <input type="submit" name = "Enviar datos" class="button" value="Subir">
                 </div>
-
-                <br/>
-                <textarea class="caja">Escribir comentario . . .</textarea>
-                <br/>
-                <!-- descripcion 2 -->
-                <label for = "descripcion2"> Descripción 2 </label>
-                <br/>
-                <!-- Botón para eliminar imagen1 -->
-                <img class = "Imagen2" alt="Lago rosa" src="img/paisaje11.jpg">
-                <div id="boton2"> 
-                    <input class = "eliminarImagen" type="button" value="X"/>
-                </div>
-                <textarea class="caja">Escribir comentario . . .</textarea>
-                <br/>
-                <!-- descripcion 3 -->
-                <label for = "descripcion3"> Descripción 3 </label>
-                <br/>
-                <!-- Botón para eliminar imagen1 -->
-                <img class = "Imagen3" alt="Mundo misterioso" src="img/paisaje10.jpg">
-                <div id="boton3"> 
-                    <input class = "eliminarImagen" type="button" value="X"/>
-                </div>
-
-                <textarea class="caja">Escribir comentario . . .</textarea>
-               
-                <br><br><br><br><br><br><br><br/>
-                <!-- Botón para confirmar la búsqueda -->
-                <input type = "submit" name = "Enviar datos" value = "Enviar" accesskey = "b" tabindex = "12"/>
             </form>
         </section>
     </main>
-
-    <!--<input type="submit" value="borrar" name="borrar" src="img/paisaje12.jpg" title="Borrar">-->
+    <br><br><br><br><br><br>
     <footer>
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
 
-        
+    <script src="JavaScript/formularios.js"></script>
+    <script type="text/javascript">
+     window.onload=inicio;
+    </script>
+    
 </body>
 </html>

@@ -700,7 +700,7 @@ section.pag{
 }*/
 
 #pie{
-    margin-top: 2px;
+    margin-top: 0.5px;
     color: #903;
 }
 
@@ -711,6 +711,24 @@ section.pag{
 }
 
 /* Pie de la página */
+footer{
+    margin: 0px;
+    text-align: center;
+    opacity: 0.8;
+    filter:  alpha(opacity=50);
+    background-color: #000;
+    border: 1px solid #FF8C31;
+    color: #fff;
+    padding: 5px;
+    
+}
+footer a {
+    text-decoration:none;
+    color: white;
+}
+
+
+/*
 footer{
     clear:both;
     font-weight:75%;
@@ -728,5 +746,5 @@ footer{
     height: 20px;
     text-align: center;
     font-size: 10px;
-}
+}*/
 
