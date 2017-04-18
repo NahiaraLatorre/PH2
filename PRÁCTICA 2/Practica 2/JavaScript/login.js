@@ -93,16 +93,13 @@ function cerrarMensajeConLogin(){
      window.location.assign('login.html');
 }
 
-
-
-
 /*--------------  MODIFICAR  ---------------*/
 
 function inicio(){
     
     if(window.sessionStorage){
-        if(sessionStorage.getItem("nombreUsuario")){
-            document.getElementById("menu").innerHTML='<ul><li><label for="ckb-menu">&equiv;</label></li><li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li><li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li><li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li><li><a href="registro.html" onclick="registroInicio()" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li><li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li></ul>';
+        if(sessionStorage.getItem("nick")){   
+            document.getElementById("menu").innerHTML='<ul><li class="navegacion"><a href="index.html">Indice</a><span class="icon-home"></span></li><li class="navegacion"><a href="registro.html" onclick="registroInicio()">Perfil</a><span class="icon-user"></span></li><li class="navegacion"><a onclick="logout()">Logout</a><span class="icon-logout"></span></li><li class="navegacion"><a href="buscar_viajes.html">Buscar viajes</a><span class="icon-search"></span></li><li class="navegacion"><a onclick="entrar_viaje()">Crear viaje</a><span class="icon-pencil"></span></li></ul>';
         }
         else{
             document.getElementById("menu").innerHTML='<ul><li class="navegacion"><a href="index.html">Indice</a><span class="icon-home"></span></li><li class="navegacion"><a href="login.html">Login</a><span class="icon-login"></span></li><li class="navegacion"><a href="registro.html" onclick="registroInicio()">Registro</a><span class="icon-book-open"></span></li><li class="navegacion"><a href="buscar.html">Buscar viajes</a><span class="icon-search"></span></li><li class="navegacion"><a onclick="entrar_viaje()">Crear viaje</a><span class="icon-pencil"></span></li></ul>';
@@ -147,159 +144,3 @@ function procesarComprobarLogin(){
         }
     }
 }
-
-function peticionAJAX_PostRegistro() {
-       
-    url="rest/post/usuario.php";
-    usuarioR = crearObjAjax();
-    var pwd=document.getElementById("password").value;
-    var pw2=document.getElementById("password2").value;
-
-     if(pwd==pw2){//si las contrasenyas son iguales entro
-      if (usuarioR) {
-       
-          var usu=document.getElementById("nombreUsuario").value;
-          
-          var nombre=document.getElementById("usuario").value;
-          var email=document.getElementById("email").value;
-
-          if(window.sessionStorage){
-            var clave=sessionStorage.getItem("clave");
-
-            var args = "login=" + usu + "&pwd=" + pwd + "&pwd2=" + pw2 +"&clave="+clave;
-            if(nombre!=""){
-
-              args+="&nombre="+nombre;
-            }
-            else{
-              args+="&nombre="+sessionStorage.getItem("nombre");
-            }
-            if(email!=""){
-              args+="&email="+email;
-            }
-            else{
-              args+="&email="+sessionStorage.getItem("email");
-            }
-          }else{
-            var args = "login=" + usu + "&pwd=" + pwd + "&pwd2=" + pw2 + "&nombre=" + nombre + "&email=" + email;
-          }
-          
-          args += "&v=" + (new Date()).getTime();
-          console.log(args);
-          usuarioR.onreadystatechange = procesarRegistro2;
-          usuarioR.open("POST", url, true);
-          usuarioR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-          usuarioR.send(args);
-        }
-    }else{
-      document.getElementById("no").innerHTML="<p id='no' class='no'>Las contraseñas no coinciden</p>";
-      document.getElementById("password").focus();
-    }
-}
-
-
-function procesarRegistro2(){
-   if(usuarioR.readyState== 4){ // valor 4: respuesta recibida y lista para ser procesada
-    console.log(usuarioR.status);
-     if(usuarioR.status== 200){ // El valor 200 significa "OK"
-     // Aquí se procesa lo que se haya devuelto:
-   if(window.sessionStorage.getItem("nombreUsuario")){
-    document.getElementById("mensaje").innerHTML="Has modificado tu perfil correctamente<div id='cerrar' onclick='cerrarMensajeConLogin()'>Cerrar</div>";
-  }
-  else{
-     document.getElementById("mensaje").innerHTML="Te has registrado correctamente <div id='cerrar' onclick='cerrarMensajeConLogin()'>Cerrar</div>";
-
-  }
-     document.getElementById("mensaje").style.zIndex="5";
-     document.getElementById("mensaje").style.transition="opacity 1s linear";
-     document.getElementById("mensaje").style.opacity="1";
-
-    document.getElementById("muro").style.opacity="0.3";
-    document.getElementById("muro").style.zIndex="4";
-   
-   } else 
-   window.alert("Acceso no Autorizado");
-
-  }
-}
-
-function entrar_viaje(){
-    
-    if(sessionStorage.getItem("nombreUsuario")){
-        window.location.assign("Nueva-entrada.html");
-    }
-    else{
-        window.alert("Debes de estar logueado para acceder a este contenido");
-        window.location.assign("index.html");
-    }
-}
-
-/***********************************************************************************************/
-/************* MOSTRAR FOTO *************/
-function mostrar_foto(){
-    
-    var fr= new FileReader();
-    foto=document.getElementById('foto').files[0];
- 
-    fr.onload=function(){
-    document.getElementById('otrafoto').src=fr.result;
-    }
-    fr.readAsDataURL(foto);
-  document.getElementById("fotoPerfil2").innerHTML="";
-}
-
-
-/*************** COMPROBAR TAMANYO DE LA IMAGEN ****************/
-function comprobarTamanyo(){
-  var input = document.getElementById("foto");
-  var file = input.files[0];
-
-    if(file.size<500000){
-      mostrar_foto()
-    }else{
-        alert("El tamaño de la foto debe de ser menor que 500KB");
-    }
-}
-
-/* Funcion para campos de nueva entrada */
-function nuevaEntrada(formularioEntradaNueva){
-
-    var titulo = formularioEntradaNueva.tituloentrada.value;
-    var descripcion = formularioEntradaNueva.descripcion.value;
-        
-    if (titulo == ""){// No puede estar vacio
-
-        alert ("Debes escribir un titulo para tu entrada");
-        return;
-    }
-    // Longitud del titulo maximo 200 caracteres
-    if (!longitud (1, 200, titulo)){
-
-        alert ("La contrase\u00F1a no puede ser mayor de 200 caracteres");
-        return;
-    }
-    if (descripcion == ""){// No puede estar vacio
-
-        alert ("Debes escribir una descripcion");
-        return;
-    }
-}
-/* Menú hamburguesa */
-
-$(function(){
-    var pull = $('$pull');
-        menu = $('nav ul');
-        menuHeight = menu.height();
-    $(pull).on('click', function(e)){
-        e.preventDefault();
-        menu.slideToggle();
-    });
-    $(window).resize(function(){
-        var w = $(window).width();
-        if(w > 320 && menu.is(':hidden')){
-            menu.removeAttr('style');
-        }
-    });
-});
-
-

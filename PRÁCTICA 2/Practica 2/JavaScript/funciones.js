@@ -1,6 +1,4 @@
 
-
-
 function comprobar_storage()
 {
 	if(typeof(Storage)!=="undefined")
