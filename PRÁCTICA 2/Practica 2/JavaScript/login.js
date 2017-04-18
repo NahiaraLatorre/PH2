@@ -17,12 +17,12 @@ obj= crearObjAjax();
     if(obj) { // Si se ha creado el objeto, se completa la petición ...
         // Argumentos:
         var login= document.getElementById("nick").value;
-        var password= document.getElementById("contrasenya").value;
+        var password= document.getElementById("password").value;
         var args= "login=" + login+ "&pwd=" + password;
         args+= "&v=" + (new Date()).getTime(); // Truco: evita utilizar la cache
         // Se establece la función (callback) a la que llamar cuando cambie el estado:
         obj.onreadystatechange= procesarLogin; // función callback: procesarCambio
-        obj.open("POST", url, true); // Se crea petición POST a url, asíncrona ("true")
+        obj.open("GET", url, true); // Se crea petición POST a url, asíncrona ("true")
         // Es necesario especificar la cabecera "Content-type" para peticiones POST
         obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         obj.send(args); // Se envía la petición
@@ -31,6 +31,21 @@ obj= crearObjAjax();
 }
 
 function procesarLogin(){
+  
+console.log(obj.responseText);
+
+//PARA CONSOLA
+if(obj.readyState == 4){ // valor 4: respuesta recibida y lista para ser procesada
+  var ajax;
+  if(window.JSON) // Comprueba si soporta JSON nativo
+   ajax = window.JSON.parse( obj.responseText ); // mediante objeto JSON nativo
+  else 
+   ajax = eval( '(' + obj.responseText + ')' ); // mediante función eval()
+  console.log( ajax );
+ }
+
+
+
    if(obj.readyState== 4){ // valor 4: respuesta recibida y lista para ser procesada
     console.log(obj.status);
      if(obj.status== 200){ // El valor 200 significa "OK"
@@ -57,7 +72,6 @@ function procesarLogin(){
       document.getElementById("muro").style.opacity="0.3";
       document.getElementById("muro").style.zIndex="4";
 
-    
    } 
    else {
      document.getElementById("mensaje").innerHTML="Login o contraseña incorrectos <div id='cerrar' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
