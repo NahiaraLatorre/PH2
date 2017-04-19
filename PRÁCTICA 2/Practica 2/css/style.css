@@ -34,6 +34,7 @@ body{
 
 section{
     margin: 2%;
+    padding: 20px;
 }
 
 
@@ -56,14 +57,14 @@ label[for="ckb-menu"]{
 nav 
 {
     /*background: #1164BB;*/
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;
     margin-top: auto
     margin-right: auto;
     margin-left: auto;
     max-height: 2em;
     overflow: hidden;
     padding-left: 10%;    
-    transition: max-height 1s;
+    transition: max-height 1s;*/
 
     /* border-top: .1em solid #234;*/
     /*border-bottom: .1em solid #234;*/
@@ -79,27 +80,35 @@ nav
     text-align: center;
     color:black;*/
 
+    
+    transition:all 0.5s;
+
+    -webkit-box-shadow: 0px 10px 35px 9px rgba(0,0,0,0.32);
+    -moz-box-shadow: 0px 10px 35px 9px rgba(0,0,0,0.32);
+    box-shadow: 0px 10px 35px 9px rgba(0,0,0,0.32);
+
 }
 
     nav>ul
     {
-        list-style: none;
+        /*list-style: none;
         /*-webkit-padding-start: 0px;
         -moz-padding-start: 0px;
         -o-padding-start: 0px;*/
 
-        margin: 0;
-        padding: 0 0 0 0;
-
     }
         nav>ul>li 
         {
-            float: left;
-            list-style: none;
+            /*float: left;
+            list-style: none;*/
 
             /*border:0.01em solid white;
             margin: 0.3em;
             opacity: 1;*/
+
+            display: inline-block;
+
+
         }
             nav>ul>li>a, label[for="ckb-menu"]{
                 display: block;
