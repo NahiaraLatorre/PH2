@@ -7,7 +7,7 @@ require_once('funciones.php');
 // =================================================================================
 // CONFIGURACION DE ACCESO A LA BASE DE DATOS:
 // =================================================================================
-$_server   = "127.0.0.1:8889"; // IP del servidor de mysql. Si mysql está escuchando en
+$_server   = "127.0.0.1:3306"; // IP del servidor de mysql. Si mysql está escuchando en
                           // otro puerto, por ejemplo 3307, hay que añadírselo a la
                           // IP del servidor de la siguiente manera:
                           //     $_server   = "127.0.0.1:3307";

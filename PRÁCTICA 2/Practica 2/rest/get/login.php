@@ -15,6 +15,8 @@ if($METODO<>'GET') exit();
 $RECURSO = explode("/", $_GET['prm']);
 $PARAMS  = array_slice($_GET, 1, count($_GET) - 1,true);
 $LOGIN   = $RECURSO[0];
+
+//$LOGIN = "usu1";
 // =================================================================================
 // CONFIGURACION DE SALIDA JSON Y CORS PARA PETICIONES AJAX
 // =================================================================================
@@ -38,6 +40,7 @@ if(isset($LOGIN))
 }
 else
 {
+
 	$RESPONSE_CODE = 400; // Los parámetros no son correctos
 	$R = array("RESULTADO" => "error", 'CODIGO' => '400', "DESCRIPCION" => "Los parámetros no son correctos");
 }

@@ -11,7 +11,7 @@ function crearObjAjax(){
 
 var obj; // variable que guarda el objeto XMLHttpRequest
 
-function peticionAJAX_LOGIN(url){
+/*function peticionAJAX_LOGIN(url){
     console.log("ENTRANDO");
 obj= crearObjAjax();
     if(obj) { // Si se ha creado el objeto, se completa la petición ...
@@ -28,7 +28,43 @@ obj= crearObjAjax();
         obj.send(args); // Se envía la petición
         console.log(args);
   }
+}*/
+
+
+
+function peticionAJAX_LOGIN(frm){
+
+  console.log('adios');
+  let xhr = new XMLHttpRequest(),
+  url = 'http://localhost/practica2/rest/login/', //Puesto para mi ruta
+  fd  = new FormData(frm);
+ 
+  xhr.open('POST', url, true);
+  xhr.onload = function(){ //Cuando llega al paso 4 realiza la ejecudion de este codigo
+  console.log(xhr.responseText); //Muestra la respuesta del proceso por consola
+  let du = JSON.parse(xhr.responseText); 
+  //Lo que hace es guardarlo en el sesion storage si ha funcionado
+  if(du.RESULTADO == 'ok'){
+    console.log('adfgadrg');
+   sessionStorage['du'] = xhr.responseText; //se podria utilizar la funcion stringiflay!
+   //window.location = "http://localhost:4443/ph2";
+  
+  }
+  
+  else{
+    console.log('hola2');
+
+  }
+
+  //frm.parentNode.querySelector('p').innerHTML = xhr.responseText; //Text content lo interpreta como texto tal cual (no interpreta el html para luego ponerlo) con inner interpreta el codigo html
+ };
+ xhr.send(fd);
+ return false;
 }
+
+
+
+
 
 function procesarLogin(){
   
