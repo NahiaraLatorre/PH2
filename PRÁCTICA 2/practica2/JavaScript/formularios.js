@@ -10,78 +10,27 @@ function crearObjAjax(){
 }
 
 var obj; // variable que guarda el objeto XMLHttpRequest
-
-/*function peticionAJAX_LOGIN(url){
+/*
+function peticionAJAX_LOGIN(url){
     console.log("ENTRANDO");
 obj= crearObjAjax();
     if(obj) { // Si se ha creado el objeto, se completa la petición ...
         // Argumentos:
         var login= document.getElementById("nick").value;
-        var password= document.getElementById("password").value;
+        var password= document.getElementById("contrasenya").value;
         var args= "login=" + login+ "&pwd=" + password;
         args+= "&v=" + (new Date()).getTime(); // Truco: evita utilizar la cache
         // Se establece la función (callback) a la que llamar cuando cambie el estado:
         obj.onreadystatechange= procesarLogin; // función callback: procesarCambio
-        obj.open("GET", url, true); // Se crea petición POST a url, asíncrona ("true")
+        obj.open("POST", url, true); // Se crea petición POST a url, asíncrona ("true")
         // Es necesario especificar la cabecera "Content-type" para peticiones POST
         obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         obj.send(args); // Se envía la petición
         console.log(args);
   }
-}*/
-
-
-
-function peticionAJAX_LOGIN(frm){
-
-  console.log('adios');
-  let xhr = new XMLHttpRequest(),
-  url = 'http://localhost/practica2/rest/login/', //Puesto para mi ruta
-  fd  = new FormData(frm);
- 
-  xhr.open('POST', url, true);
-  xhr.onload = function(){ //Cuando llega al paso 4 realiza la ejecudion de este codigo
-  console.log(xhr.responseText); //Muestra la respuesta del proceso por consola
-  let du = JSON.parse(xhr.responseText); 
-  //Lo que hace es guardarlo en el sesion storage si ha funcionado
-  if(du.RESULTADO == 'ok'){
-    console.log('adfgadrg');
-   sessionStorage['du'] = xhr.responseText; //se podria utilizar la funcion stringiflay!
-   //window.location = "http://localhost:4443/ph2";
-  
-  }
-  
-  else{
-    console.log('hola2');
-
-  }
-
-  //frm.parentNode.querySelector('p').innerHTML = xhr.responseText; //Text content lo interpreta como texto tal cual (no interpreta el html para luego ponerlo) con inner interpreta el codigo html
- };
- xhr.send(fd);
- return false;
 }
 
-
-
-
-
 function procesarLogin(){
-  
-console.log(obj.responseText);
-
-//PARA CONSOLA
-if(obj.readyState == 4){ // valor 4: respuesta recibida y lista para ser procesada
-  var ajax;
-  if(window.JSON) // Comprueba si soporta JSON nativo
-   ajax = window.JSON.parse( obj.responseText ); // mediante objeto JSON nativo
-  else 
-   ajax = eval( '(' + obj.responseText + ')' ); // mediante función eval()
-  console.log( ajax );
- }
-
-
-
    if(obj.readyState== 4){ // valor 4: respuesta recibida y lista para ser procesada
     console.log(obj.status);
      if(obj.status== 200){ // El valor 200 significa "OK"
@@ -108,6 +57,7 @@ if(obj.readyState == 4){ // valor 4: respuesta recibida y lista para ser procesa
       document.getElementById("muro").style.opacity="0.3";
       document.getElementById("muro").style.zIndex="4";
 
+    
    } 
    else {
      document.getElementById("mensaje").innerHTML="Login o contraseña incorrectos <div id='cerrar' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
@@ -143,13 +93,16 @@ function cerrarMensajeConLogin(){
      window.location.assign('login.html');
 }
 
-/*--------------  MODIFICAR  ---------------*/
+
+
+
+/*--------------  MODIFICAR  ---------------
 
 function inicio(){
     
     if(window.sessionStorage){
-        if(sessionStorage.getItem("nick")){   
-            document.getElementById("menu").innerHTML='<ul><li class="navegacion"><a href="index.html">Indice</a><span class="icon-home"></span></li><li class="navegacion"><a href="registro.html" onclick="registroInicio()">Perfil</a><span class="icon-user"></span></li><li class="navegacion"><a onclick="logout()">Logout</a><span class="icon-logout"></span></li><li class="navegacion"><a href="buscar_viajes.html">Buscar viajes</a><span class="icon-search"></span></li><li class="navegacion"><a onclick="entrar_viaje()">Crear viaje</a><span class="icon-pencil"></span></li></ul>';
+        if(sessionStorage.getItem("nombreUsuario")){
+            document.getElementById("menu").innerHTML='<ul><li><label for="ckb-menu">&equiv;</label></li><li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li><li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li><li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li><li><a href="registro.html" onclick="registroInicio()" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li><li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li></ul>';
         }
         else{
             document.getElementById("menu").innerHTML='<ul><li class="navegacion"><a href="index.html">Indice</a><span class="icon-home"></span></li><li class="navegacion"><a href="login.html">Login</a><span class="icon-login"></span></li><li class="navegacion"><a href="registro.html" onclick="registroInicio()">Registro</a><span class="icon-book-open"></span></li><li class="navegacion"><a href="buscar.html">Buscar viajes</a><span class="icon-search"></span></li><li class="navegacion"><a onclick="entrar_viaje()">Crear viaje</a><span class="icon-pencil"></span></li></ul>';
@@ -194,3 +147,136 @@ function procesarComprobarLogin(){
         }
     }
 }
+
+function peticionAJAX_PostRegistro() {
+       
+    url="rest/post/usuario.php";
+    usuarioR = crearObjAjax();
+    var pwd=document.getElementById("password").value;
+    var pw2=document.getElementById("password2").value;
+
+     if(pwd==pw2){//si las contrasenyas son iguales entro
+      if (usuarioR) {
+       
+          var usu=document.getElementById("nombreUsuario").value;
+          
+          var nombre=document.getElementById("usuario").value;
+          var email=document.getElementById("email").value;
+
+          if(window.sessionStorage){
+            var clave=sessionStorage.getItem("clave");
+
+            var args = "login=" + usu + "&pwd=" + pwd + "&pwd2=" + pw2 +"&clave="+clave;
+            if(nombre!=""){
+
+              args+="&nombre="+nombre;
+            }
+            else{
+              args+="&nombre="+sessionStorage.getItem("nombre");
+            }
+            if(email!=""){
+              args+="&email="+email;
+            }
+            else{
+              args+="&email="+sessionStorage.getItem("email");
+            }
+          }else{
+            var args = "login=" + usu + "&pwd=" + pwd + "&pwd2=" + pw2 + "&nombre=" + nombre + "&email=" + email;
+          }
+          
+          args += "&v=" + (new Date()).getTime();
+          console.log(args);
+          usuarioR.onreadystatechange = procesarRegistro2;
+          usuarioR.open("POST", url, true);
+          usuarioR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          usuarioR.send(args);
+        }
+    }else{
+      document.getElementById("no").innerHTML="<p id='no' class='no'>Las contraseñas no coinciden</p>";
+      document.getElementById("password").focus();
+    }
+}
+
+
+function procesarRegistro2(){
+   if(usuarioR.readyState== 4){ // valor 4: respuesta recibida y lista para ser procesada
+    console.log(usuarioR.status);
+     if(usuarioR.status== 200){ // El valor 200 significa "OK"
+     // Aquí se procesa lo que se haya devuelto:
+   if(window.sessionStorage.getItem("nombreUsuario")){
+    document.getElementById("mensaje").innerHTML="Has modificado tu perfil correctamente<div id='cerrar' onclick='cerrarMensajeConLogin()'>Cerrar</div>";
+  }
+  else{
+     document.getElementById("mensaje").innerHTML="Te has registrado correctamente <div id='cerrar' onclick='cerrarMensajeConLogin()'>Cerrar</div>";
+
+  }
+     document.getElementById("mensaje").style.zIndex="5";
+     document.getElementById("mensaje").style.transition="opacity 1s linear";
+     document.getElementById("mensaje").style.opacity="1";
+
+    document.getElementById("muro").style.opacity="0.3";
+    document.getElementById("muro").style.zIndex="4";
+   
+   } else 
+   window.alert("Acceso no Autorizado");
+
+  }
+}
+*/
+function entrar_viaje(){
+    
+    if(sessionStorage.getItem("nombreUsuario")){
+        window.location.assign("Nueva-entrada.html");
+    }
+    else{
+        window.alert("Debes de estar logueado para acceder a este contenido");
+        window.location.assign("index.html");
+    }
+}
+
+/***********************************************************************************************/
+/************* MOSTRAR FOTO *************/
+function mostrar_foto(){
+    
+    var fr= new FileReader();
+    foto=document.getElementById('foto').files[0];
+ 
+    fr.onload=function(){
+    document.getElementById('otrafoto').src=fr.result;
+    }
+    fr.readAsDataURL(foto);
+  document.getElementById("fotoPerfil2").innerHTML="";
+}
+
+
+/*************** COMPROBAR TAMANYO DE LA IMAGEN ****************/
+function comprobarTamanyo(){
+  var input = document.getElementById("foto");
+  var file = input.files[0];
+
+    if(file.size<500000){
+      mostrar_foto()
+    }else{
+        alert("El tamaño de la foto debe de ser menor que 500KB");
+    }
+}
+
+/* Menú hamburguesa */
+
+$(function(){
+    var pull = $('$pull');
+        menu = $('nav ul');
+        menuHeight = menu.height();
+    $(pull).on('click', function(e)){
+        e.preventDefault();
+        menu.slideToggle();
+    });
+    $(window).resize(function(){
+        var w = $(window).width();
+        if(w > 320 && menu.is(':hidden')){
+            menu.removeAttr('style');
+        }
+    });
+});
+
+

@@ -10,10 +10,6 @@
 
     <link rel="icon" href="img/logo-icon.ico" type="image/x-icon"/>
     
-    <!-- Enlace al JavaScript que evalua los formularios -->
-    <script src="JavaScript/funciones.js"></script>
-    <script src="JavaScript/index.js"></script>
-    
     <!--Para los iconos-->
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
@@ -34,18 +30,7 @@
 
     <!--Menú-->
     <input type="checkbox" id="ckb-menu">
-    <nav>
-        <ul>
-            <li><label for="ckb-menu">&equiv;</label></li>
-            <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
-            <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
-            <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
-            <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
-            <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
-            <li><a href="#" id="Logout" onclick="cerrar();"><i class="icon-logout"></i> Logout</a></li>
-            
-        </ul> 
-    </nav>
+    <nav id="menu"></nav>
 
     <main>
         <section id="entradas"></section> <!--/section para imagenes-->
@@ -59,5 +44,10 @@
         <p id="pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id="derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
+    <script src="JavaScript/login.js"></script> 
+    <script type="text/javascript">
+      
+         window.onload=inicio();
+    </script>
 </body>
 </html>

@@ -32,10 +32,10 @@
         <section>
             <h2>Login</h2>
 
-            <div id="mensaje"></div> <!-- Para el mensaje de bienvenida -->
-            <div id="muro"></div>    <!-- Para el mensaje de bienvenida -->
+            <div id="mensaje"></div> 
+            <div id="muro"></div>    
             <!-- Formulario de acceso -->
-            <form id = "formularioacceso" class="login" onsubmit = "return peticionAJAX_LOGIN(this);">
+            <form id = "formularioacceso" class="login" onsubmit = "peticionAJAX_LOGIN('rest/post/login.php'); return false;">
                 <h2>Acceso</h2>
                 <!-- Encabezado del formulario de acceso -->
                 <!-- Campo de acceso: nombre de usuario -->
@@ -56,16 +56,13 @@
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
-    <script src="JavaScript/login.js"></script>
-    
+    <script src="JavaScript/login.js"></script> 
     <script type="text/javascript">
         if(sessionStorage.getItem("nick")!=null && sessionStorage.getItem("password")!=null){
             window.location.assign("index.html")
         }
-         window.onload=inicio;
-
+        window.onload=inicio();
     </script>
     
-
 </body>
 </html>

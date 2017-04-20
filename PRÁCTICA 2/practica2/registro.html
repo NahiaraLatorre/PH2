@@ -26,25 +26,17 @@
     </header>
 
     <!--Menú-->
+    <div id="mensaje"></div>
     <input type="checkbox" id="ckb-menu">
-    <nav>
-        <ul>
-            <li><label for="ckb-menu">&equiv;</label></li>
-            <li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li>
-            <li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li>
-            <li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i> Nueva entrada</a></li>
-            <li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li>
-            <li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li>
-            <li><a href="index.html" id="Logout"><i class="icon-logout"></i> Logout</a></li>
-            
-        </ul> 
-    </nav>
+    <nav id="menu"></nav>
+    <div id="mensaje"></div> 
+    <div id="muro"></div>
 
     <main>
         <h1>Registrarse</h1>
         <section>
-            <form method="post" id = "formularioregistro" onsubmit = "peticionAJAX_PostRegistro();return false;">
-                <!-- Encabezado del formulario de registro -->
+            <form novalidate id = "formularioregistro" onsubmit = "peticionAJAX_PostRegistro();return false;">
+                 <!-- Encabezado del formulario de registro -->
                 <h2>Datos para unirme</h2>
                 <!--
                 <br>
@@ -52,19 +44,20 @@
                 <br>
                 <div id="contra"></div><p id="no" class="no"></p>
                 <br>-->
-
                 <!-- Campo de registro: nick -->
-                 <label class="alinea" for = "nick"> Nick: </label><input type = "text" name ="nick" id = "nick" autofocus = "autofocus" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$" disabled/><br/><br>
+                 
+                
+                 <label class="alinea" for = "nick"> Nick: </label><input type = "text" name ="nick" id = "nick" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"/><br/><br>
                 <!-- Campo de registro: nombre de usuario -->
                 <label for = "usuario"> Nombre de usuario: </label>
-                <input type="text" name ="usuario" placeholder="Nombre de usuario" id="usuario" required>
+                <input type="text" name ="usuario" placeholder="Nombre de usuario" id="usu" required>
                 <br/>
                 <br>
 
                 <!-- Campo de registro: contraseña -->
                 <label for = "password"> Introduce contrase&ntilde;a: </label>
                 <input type="password" id="password" name = "password" placeholder="Contraseña"
-                required pattern="^[a-zA-Z0-9-_]{1,20}$"><br></div>
+                required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>
                 <br/>
                 <br>
 
@@ -83,7 +76,7 @@
                 <br>
 
                 <!-- Botón para confirmar el registro -->
-                <input type = "submit" name = "registro" value = "¡Regístrate!" accesskey = "b" tabindex = "12"/>
+                <input type = "submit" name = "registro" value = "¡Regístrate!"/>
             </form>
 
         </section>
@@ -94,26 +87,27 @@
         <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer>
-    <script src="JavaScript/formularios.js"></script>
+    <script src="JavaScript/registro.js"></script>
     <script type="text/javascript">
 
-    window.onload=inicio;
+    window.onload=inicio();
     if(sessionStorage.getItem("nick")!=null){
         
-        document.getElementById("usu").innerHTML='<label class="alinea" for = "nick"> Nick: </label><input type = "text" name ="nick" id = "nick" autofocus = "autofocus" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$" disabled/><br/><br>'; 
-        document.getElementById("password").innerHTML='<label class="alinea" for="contraseña">Contraseña:*</label><input type="password" id="password" placeholder="Introducir contraseña" pattern="^[a-zA-Z0-9-_]{1,20}$">';
-        document.getElementById("password2").innerHTML='<label class="alinea" for="contraseña">Contraseña:*</label><input type="password" id="password2" placeholder="Introducir contraseña" pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
+        document.getElementById("usu").innerHTML='<label for = "nick"> Nick: </label><input type = "text" name="nick" id = "nick" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"/><br/><br>'; 
+        document.getElementById("password").innerHTML='<label for = "password"> Introduce contrase&ntilde;a: </label><input type="password" id="password" name = "password" placeholder="Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
+        document.getElementById("password2").innerHTML='<label for = "password2"> Confirma la contrase&ntilde;a: </label><input type="password" id="password2" name = "password2" placeholder="Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
 
         document.getElementById("email").value=sessionStorage.getItem("email");
         document.getElementById("nick").value=sessionStorage.getItem("nick");
-        document.getElementById("usuario").value=sessionStorage.getItem("nombre");
+        document.getElementById("usu").value=sessionStorage.getItem("nombre");
         document.getElementById("nick").value=sessionStorage.getItem("nick");
-        document.getElementById("nombre").required=false;
+        document.getElementById("usu").required=false;
         document.getElementById("email").required=false;
     }else {
-        document.getElementById("usu").innerHTML='<label class="alinea" for="nick">Nick:*</label><input type="text" id="nick" onchange="peticionComprobarLogin(this.value)" placeholder="Introducir nombre" required autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"><br>'; 
-        document.getElementById("password").innerHTML='<label class="alinea" for="password">Contraseña:*</label><input type="password" id="password" placeholder="Introducir contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
-        document.getElementById("password2").innerHTML='<label class="alinea" for="contraseña">Contraseña:*</label><input type="password" id="password2" placeholder="Introducir contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
+       document.getElementById("nick").innerHTML='<label for = "nick"> Nick: </label><input type = "text" name="nick" id = "nick" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"/><br/><br>'; 
+        document.getElementById("password").innerHTML='<label for = "password"> Introduce contrase&ntilde;a: </label><input type="password" id="password" name = "password" placeholder="Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
+
+        document.getElementById("password2").innerHTML='<label for = "password2"> Confirma la contrase&ntilde;a: </label><input type="password" id="password2" name = "password2" placeholder="Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
     }
 
     </script>
