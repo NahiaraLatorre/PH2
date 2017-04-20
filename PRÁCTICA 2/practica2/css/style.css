@@ -13,9 +13,9 @@ header{
     
 }
 
-main{
-    padding: 50px;
-}
+/*main{
+    margin-top: 3%;
+}*/
 
 /* Frase cabecera */
 p{
@@ -36,6 +36,7 @@ section{
     margin: 2%;
     padding: 20px;
 }
+
 
 /********************************/
 /* Menu hamburguesa 0 */

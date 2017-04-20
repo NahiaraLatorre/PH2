@@ -133,7 +133,7 @@ function cerrarMensajeConLogin(){
 }
 
 /*--------------  MODIFICAR  ---------------*/
-/*   ESTA EN FUNCION.JS
+
 function inicio(){
     
     if(window.sessionStorage){
@@ -154,10 +154,6 @@ function logout(){
         window.location.assign('index.html');
     }
 }
-*/
-
-
-
 function NuevaEntrada(){
   
   if(sessionStorage.getItem("nick")){

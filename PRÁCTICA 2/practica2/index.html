@@ -30,30 +30,24 @@
 
     <!--Menú-->
     <input type="checkbox" id="ckb-menu">
-    <nav id="menu">
-    </nav>
-    
+    <nav id="menu"></nav>
+
     <main>
-        <h2>Últimas entradas</h2>
-
-        <article id="LastEntradas">
-            <div id="entradas"></div>
-        </article>
-
+        <section id="entradas"></section> <!--/section para imagenes-->
     </main>
-
+    <div class="sangria_default">
+        <h3>Ultimo comentarios:</h3>
+        <h6 for="brefresh" onclick="peticionAJAX_GET2('/practica2/rest/get/comentario.php?prm=usu2&u=10');">Refrescar</h6>
+    </div>
 
     <footer>
         <p id="pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id="derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
-    <script src="JavaScript/index.js"></script> 
-    <script src="JavaScript/funcion.js"></script>
-
+    <script src="JavaScript/login.js"></script> 
     <script type="text/javascript">
       
          window.onload=inicio();
     </script>
-
 </body>
 </html>

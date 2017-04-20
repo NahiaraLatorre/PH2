@@ -18,7 +18,7 @@ function peticionAJAX_PostRegistro() {
 
      if(pwd==pw2){//si las contrasenyas son iguales entro
       if (usuarioR) {
-       
+          document.getElementById("passwordC").innerHTML="<span id='passwordC' class='infoPassword'></span>";
           var usu=document.getElementById("nick").value;
           var nombre=document.getElementById("usu").value;
           var email=document.getElementById("email").value;
@@ -52,8 +52,13 @@ function peticionAJAX_PostRegistro() {
           usuarioR.send(args);
         }
     }else{
-      document.getElementById("no").innerHTML="<p id='no' class='no'>Las contraseñas no coinciden</p>";
+
+      document.getElementById("passwordC").innerHTML="<span id='passwordC' class='infoPassword'>Las contraseñas no coinciden</span>";
+      //alert("Las contraseñas no coincideeeeeennnnn");
       document.getElementById("password").focus();
+      /*document.getElementById("no").innerHTML="<p id='no' class='no'>Las contraseñas no coinciden</p>";
+      document.getElementById("password").focus();*/
+
     }
 }
 
@@ -76,7 +81,10 @@ function procesarRegistro2(){
     document.getElementById("muro").style.zIndex="4";
    
    } else 
-   window.alert("Acceso no Autorizado");
+       //window.alert("Este usuario ya esta registrado");
+       document.getElementById("nickC").innerHTML="<span id='nickC' class='infoNick'>Este usuario ya esta registrado</span>";
+      //alert("Las contraseñas no coincideeeeeennnnn");
+      document.getElementById("nick").focus();
 
   }
 }

@@ -37,7 +37,7 @@
             <!-- Encabezado del formulario -->
             <h2 id = "tituloformbusqueda" class = "tituloformulario">Datos de la búsqueda</h2>
 
-            <form id = "formulariobusqueda" action = "buscar.html" onsubmit = "reg(formulariobusqueda)">
+            <form id = "formulariobusqueda" onsubmit="busquedaviaje();return false;">
 
                 <!-- Campo de búsqueda: título -->
                 <label> T&iacute;tulo: </label>
@@ -332,6 +332,7 @@
         <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 	
     <script src="JavaScript/login.js"></script> 
+    <script src="JavaScript/buscar.js"></script>
     <script type="text/javascript">
       
          window.onload=inicio();
