@@ -13,16 +13,19 @@ header{
     
 }
 
-/*main{
-    margin-top: 3%;
-}*/
+main{
+    padding: 50px;
+}
 
-/* Frase cabecera */
 p{
-    font-size:30px;
+    /*font-size:30px;
     margin-left: 300px;
-    margin-top: -230px;
+    margin-top: -230px;*/
+
     color: #000;
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
 }
 
 /* Cuerpo de la página */
@@ -36,7 +39,6 @@ section{
     margin: 2%;
     padding: 20px;
 }
-
 
 /********************************/
 /* Menu hamburguesa 0 */
@@ -56,31 +58,6 @@ label[for="ckb-menu"]{
 
 nav 
 {
-    /*background: #1164BB;*/
-    /*margin-bottom: 20px;
-    margin-top: auto
-    margin-right: auto;
-    margin-left: auto;
-    max-height: 2em;
-    overflow: hidden;
-    padding-left: 10%;    
-    transition: max-height 1s;*/
-
-    /* border-top: .1em solid #234;*/
-    /*border-bottom: .1em solid #234;*/
-    /*position:absolute;/*Lo ponemos en */
-    /*width:100%;
-    top:0;
-    left:-110%;
-    border: 1px solid black;
-    height:100%;
-    background-color: white; 
-    opacity: 0.95;
-    transition:all .5s ease;
-    text-align: center;
-    color:black;*/
-
-    
     transition:all 0.5s;
 
     -webkit-box-shadow: 0px 10px 35px 9px rgba(0,0,0,0.32);
@@ -91,24 +68,11 @@ nav
 
     nav>ul
     {
-        /*list-style: none;
-        /*-webkit-padding-start: 0px;
-        -moz-padding-start: 0px;
-        -o-padding-start: 0px;*/
 
     }
         nav>ul>li 
         {
-            /*float: left;
-            list-style: none;*/
-
-            /*border:0.01em solid white;
-            margin: 0.3em;
-            opacity: 1;*/
-
             display: inline-block;
-
-
         }
             nav>ul>li>a, label[for="ckb-menu"]{
                 display: block;
@@ -150,50 +114,6 @@ nav
     }
 }
 
-/* Menú hamburguesa 1
-.clearfix:before, .clearfix:after{
-    content: "";
-    display: table;
-}
-.clearfix:after{
-    clear: both;
-}
-.clearfix:before{
-    *zoom: 1;/* nos permite escalar 
-}
-nav a#pull{
-    display: none;
-}
-
-@media all and (min-width: 480px){
-
-    nav{
-        border-bottom: 0;
-    }
-
-    nav ul{
-        display: none;
-        height: auto;
-    }
-
-    nav a#pull{
-        display: block;
-        background-color: #2095a0
-        width: 100%;
-        position: relative;
-    }
-    nav a#pull:after{
-        content: "";
-        width: 30px;
-        height: 30px;
-        display: inline-block;
-        position: absolute;
-        right: 15px;
-        top:10px;
-    }
-}*/
-
-
 /* Botón para eliminar foto */
 #boton, .eliminarImagen {
     background: orange;
@@ -223,15 +143,6 @@ nav a#pull{
     padding-top: 50px;
 }
 
-button {
-    padding: 25px 20px;
-    margin: 20px 0;
-    border: none;
-    cursor: pointer;
-    width: 50%;
-    font-size: 150%;
-}
-
 div#next_button{
     position: relative;
     bottom: 15px; 
@@ -247,6 +158,10 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
     font-size: 100%;
     text-align : left;
+}
+
+input[type=number]{
+    width: 2%;
 }
 
 .login {
@@ -282,7 +197,6 @@ input[type=text], input[type=password] {
 }
 /* Formulario de nueva entrada */
 #formularioEntradaNueva input[type = "submit"]{
-
     text-align : center;
     padding: 16px;
     border: none;
@@ -297,7 +211,6 @@ input[type=text], input[type=password] {
 }
 /* Formulario de busqueda */
 #formulariobusqueda input[type = "submit"]{
-
     text-align : center;
     padding: 12px;
     border: none;
@@ -411,28 +324,27 @@ h1{
 h2{
     color: #903;
     text-align: left;  
-    padding: 1%;
+    /*padding: 1%;*/
     font-size: 50px;
     /*background: rgba(0,0,255,0.5);*/
-    width:100%;
+    /*width:100%;*/
 }
 
 h3{
-    text-align: left;
-    font-size: 200%;
-    padding: -40px;
-    height: 10px;
+    text-align: center;    
+    /*height: 10px;*/
 }
 
 h4{
-    color: #903;
+    color: #000;
     font-size: 20px;
     padding-left: 20px;
 }
 
 a{
     text-decoration:none;
-    color: #754654;
+    /*color: #754654;*/
+    color:#000;
 }
 
 a:hover{
@@ -446,6 +358,12 @@ button{
     color: #FFF;
     font-weight:bold;
     border-radius: 4px; 
+    padding: 25px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    font-size: 150%;
 }
     
 button:hover{
@@ -453,78 +371,70 @@ button:hover{
     
 }
 
-
 /*****animacion fotos******/
 
-.imagen{
-    float: left;
-    width: 17%;
-    padding: 0.5%;
-    transition: box-shadow 2s;
-    font-weight: bold;
-    margin:1em auto;
-    border .1em solid #234;
-    overflow:hidden;
-    position:relative;
-    /*margin-top: 2%;
-    margin-left: 2%;*/
-    /*height: 10em; */
-    /*width: 10em;*/
+.todasEnt{
+    text-align: left;
+
 }
 
-.imagen ul{
-    text-align:left;
+.entrada{
+    border-radius: 15px;
+    background-color: #C96464;
+    margin: 10px;
+    padding: 10px;
+    max-width: 500px;
+    display: inline-block;
+    margin-left: 10px, auto;
+    margin-right: 10px, auto;
 }
 
-.imagen figure{
-    text-align:left;
-}
 
 .imagen img{
-    background-color: #f5f5f5; 
+    overflow:hidden;
+    width: 300px;
+    height: 200px;
     border: 3px inset #CCC;
-    width:95%;
-    height:auto;
     opacity:1; 
     transition: opacity 1s;
+    z-index: 1;
+    border-radius: 15px;
 }
 
 .imagen:hover>img{
     opacity: 0.3;
+    background-color: #fff;
+}
+   
+.enlaceFoto{
+    color: #903;
 }
 
-.imagen:hover{
-    box-shadow: 0 0 20px #003;
+.enlaceFoto:hover{
+    color: blue;
 }
 
-/*al ponerlo como absulte se pone en la posicion 0 0 y al ponerle al padre el relative hace que el hijo se adapte a esa posicion*/
-
-.imagen figcaption{
-    position: absolute;
-    top: 0;
-    left:0;
-    /*padding-top: 4%;*/
-    /*padding-left: 6%;*/
-    padding: 8%;
-    opacity:0;
-    transition:opacity 1s;
-    color: #000;
-    font-size: 20px;
-    text-align: left;
+.datos{
+    border-radius: 15px;
+    text-align: center;
+    opacity: 0.8;
+    filter:  alpha(opacity=50);.
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #FF8C31;
+    
 }
 
-figure:hover>figcaption{
-    opacity: 1;
-}
-
-.imagen figcaption>a{
-    display: block;    
-    padding: 5%;
+.datos p, .datos time{
+    color: #fff;
+    margin: 10px;
+    padding: 10px;
+    font-size: 25px;
 }
 
 
 /**PAGINACION**/
-ul.pagination {
+/*ul.pagination {
     display: inline-block;
     padding: 0;
     margin: 0;
@@ -541,7 +451,7 @@ ul.pagination li a {
 }
 
 ul.pagination li a.active {
-    /*background-color: #4CAF50;*/
+    /*background-color: #4CAF50;
     background-color: #903;
     color: white;
     border-radius: 5px;
@@ -555,93 +465,33 @@ ul.pagination li a:hover:not(.active) {
 section.pag{
     text-align: center;
 }
+*/
+/***********COMENTARIOS*************/
 
-/***/
-
-.comentarios{
-    margin-top: 5px;
-}
-.coment{
-    float: left;
-    width: 30%;
-    transition: box-shadow 2s;
-    margin-top: 2%;
-    margin-left: 2%;
-    font-weight: bold;
+.comentario_R{
     background-color: #f5f5f5; 
     border: 3px inset #CCC;
-    height:auto;
+    margin-top: 2%;
+    border-radius: 10px; 
 }
 
-.coment ul{
-    text-align:left;
-}
-
-.coment ul li{
-    overflow:hidden;
-    white-space:nowrap;
-    text-overflow: ellipsis;
-}
-
-.coment:hover{
-    box-shadow: 0 0 20px #003;
-}
-
-.enlaceComent{
-    color: #000;
-}
-
-.enlaceComent:hover{
-    color: #000;
-}
-
-.texto{
-    
+.comentario_R h3{
+    text-align: left;
     font-size: 30px;
-    margin-left: 20px;
-    margin-top: auto;
+    margin-top: -15px;
+    color: #2f1abc;
+    padding-left: 15px;
 }
 
-.contenidoAutor{
-    float:left;
-    margin-left: 2%;
-    font-size: 25px;    
+.comentario_R p, .comentario_R time{
+    font-size: 25px;
 }
 
-.contenidoAutor ul{
-    list-style:none;
+.comentario_R time{
+    padding-left: 25px;
     font-size: 20px;
 }
 
-.textoEnt{
-    font-size: 15px;
-    font-weight: normal;
-}
-
-.comentEntrada{
-    float: left;
-    width: 30%;
-    transition: box-shadow 2s;
-    margin-top: 2%;
-    margin-left: 2%;
-    font-weight: bold;
-    background-color: #f5f5f5; 
-    border: 3px inset #CCC;
-    height:auto;
-}
-
-.comentEntrada ul{
-    text-align:left;
-}
-
-.comentEntrada ul li{
-    overflow:hidden;
-    text-overflow: ellipsis;
-}
-
-.comentEntrada:hover{
-    box-shadow: 0 0 20px #003;
-}
 
 .botonComent{
     background: rgba(4,9,75,1);
@@ -653,43 +503,29 @@ section.pag{
     margin: 15px 40px;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: 8%;
     font-size: 100%;
 }
- 
-.hacercoment{
-    float:left;
-    margin-left: 5%;
+
+.botonAct{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 2px;
+    margin: 0px;
+    border: none;
+    cursor: pointer;
+    width: 8%;
+    font-size: 100%; 
 }
 
-.formComent{
-    float:left;
-}
-
-.tituloComent{
-    margin-top: 11%;
-    margin-left: 5%;
-}
-
+/* 
 .textoComent{
     float: left;
     margin-left: 5%;
-}
-
-/*.imagenEnt{
-    margin-top: 8%;
 }*/
-
-.comentariosEnt{
-    margin-top: 25%;
-   /* margin-top: 30%;*/
-}
-
-.responderComent{       
-    /*margin-top: 52%;*/
-    margin-top: 52%;
-    margin-left: 2%;
-}
 
 .respuestaComent{
     float: left;
@@ -711,17 +547,18 @@ section.pag{
     font-size: 100%; 
 }
 
-/*****************  ID  **********************/
-
 .casilla{
-      float-top: 2%; 
-        padding-right: 2%;
-        padding-left: 2%;
+    float-top: 2%; 
+    padding-right: 2%;
+    padding-left: 2%;
     display:inline;
     color:black;
     font-family:Verdana, Geneva, sans-serif;
     font-size: 100p;
 }
+
+/*****************  ID  **********************/
+
 #mensaje{
     opacity: 0;
     z-index: -1;
@@ -747,11 +584,11 @@ section.pag{
     background-color: white;
 }
 
+
 /* Logo de nuestra página */
 #logo{
     /*display: inline;*/
 } 
-
 
 /*#tituloFoto{
     color: #903;
@@ -786,25 +623,3 @@ footer a {
     text-decoration:none;
     color: white;
 }
-
-
-/*
-footer{
-    clear:both;
-    font-weight:75%;
-    margin-left: auto;
-    margin-right:auto;
-    margin-top: auto;
-    padding:15px;
-    width:100%;
-    bottom:0;
-    opacity: 0.8;
-    filter:  alpha(opacity=50);
-    background-color: #000;
-    border: 1px solid #FF8C31;
-    color: #fff;
-    height: 20px;
-    text-align: center;
-    font-size: 10px;
-}*/
-

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-    <meta name="description" content="Practica1-PH2">
+    <meta name="description" content="Practica2-PH2">
     <meta name="author" content="Nahiara&Maria">
 
     <!-- Enlace al CSS principal -->
@@ -14,12 +14,11 @@
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
     <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
-    
-
+        
 	<title>Inicio</title>
     
 </head>
-<body>    
+<body onload="inicio();arrancar_Index();">    
      <!-- Cabecera -->
     <header>
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
@@ -31,23 +30,63 @@
     <!--Menú-->
     <input type="checkbox" id="ckb-menu">
     <nav id="menu"></nav>
+    
+    <section> 
+        <article>
+            <form onsubmit="return mostrarEntradas(this);">
+                <div><br><br><br>
+                    <span>Página:</span>
+                    <input type="number" name="pag" value="0">
+                    <span>de</span>
+                    <input type="number" name="lpag" value="6">
+                    <input type="submit">
+                </div>
+            </form>
+        </article>
 
-    <main>
-        <section id="entradas"></section> <!--/section para imagenes-->
-    </main>
-    <div class="sangria_default">
-        <h3>Ultimo comentarios:</h3>
-        <h6 for="brefresh" onclick="peticionAJAX_GET2('/practica2/rest/get/comentario.php?prm=usu2&u=10');">Refrescar</h6>
-    </div>
+        <h2>Últimas Entradas</h2>
+
+        <!-- <button type="button" class="botonAct" onclick="peticionAJAX_GET_comentarios();"">Actualizar</button> -->
+
+        <div class="todasEnt">
+            <template>
+                <article class="entrada">
+                    <h3 id="tituloInd"><a>Titulo de la entrada</a></h3>
+                    <div class="imagen">
+                        <div class="foto">
+                            <img src="" alt="">
+                        </div>
+                        <!--p>descripcion</p-->
+                        <div class="info">
+                            <h4><a href="entrada.html"> Ver más...</a></h4>
+                        </div>
+                    </div>
+                    <div class="datos">
+                        <p id="usuarioInd">usuario</p>
+                        <time id="fechaInd">fecha</time>
+                        <p id="fotosInd">fotos</p>
+                        <p id="comentInd">comentarios</p>
+                    </div>
+                </article>
+            </template>          
+        </div>
+
+        <h2>Últimos Comentarios</h2>
+        <button type="button" class="botonAct" onclick="peticionAJAX_GET_comentarios();"">Actualizar</button>
+            <article><!-- COMENTARIOS EN EL INDEX-->
+                <div id="LastComenta"></div>
+            </article>
+
+    </section>
+
 
     <footer>
         <p id="pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
         <p id="derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
-    <script src="JavaScript/login.js"></script> 
-    <script type="text/javascript">
-      
-         window.onload=inicio();
-    </script>
+
+    <script src="JavaScript/index.js"></script> 
+    <script src="JavaScript/funcion.js"></script>   
+
 </body>
 </html>

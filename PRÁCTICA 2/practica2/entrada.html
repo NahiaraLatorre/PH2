@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="description" content="Practica1-PH2">
     <meta name="author" content="Nahiara&Maria">
-    
+
     <!-- Enlace al CSS principal -->
     <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+    <link rel="icon" href="img/logo-icon.ico" type="image/x-icon"/>
     <!--Para los iconos-->
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
     <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
-    
 
     <title>Entrada</title>
-
+    
 </head>
 <body>
     <!-- Cabecera -->
@@ -22,188 +22,82 @@
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
         <h1>Crazy Trips</h1>
         <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
-        
     </header>  
     
     <!--Menú-->
     <input type="checkbox" id="ckb-menu">
     <nav id="menu"></nav>
 
-    <main>
-        <section>
-        <h2>Entrada</h2>
-            <h3>JAPÓN</h3>
-            <ul>
-                <li>Fecha: 25/10/2016</li>
-                <li>Autor: Antonio</li>
-                <li>Descripción: Esta foto fue tomada en mi último viaje a Japón, fuimos en otoño cuando las hojas de los árboles empiezan a caer, creando esta preciosa imagen</li>
-                <li><a href="#imagenesEntrada">Nº de fotos: 10</a></li>
-                <li><a href="#comentariosEnt">Nº de comentarios: 15</a></li>
-            </ul>
+        <section id="entradas">
+            <h2 id="titulo"></h2>
+                <article><!-- INFORMACIÓN DE LA ENTRADA-->
+                    <!--div>
+                        <img id="pimagen" src="" alt="imagen de presentacion"/>
+                    </div-->
+                    <div class="datos">
+                        <p id="usu_entrada"></p>
+                        <time id="fecha"></time>
+                        <p id="descripcion"></p>
+                    </div>
 
-            <section class="imagenesEntrada">
-                <h4>Fotos de la entrada</h4>
-                <figure class="imagen">  
-                    <img src="img/paisaje2.jpg" alt="Imagen" /> 
-                    <ul>
-                        <li>Nº de foto: 2</li>
-                        <li>Descripción: Hicimos esta foto en nuestro viaje a Islandia. Fuimos a hacer senderismo y nos encontramos con este paisaje</li>
-                    </ul>
-                </figure>
-                <figure class="imagen">  
-                   <img  src="img/paisaje3.jpg" alt="Imagen" /> 
-                    <ul>
-                        <li>Nº de foto: 3</li>
-                        <li>Descripción: Atardecer en una de las mejores playas de Hawai</li>
-                    </ul>        
-                </figure>
-                <figure class="imagen">  
-                    <img src="img/paisaje4.jpg" alt="Imagen" /> 
-                    <ul>
-                        <li>Nº de foto: 4</li>
-                        <li>Descripción: Haciendo ejercicio y vimos este precioso atardecer desde lo alto de la montaña</li>
-                    </ul>
-                </figure>
-                <figure class="imagen">  
-                   <img src="img/paisaje5.jpg" alt="Imagen" /> 
-                    <ul>
-                        <li>Nº de foto: 5</li>
-                        <li>Descripción: Una imagen tomado en una tarde de otoño</li>
-                    </ul>        
-                </figure>
-                <figure class="imagen">  
-                    <img src="img/paisaje6.jpg" alt="Imagen" /> 
-                    <ul>
-                        <li>Nº de foto: 6</li>
-                        <li>Descripción: Una maravilla de la naturaleza escondida en los bosques de España</li>
-                    </ul>
-                </figure>
-            </section>
+                    <!--div class="todasEnt">
+                        <template>
+                            <article>
+                                <div class="imagen">
+                                    <img src="" alt="">
+                                </div>
+                            </article>
+                        </template>
+                    </div-->
+                    
+                    <div id="fotos_realizadas"></div><!-- FOTOS DE LA ENTRADA-->
 
-            <section class="comentariosEnt">
-                <br><br><br>
-                <h4>Comentarios</h4>
-                    <section class= "comentarios">
-                        <article class="comentEntrada">
-                            <h4>COMETARIO 1</h4> 
-                            <ul>
-                                <li>Autor: David</li>
-                                <li>Fecha: miércoles, 10/3/2017, 12:20h</li>
-                                <li>Título: Japón</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-
-                        <article class="comentEntrada"> 
-                            <h4>COMETARIO 2</h4> 
-                            <ul>
-                                <li>Autor: Juan</li>
-                                <li>Fecha: miércoles, 7/1/2017, 10:20h</li>
-                                <li>Título: Playa</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>  
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-
-                        <article class="comentEntrada"> 
-                            <h4>COMETARIO 3</h4> 
-                            <ul>
-                                <li>Autor: Maria</li>
-                                <li>Fecha: miércoles, 5/1/2017, 22:35h</li>
-                                <li>Título: Japón</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-
-                        <article class="comentEntrada">
-                            <h4>COMETARIO 4</h4> 
-                            <ul>
-                                <li>Autor: Pablo</li>
-                                <li>Fecha: miércoles, 19/12/2016, 17:30h</li>
-                                <li>Título: Playa</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-
-                        <article class="comentEntrada"> 
-                            <h4>COMETARIO 5</h4> 
-                            <ul>
-                                <li>Autor: Lucia</li>
-                                <li>Fecha: miércoles, 18/12/2016, 09:10h</li>
-                                <li>Título: Bosque</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>  
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-
-                        <article class="comentEntrada"> 
-                            <h4>COMETARIO 6</h4> 
-                            <ul>
-                                <li>Autor: Marina</li>
-                                <li>Fecha: miércoles, 01/12/2016, 12:20h</li>
-                                <li>Título: Japón</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-
-                        <article class="comentEntrada">
-                            <h4>COMETARIO 7</h4> 
-                            <ul>
-                                <li>Autor: Manuel</li>
-                                <li>Fecha: miércoles, 08/11/2017, 12:20h</li>
-                                <li>Título: Montañas</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-
-                        <article class="comentEntrada"> 
-                            <h4>COMETARIO 8</h4> 
-                            <ul>
-                                <li>Autor: Victoria</li>
-                                <li>Fecha: miércoles, 02/11/2017, 16:20h</li>
-                                <li>Título: Japón</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>  
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-
-                        <article class="comentEntrada"> 
-                            <h4>COMETARIO 9</h4> 
-                            <ul>
-                                <li>Autor: David</li>
-                                <li>Fecha: miércoles, 11/1/2017, 12:20h</li>
-                                <li>Título: Japón</li>
-                                <li>Título del comentario: Me gusta</li>
-                            </ul>
-                            <button type="button" class="botonComent">Responder</button>
-                        </article>
-                    </section>   
-                </section> 
-                <section class="responderComent">
-                    <h3>Hacer comentario</h3>
-                    <form class="respuestaComent">
-                        Título: <input type="text" name="tituloResp" placeholder="Escribe un título"><br>
-                        Comentario: <br><textarea rows="4" cols="50" placeholder="Escribe tu comentario"></textarea>
-                        <button type="button" class="botonResp">Comentar</button>
+                </article>
+            
+                <article><!-- COMENTARIOS DE LA ENTRADA-->
+                    <div id="comenta"></div>
+                    <!--article>
+                        <p id="titulo_comen"></p>
+                        <p id="usu_comen"></p>
+                        <time id="fecha_comen"></time>
+                        <p id="texto_comen"></p>
+                    </article-->
+                </article>
+                
+                <div id="mensajeErrorComent"></div>
+                <br><br>
+                
+                <footer id="campo_comentario">
+                    Usted puede publicar su comentario.
+                    <br>
+                    <form method="POST" onsubmit="return enviar_comentario();">
+                        Titulo:<input type="text" id="titulo_en" placeholder="Titulo" />
+                        <br/>
+                        <textarea style="width:100%;" placeholder="Ponga aqui su comentario" id="coment_en"></textarea>
+                        <br/>
+                        <input type="submit" style="cursor: pointer;" value="Agregar Comentario"/>
                     </form>
+                </footer>
+            
+    </section>
 
-                </section>
-        </section>
-    </main>
-
+    
     <footer>
-        <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
-        <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
+        <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>      
     </footer> 
-    <script src="JavaScript/login.js"></script> 
+
+    <script src="JavaScript/entrada.js"></script> 
+    <script src="JavaScript/funcion.js"></script>  
+
     <script type="text/javascript">
-      
+        window.onload=arranque_personalizado();
+    </script>
+
+    <script type="text/javascript">
          window.onload=inicio();
     </script>
+
+
+    
 </body>
 </html>
