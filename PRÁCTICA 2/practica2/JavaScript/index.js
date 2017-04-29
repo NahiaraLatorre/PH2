@@ -1,27 +1,18 @@
 
-function arrancar_Index(){
-	console.log("arrancando el index");
-
-	//peticionAJAX_GET();
-	peticionAJAX_GET_comentarios();
-
-}
-
 
 function mostrarEntradas(frm){
 	
 	console.log("mostrando entradas ----- CODIGO PROFESOR");
 	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/practica2/rest/entrada/';
 
-		section = frm.parentNode.parentNode;
+	url = 'http://localhost/practica2/rest/entrada/';
 
-		//var x = document.getElementById("inicio").parentNode.nodeName;
+	url += '?pag=' + frm.pag.value + '&lpag=' + frm.lpag.value; 
 
-	//url += '?u=' + frm.lpag.value; /*+ '&lpag=' + frm.lpag.value;
+	var x = document.getElementById("index").parentNode.parentNode;
 
 	console.log(url);
-	console.log(frm.lpag.value);
+	//console.log(frm.lpag.value);
 
 	xhr.open('GET', url, true);
 
@@ -29,7 +20,7 @@ function mostrarEntradas(frm){
 		let v = JSON.parse(xhr.responseText);
 		if(v.RESULTADO == 'ok'){
 
-			while (a = section.querySelector('div>article'))
+			while (a = x.querySelector('div>article'))
 				a.remove();
 
 			let html = '';
@@ -40,7 +31,7 @@ function mostrarEntradas(frm){
 				let e = v.FILAS[i],
 					foto = 'http://localhost/practica2/fotos/' + e.fichero;
 
-					let article = section.querySelector('div>template').content.cloneNode(true);
+					let article = x.querySelector('div>template').content.cloneNode(true);
 
 						article.querySelector('h3>a').innerHTML = e.nombre;
 						article.querySelector('div>img').setAttribute('src',foto);
@@ -51,7 +42,9 @@ function mostrarEntradas(frm){
 						article.querySelector('div>p:nth-of-type(2)').innerHTML = e.nfotos + " fotos";
 						article.querySelector('div>p:nth-of-type(3)').innerHTML = e.ncomentarios + " comentarios";
 						
-						section.querySelector('h2+div').appendChild(article);
+						x.querySelector('h2+div').appendChild(article);
+
+						//console.log("el id de la entrada es: " + e.id);
 
 			}//for(let i=0; i<v.FILAS.length; i++)
 		}
@@ -64,143 +57,83 @@ function mostrarEntradas(frm){
 
 
 /************************************ÚLTIMAS ENTRADAS***********************/
-/*
-function peticionAJAX_GET()
+function peticionAJAX_GET() //peticion para ajax de comentario
 {
-
 	url = 'http://localhost/practica2/rest/entrada/?u=6';
+	obj= new XMLHttpRequest();
 
-	console.log("peticionAJAX_GET, url = " + url);
-
-	nodo=document.getElementById("LastEnt");
-
-	obj= crearObjAjax();
-
-	if(obj) 
-	{ 
-		// Se establece la función (callback) a la que llamar cuando cambie el estado:
-		obj.onreadystatechange= procesarCambio; // función callback: procesarCambio para entrada
-		obj.open("GET",url, true);
-		obj.send(); // Se envía la petición	
-	}
-}
-
-//funcion que muestra los cambios de estado en la peticion
-function procesarCambio()
-{
-	console.log("procesarCambio");
-
-	console.log(obj.readyState);
-
-	if(obj.readyState == 4)
-	{ 
-		// valor 4: respuesta recibida y lista para ser procesada
-		if(obj.status == 200)
-		{ 
-			// El valor 200 significa "OK"
-			// Aquí se procesa lo que se haya devuelto:
-			console.log("se ha terminado la carga de datos de la entrada -> devolviendo");//devolvemos mensaje por log
-			entrada=JSON.parse(obj.responseText);//creamos el objeto datos con los datos parseados
-			formatear_entrada();//mostramos la informacion de la entrada
-		}
-		else 
-		{
-			console.warn("no se ha podido completar la peticion ajax-html de la entrada");//devolvemos mensaje por log
-		}
-	}
-}
+	console.log("peticionAJAX_GET -- -- " + url);
 
 
-//adecuamos los datos a su formato de entrada
-function formatear_entrada()
-{
-	console.log("formatear_entrada");
-
-	nodo_titulo=document.getElementById("tituloInd");
-	nodo_usuario=document.getElementById("usuarioInd");
-	nodo_fecha=document.getElementById("fechaInd");
-	
-	if(entrada != "")
-	{
-		for(a=0;a < entrada.FILAS.length;a++){
-			
-			nodo_titulo.innerHTML=entrada.FILAS[a].nombre; 
-			nodo_usuario.innerHTML=entrada.FILAS[a].login;
-			nodo_fecha.innerHTML=entrada.FILAS[a].fecha;
-		}		
-	}
-	//hasta aqui nos queda poner la foto del inicio, los comentarios y las fotos de la entrada
-	peticionAJAX_GET_fotos(entrada.FILAS[0].id);//sirve para devolver las fotos que hay en esta entrada
-}
-
-
-function peticionAJAX_GET_fotos(num)
-{
-		
-	url='http://localhost/practica2/rest/foto/?id_entrada=' + num;
-
-	console.log("ID ENTRADA = " + num);
-
-	console.log("peticionAJAX_GET_fotos, url = " + url);
-
-	obj= crearObjAjax();
 	if(obj) 
 	{ 
 		// Si se ha creado el objeto, se completa la petición ...
 		// Se establece la función (callback) a la que llamar cuando cambie el estado:
-		obj.onreadystatechange= procesarCambio_fotos; // función callback: procesarCambio para entrada
+		obj.onreadystatechange= procesarCambio; // función callback: procesarCambio para entradas
 		obj.open("GET",url, true); // Se crea petición GET a url, asíncrona ("true")
 		obj.send(); // Se envía la petición
 	}
 }
 
-
-//funcion que muestra los cambios de estado en la peticion
-function procesarCambio_fotos()
+function procesarCambio()//procesar cambio para entradas
 {
-	console.log("procesarCambio_fotos");
+
 	if(obj.readyState == 4)
 	{ 
 		// valor 4: respuesta recibida y lista para ser procesada
 		if(obj.status == 200)
 		{ 
+			console.log("**IF procesarCambio**");
 			// El valor 200 significa "OK"
 			// Aquí se procesa lo que se haya devuelto:
-			console.log("se ha terminado la carga de datos de la entrada -> devolviendo");//devolvemos mensaje por log
-			fotos=JSON.parse(obj.responseText);//creamos el objeto datos con los datos parseados
-			formatear_fotos();//mostramos la informacion de la entrada
+			console.log("se ha terminado la carga de datos entradas -> devolviendo");//devolvemos mensaje por log
+			entradas=JSON.parse(obj.responseText);//creamos el objeto datos con los datos parseados
+			formatear_entradas(entradas);//mostramos la informacion en la pagina
 		}
 		else 
 		{
-			console.warn("no se ha podido completar la peticion ajax-html de la entrada");//devolvemos mensaje por log
+			console.log("**else procesar cambio**");
+			console.warn("no se ha podido completar la peticion ajax-html de index-entradas");//devolvemos mensaje por log
+			//zoom_activo();//activamos el slider sin opcion que significa que ha ido mal
 		}
 	}
 }
 
-
-function formatear_fotos()
+function formatear_entradas(a)
 {
-	console.log("formatear_fotos");
+	console.log("****formatear_entradas****");
 
-	if(fotos != "")
-	{
+	nodo=document.getElementById("seccionEnt");//nodo div de index
 
-		nodo_fotos_realizadas=document.getElementById("fotoIndex");
-		fotos_realizadas="";
-
-		for(a=0;a < fotos.FILAS.length;a++) 
+		for (i=0; i<a.FILAS.length; i++) 
 		{
-			//fotos_realizadas = fotos_realizadas + '<p>'+fotos.FILAS[a].texto+'</p>';
 
-			fotos_realizadas += '<div class="imagen"><div class="foto"><img src="fotos/'+fotos.FILAS[a].fichero+'" alt="imagenes" /></div>';
+			foto = 'http://localhost/practica2/fotos/' + a.FILAS[i].fichero;
+
+			//asignamos las datos a variables mas simples
+			titulo = a.FILAS[i].nombre;	
+			id= a.FILAS[i].id;
+			usu= a.FILAS[i].login;
+			fecha = a.FILAS[i].fecha;
+			numFotos=a.FILAS[i].nfotos;
+			numComent=a.FILAS[i].ncomentarios;
+			
+			//nodoA=document.getElementById("seccionEnt");
+			articulo=document.createElement("article");
+			//seccionEnt = '<article class="entrada">';
+			seccionEnt = '<h3>' + titulo + '</h3><div class="imagen"><div class="foto"><img src="'+ foto +'" alt="imagenEntrada"/></div><h4><a href="entrada.html?id=' + id + '"">Ver más....</a></h4></div>';
+			seccionEnt += '<div class="datos"><p>' + usu + '</p><time>' + fecha + '</time><p>' + numFotos + ' fotos</p><p>' + numComent + ' comentarios</p></div>' ;
+			//seccionEnt += '</article>';
+
+			articulo.innerHTML=seccionEnt;
+			nodo.appendChild(articulo);
 		}
+	
+	console.log("monstrando entradas");
 
-		nodo_fotos_realizadas.innerHTML=fotos_realizadas;
-	}
- 	
+	peticionAJAX_GET_comentarios();
+	
 }
-
-
 
 /******************************* ULTIMOS COMENTARIOS *******************************************/
 
@@ -252,7 +185,7 @@ function formatear_comentarios()
 	if(comenta != "")
 	{
 		nodo_comentarios_realiazados=document.getElementById("LastComenta");
-		comentarios_realizados="<h2></h2>";
+		comentarios_realizados="";
 
 		for(a=0;a < comenta.FILAS.length;a++) 
 		{

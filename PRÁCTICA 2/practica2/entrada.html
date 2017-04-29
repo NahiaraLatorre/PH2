@@ -16,7 +16,7 @@
     <title>Entrada</title>
     
 </head>
-<body>
+<body onload="inicio();arranque_personalizado();">
     <!-- Cabecera -->
     <header>
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
@@ -31,24 +31,11 @@
         <section id="entradas">
             <h2 id="titulo"></h2>
                 <article><!-- INFORMACIÓN DE LA ENTRADA-->
-                    <!--div>
-                        <img id="pimagen" src="" alt="imagen de presentacion"/>
-                    </div-->
                     <div class="datos">
                         <p id="usu_entrada"></p>
                         <time id="fecha"></time>
                         <p id="descripcion"></p>
                     </div>
-
-                    <!--div class="todasEnt">
-                        <template>
-                            <article>
-                                <div class="imagen">
-                                    <img src="" alt="">
-                                </div>
-                            </article>
-                        </template>
-                    </div-->
                     
                     <div id="fotos_realizadas"></div><!-- FOTOS DE LA ENTRADA-->
 
@@ -56,12 +43,6 @@
             
                 <article><!-- COMENTARIOS DE LA ENTRADA-->
                     <div id="comenta"></div>
-                    <!--article>
-                        <p id="titulo_comen"></p>
-                        <p id="usu_comen"></p>
-                        <time id="fecha_comen"></time>
-                        <p id="texto_comen"></p>
-                    </article-->
                 </article>
                 
                 <div id="mensajeErrorComent"></div>
@@ -88,16 +69,6 @@
 
     <script src="JavaScript/entrada.js"></script> 
     <script src="JavaScript/funcion.js"></script>  
-
-    <script type="text/javascript">
-        window.onload=arranque_personalizado();
-    </script>
-
-    <script type="text/javascript">
-         window.onload=inicio();
-    </script>
-
-
     
 </body>
 </html>

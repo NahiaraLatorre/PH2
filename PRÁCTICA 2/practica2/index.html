@@ -18,7 +18,7 @@
 	<title>Inicio</title>
     
 </head>
-<body onload="inicio();arrancar_Index();">    
+<body onload="inicio();peticionAJAX_GET();">    
      <!-- Cabecera -->
     <header>
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
@@ -31,7 +31,7 @@
     <input type="checkbox" id="ckb-menu">
     <nav id="menu"></nav>
     
-    <section> 
+    <section id="index"> 
         <article>
             <form onsubmit="return mostrarEntradas(this);">
                 <div><br><br><br>
@@ -48,27 +48,24 @@
 
         <!-- <button type="button" class="botonAct" onclick="peticionAJAX_GET_comentarios();"">Actualizar</button> -->
 
-        <div class="todasEnt">
+        <section id="seccionEnt"></section>
+
+        <div>
             <template>
-                <article class="entrada">
-                    <h3 id="tituloInd"><a>Titulo de la entrada</a></h3>
-                    <div class="imagen">
-                        <div class="foto">
-                            <img src="" alt="">
-                        </div>
-                        <!--p>descripcion</p-->
-                        <div class="info">
-                            <h4><a href="entrada.html"> Ver más...</a></h4>
-                        </div>
+                <article>
+                    <h3>Titulo de la entrada</h3>
+                    <div>
+                        <img src="" alt="">
+                        <p></p>
                     </div>
-                    <div class="datos">
-                        <p id="usuarioInd">usuario</p>
-                        <time id="fechaInd">fecha</time>
-                        <p id="fotosInd">fotos</p>
-                        <p id="comentInd">comentarios</p>
-                    </div>
+                    <footer>
+                        <p></p>
+                        <time></time>
+                        <p></p>
+                        <p></p>
+                    </footer>
                 </article>
-            </template>          
+            </template>
         </div>
 
         <h2>Últimos Comentarios</h2>
@@ -79,10 +76,8 @@
 
     </section>
 
-
     <footer>
         <p id="pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
-        <p id="derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
 
     <script src="JavaScript/index.js"></script> 

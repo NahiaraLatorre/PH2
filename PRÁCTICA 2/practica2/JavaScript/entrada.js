@@ -1,6 +1,6 @@
 var entrada_valida=false;
-var id_entrada="1";
-var entrada="1";
+var id_entrada="";
+var entrada="";
 var comenta="";
 var fotos="";
 var comentario_ancla="";
@@ -22,7 +22,7 @@ function crearObjAjax(){
       	return xmlhttp;
 }
 
-/*function arranque_personalizado()
+function arranque_personalizado()
 {
 	console.log("ejecutando arranque personalizado para entradas, vamos a recuperar el id de la entrada");
 	
@@ -54,11 +54,12 @@ function crearObjAjax(){
     {
     	console.log('no existen argumentos');
     }
+
     mostrar_entrada();
     puede_comentar();
-}*/
+}
 
-function arranque_personalizado()
+/*function arranque_personalizado()
 {
 	console.log("arrancando");
 	console.log("id encontrado "+ id_entrada);
@@ -68,7 +69,7 @@ function arranque_personalizado()
 
 	//mostrar_comentarios();
     //puede_comentar();
-}
+}*/
 
 //funcion que realiza la tarea de mostrar la entrada
 function mostrar_entrada()
@@ -98,9 +99,9 @@ function peticionAJAX_GET()
 	nodo=document.getElementById("entradas");
 
  	obj= crearObjAjax();
+
 	if(obj) 
 	{ 
-	
 		console.log("id encontrado GET "+ id_entrada);	// Si se ha creado el objeto, se completa la petición ...
 		// Se establece la función (callback) a la que llamar cuando cambie el estado:
 		obj.onreadystatechange= procesarCambio; // función callback: procesarCambio para entrada
@@ -222,29 +223,12 @@ function formatear_fotos()
 		nodo_fotos_realizadas.innerHTML=fotos_realizadas;
 	}
  	
- 	//peticionAJAX_GET_comentarios();//se encarga de cargar los comentarios en la pagina, asi como de poner el campo para comentar si estas registrado
- 	mostrar_comentarios();
+ 	peticionAJAX_GET_comentarios();//se encarga de cargar los comentarios en la pagina, asi como de poner el campo para comentar si estas registrado
+ 	
 }
 
 
 /************************** COMENTARIOS *******************/
-
-function mostrar_comentarios()
-{
-	console.log("mostrar_comentarios");
-
-	if(id_entrada)
-	{
-		console.log("vamos a mostrar los comentarios");
-		peticionAJAX_GET_comentarios();
-	}
-	else
-	{
-		console.log("entrada no encontrada");
-		location.href="index.html";
-	}
-}
-
 
 function peticionAJAX_GET_comentarios()
 {
@@ -286,6 +270,45 @@ function procesarCambio_comentarios()
 		}
 	}
 }
+
+function formatear_comentarios()
+{
+	console.log("formatear_comentarios");
+
+	if(comenta != "")
+	{
+		nodo_comentarios_realiazados=document.getElementById("comenta");
+		comentarios_realizados="<h2>COMENTARIOS</h2>";
+
+		console.log(comenta.FILAS.length);
+
+		if(comenta.FILAS.length==0)
+			comentarios_realizados += '<h3 style="font-size: 35px;">NO HAY COMENTARIOS</h3>';				
+
+
+		for(a=0;a < comenta.FILAS.length;a++) 
+		{
+
+			console.log("ID del COMENTARIO = " + comenta.FILAS[a].id);
+			if(puede_hacer_comentarios)
+			{
+				//comentarios_realizados=comentarios_realizados+'<p id="comentario'+comenta.FILAS[a].id+'"><span>'+comenta.FILAS[a].login+'</span><b>'+comenta.FILAS[a].titulo+'</b> '+comenta.FILAS[a].texto+'<span class="fecha_comentarios"><time datetime="'+comenta.FILAS[a].fecha+'">'+comenta.FILAS[a].fecha+'</time></span></p><button type="button" onclick="responder(&#39;'+comenta.FILAS[a].titulo+'&#39;);">Responder</button>';
+				//comentarios_realizados += '<button type="button" onclick="responder(&#39;'+comenta.FILAS[a].titulo+'&#39;);">Responder</button>';
+				comentarios_realizados += '<article class="comentario_R"><p id="comentario'+comenta.FILAS[a].id+'"></p>'+'<h3><b>'+comenta.FILAS[a].titulo+'</b></h3><p>'+comenta.FILAS[a].login+'</p><p>'+comenta.FILAS[a].texto+'</p><time>'+comenta.FILAS[a].fecha+'</time><button class="botonComent" type="button" onclick="responder(&#39;'+comenta.FILAS[a].titulo+'&#39;);">Responder</button></article>';				
+			}
+			else
+			{
+
+				comentarios_realizados += '<article class="comentario_R"><p id="comentario'+comenta.FILAS[a].id+'"></p>'+'<h3><b>'+comenta.FILAS[a].titulo+'</b></h3><p>'+comenta.FILAS[a].login+'</p><p>'+comenta.FILAS[a].texto+'</p><time>'+comenta.FILAS[a].fecha+'</time></article>';				
+			}				
+		}
+
+		nodo_comentarios_realiazados.innerHTML=comentarios_realizados;
+	}
+
+	//llevar_al_comentario();
+}
+
 
 function peticionAJAX_POST_enviar_comentario() 
 {
@@ -342,39 +365,10 @@ function procesarCambio_enviar()
 	}
 }
 
-function formatear_comentarios()
-{
-	console.log("formatear_comentarios");
-
-	if(comenta != "")
-	{
-		nodo_comentarios_realiazados=document.getElementById("comenta");
-		comentarios_realizados="<h2>COMENTARIOS</h2>";
-
-		for(a=0;a < comenta.FILAS.length;a++) 
-		{
-			if(puede_hacer_comentarios)
-			{
-				//comentarios_realizados=comentarios_realizados+'<p id="comentario'+comenta.FILAS[a].id+'"><span>'+comenta.FILAS[a].login+'</span><b>'+comenta.FILAS[a].titulo+'</b> '+comenta.FILAS[a].texto+'<span class="fecha_comentarios"><time datetime="'+comenta.FILAS[a].fecha+'">'+comenta.FILAS[a].fecha+'</time></span></p><button type="button" onclick="responder(&#39;'+comenta.FILAS[a].titulo+'&#39;);">Responder</button>';
-				//comentarios_realizados += '<button type="button" onclick="responder(&#39;'+comenta.FILAS[a].titulo+'&#39;);">Responder</button>';
-				comentarios_realizados += '<article class="comentario_R"><p id="comentario'+comenta.FILAS[a].id+'"></p>'+'<h3><b>'+comenta.FILAS[a].titulo+'</b></h3><p>'+comenta.FILAS[a].login+'</p><p>'+comenta.FILAS[a].texto+'</p><time>'+comenta.FILAS[a].fecha+'</time><button class="botonComent" type="button" onclick="responder(&#39;'+comenta.FILAS[a].titulo+'&#39;);">Responder</button></article>';				
-			}
-			else
-			{
-
-				comentarios_realizados += '<article class="comentario_R"><p id="comentario'+comenta.FILAS[a].id+'"></p>'+'<h3><b>'+comenta.FILAS[a].titulo+'</b></h3><p>'+comenta.FILAS[a].login+'</p><p>'+comenta.FILAS[a].texto+'</p><time>'+comenta.FILAS[a].fecha+'</time></article>';				
-			}				
-		}
-
-		nodo_comentarios_realiazados.innerHTML=comentarios_realizados;
-	}
-
-	//llevar_al_comentario();
-}
 
 function puede_comentar()
 {
-	console.log("*********************puede_comentar***************************");
+	console.log("****¿puede_comentar?****");
 
 	if(window.sessionStorage)
 	{

@@ -375,10 +375,21 @@ button:hover{
 
 .todasEnt{
     text-align: left;
-
 }
 
-.entrada{
+/*.entrada{
+    border-radius: 15px;
+    background-color: #C96464;
+    margin: 10px;
+    padding: 10px;
+    max-width: 500px;
+    display: inline-block;
+    margin-left: 10px, auto;
+    margin-right: 10px, auto;
+}*/
+
+
+#seccionEnt article{
     border-radius: 15px;
     background-color: #C96464;
     margin: 10px;
