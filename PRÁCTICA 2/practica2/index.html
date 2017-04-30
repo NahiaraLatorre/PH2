@@ -32,11 +32,11 @@
     <nav id="menu"></nav>
     
     <section id="index"> 
-        
-
+        <h2 class="quitar">INICIO</h2>
         <article>
+            <h4>Paginacion</h4>
             <form onsubmit="return mostrarEntradas(this);">
-                <div><br><br><br>
+                <div>
                     <span>Página:</span>
                     <input type="number" name="pag" value="0">
                     <span>de</span>
@@ -48,6 +48,7 @@
         <br><br>
 
         <article>
+            <h4 class="quitar">paginacion</h4>
             <ul class="pagination">
                 <li><a href="#"><i class="icon-left-open"></i>First</a></li>
                 <li><a href="#">«</a></li>
@@ -69,11 +70,13 @@
             </ul>
         </article-->
 
-        <h2>Últimas Entradas</h2>
+        
 
         <!-- <button type="button" class="botonAct" onclick="peticionAJAX_GET_comentarios();"">Actualizar</button> -->
 
-        <section id="seccionEnt"></section>
+        <section id="seccionEnt">
+            <h2>Últimas Entradas</h2>
+        </section>
 
         <div>
             <template>
@@ -85,7 +88,7 @@
                     </div>
                     <footer>
                         <p></p>
-                        <time></time>
+                        <time>2017-02-28</time>
                         <p></p>
                         <p></p>
                     </footer>
@@ -93,11 +96,11 @@
             </template>
         </div>
 
-        <h2>Últimos Comentarios</h2>
-        <button type="button" class="botonAct" onclick="peticionAJAX_GET_comentarios();"">Actualizar</button>
-            <article><!-- COMENTARIOS EN EL INDEX-->
-                <div id="LastComenta"></div>
-            </article>
+        <article><!-- COMENTARIOS EN EL INDEX-->
+            <h2>Últimos comentarios</h2>
+            <button class="botonAct" onclick="peticionAJAX_GET_comentarios();">Actualizar</button>
+            <div id="LastComenta"></div>
+        </article>
 
     </section>
 
