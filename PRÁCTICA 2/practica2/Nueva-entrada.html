@@ -35,7 +35,7 @@
         <section>
             <!-- Encabezado del formulario -->
             <h2>Datos de la nueva entrada</h2>
-            <form id = "formularioEntradaNueva" method="post" action="index.html">
+            <form id = "formularioEntradaNueva"onsubmit = "peticionAJAX_PostNuevaEntrada();return false;">
 
                 <!-- Campo de nueva entrada: título -->
                 <div class="casilla"><label for="titulo" class="alinea">Título:</label>
@@ -43,21 +43,24 @@
                  autofocus><br></div>
                 <!-- Campo de nueva entrada: descripción -->
                 <div class="casilla"><label for="descripcion" class="alinea">Descripción:</label>
-                <textarea required class="caja" placeholder="Escribir comentario..."></textarea><br><br></div>
+                <textarea required class="caja" id="descripcion" placeholder="Escribir comentario..."></textarea><br><br></div>
                 <br><br>
 
 
                 <div class="casilla"><label for="titulo" class="alinea">Subir foto:</label>
 
                     <br><br>
+                    <div class="zonaFicha" id="zonaFicha">
+
                         <div class="crea_imagen" id="fotosViaje">
-                        
-                                <img  alt="Foto del viaje" id="otrafoto"><br>
+
+                                <input type="button" id="boton_borrar" onclick="borrar_foto('fotosViaje')" name = "Enviar datos" class="button" value="X">
+                                <img alt="Foto del viaje" id="foto" src="img/logo.png">
                                 <input type="file" id="foto" onchange="mostrar_foto()" class="button" value="X"><br>
                                 <textarea required class="caja" placeholder="Escribir comentario..."></textarea>
                                             
                         </div>
-                         
+                     </div>
                         <br>
                             <div class="casilla"><label for="foto" class="alinea">Añadir más fotos:</label><a href="#" onclick="mas_fotos()" class="button">Añadir foto</a></div><br>
                             <input type="submit" name = "Enviar datos" class="button" value="Subir">
@@ -71,7 +74,8 @@
         <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer> 
 
-    <script src="JavaScript/login.js"></script> 
+    <script src="JavaScript/nueva-entrada.js"></script> 
+    <script src="JavaScript/login.js"></script>
     <script type="text/javascript">
       
          window.onload=inicio();
