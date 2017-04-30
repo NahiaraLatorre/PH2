@@ -1,6 +1,6 @@
 var entrada_valida=false;
-var id_entrada="";
-var entrada="";
+var id_entrada="1";
+var entrada="1";
 var comenta="";
 var fotos="";
 var comentario_ancla="";
@@ -29,7 +29,13 @@ function arranque_personalizado()
 	console.log("id encontrado "+id_entrada);
 
 	expresion=/#\w+/;
-	comentario_ancla=document.location.href.match(expresion);
+
+
+	//comentario_ancla=document.location.href.match(expresion);
+
+	//console.log("comentarios ancla ====== "+ comentario_ancla);
+
+
 	var loc = document.location.href.replace(expresion,'');
     if(loc.indexOf('?') > 0)
     {
@@ -41,7 +47,7 @@ function arranque_personalizado()
     		if(argumentos[0].indexOf('id=') >= 0)
     		{
     			id_entrada = argumentos[0].split('id=')[1];
-    			console.log("id encontrado "+id_entrada);
+    			//console.log("id encontrado "+id_entrada);
     			entrada_valida=true;
     		}
     		else
@@ -280,16 +286,14 @@ function formatear_comentarios()
 		nodo_comentarios_realiazados=document.getElementById("comenta");
 		comentarios_realizados="<h2>COMENTARIOS</h2>";
 
-		console.log(comenta.FILAS.length);
+		//console.log(comenta.FILAS.length);
 
 		if(comenta.FILAS.length==0)
 			comentarios_realizados += '<h3 style="font-size: 35px;">NO HAY COMENTARIOS</h3>';				
 
-
 		for(a=0;a < comenta.FILAS.length;a++) 
 		{
-
-			console.log("ID del COMENTARIO = " + comenta.FILAS[a].id);
+			//console.log("ID del COMENTARIO = " + comenta.FILAS[a].id);
 			if(puede_hacer_comentarios)
 			{
 				//comentarios_realizados=comentarios_realizados+'<p id="comentario'+comenta.FILAS[a].id+'"><span>'+comenta.FILAS[a].login+'</span><b>'+comenta.FILAS[a].titulo+'</b> '+comenta.FILAS[a].texto+'<span class="fecha_comentarios"><time datetime="'+comenta.FILAS[a].fecha+'">'+comenta.FILAS[a].fecha+'</time></span></p><button type="button" onclick="responder(&#39;'+comenta.FILAS[a].titulo+'&#39;);">Responder</button>';
@@ -298,7 +302,6 @@ function formatear_comentarios()
 			}
 			else
 			{
-
 				comentarios_realizados += '<article class="comentario_R"><p id="comentario'+comenta.FILAS[a].id+'"></p>'+'<h3><b>'+comenta.FILAS[a].titulo+'</b></h3><p>'+comenta.FILAS[a].login+'</p><p>'+comenta.FILAS[a].texto+'</p><time>'+comenta.FILAS[a].fecha+'</time></article>';				
 			}				
 		}
@@ -306,33 +309,44 @@ function formatear_comentarios()
 		nodo_comentarios_realiazados.innerHTML=comentarios_realizados;
 	}
 
-	//llevar_al_comentario();
+	llevar_al_comentario();
 }
 
 
-function peticionAJAX_POST_enviar_comentario() 
+function peticionAJAX_POST_enviar_comentario(form) 
 {
 
-	console.log("peticionAJAX_POST_enviar_comentario");
+	console.log("peticionAJAX_POST_enviar_comentario ==== " + id_entrada);
 
 	url='http://localhost/practica2/rest/comentario/?id_entrada=' + id_entrada;
 
 	obj = crearObjAjax();
+
 	if (obj) 
 	{ 	
 		// Si se ha creado el objeto, se completa la petición ...
 		// Argumentos:
 		console.log("se empieza a procesar la peticion");
+			
+		var clave = sessionStorage.getItem("clave");
+		var login = sessionStorage.getItem("nick");
 		
-		var clave = JSON.parse(sessionStorage.getItem("nick")).clave;
-		var login = JSON.parse(sessionStorage.getItem("nick")).login;
 		var titulo = document.getElementById("titulo_en").value;
 		var texto = document.getElementById("coment_en").value;
+
 		var id_enviar = id_entrada;
+
 		var args ="clave="+clave+"&login="+login+"&titulo="+titulo+"&texto="+texto+"&id_entrada="+id_enviar;
+
+		console.log("IMPORTANTE PARA POST COMENTARIO -->" + args);
+
 		// Se establece la función (callback) a la que llamar cuando cambie el estado:
+		
 		obj.onreadystatechange = procesarCambio_enviar; // función callback: procesarCambio
+
+		console.log("open POST");
 		obj.open("POST",url, true); // Se crea petición POST a url, asíncrona("true")
+		
 		// Es necesario especificar la cabecera "Content-type" para peticiones POST
 		obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		obj.send(args); // Se envía la petición
@@ -347,16 +361,19 @@ function procesarCambio_enviar()
 
 	if(obj.readyState == 4)
 	{ 
+		console.log("objeto status= " + obj.status);
+
 		// valor 4: respuesta recibida y lista para ser procesada
 		if(obj.status == 200)
 		{ 
+			console.log("he pasado en segundo if obj.status asi esta bien");
 			// El valor 200 significa "OK"
 			// Aquí se procesa lo que se haya devuelto:
 			console.log("se ha terminado la carga de datos de la entrada -> devolviendo");//devolvemos mensaje por log
 			result=JSON.parse(obj.responseText);//creamos el objeto datos con los datos parseados
-			zoom_activo();
-			zoom_activo(1,"Su comentario se ha enviado correctamente.");
-			peticionAJAX_GET_comentarios();
+			//zoom_activo();
+			//zoom_activo(1,"Su comentario se ha enviado correctamente.");
+			//peticionAJAX_GET_comentarios();
 		}
 		else 
 		{
@@ -375,13 +392,13 @@ function puede_comentar()
 		//comprobamos si esta logueado o no
 		if(sessionStorage.getItem("nick"))
 		{
-			console.log("-+-+-+-+-+-+-+-+- YES puede comentar -+-+--+-+-+-+-+");
+			console.log("++++ YES puede comentar ++++");
 			puede_hacer_comentarios=true;
 			document.getElementById('campo_comentario').style.display='block';
 		}
 		else
 		{
-			console.log("===================== NO puede comentar =======================");
+			console.log("====== NO puede comentar ========");
 			puede_hacer_comentarios=false;
 			document.getElementById('campo_comentario').style.display='none';
 			document.getElementById('mensajeErrorComent').innerHTML="<h3 style='color:red; font-size: 25px; cursor: pointer;'>Para dejar un comentario debes estar <a href='login.html'>logueado</a></h3>";
@@ -419,21 +436,23 @@ function zoom_activo(modo,texto)
 	}
 }
 
-function enviar_comentario()
+/*function enviar_comentario()
 {
 	console.log("enviar_comentario");
 
-	zoom_activo(2,"Enviando comentario, tenga paciencia por favor.");
+	//zoom_activo(2,"Enviando comentario, tenga paciencia por favor.");
 	peticionAJAX_POST_enviar_comentario();
 	return false;
-}
+}*/
 
-function llevar_al_comentario()
+/*function llevar_al_comentario()
 {
 	console.log("llevar_al_comentario");
+
+	console.log(comentario_ancla);
 	if(comentario_ancla != null)
 	location.href = comentario_ancla;
-}
+}*/
 
 function responder(titul)
 {

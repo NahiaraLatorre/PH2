@@ -16,7 +16,7 @@
     <title>Entrada</title>
     
 </head>
-<body onload="inicio();arranque_personalizado();">
+<body onload="inicio();">
     <!-- Cabecera -->
     <header>
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
@@ -51,7 +51,7 @@
                 <footer id="campo_comentario">
                     Usted puede publicar su comentario.
                     <br>
-                    <form method="POST" onsubmit="return enviar_comentario();">
+                    <form method="POST" onsubmit="return peticionAJAX_POST_enviar_comentario(this);return false">
                         Titulo:<input type="text" id="titulo_en" placeholder="Titulo" />
                         <br/>
                         <textarea style="width:100%;" placeholder="Ponga aqui su comentario" id="coment_en"></textarea>
