@@ -151,13 +151,14 @@ div#next_button{
 }
 
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 20%;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: 100%;
     text-align : left;
+    margin-left: -170px;
 }
 
 input[type=number]{
@@ -194,7 +195,39 @@ input[type=number]{
     color: white;
     background: blue;
     margin-left: 325px;
+    
 }
+/*
+#formulariobusqueda input[type = "submit"]{
+
+    margin-bottom: 5px;
+    width: 235px;  
+}
+
+#formulariobusqueda input[type = "text"]{
+    /*margin-bottom: 5px;
+    width: 200px;
+    text-align : left; 
+    margin-left: -180px;   
+} 
+
+#formulariobusqueda input[type = "date"]{
+    /*margin-bottom: 5px;
+    width: 200px;
+    text-align : left; 
+    margin-left: -180px;   
+}*/
+
+#formulariobusqueda textarea{
+    display: inline-block;
+    margin: 0px;
+    width: 400px;
+    height: 80px;
+    margin-bottom: 5px;
+    font-size: 19px;
+    text-align: left;    
+}
+
 /* Formulario de nueva entrada */
 #formularioEntradaNueva input[type = "submit"]{
     text-align : center;
@@ -209,19 +242,21 @@ input[type=number]{
     background: blue;
     margin-left: 400px;
 }
+
 /* Formulario de busqueda */
 #formulariobusqueda input[type = "submit"]{
     text-align : center;
-    padding: 12px;
+    
     border: none;
     cursor: pointer;
-    width: 40%;
+    width: 10%;
     font-size: 152%;
     box-sizing: border-box;
-    border: 3px solid white;
+    border: 1px solid white;
     color: white;
     background: blue;
-    margin-left: 325px;
+    margin-top:25px;
+    
 }
 /* Formulario de registro, nueva entrada y búsqueda */
 #formularioEntradaNueva label{
@@ -259,7 +294,8 @@ input[type=number]{
     text-align: left;
 }
 
-#formularioregistro, #formularioEntradaNueva, #formulariobusqueda
+#formularioregistro, #formularioEntradaNueva
+
 {
     color: #FFFFFF;
     height:600px;
@@ -271,32 +307,11 @@ input[type=number]{
     display: inline-block;
     margin: 10px;
     width: 300px;
-    font-size: 19px;
+    font-size: 25px;
     color: #000;
 }
 
-#formulariobusqueda input[type = "submit"]{
 
-    margin-bottom: 5px;
-    width: 235px;  
-}
-
-#formulariobusqueda input[type = "text"]{
-    margin-bottom: 5px;
-    width: 200px;
-    text-align : left;    
-} 
-
-#formulariobusqueda textarea{
-    display: inline-block;
-    margin: 0px;
-    width: 300px;
-    height: 144px;
-    font-size: 19px;
-    text-align: left;
-    margin-bottom: 5px;
-    width: 200px;
-}
 
 
 /*************************************************/
@@ -445,7 +460,9 @@ button:hover{
 
 
 /**PAGINACION**/
-/*ul.pagination {
+
+
+ul.pagination {
     display: inline-block;
     padding: 0;
     margin: 0;
@@ -462,7 +479,7 @@ ul.pagination li a {
 }
 
 ul.pagination li a.active {
-    /*background-color: #4CAF50;
+    /*background-color: #4CAF50;*/
     background-color: #903;
     color: white;
     border-radius: 5px;
@@ -476,7 +493,7 @@ ul.pagination li a:hover:not(.active) {
 section.pag{
     text-align: center;
 }
-*/
+
 /***********COMENTARIOS*************/
 
 .comentario_R{
