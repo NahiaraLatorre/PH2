@@ -26,7 +26,7 @@
     </header>
 
     <!--Menú-->
-    <div id="mensaje"></div>
+    
     <input type="checkbox" id="ckb-menu">
     <nav id="menu"></nav>
     <div id="mensaje"></div> 
@@ -50,7 +50,7 @@
                 <label class="alinea" for = "nick"> Nick: </label><input type = "text" name ="nick" id = "nick" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"/><span class="infoNick" id="nickC"></span><br>
                 <br/><br>
                 <!-- Campo de registro: nombre de usuario -->
-                <label for = "usuario"> Nombre de usuario: </label>
+                <label> Nombre de usuario: </label>
                 <input type="text" name ="usuario" placeholder="Nombre de usuario" id="usu" required>
                 <br/>
                 <br>
@@ -58,7 +58,7 @@
                 <!-- Campo de registro: contraseña -->
                 <label class="infoPassword" for = "password"> Introduce contrase&ntilde;a: </label>
                 <input type="password" id="password" name = "password" placeholder="Contraseña"
-                required pattern="^[a-zA-Z0-9-_]{1,20}$" required><span class="infoPassword" id="passwordC"></span><br>
+                required pattern="^[a-zA-Z0-9-_]{1,20}$"><span class="infoPassword" id="passwordC"></span><br>
                 <br/>
                 <br>
 
@@ -89,28 +89,9 @@
         <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
     </footer>
     <script src="JavaScript/registro.js"></script>
+    <script src="JavaScript/funcion.js"></script>
     <script type="text/javascript">
-
-    window.onload=inicio();
-    /*
-    if(sessionStorage.getItem("nick")!=null){
-        
-        document.getElementById("usu").innerHTML='<label for = "nick"> Nick: </label><input type = "text" name="nick" id = "nick" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"/><br/><br>'; 
-        document.getElementById("password").innerHTML='<label for = "password"> Introduce contrase&ntilde;a: </label><input type="password" id="password" name = "password" placeholder="Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
-        document.getElementById("password2").innerHTML='<label for = "password2"> Confirmaaaa la contrase&ntilde;a: </label><input type="password" id="password2" name = "password2" placeholder="Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
-
-        document.getElementById("email").value=sessionStorage.getItem("email");
-        document.getElementById("nick").value=sessionStorage.getItem("nick");
-        document.getElementById("usu").value=sessionStorage.getItem("nombre");
-        document.getElementById("nick").value=sessionStorage.getItem("nick");
-        document.getElementById("usu").required=false;
-        document.getElementById("email").required=false;
-    }else {
-       document.getElementById("nick").innerHTML='<label for = "nick"> Nick: </label><input type = "text" name="nick" id = "nick" placeholder = " Nombre identificativo" autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"/><br/><br>'; 
-        document.getElementById("password").innerHTML='<label for = "password"> Introduce contrase&ntilde;a: </label><input type="password" id="password" name = "password" placeholder="Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
-        document.getElementById("password2").innerHTML='<label for = "password2"> Confirma la contrase&ntilde;a: </label><input type="password" id="password2" name = "password2" placeholder="Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>';
-    }*/
-
+        window.onload=inicio();
     </script>
 </body>
 </html>

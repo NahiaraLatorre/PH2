@@ -13,7 +13,7 @@ var obj; // variable que guarda el objeto XMLHttpRequest
 
 function peticionAJAX_LOGIN(url){
     console.log("ENTRANDO");
-obj= crearObjAjax();
+    obj= crearObjAjax();
     if(obj) { // Si se ha creado el objeto, se completa la petición ...
         // Argumentos:
         var login= document.getElementById("nick").value;
@@ -29,35 +29,6 @@ obj= crearObjAjax();
         console.log(args);
   }
 }
-
-/*
-
-function peticionAJAX_LOGIN(frm){
-
-  console.log('ENTRO');
-  let xhr = new XMLHttpRequest(),
-  url = 'http://localhost/practica2/rest/login/', //Puesto para mi ruta
-  fd  = new FormData(frm);
- 
-  xhr.open('POST', url, true);
-  xhr.onload = function(){ //Cuando llega al paso 4 realiza la ejecudion de este codigo
-  console.log(xhr.responseText); //Muestra la respuesta del proceso por consola
-  let du = JSON.parse(xhr.responseText); 
-  //Lo que hace es guardarlo en el sesion storage si ha funcionado
-  if(du.RESULTADO == 'ok'){
-    console.log('Bienvenido');
-    sessionStorage['du'] = xhr.responseText; //se podria utilizar la funcion stringiflay!
-    //window.location = "http://localhost:4443/ph2";
-  
-  }else{
-    console.log('No estas logueado');
-  }
-
-  //frm.parentNode.querySelector('p').innerHTML = xhr.responseText; //Text content lo interpreta como texto tal cual (no interpreta el html para luego ponerlo) con inner interpreta el codigo html
- };
- xhr.send(fd);
- return false;
-}*/
 
 function procesarLogin(){
   
@@ -132,8 +103,6 @@ function cerrarMensajeConLogin(){
      window.location.assign('login.html');
 }
 
-/*--------------  MODIFICAR  ---------------*/
-
 function inicio(){
     
     if(window.sessionStorage){
@@ -153,7 +122,7 @@ function logout(){
         document.getElementById("menu").innerHTML='<ul><li><label for="ckb-menu">&equiv;</label></li><li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li><li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li><li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i><a onclick="NuevaEntrada()">Nueva entrada</a></li><li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li><li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li></ul>';
         window.location.assign('index.html');
     }
-}
+}/*
 function NuevaEntrada(){
   
   if(sessionStorage.getItem("nick")){
@@ -164,7 +133,7 @@ function NuevaEntrada(){
     window.location.assign("index.html");
   }
 
-}
+}*/
 
 function peticionComprobarLogin(value){
     

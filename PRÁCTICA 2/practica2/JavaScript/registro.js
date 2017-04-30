@@ -108,17 +108,6 @@ function logout(){
         window.location.assign('index.html');
     }
 }
-function NuevaEntrada(){
-  
-  if(sessionStorage.getItem("nick")){
-    window.location.assign("Nueva-entrada.html");
-  }
-  else{
-    window.alert("Debes de estar logueado para acceder a este contenido");
-    window.location.assign("index.html");
-  }
-
-}
 function cerrarMensajeConIndex(){
      document.getElementById("mensaje").style.zIndex="-1";
      document.getElementById("muro").style.zIndex="-2";

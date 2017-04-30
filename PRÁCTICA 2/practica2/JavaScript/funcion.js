@@ -8,7 +8,6 @@ function crearObjAjax(){
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
       return xmlhttp;
 }
-
 function inicio(){
     console.log("iniciando");
     if(window.sessionStorage){
@@ -21,7 +20,6 @@ function inicio(){
         }
     }
 }
-
 function logout(){
 
     if(window.sessionStorage){
@@ -31,3 +29,14 @@ function logout(){
         window.location.assign('index.html');
     }
 }
+function NuevaEntrada(){
+  
+  if(sessionStorage.getItem("nick")){//si esta logueado
+    //window.location.assign("Nueva_entrada.html");
+    
+  }else{
+    window.alert("Debes de estar logueado para acceder a este contenido");
+    window.location.assign("index.html");
+  }
+}
+

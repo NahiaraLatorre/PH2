@@ -586,6 +586,10 @@ section.pag{
 }
 
 /*****************  ID  **********************/
+.image-upload > input
+{
+    display: none;
+}
 
 #mensaje{
     opacity: 0;

@@ -5,14 +5,18 @@ function crearObjAjax(){
      } 
      else 
       if(window.ActiveXObject) { // IE(Windows): objectoActiveX
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");}
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
       return xmlhttp;
 }
 var numerica=0;
-function peticionAJAX_PostNuevaEntrada() {
+function peticionAJAX_PostNuevaEntrada(){
        
   url = "rest/post/entrada.php";
   obj3 = crearObjAjax();
+
+  //SI HAY FOTOS NO CORRECTAS NO SE ENVIA NADA
+
   if(obj3){
     var fd = new FormData();//formdata agrupa los datos segun clave/valor y los interpreta en el php como las variables de siempre [clave]
     var titulo = document.getElementById("titulo").value;
@@ -28,9 +32,17 @@ function peticionAJAX_PostNuevaEntrada() {
     obj3.open("POST", url, true);
     //obj3.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); no nos hace falta con formdata
     obj3.send(fd);//enviamos el formdata
+
+
+    document.getElementById("mensaje").innerHTML="Entrada nueva insertada correctamente!! <div id='cerrar' onclick='cerrarMensajeConIndex()'>Cerrar</div>";
+    document.getElementById("mensaje").style.zIndex="5";
+    document.getElementById("mensaje").style.transition="opacity 1s linear";
+    document.getElementById("mensaje").style.opacity="1";
+
+    document.getElementById("muro").style.opacity="0.3";
+    document.getElementById("muro").style.zIndex="4";
   }
 }
-
 
 function mas_fotos(){
     numerica = numerica+1;
@@ -43,8 +55,8 @@ function mas_fotos(){
     */
     document.getElementById("zonaFicha").innerHTML +='<div class="crea_imagen" id="fotosViaje_'+numerica+'">'+
     '<input type="button" id="boton_borrar_'+numerica+'" onclick="return borrar_foto(\'fotosViaje_'+numerica+'\');" name = "Enviar datos" class="button" value="X">'+
-    '<img  alt="Foto del viaje" id="otrafoto" src="img/logo.png"><br>'+
-    '<input type="file" id="foto" onchange="mostrar_foto()" class="button" value="X"><br>'+
+    '<div class="image-upload"><label for="file-input">'+
+    '<img src="img/logo.png" id="fotoN"/></label><input id="file-input" type="file"/></div>'+
     '<textarea required class="caja" placeholder="Escribir comentario..."></textarea></div>';
 }
 function borrar_foto(borrar){
@@ -64,24 +76,58 @@ function borrar_foto(borrar){
     2- coger el dom de esa id
     3- borrar el dom*/
 }
+/*
 function mostrar_foto(){
   
   var fr= new FileReader();
-  foto=document.getElementById('foto').files[0];
+  var foto=document.getElementById('file-input').files[0];
  
   fr.onload=function(){
-    document.getElementById('fotosViaje').src=fr.result;
+    document.getElementById('fotoN').src=fr.result;
   }
-  fr.readAsDataURL(foto);
+  /*fr.readAsDataURL(foto);
   document.getElementById("fotoPerfil2").innerHTML="";
-}
-function comprobarTamanyo(){
-  var input = document.getElementById("foto");
-  var file = input.files[0];
+}*/
+/************************************/
+function mostrar_foto(evt) {//cambia imagen actual por una nueva
+      var files = evt.target.files; // FileList object
+       
 
-  if(file.size<500000){
-      mostrar_foto()
-  }else{
-   alert("El tamaño de la foto debe de ser menor que 500KB");
-  }
+      var input = document.getElementById("file-input");
+      var file = input.files[0];//fichero en posicion 0
+      console.log("entraaa"+file.size);
+      if(file.size<500000){
+           //Obtenemos la imagen del campo "file". 
+        for (var i = 0, f; f = files[i]; i++) {         
+             //Solo admitimos imágenes.
+             if (!f.type.match('image.*')) {
+                  continue;
+             }
+         
+             var reader = new FileReader();
+             
+             reader.onload = (function(theFile) {
+                 return function(e) {
+                 // Creamos la imagen.
+                        document.getElementById("fotoN").src = e.target.result;
+                 };
+             })(f);
+   
+             reader.readAsDataURL(f);
+         }
+      }else{
+       alert("El tamaño de la foto debe de ser menor que 500KB");
+      }    
+}
+document.getElementById('file-input').addEventListener('change',mostrar_foto, false);
+/************************************/
+
+
+
+function cerrarMensajeConIndex(){
+     document.getElementById("mensaje").style.zIndex="-1";
+     document.getElementById("muro").style.zIndex="-2";
+     document.getElementById("mensaje").style.opacity="0";
+     document.getElementById("muro").style.opacity="0";
+     window.location.assign('index.html');
 }

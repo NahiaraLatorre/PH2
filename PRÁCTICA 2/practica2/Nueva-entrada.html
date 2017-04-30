@@ -35,7 +35,7 @@
         <section>
             <!-- Encabezado del formulario -->
             <h2>Datos de la nueva entrada</h2>
-            <form id = "formularioEntradaNueva"onsubmit = "peticionAJAX_PostNuevaEntrada();return false;">
+            <form id = "formularioEntradaNueva" onsubmit = "peticionAJAX_PostNuevaEntrada();return false;">
 
                 <!-- Campo de nueva entrada: título -->
                 <div class="casilla"><label for="titulo" class="alinea">Título:</label>
@@ -55,14 +55,22 @@
                         <div class="crea_imagen" id="fotosViaje">
 
                                 <input type="button" id="boton_borrar" onclick="borrar_foto('fotosViaje')" name = "Enviar datos" class="button" value="X">
-                                <img alt="Foto del viaje" id="foto" src="img/logo.png">
-                                <input type="file" id="foto" onchange="mostrar_foto()" class="button" value="X"><br>
+                                <!--<img alt="Foto del viaje" id="foto" src="img/noFoto.png">-->
+                                
+                                <div class="image-upload">
+                                    <label for="file-input"><!--redirige ese click a ese input-->
+                                        <img src="img/logo.png" id="fotoN" alt="imagen nueva entrada" />
+                                    </label>
+                                    <input id="file-input" type="file"/>
+                                </div>
+
+                                <!--<input type="file" id="foto" onchange="mostrar_foto()" class="button" value="X"><br>-->
                                 <textarea required class="caja" placeholder="Escribir comentario..."></textarea>
                                             
                         </div>
                      </div>
                         <br>
-                            <div class="casilla"><label for="foto" class="alinea">Añadir más fotos:</label><a href="#" onclick="mas_fotos()" class="button">Añadir foto</a></div><br>
+                            <div class="casilla"><label class="alinea">Añadir más fotos:</label><a href="#" onclick="mas_fotos()" class="button">Añadir foto</a></div><br>
                             <input type="submit" name = "Enviar datos" class="button" value="Subir">
                 </div>
             </form>
@@ -77,8 +85,8 @@
     <script src="JavaScript/nueva-entrada.js"></script> 
     <script src="JavaScript/funcion.js"></script>
     <script type="text/javascript">
-      
          window.onload=inicio();
+         window.onload=NuevaEntrada();
     </script>
     
 </body>
