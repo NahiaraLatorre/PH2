@@ -284,7 +284,7 @@ function formatear_comentarios()
 	if(comenta != "")
 	{
 		nodo_comentarios_realiazados=document.getElementById("comenta");
-		comentarios_realizados="<h2>COMENTARIOS</h2>";
+		comentarios_realizados="";
 
 		//console.log(comenta.FILAS.length);
 
