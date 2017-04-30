@@ -1,5 +1,4 @@
 
-
 function mostrarEntradas(frm){
 	
 	console.log("mostrando entradas ----- CODIGO PROFESOR");
@@ -88,6 +87,7 @@ function procesarCambio()//procesar cambio para entradas
 			// Aquí se procesa lo que se haya devuelto:
 			console.log("se ha terminado la carga de datos entradas -> devolviendo");//devolvemos mensaje por log
 			entradas=JSON.parse(obj.responseText);//creamos el objeto datos con los datos parseados
+
 			formatear_entradas(entradas);//mostramos la informacion en la pagina
 		}
 		else 
@@ -120,6 +120,7 @@ function formatear_entradas(a)
 			
 			//nodoA=document.getElementById("seccionEnt");
 			articulo=document.createElement("article");
+
 			//seccionEnt = '<article class="entrada">';
 			seccionEnt = '<h3>' + titulo + '</h3><div class="imagen"><div class="foto"><img src="'+ foto +'" alt="imagenEntrada"/></div><h4><a href="entrada.html?id=' + id + '"">Ver más....</a></h4></div>';
 			seccionEnt += '<div class="datos"><p>' + usu + '</p><time>' + fecha + '</time><p>' + numFotos + ' fotos</p><p>' + numComent + ' comentarios</p></div>' ;
