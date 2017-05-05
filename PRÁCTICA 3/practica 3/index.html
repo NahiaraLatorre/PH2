@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Practica2-PH2">
+    <meta name="author" content="Nahiara&Maria">
+
+    <!-- Enlace al CSS principal -->
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+
+    <link rel="icon" href="img/logo-icon.ico" type="image/x-icon"/>
+    
+    <!--Para los iconos-->
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
+    <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+        
+	<title>Inicio</title>
+    
+</head>
+<body onload="inicio();peticionAJAX_GET();">    
+     <!-- Cabecera -->
+    <header>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
+        <h1>Crazy Trips</h1>
+        <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
+        
+    </header>
+
+    <!--Menú-->
+    <input type="checkbox" id="ckb-menu">
+    <nav id="menu"></nav>
+    
+    <section id="index"> 
+        <h2 class="quitar">INICIO</h2>
+        <article>
+            <h4>Paginacion</h4>
+            <form onsubmit="return mostrarEntradas(this);">
+                <div>
+                    <span>Página:</span>
+                    <input type="number" name="pag" value="0">
+                    <span>de</span>
+                    <input type="number" name="lpag" value="6">
+                    <input type="submit">
+                </div>
+            </form>
+        </article>
+        <br><br>
+
+        <article>
+            <h4 class="quitar">paginacion</h4>
+            <ul class="pagination">
+                <li><a href="#"><i class="icon-left-open"></i>First</a></li>
+                <li><a href="#">«</a></li>
+                <li><a class="active" href="#">1</a></li>
+                <li><a href="#">»</a></li>
+                <li><a href="#">Last<i class="icon-right-open"></i></a></li>
+            </ul>
+        </article>
+
+        
+
+        <!--article class="pag">
+            <ul class="pagination">
+                <li><button type="button" class="buttonPage" onclick=""><i class="icon-left-open"></i>First</button> 
+                <li><button type="button" class="buttonPage" onclick="">«</button> 
+                <li>1</li>   
+                <li><button type="button" class="buttonPage" onclick="">»</button> 
+                <li><button type="button" class="buttonPage" onclick="">Last<i class="icon-right-open"></i></button> 
+            </ul>
+        </article-->
+
+        
+
+        <!-- <button type="button" class="botonAct" onclick="peticionAJAX_GET_comentarios();"">Actualizar</button> -->
+
+        <section id="seccionEnt">
+            <h2>Últimas Entradas</h2>
+        </section>
+
+        <div>
+            <template>
+                <article>
+                    <h3>Titulo de la entrada</h3>
+                    <div>
+                        <img src="" alt="">
+                        <p></p>
+                    </div>
+                    <footer>
+                        <p></p>
+                        <time>2017-02-28</time>
+                        <p></p>
+                        <p></p>
+                    </footer>
+                </article>
+            </template>
+        </div>
+
+        <article><!-- COMENTARIOS EN EL INDEX-->
+            <h2>Últimos comentarios</h2>
+            <button class="botonAct" onclick="peticionAJAX_GET_comentarios();">Actualizar</button>
+            <div id="LastComenta"></div>
+        </article>
+
+    </section>
+
+    <footer>
+        <p id="pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
+    </footer> 
+
+    <script src="JavaScript/index.js"></script> 
+    <script src="JavaScript/funcion.js"></script>   
+
+</body>
+</html>

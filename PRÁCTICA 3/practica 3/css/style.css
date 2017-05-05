@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
+/* Formulario de acceso */
+*{
+    font-family: Century Gothic;
+}
+
+/* Cabecera */
+header{
+    background-image: url(../img/Cabecera.png);
+    background-size: cover;
+    height: 350px;
+    width: 100%;
+    
+}
+
+main{
+    padding: 50px;
+}
+
+p{
+    /*font-size:30px;
+    margin-left: 300px;
+    margin-top: -230px;*/
+
+    color: #000;
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
+}
+
+/* Cuerpo de la página */
+body{
+    /*background-color: #050505;*/
+    background-color: #d8d8d8;
+    margin: 0;
+}
+
+section{
+    margin: 2%;
+    padding: 20px;
+}
+
+/********************************/
+/* Menu hamburguesa 0 */
+label[for="ckb-menu"]{
+    cursor:pointer;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+#ckb-menu{
+      display: none;
+}
+
+#ckb-menu:checked+nav{
+    max-height: 15em;
+}
+
+nav 
+{
+    transition:all 0.5s;
+
+    -webkit-box-shadow: 0px 10px 35px 9px rgba(0,0,0,0.32);
+    -moz-box-shadow: 0px 10px 35px 9px rgba(0,0,0,0.32);
+    box-shadow: 0px 10px 35px 9px rgba(0,0,0,0.32);
+
+}
+
+    nav>ul
+    {
+
+    }
+        nav>ul>li 
+        {
+            display: inline-block;
+        }
+            nav>ul>li>a, label[for="ckb-menu"]{
+                display: block;
+                color : #000;
+                font-size : 23px;
+                text-decoration: none;
+                width : 240px;
+                line-height : 25px;   
+                padding: .2em 0;           
+
+            }
+                nav>ul>li>a:hover
+                {
+                    background-color: rgba(204,0,51,0.7);
+                    /*border-radius: 2px;*/
+                }
+
+@media all and (min-width: 480px){
+
+    nav{
+        max-height: 2em;
+    }
+
+    nav>ul>li:first-of-type{
+        display: none;
+    }
+
+    nav>ul>li{
+        display: inline-block;
+        float: left;
+    }
+
+        nav>ul>li>a{
+            padding: .2em .5em;
+        }
+
+    nav>ul>li:not(:last-of-type){
+        border-right: .1em solid #234;
+    }
+}
+
+/* Botón para eliminar foto */
+#boton, .eliminarImagen {
+    background: orange;
+    float: left;
+    position: absolute;
+}
+/*********** fotos de nueva entrada ************/
+
+.Imagen1, .Imagen2, .Imagen3{
+    float: left;
+    border-radius: 40px;
+    width: 230px; 
+    height: 150px; 
+}   
+/* Formulario acceso */          
+#formularioacceso{
+    border-style: outset; 
+    border-width: 7px; 
+    background-color: #1ABC9C;
+    border-color: #148F77;
+    height:280px;
+    width: 400px;
+    padding: 180px;
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    position: relative;
+    padding-top: 50px;
+}
+
+div#next_button{
+    position: relative;
+    bottom: 15px; 
+    right: 100px;
+    text-align : center;
+}
+
+input[type=text], input[type=password] {
+    width: 20%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 100%;
+    text-align : left;
+    margin-left: -170px;
+}
+
+input[type=number]{
+    width: 2%;
+}
+
+.login {
+    margin-top: 30px;
+    margin:auto;
+    padding:90px;
+    text-align : left;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.login input {
+    padding-top: 40px;
+    padding:12px;
+    margin:5px
+    font-size: 100%;
+}
+
+/* Formulario de registro */
+#formularioregistro input[type = "submit"]{
+
+    text-align : center;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    color: white;
+    background: blue;
+    margin-left: 325px;
+    
+}
+/*
+#formulariobusqueda input[type = "submit"]{
+
+    margin-bottom: 5px;
+    width: 235px;  
+}
+
+#formulariobusqueda input[type = "text"]{
+    /*margin-bottom: 5px;
+    width: 200px;
+    text-align : left; 
+    margin-left: -180px;   
+} 
+
+#formulariobusqueda input[type = "date"]{
+    /*margin-bottom: 5px;
+    width: 200px;
+    text-align : left; 
+    margin-left: -180px;   
+}*/
+
+#formulariobusqueda textarea{
+    display: inline-block;
+    margin: 0px;
+    width: 400px;
+    height: 80px;
+    margin-bottom: 5px;
+    font-size: 19px;
+    text-align: left;    
+}
+
+/* Formulario de nueva entrada */
+#formularioEntradaNueva input[type = "submit"]{
+    text-align : center;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 3px solid white;
+    color: white;
+    background: blue;
+    margin-left: 400px;
+}
+
+/* Formulario de busqueda */
+#formulariobusqueda input[type = "submit"]{
+    text-align : center;
+    
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    font-size: 152%;
+    box-sizing: border-box;
+    border: 1px solid white;
+    color: white;
+    background: blue;
+    margin-top:25px;
+    
+}
+/* Formulario de registro, nueva entrada y búsqueda */
+#formularioEntradaNueva label{
+    text-align: left;
+    display: inline-block;
+    margin: 10px;
+    width: 300px;
+    font-size: 19px;
+    color: #000;
+}
+
+#formularioEntradaNueva textarea{
+    display: inline-block;
+    margin: 0px;
+    width: 300px;
+    height: 144px;
+    font-size: 19px;
+    text-align: left;
+}
+
+/* Formulario de registro: poner margen a los elementos e alinear las cajas de texto */
+
+#formularioregistro input, #formularioEntradaNueva input[type = "text"]
+{
+    margin-bottom: 5px;
+    width: 200px;
+    text-align : left;
+}
+
+#formularioregistro input, #formularioEntradaNueva input[type = "file"]
+{
+    margin-bottom: 10px;
+    margin-left: 0px;
+    width: 300px;
+    text-align: left;
+}
+
+#formularioregistro, #formularioEntradaNueva
+
+{
+    color: #FFFFFF;
+    height:600px;
+    /*margin: 170px;*/
+}
+
+#formularioregistro label, #formulariobusqueda label 
+{
+    display: inline-block;
+    margin: 10px;
+    width: 300px;
+    font-size: 25px;
+    color: #000;
+}
+
+
+
+
+/*************************************************/
+#tituloformacceso{
+    text-align: left;
+    font-size: 200%;
+    padding: -40px;
+    height: 10px;
+    background-color: none;
+    color: #000;
+
+}
+
+h1{
+    color: #FFF;
+    font-size: 50px;
+    text-transform: uppercase;    
+    margin-left: 10px;
+    /*position: absolute;*/
+    font-style: normal;
+    display: none;
+
+}
+
+h2{
+    color: #903;
+    text-align: left;  
+    /*padding: 1%;*/
+    font-size: 50px;
+    /*background: rgba(0,0,255,0.5);*/
+    /*width:100%;*/
+}
+
+h3{
+    text-align: center;    
+    /*height: 10px;*/
+}
+
+h4{
+    color: #000;
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+a{
+    text-decoration:none;
+    /*color: #754654;*/
+    color:#000;
+}
+
+a:hover{
+    text-decoration:none;
+    color: #fff;
+}
+
+button{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 25px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    font-size: 150%;
+}
+    
+button:hover{
+    background-color: #636CB3;
+    
+}
+
+/*****animacion fotos******/
+
+.todasEnt{
+    text-align: left;
+}
+
+/*.entrada{
+    border-radius: 15px;
+    background-color: #C96464;
+    margin: 10px;
+    padding: 10px;
+    max-width: 500px;
+    display: inline-block;
+    margin-left: 10px, auto;
+    margin-right: 10px, auto;
+}*/
+
+
+#seccionEnt article{
+    border-radius: 15px;
+    background-color: #C96464;
+    margin: 10px;
+    padding: 10px;
+    max-width: 500px;
+    display: inline-block;
+    margin-left: 10px, auto;
+    margin-right: 10px, auto;
+}
+
+
+.imagen img{
+    overflow:hidden;
+    width: 300px;
+    height: 200px;
+    border: 3px inset #CCC;
+    opacity:1; 
+    transition: opacity 1s;
+    z-index: 1;
+    border-radius: 15px;
+}
+
+.imagen:hover>img{
+    opacity: 0.3;
+    background-color: #fff;
+}
+   
+.enlaceFoto{
+    color: #903;
+}
+
+.enlaceFoto:hover{
+    color: blue;
+}
+
+.datos{
+    border-radius: 15px;
+    text-align: center;
+    opacity: 0.8;
+    filter:  alpha(opacity=50);.
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #FF8C31;
+    
+}
+
+.datos p, .datos time{
+    color: #fff;
+    margin: 10px;
+    padding: 10px;
+    font-size: 25px;
+}
+
+
+/**PAGINACION**/
+
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+ul.pagination li a.active {
+    /*background-color: #4CAF50;*/
+    background-color: #903;
+    color: white;
+    border-radius: 5px;
+}
+
+ul.pagination li a:hover:not(.active) {
+    background-color: #FFF;
+    border-radius: 5px;
+}
+
+section.pag{
+    text-align: center;
+}
+
+/***********COMENTARIOS*************/
+
+.comentario_R{
+    background-color: #f5f5f5; 
+    border: 3px inset #CCC;
+    margin-top: 2%;
+    border-radius: 10px; 
+}
+
+.comentario_R h3{
+    text-align: left;
+    font-size: 30px;
+    margin-top: -15px;
+    color: #2f1abc;
+    padding-left: 15px;
+}
+
+.comentario_R p, .comentario_R time{
+    font-size: 25px;
+}
+
+.comentario_R time{
+    padding-left: 25px;
+    font-size: 20px;
+}
+
+
+.botonComent{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 10px;
+    margin: 15px 40px;
+    border: none;
+    cursor: pointer;
+    width: 8%;
+    font-size: 100%;
+}
+
+.botonAct{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 2px;
+    margin: 0px;
+    border: none;
+    cursor: pointer;
+    width: 8%;
+    font-size: 100%; 
+}
+
+/* 
+.textoComent{
+    float: left;
+    margin-left: 5%;
+}*/
+
+.respuestaComent{
+    float: left;
+    margin-top:auto;
+    padding: 1%;
+}
+
+.botonResp{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 1px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 10px;
+    margin: 10px 2px;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    font-size: 100%; 
+}
+
+.casilla{
+    float-top: 2%; 
+    padding-right: 2%;
+    padding-left: 2%;
+    display:inline;
+    color:black;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size: 100p;
+}
+
+/*****************  ID  **********************/
+.image-upload > input
+{
+    display: none;
+}
+
+#mensaje{
+    opacity: 0;
+    z-index: -1;
+    background-color: white;
+    position: fixed;
+    top: 40%;
+    right: 40%;
+    left: 40%;
+    bottom: 40%;
+    border: 1px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#muro{
+    opacity: 0;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: -2;
+    background-color: white;
+}
+
+
+/* Logo de nuestra página */
+#logo{
+    /*display: inline;*/
+} 
+
+/*#tituloFoto{
+    color: #903;
+    margin-top: 1%;
+    position: absolute;
+}*/
+
+#pie{
+    margin-top: 0.5px;
+    color: #903;
+}
+
+/* Copyright */
+#derechos{
+    display: none;
+    color: #903;
+}
+
+/* Pie de la página */
+footer{
+    margin: 0px;
+    text-align: center;
+    opacity: 0.8;
+    filter:  alpha(opacity=50);
+    background-color: #000;
+    border: 1px solid #FF8C31;
+    color: #fff;
+    padding: 5px;
+    
+}
+footer a {
+    text-decoration:none;
+    color: white;
+}

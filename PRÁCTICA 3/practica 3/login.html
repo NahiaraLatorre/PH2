@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Practica1-PH2">
+    <meta name="author" content="Nahiara&Maria">
+    <!-- Enlace al CSS principal -->
+    <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
+    <link rel="icon" href="img/logo-icon.ico" type="image/x-icon"/>
+    
+    <!--Para los iconos-->
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
+    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
+    <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+    
+    <title>Login</title>
+
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
+        <h1>Crazy Trips</h1>
+        <p>Viaja, escápate a otros lugares donde nunca hayas estado</p>
+    
+    </header>
+
+    <!--Menú-->
+    <input type="checkbox" id="ckb-menu">
+    <nav id="menu"></nav>
+
+    <main>
+        <section>
+            <h2>Login</h2>
+
+            <div id="mensaje"></div> 
+            <div id="muro"></div>    
+            <!-- Formulario de acceso -->
+            <form id = "formularioacceso" class="login" onsubmit = "peticionAJAX_LOGIN('rest/post/login.php'); return false;">
+                <h2>Acceso</h2>
+                <!-- Encabezado del formulario de acceso -->
+                <!-- Campo de acceso: nombre de usuario -->
+                <label for = "nick"> Usuario </label>
+                <input type="text" placeholder="Nombre de Usuario" name ="login" id="nick" required autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$"><br>
+                
+                <!-- Campo de acceso: contraseña -->
+                <label for = "password"> Contraseña </label>
+                <input type="password" id="password" name="pwd" placeholder="Introducir Contraseña" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>
+                <!-- Botón para confirmar el acceso -->
+                    <button type = "submit" id = "boton" name = "entrar" value = "Entrar" accesskey = "e" tabindex = "6">Entrar</button>
+                
+            </form>
+        </section>
+    </main>              
+        
+	<footer>
+        <p id = "pie">Cracy trips. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
+        <p id = "derechos">Copyright &copy; 2017 | María Sánchez y Nahiara Latorre.</p>
+    </footer> 
+    <script src="JavaScript/login.js"></script> 
+    <script type="text/javascript">
+        window.onload=inicio();
+    </script>
+    
+</body>
+</html>
