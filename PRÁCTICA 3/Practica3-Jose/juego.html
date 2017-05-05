@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Hundir la flota > Juego</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="stylesheet" type="text/css" href="css/fontello.css"/>
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'/>
+	<script type="text/javascript" src="./js/juego.js"></script>
+	<script type="text/javascript" src="./js/juego2.js"></script>
+	<script type="text/javascript" src="./js/funciones_genericas.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body onload="arranque('jugar');arranquep();">
+	<div class="zoom" id="zoo"><div class="mensaje" id="mensaje"></div></div>
+	<input type="checkbox" class="checkbox" id="menu-toogle"/>
+	<label for="menu-toogle"><span></span></label>
+	<div id="banner">
+		<img src="img/logotipo.png" height="100" width="100" alt="Logotipo de la pagina">
+		<h1>Hundir la flota</h1>
+		<h3>International edition</h3>
+	</div>
+	<nav id="menu">
+		<h3>Menu Despegable</h3>
+		<ul id="menu_lista">
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="javascript:registro()"><span class="icon-search"></span>Registrate</a></li>
+			<li><a href="javascript:logearse()"><span class="icon-search"></span>Login</a></li>
+			<li><a href="juego.html">Jugar</a></li>
+			<li><a href="acerca.html"><span class="icon-user"></span>Nosotros</a></li>
+			<li><a href="javascript:cerrar()">Cerrar Sesion</a></li>
+			<!--<li><a href="#" onclick="cerrar();">Cerrar Sesion</a></li>-->
+		</ul>
+	</nav>
+	<main class="juego">
+			<header>
+				<h1>Hundir la tropa:</h1>
+			</header>
+			<div>
+				<div style="width:99%;">
+					<p>Coordenadas: X = <span id="coordenadax"></span> Y = <span id="coordenaday"></span></p>
+						<div id="zona1">
+							<p>Tablero:</p>
+							<canvas id="game" style="text-align:center;" width="220" height="220" ondrop="drop(event)" ondragover="allowDrop(event)">Tu navegador no soporta HTML5 Canvas :(</canvas>
+						</div>
+						<div id="zona2">
+							<div id="barcos" width="220" height="220">
+								<p>Barcos disponibles:</p>
+								<canvas id="sub1" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="sub2" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="sub3" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="sub4" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="lan1" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="lan2" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="lan3" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="buq1" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="buq2" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+								<canvas id="port" style='' class="barco" draggable = "true" ondragstart="drag(event)"></canvas>
+							</div>
+						</div>
+					</div>
+					<div style="width:99%;overflow:hidden;text-align:center;" id="botonesacciones">
+						<span id="respuestas" style="width:100%;"></span><br/>
+						<!-- <br/> -->
+						<button type="button" id="botonjugar" style="text-align:center;" disabled onclick="empezarjuego()">Jugar</button>
+						<button type="button" id="botonrotar" style="text-align:center;" onclick="girar()">Rotar Barcos 90º</button>
+					</div>
+			</div>
+			<footer>
+				<h6>Arrastre los barcos hacia la zona de juego.</h6>
+				<h6>Si desea eliminar un barco, pinche en él en el tablero de juego, para rotarlos clique en el boton rotar barcos antes de arrastrar los barcos</h6>
+			</footer>
+	</main>
+	<footer class="footer">
+		<p>
+			<span>jTravel&copy;</span>
+			<time datetime="2016">2016</time>
+		</p>
+	</footer>
+</body>
+</html>

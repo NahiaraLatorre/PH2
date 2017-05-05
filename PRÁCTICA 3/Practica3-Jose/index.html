@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Hundir la flota > Inicio</title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="stylesheet" type="text/css" href="css/fontello.css"/>
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'/>
+	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript" src="./js/funciones_genericas.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body onload="arranque();arranque_personalizado();">
+	<div class="zoom" id="zoo"><div class="mensaje" id="mensaje"></div></div>
+	<input type="checkbox" class="checkbox" id="menu-toogle"/>
+	<label for="menu-toogle"><span></span></label>
+	<div id="banner">
+		<img src="img/logotipo.png" height="100" width="100" alt="Logotipo de la pagina">
+		<h1>JUEGASOS INCREIBLES</h1>
+		<h3>Tenemos el hundir la tropa, 6/10 IGN, too much water</h3>
+	</div>
+	<nav id="menu">
+		<h3>Menu Despegable</h3>
+		<ul id="menu_lista">
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="javascript:registro()"><span class="icon-search"></span>Registrate</a></li>
+			<li><a href="javascript:logearse()"><span class="icon-search"></span>Login</a></li>
+			<li><a href="juego.html">Jugar</a></li>
+			<li><a href="acerca.html"><span class="icon-user"></span>Nosotros</a></li>
+			<li><a href="javascript:cerrar()">Cerrar Sesion</a></li>
+			<!--<li><a href="#" onclick="cerrar();">Cerrar Sesion</a></li>-->
+		</ul>
+	</nav>
+	<main>
+		<aside>
+			<div id = "noregistrado" style="text-align:center;display:none;"> 
+				<h4>No esta logeado</h4>
+			</div>
+		</aside>
+		<section id="puntuaciones">
+			<h3>Clasificacion de puntuaciones:</h3>
+			<br>
+			<table id="clasificaciones" style="width:100%; text-align:center; font-size:1em;">
+				
+			</table>
+			<br/><br/>
+			<span> Para ver descentemente los valores presione &dArr; en el campo deseado.</span>
+		</section>
+	</main>
+	<footer class="footer">
+	<p>
+		<span>Hundir la flota&copy;</span>
+		<time datetime="2016">2016</time>
+	</p>
+	</footer>
+</body>
+</html>
