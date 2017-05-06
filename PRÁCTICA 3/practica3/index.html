@@ -18,46 +18,49 @@
 	<title>Inicio</title>
     
 </head>
-<body>    
+<body onload="actualizaIndex()">    
      <!-- Cabecera -->
     <header>
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
         <h1>Game Ball</h1>       
     </header>   
 
-     <section>
+        <section>
 
             <h2>Empieza la partida</h2>
             <div id="mensaje"></div> 
             <div id="muro"></div>  
-            <article class="login" id="formularioacceso">  
+            <article class="login" id="formularioacceso" >  
                 <!-- Formulario de acceso -->
-                <form>
-                    <!-- Encabezado del formulario de acceso -->
-                    <!-- Campo de acceso: nombre de usuario -->
-                    <label for = "equipo1"> Equipo 1 </label><br>
-                    <input type="text" name ="login" id="nick" placeholder="Nombre equipo 1" required autofocus pattern="^[a-zA-Z][a-zA-Z0-9]{0,20}$">
+                
+                <form method="post" onSubmit="f1();" id="form1">
+                    
+                    <legend>Equipo 1:</legend>
+                    <label for = "equipo1">
+                    <input type="text" name ="login" placeholder="Nombre equipo 1" required id="equipo1">
                     <!-- Botón para confirmar el acceso -->
-                    <button type = "submit" id = "boton" name = "entrar" value = "Entrar">Guardar</button>
+                    <input type = "submit" id = "boton1" name = "guardar" value = "Guardar" class="button"></label>
                 </form>
 
-                <form>   
-                    <!-- Campo de acceso: contraseña -->
-                    <label for = "equipo2"> Equipo 2 </label><br>
-                    <input type="text" id="equipo2" name="pwd" placeholder="Nombre Equipo 2" required pattern="^[a-zA-Z0-9-_]{1,20}$"><br>
+                <form method="post" onSubmit="f2();" id="form2">   
+                    <legend>Equipo 2:</legend>
+                    <label for = "equipo2">
+                    <input type="text" name="pwd" placeholder="Nombre Equipo 2" required id="equipo2">
                     <!-- Botón para confirmar el acceso -->
-                    <button type = "submit" id = "boton" name = "entrar" value = "Entrar">Guardar</button>
+                    <input type = "submit" id = "boton2" name = "guardar" value = "Guardar" class="button"></label>
+                </form>
+                <form method="post" onSubmit="f3();" id="form3">
+                    <input type = "submit" id = "botonJugar" name = "jugar" value = "Jugar" class="button">
                 </form>
             </article>
-
+            </br></br></br></br></br></br>
         </section>
 
     <footer>
         <p id="pie">Game Ball. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
     </footer> 
 
-    <script src="JavaScript/index.js"></script> 
-    <script src="JavaScript/funcion.js"></script>   
+    <script src="JavaScript/login.js"></script>   
 
 </body>
 </html>

@@ -1,4 +1,62 @@
-function crearObjAjax(){
+//var ajugar = 2;
+
+function f1(){
+  var usu1=document.getElementById("equipo1").value;
+
+  sessionStorage.setItem("login1",usu1);
+}
+
+function f2(){
+  var usu2=document.getElementById("equipo2").value;
+  sessionStorage.setItem("login2",usu2);
+}
+
+function f3(){
+  //console.log("entrooo a la funcion 3: "+ajugar);
+  if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
+    window.location="juego.html";
+    //ajugar = 3
+    console.log("entra cuando los 2 equipos ponen nombre");
+  }
+}
+
+function actualizaIndex(){
+
+  if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
+    //window.location="index.html";
+    document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend></br></br>";
+    document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend>";
+    //window.location.assign('juego.html');
+   /* if(ajugar==3){
+      window.location.assign('juego.html');
+    }*/
+  }else{
+
+    if(sessionStorage.getItem("login1")){
+      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend>";
+      console.log("ENTRANDO  1");
+    }else if(sessionStorage.getItem("login2")){
+      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend>";
+      console.log("ENTRANDO  2");
+    }
+
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*function crearObjAjax(){
  var xmlhttp;
   if(window.XMLHttpRequest) { // Objeto nativo
    xmlhttp= new XMLHttpRequest(); // Se obtiene el nuevo objeto
@@ -29,7 +87,6 @@ function peticionAJAX_LOGIN(url){
         console.log(args);
   }
 }
-
 function procesarLogin(){
   
 //console.log(obj.responseText);
@@ -122,18 +179,7 @@ function logout(){
         document.getElementById("menu").innerHTML='<ul><li><label for="ckb-menu">&equiv;</label></li><li><a href="index.html" id="Inicio"><i class="icon-home"></i> Inicio</a></li><li><a href="buscar.html" id="Busqueda"><i class="icon-search"></i> Búsqueda</a></li><li><a href="Nueva-entrada.html" id="Nueva_entrada"><i class="icon-picture"></i><a onclick="NuevaEntrada()">Nueva entrada</a></li><li><a href="registro.html" id="Registro"><i class="icon-user-plus"></i> Registrarse</a></li><li><a href="login.html" id="Login"><i class="icon-login"></i> Login</a></li></ul>';
         window.location.assign('index.html');
     }
-}/*
-function NuevaEntrada(){
-  
-  if(sessionStorage.getItem("nick")){
-    window.location.assign("Nueva-entrada.html");
-  }
-  else{
-    window.alert("Debes de estar logueado para acceder a este contenido");
-    window.location.assign("index.html");
-  }
-
-}*/
+}
 
 function peticionComprobarLogin(value){
     
@@ -159,4 +205,4 @@ function procesarComprobarLogin(){
           }
         }
     }
-}
+}*/

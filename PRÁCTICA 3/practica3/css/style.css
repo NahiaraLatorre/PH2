@@ -38,18 +38,14 @@ section{
 /* Formulario acceso */          
 
 input[type=text]{
-    width: 20%;
-    margin: 8px 0;
+    width: 60%;
+    margin: 20px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     box-sizing: border-box;
     font-size: 100%;
     text-align : left;
-    margin-left: -170px;
-}
-
-input[type=number]{
-    width: 2%;
+    margin-left: -100px;
 }
 
 h1{
@@ -95,22 +91,26 @@ a:hover{
     text-decoration:none;
     color: #fff;
 }
+form legend{
+    text-align: center;
+    font-weight: bold;
+    margin-left: -100px;
+}
 
-button{
+.button{
     background: rgba(4,9,75,1);
     box-shadow: 0 0 1px rgba(4,9,75,1);
     color: #FFF;
     font-weight:bold;
-    border-radius: 4px; 
-    padding: 25px 20px;
-    margin: 20px 0;
+    border-radius: 10px; 
+    margin: 25px;
     border: none;
     cursor: pointer;
     width: 50%;
-    font-size: 150%;
+    font-size: 120%;
 }
     
-button:hover{
+.button:hover{
     background-color: #636CB3;
     
 }
@@ -122,15 +122,15 @@ button:hover{
     font-weight: bold;
     font-size: 20px;
 }
-        
+
 #formularioacceso{
     border-style: outset; 
     border-width: 7px; 
     background-color: #1ABC9C;
     border-color: #148F77;
-    height:280px;
+    height:185px;
     width: 400px;
-    padding: 180px;
+    padding: 170px;
     opacity: 0.8;
     filter: alpha(opacity=50);
     position: relative;
@@ -138,12 +138,13 @@ button:hover{
 }
 
 #formularioacceso input{
-    padding-top: 40px;
+   
     padding:12px;
     margin:5px
-    font-size: 100%;
+    font-size: 200%;
 }
 
+/*
 .botonComent{
     background: rgba(4,9,75,1);
     box-shadow: 0 0 1px rgba(4,9,75,1);
@@ -156,7 +157,7 @@ button:hover{
     cursor: pointer;
     width: 8%;
     font-size: 100%;
-}
+}*/
 
 .botonAct{
     background: rgba(4,9,75,1);
