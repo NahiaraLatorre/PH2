@@ -24,35 +24,26 @@
         <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
         <h1>Game Ball</h1>       
     </header>   
-
         <section>
-
             <h2>Empieza la partida</h2>
             <div id="mensaje"></div> 
             <div id="muro"></div>  
-            <article class="login" id="formularioacceso" >  
-                <!-- Formulario de acceso -->
-                
-                <form method="post" onSubmit="f1();" id="form1">
-                    
-                    <legend>Equipo 1:</legend>
-                    <label for = "equipo1">
-                    <input type="text" name ="login" placeholder="Nombre equipo 1" required id="equipo1">
-                    <!-- Botón para confirmar el acceso -->
-                    <input type = "submit" id = "boton1" name = "guardar" value = "Guardar" class="button"></label>
-                </form>
+            <section class="login" id="formularioacceso" > 
+                <article>
+                    <input type="text" name ="login" placeholder="Nombre equipo 1" id="equipo1">
+                    <button onclick="f1()" type="submit" id = "boton1" name = "guardar" class="button">Guardar</button>
+                </article>                
 
-                <form method="post" onSubmit="f2();" id="form2">   
-                    <legend>Equipo 2:</legend>
-                    <label for = "equipo2">
-                    <input type="text" name="pwd" placeholder="Nombre Equipo 2" required id="equipo2">
-                    <!-- Botón para confirmar el acceso -->
-                    <input type = "submit" id = "boton2" name = "guardar" value = "Guardar" class="button"></label>
-                </form>
+                <article>
+                    <input type="text" name ="login" placeholder="Nombre equipo 2" id="equipo2">
+                    <button type="submit" id = "boton2" name = "guardar" class="button">Guardar</button>
+                </article>
 
-                <button onclick="f3();" id = "botonJugar" class="button" value = "Jugar">Jugar</button>
-            </article>
-            </br></br></br></br></br></br>
+                <form method="post" onSubmit="f3();" id="form3">
+                    <input type = "submit" id = "botonJugar" name = "jugar" value = "Jugar" class="button">
+                </form>
+            </section>
+            <br>
         </section>
 
     <footer>
