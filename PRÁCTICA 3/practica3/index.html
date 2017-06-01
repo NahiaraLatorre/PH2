@@ -28,29 +28,29 @@
             <h2>Empieza la partida</h2>
             <div id="mensaje"></div> 
             <div id="muro"></div>  
-            <section class="login" id="formularioacceso" > 
-                <article>
-                    <input type="text" name ="login" placeholder="Nombre equipo 1" id="equipo1">
-                    <button onclick="f1()" type="submit" id = "boton1" name = "guardar" class="button">Guardar</button>
-                </article>                
-
-                <article>
-                    <input type="text" name ="login" placeholder="Nombre equipo 2" id="equipo2">
-                    <button type="submit" id = "boton2" name = "guardar" class="button">Guardar</button>
+            <article class="login" id="formularioacceso" >  
+                <article id="form1">
+                    <legend>Equipo 1:</legend>
+                    <label for = "equipo1">
+                    <input type="text" name ="login" placeholder="Nombre equipo 1" required id="equipo1">
+                    <button onclick="f1()" id = "boton1" class="button" type="button">Guardar</button></label>
                 </article>
-
-                <form method="post" onSubmit="f3();" id="form3">
-                    <input type = "submit" id = "botonJugar" name = "jugar" value = "Jugar" class="button">
-                </form>
-            </section>
-            <br>
+                <article id="form2"> 
+                    <legend>Equipo 2:</legend>
+                    <label for = "equipo2">
+                    <input type="text" name="pwd" placeholder="Nombre Equipo 2" required id="equipo2">
+                    <button onclick="f2()" id = "boton2" class="button" type="button">Guardar</button></label>
+                </article>
+                <button onclick="f3();" id = "botonJugar" class="button" value = "Jugar">Jugar</button>
+            </article>
+            </br></br></br></br></br></br>
         </section>
 
     <footer>
         <p id="pie">Game Ball. Contacto: crazy_trips&#64;gmail.com - <a href="acerca.html">Acerca de nosotros</a></p>
     </footer> 
 
-    <script src="JavaScript/login.js"></script>   
+    <script src="js/juego.js"></script>   
 
 </body>
 </html>

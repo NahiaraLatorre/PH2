@@ -23,46 +23,34 @@ for(var i=0; i<18; i++) {
     tablero[i][j]='n';    
   }
 }
-function f1(){
-  var usu1=document.getElementById("equipo1").value;
 
-  sessionStorage.setItem("login1",usu1);
+
+function f1() {
+    if(typeof(Storage) !== "undefined") {
+      var usu1=document.getElementById("equipo1").value;
+      sessionStorage.setItem("login1",usu1);
+      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend></br></br>";
+    } else {
+        document.getElementById("form1").innerHTML = "Sorry...";
+    }
 }
 
-function f2(){
-  var usu2=document.getElementById("equipo2").value;
-  sessionStorage.setItem("login2",usu2);
+function f2() {
+    if(typeof(Storage) !== "undefined") {
+      var usu1=document.getElementById("equipo2").value;
+      sessionStorage.setItem("login2",usu2);
+      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend></br></br>";
+    } else {
+        document.getElementById("form2").innerHTML = "Sorry...";
+    }
 }
 
 function f3(){
   //console.log("entrooo a la funcion 3: "+ajugar);
   if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
     window.location.href="./juego.html";
-    //window.location.assign('juego.html');
-    //ajugar = 3
     console.log("entra cuando los 2 equipos ponen nombre");
   }
-}
-
-function actualizaIndex(){
-
-  if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
-    //window.location="index.html";
-    document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend></br></br>";
-    document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend>";
-
-  }else{
-
-    if(sessionStorage.getItem("login1")){
-      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend>";
-      console.log("ENTRANDO  1");
-    }else if(sessionStorage.getItem("login2")){
-      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend>";
-      console.log("ENTRANDO  2");
-    }
-
-  }
-  
 }
 
 function actualizaJuego(){
@@ -72,8 +60,8 @@ function actualizaJuego(){
     pinta_ficha_no_colocada();
     pintarTurno();
 
-    document.getElementById("form1").innerHTML="<p>Jugador 1: "+sessionStorage.getItem("login1")+"</p>";
-    document.getElementById("form2").innerHTML="<p>Jugador 2: "+sessionStorage.getItem("login2")+"</p>";
+    document.getElementById("jugador1").innerHTML="<p>Jugador 1: "+sessionStorage.getItem("login1")+"</p>";
+    document.getElementById("jugador2").innerHTML="<p>Jugador 2: "+sessionStorage.getItem("login2")+"</p>";
   }else{
     window.location="index.html";
   }

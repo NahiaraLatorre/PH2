@@ -34,7 +34,66 @@ main{
 section{
     padding-left: 55px;
 }
+/* CAJAS FICHAS */
 
+
+#bloques{
+    margin: 0 auto;
+    padding: 0;
+    width: 832px;
+    text-align: center;
+    height: auto;
+    background: transparent; 
+}
+
+#jugadorRojo, #jugadorVerde{
+    padding: 0;
+    width: 400px;
+    float: left;
+    background:transparent;
+    height: auto;
+    border:solid black 3px;
+    margin-right: 10px;
+}
+
+#canvasJuego, #tablero{
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px;
+    text-align: center;
+
+}
+/* BOTONES FICHAS 
+#reiniciar, #finalizar{
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px;
+    text-align: center;
+
+}*/
+#botones{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 60px;
+    width: 89%;
+    text-align: center;
+    height: auto;
+    display: inline-block;
+    background: transparent; 
+}
+#botJugar{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 10px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 20px;
+    margin: 15px 40px;
+    border: none;
+    cursor: pointer;
+    width: 8%;
+    font-size: 140%;
+}
 /* Formulario acceso */          
 
 input[type=text]{
@@ -103,10 +162,10 @@ form legend{
     color: #FFF;
     font-weight:bold;
     border-radius: 10px; 
-    margin: 25px;
+    /*margin: 25px;*/
     border: none;
     cursor: pointer;
-    width: 50%;
+   /* width: 50%;*/
     font-size: 120%;
 }
     
@@ -232,6 +291,7 @@ form legend{
 
 /* Pie de la página */
 footer{
+    display: inline-block;
     margin: 0px;
     text-align: center;
     opacity: 0.8;
@@ -239,14 +299,16 @@ footer{
     background-color: #000;
     border: 1px solid #FF8C31;
     color: #fff;
+    border-top-style: solid;
+    width: 100%;
     padding: 5px;
-    
+    padding-right: 120px
+    text-align: center;
 }
 footer a {
     text-decoration:none;
     color: white;
 }
-
 footer a:hover{
     text-decoration:none;
     color: blue;
