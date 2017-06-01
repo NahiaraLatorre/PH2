@@ -29,7 +29,15 @@ function f1() {
     if(typeof(Storage) !== "undefined") {
       var usu1=document.getElementById("equipo1").value;
       sessionStorage.setItem("login1",usu1);
-      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend></br></br>";
+      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend><br><br>";
+
+      if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
+        console.log("mostrar boton Jugar 1");
+
+        document.getElementById("botonJugar").innerHTML="<button onclick='f3();' class='button' value = 'Jugar'>Jugar</button>";
+    
+      }
+
     } else {
         document.getElementById("form1").innerHTML = "Sorry...";
     }
@@ -39,7 +47,15 @@ function f2() {
     if(typeof(Storage) !== "undefined") {
       var usu2=document.getElementById("equipo2").value;
       sessionStorage.setItem("login2",usu2);
-      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend></br></br>";
+      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend><br><br>";
+
+      if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
+        console.log("mostrar boton Jugar 1");
+
+        document.getElementById("botonJugar").innerHTML="<br><button onclick='f3();' class='button' value = 'Jugar'>Jugar</button>";
+    
+      }
+
     } else {
         document.getElementById("form2").innerHTML = "Sorry...";
     }
@@ -56,6 +72,27 @@ function f3(){
   }
 }
 
+function actualizaIndex(){
+
+  if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
+    document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend><br><br>";
+    document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend><br><br>";
+    document.getElementById("botonJugar").innerHTML="<button onclick='f3();' class='button' value = 'Jugar'>Jugar</button>";
+    //window.location="juego.html";
+  }  
+
+  else{
+
+    if(sessionStorage.getItem("login1")){
+      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend>";
+    }
+    else if(sessionStorage.getItem("login2")){
+      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend>";
+    }
+
+  }
+}
+
 function actualizaJuego(){
 
   if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
@@ -66,7 +103,7 @@ function actualizaJuego(){
     document.getElementById("jugador1").innerHTML="<p>Equipo 1: "+sessionStorage.getItem("login1")+"</p>";
     document.getElementById("jugador2").innerHTML="<p>Equipo 2: "+sessionStorage.getItem("login2")+"</p>";
   }else{
-    window.location="index.html";
+    window.location.href="./index.html";
   }
 
 }

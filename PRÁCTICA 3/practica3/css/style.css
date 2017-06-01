@@ -34,6 +34,10 @@ main{
 section{
     padding-left: 55px;
 }
+
+article{
+    padding-left: 35px;
+}
 /* CAJAS FICHAS */
 
 
@@ -104,7 +108,7 @@ input[type=text]{
     box-sizing: border-box;
     font-size: 100%;
     text-align : left;
-    margin-left: -100px;
+    /*margin-left: -100px;*/
 }
 
 h1{
@@ -150,10 +154,15 @@ a:hover{
     text-decoration:none;
     color: #fff;
 }
+
 form legend{
     text-align: center;
     font-weight: bold;
     margin-left: -100px;
+}
+
+legend{
+    font-size: 25px;
 }
 
 .button{
@@ -162,7 +171,7 @@ form legend{
     color: #FFF;
     font-weight:bold;
     border-radius: 10px; 
-    /*margin: 25px;*/
+    margin-left: 35px;
     border: none;
     cursor: pointer;
    /* width: 50%;*/
@@ -292,7 +301,7 @@ form legend{
 /* Pie de la página */
 footer{
     display: inline-block;
-    margin: 0px;
+    margin-top: 10px;
     text-align: center;
     opacity: 0.8;
     filter:  alpha(opacity=50);
