@@ -37,7 +37,7 @@ function f1() {
 
 function f2() {
     if(typeof(Storage) !== "undefined") {
-      var usu1=document.getElementById("equipo2").value;
+      var usu2=document.getElementById("equipo2").value;
       sessionStorage.setItem("login2",usu2);
       document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend></br></br>";
     } else {
@@ -51,6 +51,9 @@ function f3(){
     window.location.href="./juego.html";
     console.log("entra cuando los 2 equipos ponen nombre");
   }
+  else{
+    window.location.href="./index.html";
+  }
 }
 
 function actualizaJuego(){
@@ -60,8 +63,8 @@ function actualizaJuego(){
     pinta_ficha_no_colocada();
     pintarTurno();
 
-    document.getElementById("jugador1").innerHTML="<p>Jugador 1: "+sessionStorage.getItem("login1")+"</p>";
-    document.getElementById("jugador2").innerHTML="<p>Jugador 2: "+sessionStorage.getItem("login2")+"</p>";
+    document.getElementById("jugador1").innerHTML="<p>Equipo 1: "+sessionStorage.getItem("login1")+"</p>";
+    document.getElementById("jugador2").innerHTML="<p>Equipo 2: "+sessionStorage.getItem("login2")+"</p>";
   }else{
     window.location="index.html";
   }
