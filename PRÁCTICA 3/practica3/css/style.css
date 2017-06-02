@@ -34,12 +34,7 @@ main{
 section{
     padding-left: 55px;
 }
-
-article{
-    padding-left: 35px;
-}
 /* CAJAS FICHAS */
-
 
 #bloques{
     margin: 0 auto;
@@ -66,6 +61,11 @@ article{
     border: 2px;
     text-align: center;
 
+}
+.fichaR{
+    width: 40px;
+    height: 40px;
+    style: border:1px solid #000000;
 }
 /* BOTONES FICHAS 
 #reiniciar, #finalizar{
@@ -108,7 +108,7 @@ input[type=text]{
     box-sizing: border-box;
     font-size: 100%;
     text-align : left;
-    /*margin-left: -100px;*/
+    margin-left: -100px;
 }
 
 h1{
@@ -154,15 +154,10 @@ a:hover{
     text-decoration:none;
     color: #fff;
 }
-
 form legend{
     text-align: center;
     font-weight: bold;
     margin-left: -100px;
-}
-
-legend{
-    font-size: 25px;
 }
 
 .button{
@@ -171,7 +166,7 @@ legend{
     color: #FFF;
     font-weight:bold;
     border-radius: 10px; 
-    margin-left: 35px;
+    /*margin: 25px;*/
     border: none;
     cursor: pointer;
    /* width: 50%;*/
@@ -301,7 +296,7 @@ legend{
 /* Pie de la página */
 footer{
     display: inline-block;
-    margin-top: 10px;
+    margin: 0px;
     text-align: center;
     opacity: 0.8;
     filter:  alpha(opacity=50);
