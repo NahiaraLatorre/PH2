@@ -34,10 +34,6 @@ main{
 section{
     padding-left: 55px;
 }
-<<<<<<< HEAD
-/* CAJAS FICHAS */
-
-=======
 
 article{
     padding-left: 35px;
@@ -70,9 +66,39 @@ article{
 
 }
 
+
+.fichas{
+    padding-left: 0px;
+}
+
+
+
+section{
+    display: block;
+    width: 70%;
+}
+
+canvas{
+    border: solid 3px #000;
+    margin: 0 auto;
+}
+
+canvas[data-down]{
+    cursor: move;
+}
+
+.img_peq{
+    max-width: 240px;
+    margin: .5em;
+    border: .1em solid #234;
+}
+
+
+
+
+
 /* CAJAS FICHAS */
 
->>>>>>> origin/master
 #bloques{
     margin: 0 auto;
     padding: 0;
@@ -110,11 +136,6 @@ article{
     text-align: center;
 
 }
-.fichaR{
-    width: 40px;
-    height: 40px;
-    style: border:1px solid #000000;
-}
 /* BOTONES FICHAS 
 #reiniciar, #finalizar{
     margin: 1rem;
@@ -144,7 +165,7 @@ article{
     margin: 15px 40px;
     border: none;
     cursor: pointer;
-    width: 8%;
+    width: 12%;
     font-size: 140%;
 }
 /* Formulario acceso */          
@@ -157,7 +178,7 @@ input[type=text]{
     box-sizing: border-box;
     font-size: 100%;
     text-align : left;
-    margin-left: -100px;
+    /*margin-left: -100px;*/
 }
 
 h1{
@@ -203,10 +224,15 @@ a:hover{
     text-decoration:none;
     color: #fff;
 }
+
 form legend{
     text-align: center;
     font-weight: bold;
     margin-left: -100px;
+}
+
+legend{
+    font-size: 25px;
 }
 
 .button{
@@ -215,11 +241,13 @@ form legend{
     color: #FFF;
     font-weight:bold;
     border-radius: 10px; 
-    /*margin: 25px;*/
+    margin-left: 35px;
     border: none;
     cursor: pointer;
-   /* width: 50%;*/
+    width: 35%;
+    height: 30px;
     font-size: 120%;
+
 }
     
 .button:hover{
@@ -242,7 +270,7 @@ form legend{
     border-color: #148F77;
     height:185px;
     width: 400px;
-    padding: 170px;
+    padding: 100px;
     opacity: 0.8;
     filter: alpha(opacity=50);
     position: relative;
@@ -256,21 +284,6 @@ form legend{
     font-size: 200%;
 }
 
-/*
-.botonComent{
-    background: rgba(4,9,75,1);
-    box-shadow: 0 0 1px rgba(4,9,75,1);
-    color: #FFF;
-    font-weight:bold;
-    border-radius: 4px; 
-    padding: 10px;
-    margin: 15px 40px;
-    border: none;
-    cursor: pointer;
-    width: 8%;
-    font-size: 100%;
-}*/
-
 .botonAct{
     background: rgba(4,9,75,1);
     box-shadow: 0 0 1px rgba(4,9,75,1);
@@ -282,26 +295,6 @@ form legend{
     border: none;
     cursor: pointer;
     width: 8%;
-    font-size: 100%; 
-}
-
-.respuestaComent{
-    float: left;
-    margin-top:auto;
-    padding: 1%;
-}
-
-.botonResp{
-    background: rgba(4,9,75,1);
-    box-shadow: 0 0 1px rgba(4,9,75,1);
-    color: #FFF;
-    font-weight:bold;
-    border-radius: 4px; 
-    padding: 10px;
-    margin: 10px 2px;
-    border: none;
-    cursor: pointer;
-    width: 25%;
     font-size: 100%; 
 }
 
@@ -345,7 +338,7 @@ form legend{
 /* Pie de la página */
 footer{
     display: inline-block;
-    margin: 0px;
+    margin-top: 10px;
     text-align: center;
     opacity: 0.8;
     filter:  alpha(opacity=50);

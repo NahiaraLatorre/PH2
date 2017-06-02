@@ -1,4 +1,5 @@
 //----- FICHA ROJA ------
+
 var ficha_roja = new Image();
 ficha_roja.src = 'ficha_roja.svg';
 ficha_roja.width = '40';
@@ -10,11 +11,15 @@ ficha_verde.src = 'ficha_verde.svg';
 ficha_verde.width = '40';
 ficha_verde.height = '40';
 
+
+
+
 var ficha = -1;
 var color_ficha = 'n';
 var turnoRojo=true;
 var ficha_roja_colocada = [false,false,false,false,false];
 var ficha_verde_colocada = [false,false,false,false,false];
+
 
 var tablero = [];
 for(var i=0; i<18; i++) {
@@ -29,7 +34,15 @@ function f1() {
     if(typeof(Storage) !== "undefined") {
       var usu1=document.getElementById("equipo1").value;
       sessionStorage.setItem("login1",usu1);
-      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend></br></br>";
+      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend><br><br>";
+
+      if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
+        console.log("mostrar boton Jugar 1");
+
+        document.getElementById("botonJugar").innerHTML="<button onclick='f3();' class='button' value = 'Jugar'>Jugar</button>";
+    
+      }
+
     } else {
         document.getElementById("form1").innerHTML = "Sorry...";
     }
@@ -39,7 +52,15 @@ function f2() {
     if(typeof(Storage) !== "undefined") {
       var usu2=document.getElementById("equipo2").value;
       sessionStorage.setItem("login2",usu2);
-      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend></br></br>";
+      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend><br><br>";
+
+      if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
+        console.log("mostrar boton Jugar 1");
+
+        document.getElementById("botonJugar").innerHTML="<br><button onclick='f3();' class='button' value = 'Jugar'>Jugar</button>";
+    
+      }
+
     } else {
         document.getElementById("form2").innerHTML = "Sorry...";
     }
@@ -56,6 +77,27 @@ function f3(){
   }
 }
 
+function actualizaIndex(){
+
+  if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
+    document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend><br><br>";
+    document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend><br><br>";
+    document.getElementById("botonJugar").innerHTML="<button onclick='f3();' class='button' value = 'Jugar'>Jugar</button>";
+    //window.location="juego.html";
+  }  
+
+  else{
+
+    if(sessionStorage.getItem("login1")){
+      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend>";
+    }
+    else if(sessionStorage.getItem("login2")){
+      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend>";
+    }
+
+  }
+}
+
 function actualizaJuego(){
 
   if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
@@ -66,7 +108,7 @@ function actualizaJuego(){
     document.getElementById("jugador1").innerHTML="<p>Equipo 1: "+sessionStorage.getItem("login1")+"</p>";
     document.getElementById("jugador2").innerHTML="<p>Equipo 2: "+sessionStorage.getItem("login2")+"</p>";
   }else{
-    window.location="index.html";
+    window.location.href="./index.html";
   }
 
 }
@@ -96,55 +138,116 @@ function logout(){
     if(window.sessionStorage){
         
         sessionStorage.clear();
+        /*sessionStorage.removeItem("login1");
+        sessionStorage.removeItem("login2");*/
         window.location.assign('index.html');
     }
 }
 
 
+/*
+function prepararDnD2(){
+  //ZONA DRAG
+  let v = document.querySelectorAll('body>article>img');
+
+  for(let i = 0; i < v.length; i++){
+    v[i].setAttribute('draggable', 'true');
+    v[i].id = 'img' + i;
+    v[i].ondragstart = function(e){
+      e.dataTransfer.setData('text/plain', v[i].id);
+    };
+  }
+
+  //ZONA DROP
+  let cv = document.getElementById('canvasJuego');
+
+  cv.ondragover = function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    let x = e.offsetX,
+      y = e.offsetY,
+      dim = cv.width/20,
+      fila= Math.floor(y/dim),
+      columna= Math.floor(x/dim),
+      ctx=cv.getContext('2d');
 
 
+      dibujarCuadricula();
+      ctx.beginPath();
+      ctx.strokeStyle= '#f00';
+      ctx.lineWidth= 3;
+      ctx.strokeRect(columna*dim, fila*dim, dim, dim);
+
+  }
+  cv.ondrop = function(e){
+    e.preventDefault();
+    e.stopPropagation();
+
+    let x = e.offsetX,
+      y = e.offsetY,
+      dim = cv.width/20,
+      fila= Math.floor(y/dim),
+      columna= Math.floor(x/dim),
+      id = e.dataTransfer.getData('text/plain'),
+      ctx = cv.getContext('2d'),
+      img = new Image();
+
+    img.onload = function(){
+      //ctx.drawImage(img, x, y);
+      ctx.drawImage(img,columna*dim,fila*dim,dim, dim);
+      dibujarCuadricula();
+    }
+    img.src = document.getElementById(id).src;
+  }
+}
 
 
+function dibujarCuadricula(){
+  let cv= document.getElementById('canvasJuego'),
+    ctx=cv.getContext('2d'),
+    dim= cv.width/3;
+  ctx.beginPath();
 
-/************************************************************/
-/*function colorearCasilla(event){
-  console.log("entrooo en colorearCasilla ");
-  var x = event.clientX;
-  var y = event.clientY;
-  var dim = c.width/20;
+  ctx.strokeStyle= '#234';
+  ctx.lineWidth = 3;
+
+  for(let i=1; i<3; i++){
+    ctx.moveTo(0, i *dim);
+    ctx.lineTo(cv.width, i*dim);
+
+    ctx.moveTo(i*dim, 0);
+    ctx.lineTo(i*dim, cv.height);
+  }
+  ctx.stroke();
+}
+*/
 
 
-  var canvas = document.getElementById("canvasJuego");
-  var ctx = canvas.getContext("2d");
-  var rect = canvas.getBoundingClientRect();
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  hacerRejilla();
+function pintarTurno(){
+  if(turnoRojo==true){
+    document.getElementById("jugadorRojo").style.backgroundColor="#A9E2F3";
+    document.getElementById("jugadorVerde").style.backgroundColor="white";
+  }
+  else if(turnoRojo==false){
+    document.getElementById("jugadorRojo").style.backgroundColor="white";
+    document.getElementById("jugadorVerde").style.backgroundColor="#A9E2F3";
+  }
+}
 
-  x -= parseInt(rect.left);
-  y -= parseInt(rect.top);
-  
-  
-  ctx.strokeStyle = "#00a";
-  ctx.strokeRect(parseInt(x/40)*40,parseInt(y/40)*40,40,1180);
-  
-
-  pintarFichas();
-}*/
-
-function hacerRejilla(){// OKAY
+function hacerRejilla(){// OKAY  ---  CAMPO DE FUTBOL
   var c=document.getElementById("canvasJuego");
   var ctx=c.getContext("2d");
   ctx.strokeStyle = 'black';
   var dim = c.width/20;//lo que mide un cuadrado de ancho y de largo
   //324 sería para alto
 
-  for(i=0; i<=18; i++){
+  for(i=2; i<=18; i++){
 
     ctx.moveTo(i*dim,0);
     ctx.lineTo(i*dim, c.height);
   }
 
-  for(i=0; i<=9; i++){
+  for(i=1; i<=9; i++){
 
     ctx.moveTo(dim,i*dim);
     ctx.lineTo(c.width-dim, i*dim);
@@ -215,97 +318,53 @@ function hacerRejilla(){// OKAY
   ctx.strokeRect(720-dim,dim*5,dim,dim);
 
 }
-/**************************************************/
-function prepararDnD2(){//CODIGO DEL PROFESOR
-
-  //ZONA DRAG
-  let v = document.querySelectorAll('body>footer>canvas');
-
-  for(let i = 0; i < v.length; i++){
-    v[i].setAttribute('draggable', 'true');
-    v[i].id = 'canvas' + i;
-    v[i].ondragstart = function(e){
-      e.dataTransfer.setData('text/plain', v[i].id);
-    };
-  }
-
-  //ZONA DROP
-  let cv = document.getElementById('canvasJuego');
-
-  cv.ondragover = function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    let x = e.offsetX,
-      y = e.offsetY,
-      dim = cv.width/20,
-      fila= Math.floor(y/dim),
-      columna= Math.floor(x/dim),
-      ctx=cv.getContext('2d');
 
 
-      dibujarCuadricula();
-      ctx.beginPath();
-      ctx.strokeStyle= '#f00';
-      ctx.lineWidth= 3;
-      ctx.strokeRect(columna*dim, fila*dim, dim, dim);
 
-  }
-  cv.ondrop = function(e){
-    e.preventDefault();
-    e.stopPropagation();
+/************************************************************/
+function colorearCasilla(event){
 
-    let x = e.offsetX,
-      y = e.offsetY,
-      dim = cv.width/20,
-      fila= Math.floor(y/dim),
-      columna= Math.floor(x/dim),
-      id = e.dataTransfer.getData('text/plain'),
-      ctx = cv.getContext('2d'),
-      img = new Image();
+  var x = event.clientX;
+  var y = event.clientY;
+  var dim = c.width/20;
 
-    img.onload = function(){
-      //ctx.drawImage(img, x, y);
-      ctx.drawImage(img,columna*dim,fila*dim,dim, dim);
-      dibujarCuadricula();
-    }
-    img.src = document.getElementById(id).src;
 
-  }
+  var canvas = document.getElementById("canvasJuego");
+  var ctx = canvas.getContext("2d");
+  var rect = canvas.getBoundingClientRect();
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  hacerRejilla();
+
+  x -= parseInt(rect.left);
+  y -= parseInt(rect.top);
+  
+  
+  ctx.strokeStyle = "#000";
+  ctx.strokeRect(parseInt(x/160)*100,parseInt(y/160)*160,160,1180);
+  
+
+  pintarFichas();
 }
-/*******************************************************/
 
 function pintarFichas(){
       
   var canvas = document.getElementById("canvasJuego");
   var ctx = canvas.getContext("2d");
-  //var dim = c.width/20;
 
     for(var i=0; i<18; i++) {
       for(var j=0; j<9; j++){
         if(tablero[i][j]!='n'){
           if(tablero[i][j]=='r'){
-            ctx.drawImage(ficha_roja,(i)*40,(j)*40);
+            ctx.drawImage(ficha_roja,(i)*162,(j)*162);
             
           }else{
-            ctx.drawImage(ficha_verde,(i)*40,(j)*40);
+            ctx.drawImage(ficha_verde,(i)*162,(j)*162);
           }
         } 
       }
     }
 }
 
-/*
-
-function mostrarMatriz(){
-
-  for(var i=0; i<18; i++) {
-    for(var j=0; j<9; j++){
-      console.log(tablero[i][j]);
-      //document.write(tablero[i][j]);    
-    }
-  }
-}
-*/
 
 function clickEnJuego(event){
 
@@ -313,7 +372,7 @@ function clickEnJuego(event){
 
     var x = event.clientX;
     var y = event.clientY;
-   
+    alert("hhoooooolaaaa"+x+y);
     var canvas = document.getElementById("canvasJuego");
     var ctx = canvas.getContext("2d");
     var rect = canvas.getBoundingClientRect();
@@ -325,7 +384,7 @@ function clickEnJuego(event){
       var ctx=c.getContext("2d");
       ctx.clearRect(0,0,c.width,c.height);
       ficha_roja_colocada[ficha]=true;
-      insertaFicha(parseInt(y/40), parseInt(x/40),'r');
+      insertaFicha(parseInt(x/162),'r');
       turnoRojo=false;
 
     }else if(turnoRojo==false && color_ficha=='v'){
@@ -334,7 +393,7 @@ function clickEnJuego(event){
       var ctx=c.getContext("2d");
       ctx.clearRect(0,0,c.width,c.height);
       ficha_verde_colocada[ficha]=true;
-      insertaFicha(parseInt(y/40), parseInt(x/40),'v');
+      insertaFicha(parseInt(x/162),'v');
       turnoRojo=true;
     }
 
@@ -342,55 +401,18 @@ function clickEnJuego(event){
     color_ficha='n';
     ficha=-1;
   }
-  pintarFichas();
-  //mostrarMatriz();
 }
-
-function pintarTurno(){// OKEY
-  if(turnoRojo==true){
-    document.getElementById("jugadorRojo").style.backgroundColor="white";
-    document.getElementById("jugadorVerde").style.backgroundColor="#A9E2F3";
-  }
-  else if(turnoRojo==false){
-    document.getElementById("jugadorRojo").style.backgroundColor="#A9E2F3";
-    document.getElementById("jugadorVerde").style.backgroundColor="white";
-  }
-}
-
-
-/*
 
 function insertaFicha(columna,color){
-  var canvas = document.getElementById("canvasJuego");
-  var ctx = canvas.getContext("2d");
+  var hecho=false;
 
-  
-  ctx.drawImage(ficha_roja, 0, 0);
-
-}
-
-*/
-
-
-
-
-function insertaFicha(fila, colum, color){
-
-
-console.log("columna: "+colum+"   fila: "+fila);
-
-if(tablero[fila][colum]=='n'){
-  tablero[fila][colum]=color;
-
-}
-/*
     for(var j=18; j>=0; j--){
-        if(tablero[i][j]=='n' && hecho==false){
-          tablero[i][j]=color;
+        if(tablero[columna][j]=='n' && hecho==false){
+          tablero[columna][j]=color;
           console.log("insertado color "+color+" en columna "+columna);
           hecho=true;
         } 
-      }   */
+      }   
 }
 
 function ficha_seleccionada(color,num){
@@ -434,6 +456,14 @@ function ficha_seleccionada(color,num){
 
 }
 
+
+
+
+
+
+
+
+
 function limpia_ficha(){
   if(ficha!=-1 && color_ficha!='n'){
     if(color_ficha=='r'){
@@ -453,7 +483,7 @@ function limpia_ficha(){
 }
 
 function pinta_ficha_no_colocada(){
-  for(i=0;i<=21;i++){
+  for(i=0;i<=81;i++){
     if(ficha_roja_colocada[i]==false){
     var c=document.getElementById("fichar"+i);
     var ctx=c.getContext("2d");
@@ -461,7 +491,7 @@ function pinta_ficha_no_colocada(){
     ctx.drawImage(ficha_roja,0,0);
     }
   }
-  for(i=0;i<=21;i++){
+  for(i=0;i<=81;i++){
     if(ficha_verde_colocada[i]==false){
     var c=document.getElementById("fichav"+i);
     var ctx=c.getContext("2d");
@@ -488,10 +518,3 @@ function reiniciar(){
     pintarTurno();
     pintarFichas();
 }
-
-function finalizar(){
-  sessionStorage.removeItem("login1");
-  sessionStorage.removeItem("login2");
-  window.location="index.html";
-}
-
