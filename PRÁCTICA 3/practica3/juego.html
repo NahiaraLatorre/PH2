@@ -6,7 +6,7 @@
     <meta name="author" content="Nahiara&Maria">
     <!-- Enlace al CSS principal -->
     <link rel = "stylesheet" type = "text/css" href = "css/style.css" title= "Estilo principal"/>
-    <link rel="icon" href="img/logo-icon.ico" type="image/x-icon"/>
+    <link rel="icon" href="img/logoIcono.ico" type="image/x-icon"/>
     
     <!--Para los iconos-->
     <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
@@ -24,7 +24,7 @@
 
     <section>
         <h2>Juego</h2>
-        
+
         <section id="tablero" class="game">
             <p>Mueve la pelota</p>
             <canvas id="canvasJuego" width="720" height="324" onmousedown="clickEnJuego(event)" onmousemove="colorearCasilla(event)"></canvas>
@@ -39,6 +39,9 @@
                     <canvas id="fichar2" width="40" height="40" style="border:1px solid #000000;" onmousedown="ficha_seleccionada('r',2)" draggable="true"></canvas>
                     <canvas id="fichar3" width="40" height="40" style="border:1px solid #000000;" onmousedown="ficha_seleccionada('r',3)" draggable="true"></canvas>
                     <canvas id="fichar4" width="40" height="40" style="border:1px solid #000000;" onmousedown="ficha_seleccionada('r',4)" draggable="true"></canvas>
+
+                    <article id="marcadorRojo"></aticle>
+
             </section>
             <section class="game" id="jugadorVerde">
                 <p id="jugador2">Fichas equipo 2:</p>
@@ -47,13 +50,21 @@
                     <canvas id="fichav2" width="40" height="40" style="border:1px solid #000000;" onmousedown="ficha_seleccionada('v',2)" draggable="true"></canvas>
                     <canvas id="fichav3" width="40" height="40" style="border:1px solid #000000;" onmousedown="ficha_seleccionada('v',3)" draggable="true"></canvas>
                     <canvas id="fichav4" width="40" height="40" style="border:1px solid #000000;" onmousedown="ficha_seleccionada('v',4)" draggable="true"></canvas>
+
+                    <article id="marcadorVerde"></aticle>
+
             </section>
+        </section>
+
+        <section id="bloques">
+            <section class="game" id="lanzarDados"></section>
         </section>
 
         <section id="botones">
             <!--<a class="button" href="#" id="reiniciar" onclick="reiniciar()">Reiniciar</a>
-            <a class="button" href="#" id="finalizar" onclick="finalizar()">Finalizar</a>-->
-            <a class="button" href="#" id="botJugar" onclick="reiniciar()">Jugar</a>
+            <a class="button" href="#" id="finalizar" onclick="finalizar()">Finalizar</a>
+            <a class="button" href="#" id="botJugar" onclick="iniciar()">Jugar</a>-->
+            <button onclick="iniciar();" id="botJugar">Jugar</button>
         </section>
 
     </section>
