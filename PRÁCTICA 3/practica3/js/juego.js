@@ -44,7 +44,7 @@ function f1() {
       }
 
     } else {
-        document.getElementById("form1").innerHTML = "Sorry...";
+      document.getElementById("form1").innerHTML = "Sorry...";
     }
 }
 
@@ -102,7 +102,7 @@ function actualizaJuego(){
 
   if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
     hacerRejilla();
-    pinta_ficha_no_colocada();
+    /*pinta_ficha_no_colocada();*/
     pintarTurno();
 
     document.getElementById("jugador1").innerHTML="<p>Equipo 1: "+sessionStorage.getItem("login1")+"</p>";
@@ -222,19 +222,10 @@ function dibujarCuadricula(){
 }
 */
 
-
-function pintarTurno(){
-  if(turnoRojo==true){
-    document.getElementById("jugadorRojo").style.backgroundColor="#A9E2F3";
-    document.getElementById("jugadorVerde").style.backgroundColor="white";
-  }
-  else if(turnoRojo==false){
-    document.getElementById("jugadorRojo").style.backgroundColor="white";
-    document.getElementById("jugadorVerde").style.backgroundColor="#A9E2F3";
-  }
-}
-
 function hacerRejilla(){// OKAY  ---  CAMPO DE FUTBOL
+
+  console.log("***HACIENDO REJILLA***");  
+
   var c=document.getElementById("canvasJuego");
   var ctx=c.getContext("2d");
   ctx.strokeStyle = 'black';
@@ -319,10 +310,11 @@ function hacerRejilla(){// OKAY  ---  CAMPO DE FUTBOL
 
 }
 
-
-
 /************************************************************/
 function colorearCasilla(event){
+
+  console.log("+-+-+COLOREANDO CASILLA+-+-+");
+
 
   var x = event.clientX;
   var y = event.clientY;
@@ -347,7 +339,9 @@ function colorearCasilla(event){
 }
 
 function pintarFichas(){
-      
+  
+  console.log("+-++++PINTAR FICHAS++++++");
+
   var canvas = document.getElementById("canvasJuego");
   var ctx = canvas.getContext("2d");
 
@@ -368,11 +362,15 @@ function pintarFichas(){
 
 function clickEnJuego(event){
 
+  console.log("wwwwwCLICK JUEGOwwwww");
+
   if(ficha!=-1 && color_ficha!='n'){
 
     var x = event.clientX;
     var y = event.clientY;
+
     alert("hhoooooolaaaa"+x+y);
+
     var canvas = document.getElementById("canvasJuego");
     var ctx = canvas.getContext("2d");
     var rect = canvas.getBoundingClientRect();
@@ -402,6 +400,21 @@ function clickEnJuego(event){
     ficha=-1;
   }
 }
+
+function pintarTurno(){
+
+  console.log("///////////mi turno//////////////");
+
+  if(turnoRojo==true){
+    document.getElementById("jugadorRojo").style.backgroundColor="#A9E2F3";
+    document.getElementById("jugadorVerde").style.backgroundColor="white";
+  }
+  else if(turnoRojo==false){
+    document.getElementById("jugadorRojo").style.backgroundColor="white";
+    document.getElementById("jugadorVerde").style.backgroundColor="#A9E2F3";
+  }
+}
+
 
 function insertaFicha(columna,color){
   var hecho=false;
@@ -457,13 +470,6 @@ function ficha_seleccionada(color,num){
 }
 
 
-
-
-
-
-
-
-
 function limpia_ficha(){
   if(ficha!=-1 && color_ficha!='n'){
     if(color_ficha=='r'){
@@ -483,6 +489,9 @@ function limpia_ficha(){
 }
 
 function pinta_ficha_no_colocada(){
+
+  console.log("FICHA NO ENCONTRADA");
+
   for(i=0;i<=81;i++){
     if(ficha_roja_colocada[i]==false){
     var c=document.getElementById("fichar"+i);
