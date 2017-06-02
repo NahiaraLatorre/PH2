@@ -34,8 +34,45 @@ main{
 section{
     padding-left: 55px;
 }
+<<<<<<< HEAD
 /* CAJAS FICHAS */
 
+=======
+
+article{
+    padding-left: 35px;
+
+}
+
+
+#dados{
+    
+    text-align: center;
+    padding: 0;
+}
+
+.cuadro{
+    border:solid black 3px;
+    width: 15%;
+    height: 54px;
+    margin-left: 165px;
+    padding: 0;
+}
+
+.cuadroMarcador{
+
+    border:solid black 3px;
+    width: 15%;
+    height: 54px;
+    margin-left: 135px;
+    margin-top: 20px;
+    padding: 0;
+
+}
+
+/* CAJAS FICHAS */
+
+>>>>>>> origin/master
 #bloques{
     margin: 0 auto;
     padding: 0;
@@ -53,6 +90,17 @@ section{
     height: auto;
     border:solid black 3px;
     margin-right: 10px;
+}
+
+#lanzarDados{
+    padding: 0;
+    width: 400px;
+    float: left;
+    background:transparent;
+    height: auto;
+    border:solid black 3px;
+    margin-left: 195px;
+    margin-top: 40px;
 }
 
 #canvasJuego, #tablero{
@@ -78,7 +126,8 @@ section{
 #botones{
     display: inline-block;
     margin: 0 auto;
-    padding: 60px;
+    padding-left: 50px;
+    padding-top: 20px;
     width: 89%;
     text-align: center;
     height: auto;
