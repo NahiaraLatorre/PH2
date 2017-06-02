@@ -72,31 +72,6 @@ article{
 }
 
 
-
-section{
-    display: block;
-    width: 70%;
-}
-
-canvas{
-    border: solid 3px #000;
-    margin: 0 auto;
-}
-
-canvas[data-down]{
-    cursor: move;
-}
-
-.img_peq{
-    max-width: 240px;
-    margin: .5em;
-    border: .1em solid #234;
-}
-
-
-
-
-
 /* CAJAS FICHAS */
 
 #bloques{
@@ -165,7 +140,7 @@ canvas[data-down]{
     margin: 15px 40px;
     border: none;
     cursor: pointer;
-    width: 12%;
+    width: 8%;
     font-size: 140%;
 }
 /* Formulario acceso */          
@@ -244,10 +219,9 @@ legend{
     margin-left: 35px;
     border: none;
     cursor: pointer;
-    width: 35%;
-    height: 30px;
+    width: 29%;
+    height: 35px;
     font-size: 120%;
-
 }
     
 .button:hover{
@@ -270,7 +244,7 @@ legend{
     border-color: #148F77;
     height:185px;
     width: 400px;
-    padding: 100px;
+    /*padding: 170px;*/
     opacity: 0.8;
     filter: alpha(opacity=50);
     position: relative;
