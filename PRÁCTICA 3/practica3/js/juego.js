@@ -21,7 +21,7 @@ var ficha_verde_colocada = [false,false,false,false,false];
 
 var tablero = [];
 for(var i=0; i<18; i++) {
-    tablero[i] = new Array(10);
+    tablero[i] = new Array(5);
   for(var j=0; j<9; j++){
     tablero[i][j]='n';    
   }
@@ -233,82 +233,89 @@ function hacerRejilla(){// OKAY  ---  CAMPO DE FUTBOL
 }
 
 
-/*
-function prepararDnD2(){
-  //ZONA DRAG
-  let v = document.querySelectorAll('body>article>img');
+function mouseClick(e){
+  let cv = e.target,
+    x = e.offsetX,
+    y = e.offsetY,
+    dim = cv.width / 20,
+    fila = Math.floor(y / dim),
+    columna = Math.floor(x / dim);
 
-  for(let i = 0; i < v.length; i++){
-    v[i].setAttribute('draggable', 'true');
-    v[i].id = 'img' + i;
-    v[i].ondragstart = function(e){
-      e.dataTransfer.setData('text/plain', v[i].id);
-    };
-  }
+  if(x<1 || x>cv.width-1 || y<1 || y>cv.height){}
+  //console.log('Fila: ' + fila + ' - Columna: ' + columna);
 
-  //ZONA DROP
-  let cv = document.getElementById('canvasJuego');
+//para que se limpie el canvas cada vez que se pincha uno
+  cv.width = cv.width;
+  hacerRejilla();
 
-  cv.ondragover = function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    let x = e.offsetX,
-      y = e.offsetY,
-      dim = cv.width/20,
-      fila= Math.floor(y/dim),
-      columna= Math.floor(x/dim),
-      ctx=cv.getContext('2d');
+  let ctx = cv.getContext('2d'),
+    img = new Image();
 
+  img.onload = function(){
+    ctx.drawImage(img, columna*dim, fila*dim, dim, dim);
+  };
 
-      dibujarCuadricula();
-      ctx.beginPath();
-      ctx.strokeStyle= '#f00';
-      ctx.lineWidth= 3;
-      ctx.strokeRect(columna*dim, fila*dim, dim, dim);
+  
+  img.src="ficha_roja.svg";
 
-  }
-  cv.ondrop = function(e){
-    e.preventDefault();
-    e.stopPropagation();
-
-    let x = e.offsetX,
-      y = e.offsetY,
-      dim = cv.width/20,
-      fila= Math.floor(y/dim),
-      columna= Math.floor(x/dim),
-      id = e.dataTransfer.getData('text/plain'),
-      ctx = cv.getContext('2d'),
-      img = new Image();
-
-    img.onload = function(){
-      //ctx.drawImage(img, x, y);
-      ctx.drawImage(img,columna*dim,fila*dim,dim, dim);
-      dibujarCuadricula();
-    }
-    img.src = document.getElementById(id).src;
-  }
-}
-
-
-function dibujarCuadricula(){
-  let cv= document.getElementById('canvasJuego'),
-    ctx=cv.getContext('2d'),
-    dim= cv.width/3;
   ctx.beginPath();
+  ctx.strokeStyle = '#a00';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(columna * dim, fila * dim, dim, dim);
 
-  ctx.strokeStyle= '#234';
-  ctx.lineWidth = 3;
-
-  for(let i=1; i<3; i++){
-    ctx.moveTo(0, i *dim);
-    ctx.lineTo(cv.width, i*dim);
-
-    ctx.moveTo(i*dim, 0);
-    ctx.lineTo(i*dim, cv.height);
-  }
-  ctx.stroke();
 }
-*/
+
+function mouseMove(e){
+  let cv = e.target,
+    x = e.offsetX,
+    y = e.offsetY,
+    dim = cv.width / 20,
+    fila = Math.floor(y / dim),
+    columna = Math.floor(x / dim);
+
+  //console.log('Posicion: ' + x + ' - ' + y);
+  if(cv.getAttribute('data-down')){
+    //Estoy arrastrando la ficha
+    console.log("MOUSEMOVE => fila: " + fila + " - columna: " + columna);
+    if(ficha.columna != columna || ficha.fila != fila){
+      ficha.columna = columna;
+      ficha.fila = fila;
+      //redibujarCanvas();
+    }
+  }
+}
+
+function mouse_down(e){
+  let cv = e.target,
+    x = e.offsetX,
+    y = e.offsetY,
+    dim = cv.width / 3,
+    fila = Math.floor(y / dim),
+    columna = Math.floor(x / dim);
+
+  console.log("DOWN => fila: " + fila + " - columna: " + columna);
+  if(ficha.columna == columna && ficha.fila == fila){
+    //Hay ficha
+    cv.setAttribute('data-down', 'true');
+  }
+}
+
+function mouse_up(e){
+  let cv = e.target,
+    x = e.offsetX,
+    y = e.offsetY,
+    dim = cv.width / 20,
+    fila = Math.floor(y / dim),
+    columna = Math.floor(x / dim);
+
+  console.log("UP => fila: " + fila + " - columna: " + columna);
+
+  cv.removeAttribute('data-down');
+}
+
+
+
+
 
 
 /************************************************************/
