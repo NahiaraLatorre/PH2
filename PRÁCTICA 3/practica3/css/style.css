@@ -259,7 +259,13 @@ canvas[data-down]{
 .img_peq{
     max-width: 240px;
     margin: .5em;
-    border: .1em solid #234;
+    border: .15em solid #234;
+}
+
+.img_peq{
+    max-width: 240px;
+    margin: .5em;
+    border: .15em solid red;
 }
 
 /*********************************/
