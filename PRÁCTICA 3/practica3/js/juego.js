@@ -175,7 +175,7 @@ function logout(){
 }
 
 function mensajeErrorCampo(){
-      document.getElementById("mensaje").innerHTML="Debes de poner la ficha en el campo contrario<div style='cursor:pointer;text-align: center;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+      document.getElementById("mensaje").innerHTML="<div class='centrado'>Debes de poner la ficha en el campo contrario<div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div></div>";
       document.getElementById("mensaje").style.zIndex="5";
       document.getElementById("mensaje").style.transition="opacity 1s linear";
       document.getElementById("mensaje").style.opacity="1";
@@ -186,7 +186,19 @@ function mensajeErrorCampo(){
 
 function mensajeErrorOcupada(){
 
-      document.getElementById("mensaje").innerHTML="Esta casilla está llena <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+      document.getElementById("mensaje").innerHTML="<div class='centrado'>Esta casilla está ocupada <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div></div>";
+      document.getElementById("mensaje").style.zIndex="5";
+      document.getElementById("mensaje").style.transition="opacity 1s linear";
+      document.getElementById("mensaje").style.opacity="1";
+
+      document.getElementById("muro").style.opacity="0.3";
+      document.getElementById("muro").style.zIndex="4";
+
+}
+
+function mensajeNoestuTurno(){
+
+      document.getElementById("mensaje").innerHTML="<div class='centrado'>No es tu turno <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div></div>";
       document.getElementById("mensaje").style.zIndex="5";
       document.getElementById("mensaje").style.transition="opacity 1s linear";
       document.getElementById("mensaje").style.opacity="1";
@@ -204,31 +216,72 @@ function cerrarMensajeConFocus(){
 }
 
 
+function aleatorioRojo(){
 
-function aleatoria(){
+  var c = document.getElementById('canvasJuego');
+  var ctx = c.getContext('2d');
+  var dim = c.width/20;
 
-  var fila = Math.floor((Math.random()*8)+1);
-  var columna = Math.floor((Math.random()*18)+1);
+  if(turnoRojo && contR<5){
+    var min = 1;
+    var max = 9;
+    var fila = Math.floor((Math.random()*8)+1);
+    var columna = Math.round(Math.random() * (max - min) + min);
+    /*var columna = Math.floor((Math.random()*18)+1);*/
 
-  console.log("FILA ALEATORIO===== " + fila);
-  console.log("COLUMNA ALEATORIO ===== " + columna);
+    insertada = false;
+    console.log("FILA ALEATORIO ROJO ===== " + fila);
+    console.log("COLUMNA ALEATORIO ROJO ===== " + columna);
+
+    insertarFicha(fila, columna, 'r');
+
+    if(insertada){
+      ctx.drawImage(ficha_roja, columna*dim, fila*dim, dim, dim);
+      contR++;
+      turnoRojo=false;
+      pintarTurno();
+    }
+    else{
+      aleatorioRojo();
+    }
+  } 
+
+  else{
+    mensajeNoestuTurno();
+  }   
+}
 
 
-    let cv = e.target,
-      dim = cv.width / 20;
-      let ctx = cv.getContext('2d'),
-      img = new Image();
+function aleatorioVerde(){
 
-    img.onload = function(){
-      ctx.drawImage(img, columna*dim, fila*dim, dim, dim);
-    };
+  var c = document.getElementById('canvasJuego');
+  var ctx = c.getContext('2d');
+  var dim = c.width/20;
 
-    img.src="ficha_roja.svg";
+  if(!turnoRojo && contV<5){
+    var min = 10;
+    var max = 18;
+    var fila = Math.floor((Math.random()*8)+1);
+    var columna = Math.round(Math.random() * (max - min) + min);
+    /*var columna = Math.floor((Math.random()*18)+1);*/
 
-    ctx.beginPath();
-    ctx.strokeStyle = '#a00';
-    ctx.lineWidth = 4;
-    ctx.strokeRect(columna * dim, fila * dim, dim, dim);
+    insertada = false;
+    console.log("FILA ALEATORIO VERDE ===== " + fila);
+    console.log("COLUMNA ALEATORIO VERDE ===== " + columna);
+
+     insertarFicha(fila, columna, 'v');
+
+    if(insertada){
+      ctx.drawImage(ficha_verde, columna*dim, fila*dim, dim, dim);
+      turnoRojo=true;
+      contV++;
+      pintarTurno();
+    }
+    else{
+      aleatorioVerde();
+    }
+  }
+
 }
 
 /*********** CAMPO DE FUTBOL ************/
@@ -366,7 +419,7 @@ function mouseClick(e){
           img.onload = function(){
 
             ctx.drawImage(ficha_roja, columna*dim, fila*dim, dim, dim);
-            contR +=1;
+            contR ++;
 
           };
 
@@ -403,11 +456,7 @@ function mouseClick(e){
           console.log("FILA ======= " + fila);
           console.log("COLUMNA ======= " + columna);
 
-          //console.log("ESTA INSERTADA-------------------" + insertada);
-
           insertarFicha(fila, columna, 'v');
-
-          //console.log("Y AHORA ESTA INSERTADA-------------------" + insertada);
 
           if(insertada){
             
@@ -416,7 +465,7 @@ function mouseClick(e){
 
             img.onload = function(){
               ctx.drawImage(ficha_verde, columna*dim, fila*dim, dim, dim);
-              contV +=1;
+              contV ++;
             };
 
             img.src="ficha_verde.svg";
@@ -607,7 +656,7 @@ function prepararDnD2(){
   //ZONA DROP
   let cv = document.getElementById('canvasJuego');
 
-  if(turnoRojo && contR<=5){
+  if(turnoRojo && contR<5){
 
       console.log("******** TURNO DEL EQUIPO ROJO ***********");
       console.log("Ficha numero = " + contR);
@@ -626,14 +675,7 @@ function prepararDnD2(){
             ctx=cv.getContext('2d');
 
             if(columna>9){
-              document.getElementById("mensaje").innerHTML="Debes de poner la ficha en lado izquierdo del campo (roja) <div style='cursor:pointer;text-align: center;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
-              document.getElementById("mensaje").style.zIndex="5";
-              document.getElementById("mensaje").style.transition="opacity 1s linear";
-              document.getElementById("mensaje").style.opacity="1";
-
-              document.getElementById("muro").style.opacity="0.3";
-              document.getElementById("muro").style.zIndex="4";
-                            
+              mensajeErrorCampo();                           
             }
 
             hacerRejilla();       
@@ -676,14 +718,7 @@ function prepararDnD2(){
             console.log("ARRASTRAR INSERTADA????????" + insertada);
 
             if(!insertada){
-              document.getElementById("mensaje").innerHTML="Esta casilla está llena <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
-              document.getElementById("mensaje").style.zIndex="5";
-              document.getElementById("mensaje").style.transition="opacity 1s linear";
-              document.getElementById("mensaje").style.opacity="1";
-
-              document.getElementById("muro").style.opacity="0.3";
-              document.getElementById("muro").style.zIndex="4";
-
+              mensajeErrorOcupada();
             }
 
             else{
@@ -718,13 +753,7 @@ function prepararDnD2(){
             ctx=cv.getContext('2d');
 
             if(columna<10){
-                document.getElementById("mensaje").innerHTML="Debes de poner la ficha en lado derecho del campo (verde) <div style='cursor:pointer;text-align: center;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
-                document.getElementById("mensaje").style.zIndex="5";
-                document.getElementById("mensaje").style.transition="opacity 1s linear";
-                document.getElementById("mensaje").style.opacity="1";
-
-                document.getElementById("muro").style.opacity="0.3";
-                document.getElementById("muro").style.zIndex="4";
+                mensajeErrorCampo();
               }
 
             //hacerRejilla();
@@ -754,7 +783,7 @@ function prepararDnD2(){
         img.onload = function(){
           //ctx.drawImage(img, x, y);
           ctx.drawImage(img,columna*dim,fila*dim,dim, dim);
-          contV+=1;
+          contV++;
           console.log("llevamos " + contV + " fichas Verdes");
         }
 
@@ -765,13 +794,7 @@ function prepararDnD2(){
           console.log("ARRASTRAR INSERTADA????????" + insertada);
 
           if(!insertada){
-              document.getElementById("mensaje").innerHTML="Esta casilla está llena <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
-              document.getElementById("mensaje").style.zIndex="5";
-              document.getElementById("mensaje").style.transition="opacity 1s linear";
-              document.getElementById("mensaje").style.opacity="1";
-
-              document.getElementById("muro").style.opacity="0.3";
-              document.getElementById("muro").style.zIndex="4";
+              mensajeErrorOcupada();
           }
 
           else{
@@ -786,6 +809,9 @@ function prepararDnD2(){
 
             hacerRejilla();
           }
+      }
+      else{
+        mensajeNoestuTurno();
       }
 
     }
