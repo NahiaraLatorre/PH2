@@ -80,7 +80,7 @@ article{
 
 /* CAJAS FICHAS */
 
-#bloques{
+.bloques{
     margin: 0 auto;
     padding: 0;
     width: 832px;
@@ -150,7 +150,7 @@ article{
     cursor: pointer;
     /*font-size: 120%;*/
     text-align: center;
-    width: 30%;
+    /*width: 30%;*/
 }
 
 #botMensaje{
@@ -221,6 +221,10 @@ h4{
     color: #000;
     font-size: 20px;
     padding-left: 20px;
+}
+
+h5{
+    display:none;
 }
 
 a{

@@ -11,20 +11,16 @@ ficha_verde.src = 'ficha_verde.svg';
 ficha_verde.width = '40';
 ficha_verde.height = '40';
 
-
-
 /****** VARIABLES *****/
 var contR = 0;
 var contV = 0;
 var turnoRojo=true;
 var insertada=false;
 
-
 var ficha = -1;
 var color_ficha = 'n';
 var ficha_roja_colocada = [false,false,false,false,false];
 var ficha_verde_colocada = [false,false,false,false,false];
-
 
 var tablero = [];
 for(var i=0; i<9; i++) {
@@ -33,7 +29,6 @@ for(var i=0; i<9; i++) {
     tablero[i][j]='n';    
   }
 }
-
 
 /*************** INICIO DE SESION ****************/
 
@@ -54,7 +49,6 @@ function f1() {
        }
       if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
         console.log("mostrar boton Jugar 1");
-
         document.getElementById("botonJugar").innerHTML="<button onclick='f3();' class='button' value = 'Jugar'>Jugar</button>";
     
       }
@@ -132,8 +126,9 @@ function actualizaJuego(){
 
   if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
     hacerRejilla();
-    /*pinta_ficha_no_colocada();*/
     pintarTurno();
+    pinta_ficha_no_colocada();
+    
 
     document.getElementById("jugador1").innerHTML="<p>Equipo 1: "+sessionStorage.getItem("login1")+"</p>";
     document.getElementById("jugador2").innerHTML="<p>Equipo 2: "+sessionStorage.getItem("login2")+"</p>";
@@ -222,33 +217,38 @@ function aleatorioRojo(){
   var ctx = c.getContext('2d');
   var dim = c.width/20;
 
-  if(turnoRojo && contR<5){
-    var min = 1;
-    var max = 9;
-    var fila = Math.floor((Math.random()*8)+1);
-    var columna = Math.round(Math.random() * (max - min) + min);
-    /*var columna = Math.floor((Math.random()*18)+1);*/
+  if(contR<5){
+    if(turnoRojo){
+      var min = 1;
+      var max = 9;
+      var fila = Math.floor((Math.random()*8)+1);
+      var columna = Math.round(Math.random() * (max - min) + min);
+      /*var columna = Math.floor((Math.random()*18)+1);*/
 
-    insertada = false;
-    console.log("FILA ALEATORIO ROJO ===== " + fila);
-    console.log("COLUMNA ALEATORIO ROJO ===== " + columna);
+      insertada = false;
+      console.log("FILA ALEATORIO ROJO ===== " + fila);
+      console.log("COLUMNA ALEATORIO ROJO ===== " + columna);
 
-    insertarFicha(fila, columna, 'r');
+      insertarFicha(fila, columna, 'r');
 
-    if(insertada){
-      ctx.drawImage(ficha_roja, columna*dim, fila*dim, dim, dim);
-      contR++;
-      turnoRojo=false;
-      pintarTurno();
-    }
-    else{
-      aleatorioRojo();
-    }
+      if(insertada){
+        ctx.drawImage(ficha_roja, columna*dim, fila*dim, dim, dim);
+        contR++;
+        turnoRojo=false;
+        pintarTurno();
+      }
+      else{
+        aleatorioRojo();
+      }
   } 
-
   else{
     mensajeNoestuTurno();
-  }   
+    }   
+  }
+  else{
+    console.log("-------QUE EMPIECE EL JUEGO------");
+    document.getElementById("botones").innerHTML ="<button onclick='iniciar();' id='botJugar'>Jugar</button>";
+  }
 }
 
 
@@ -258,30 +258,38 @@ function aleatorioVerde(){
   var ctx = c.getContext('2d');
   var dim = c.width/20;
 
-  if(!turnoRojo && contV<5){
-    var min = 10;
-    var max = 18;
-    var fila = Math.floor((Math.random()*8)+1);
-    var columna = Math.round(Math.random() * (max - min) + min);
-    /*var columna = Math.floor((Math.random()*18)+1);*/
+  if(contV<5){
+    if(!turnoRojo){
+      var min = 10;
+      var max = 18;
+      var fila = Math.floor((Math.random()*8)+1);
+      var columna = Math.round(Math.random() * (max - min) + min);
+      /*var columna = Math.floor((Math.random()*18)+1);*/
 
-    insertada = false;
-    console.log("FILA ALEATORIO VERDE ===== " + fila);
-    console.log("COLUMNA ALEATORIO VERDE ===== " + columna);
+      insertada = false;
+      console.log("FILA ALEATORIO VERDE ===== " + fila);
+      console.log("COLUMNA ALEATORIO VERDE ===== " + columna);
 
-     insertarFicha(fila, columna, 'v');
+       insertarFicha(fila, columna, 'v');
 
-    if(insertada){
-      ctx.drawImage(ficha_verde, columna*dim, fila*dim, dim, dim);
-      turnoRojo=true;
-      contV++;
-      pintarTurno();
-    }
-    else{
-      aleatorioVerde();
+      if(insertada){
+        ctx.drawImage(ficha_verde, columna*dim, fila*dim, dim, dim);
+        turnoRojo=true;
+        contV++;
+        pintarTurno();
+      }
+      else{
+        aleatorioVerde();
+      }
+  }
+  else{
+    mensajeNoestuTurno();
     }
   }
-
+  else{
+    console.log("-------QUE EMPIECE EL JUEGO------");
+    document.getElementById("botones").innerHTML ="<button onclick='iniciar();' id='botJugar'>Jugar</button>";
+  }
 }
 
 /*********** CAMPO DE FUTBOL ************/
@@ -432,7 +440,9 @@ function mouseClick(e){
 
           turnoRojo=false;
           pintarTurno();
-          hacerRejilla();
+          /*hacerRejilla();*/
+          /*redibujarCanvas();*/
+          ficha=-1;
         }
 
         else{
@@ -474,10 +484,12 @@ function mouseClick(e){
             ctx.strokeStyle = '#000';
             ctx.lineWidth = 3;
             ctx.strokeRect(columna * dim, fila * dim, dim, dim);
-
             turnoRojo=true;
-
             pintarTurno();
+            /*hacerRejilla();*/
+            /*redibujarCanvas();*/
+            ficha=-1;
+            
           }
           else{
             mensajeErrorOcupada();
@@ -486,13 +498,26 @@ function mouseClick(e){
     }
 
     else{
-      //PONER MENSAJE
-      console.log("-------QUE EMPIECE EL JUEGO------");
       document.getElementById("botones").innerHTML ="<button onclick='iniciar();' id='botJugar'>Jugar</button>";
-
     }
 
 }
+
+/*function redibujarCanvas(){
+  let cv = document.getElementById('canvasJuego'),
+    ctx = cv.getContext('2d'),
+    dim = cv.width / 20,
+    img = new Image();
+
+    cv.width = cv.width;
+    hacerRejilla();
+    
+    img.onload = function(){
+      ctx.drawImage(img, ficha.columna*dim, ficha.fila*dim, dim, dim);
+  };
+
+  img.src = "ficha_roja.svg";
+}*/
 
 function mouseMove(e){
   let cv = e.target,
@@ -576,50 +601,32 @@ function pintarTurno(){
 }
 
 
-function ficha_seleccionada(color,num){
+function pinta_ficha_no_colocada(){
 
-  limpia_ficha();
-
-  if(color=='r'){
-    if(ficha_roja_colocada[num]==false){
-      for(i=0;i<=5;i++){
-          if(i==num && ficha_roja_colocada[i]==false){
-
-            var c=document.getElementById("fichar"+i);
-            var ctx=c.getContext("2d");
-            ctx.strokeStyle = 'red';
-            ctx.strokeRect(0, 0, c.width, c.height);
-            ficha=i;
-            color_ficha='r';
-          }
-      }
+  for(i=0;i<=21;i++){
+    if(ficha_roja_colocada[i]==false){
+    var c=document.getElementById("fichar"+i);
+    var ctx=c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.drawImage(ficha_roja,0,0);
     }
   }
-
-  else{
-    if(ficha_verde_colocada[num]==false){
-      for(i=0;i<=5;i++){
-        if(i==num && ficha_verde_colocada[i]==false){
-      
-            var c=document.getElementById("fichav"+i);
-            var ctx=c.getContext("2d");
-            ctx.strokeStyle = 'red';
-            ctx.strokeRect(0, 0, c.width, c.height);
-            ficha=i;
-            color_ficha='v';
-          }
-        }
+  for(i=0;i<=21;i++){
+    if(ficha_verde_colocada[i]==false){
+    var c=document.getElementById("fichav"+i);
+    var ctx=c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.drawImage(ficha_verde,0,0);
     }
   }
-
-  console.log(ficha);   
-  console.log(color_ficha);
-
 }
 
 function limpia_ficha(){
+  
+  console.log("ficha ==========================" + ficha);
   if(ficha!=-1 && color_ficha!='n'){
     if(color_ficha=='r'){
+      console.log("entro en limpia ficha");
     var c=document.getElementById("fichar"+ficha);
     var ctx=c.getContext("2d");
     ctx.clearRect(0,0,c.width,c.height);
@@ -633,6 +640,55 @@ function limpia_ficha(){
     }
   }
 }
+
+function ficha_seleccionada(color,num){
+
+  console.log("ficha seleccionada aqui............");
+
+  limpia_ficha();
+
+  if(color=='r'){
+    if(ficha_roja_colocada[num]==false){
+      for(i=0;i<5;i++){
+          if(i==num && ficha_roja_colocada[i]==false){
+
+            var c=document.getElementById("fichar"+i);
+            var ctx=c.getContext("2d");
+            ctx.strokeStyle = '#a00';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(0, 0, c.width, c.height);
+            ficha=i;
+            color_ficha='r';
+
+            c.width=c.width;
+
+          }
+      }
+    }
+  }
+  else{
+    if(ficha_verde_colocada[num]==false){
+      for(i=0;i<5;i++){
+        if(i==num && ficha_verde_colocada[i]==false){
+      
+            var c=document.getElementById("fichav"+i);
+            var ctx=c.getContext("2d");
+            ctx.strokeStyle = '#a00';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(0, 0, c.width, c.height);
+            ficha=i;
+            color_ficha='v';
+          }
+        }
+    }
+  }
+
+  console.log(ficha);   
+  console.log(color_ficha);
+
+}
+
+
 
 /************************* ARRASTRAR -- Drag & Drop *************************/
 
@@ -720,16 +776,12 @@ function prepararDnD2(){
             if(!insertada){
               mensajeErrorOcupada();
             }
-
             else{
-
-              //img.src = document.getElementById(id).src;
-
               img.src="ficha_roja.svg";
-
               turnoRojo = false;
-
               pintarTurno();
+              /*hacerRejilla;*/
+              /*redibujarCanvas();*/
             }
         }
       }
@@ -788,10 +840,7 @@ function prepararDnD2(){
         }
 
           insertada = false;
-            
           insertarFicha(fila, columna, 'v');
-
-          console.log("ARRASTRAR INSERTADA????????" + insertada);
 
           if(!insertada){
               mensajeErrorOcupada();
@@ -800,23 +849,18 @@ function prepararDnD2(){
           else{
         
             //img.src = document.getElementById(id).src;
-
             img.src="ficha_verde.svg";
-
             turnoRojo = true;
-
             pintarTurno();
-
-            hacerRejilla();
+            /*hacerRejilla();*/
+            /*redibujarCanvas();*/
           }
       }
       else{
         mensajeNoestuTurno();
       }
-
     }
   }
-
   else{
       //PONER MENSAJE
       console.log("-------QUE EMPIECE EL JUEGO------");
