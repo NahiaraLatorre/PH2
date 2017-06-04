@@ -11,7 +11,9 @@ header{
     height: 140px;
     width: 100%;
 }
-
+img{
+    cursor: pointer;
+}
 p{
     color: #000;
     margin: 10px;
@@ -38,6 +40,11 @@ section{
 article{
     padding-left: 35px;
 
+}
+
+
+#form1, #form2{
+    padding-left: 0px;
 }
 
 #dados{
@@ -129,6 +136,27 @@ article{
     display: inline-block;
     background: transparent; 
 }
+
+#botMensaje{
+    background: rgba(4,9,75,1);
+    box-shadow: 0 0 10px rgba(4,9,75,1);
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px; 
+    padding: 10px;
+    margin: 20px 45px;
+    border: none;
+    cursor: pointer;
+    font-size: 120%;
+    text-align: center;
+}
+
+#botMensaje{
+    background: rgba(4,9,75,1);
+}
+
+
+/******** boton REINICIAR y JUGAR *****/
 #botJugar{
     background: rgba(4,9,75,1);
     box-shadow: 0 0 10px rgba(4,9,75,1);
@@ -139,13 +167,18 @@ article{
     margin: 15px 40px;
     border: none;
     cursor: pointer;
-    width: 11%;
     font-size: 140%;
 }
+
+#botJugar:hover{
+    background: rgba(4,9,75,1);
+
+}
+
 /* Formulario acceso */          
 
 input[type=text]{
-    width: 60%;
+    width: 25%;
     margin: 20px 0;
     display: inline-block;
     border: 2px solid #ccc;
@@ -209,6 +242,34 @@ legend{
     font-size: 25px;
 }
 
+
+/********* para fichas seleccionadas  **********/
+
+canvas{
+    border: solid 3px #000;
+    margin: 0 auto;
+}
+
+canvas[data-down]{
+    cursor: move;
+}
+
+.img_peq{
+    max-width: 240px;
+    margin: .5em;
+    border: .1em solid #234;
+}
+
+/*********************************/
+
+.aleatorio{
+    padding: 6px;
+    margin: 8px;
+    margin-left: -35px;
+}
+
+
+
 .button{
     background: rgba(4,9,75,1);
     box-shadow: 0 0 1px rgba(4,9,75,1);
@@ -218,9 +279,9 @@ legend{
     margin-left: 35px;
     border: none;
     cursor: pointer;
-    width: 29%;
+    width: 12%;
     height: 35px;
-    font-size: 120%;
+    font-size: 110%;
 }
     
 .button:hover{
@@ -230,7 +291,7 @@ legend{
 
 .login {
     margin:auto;
-    padding:90px;
+    /*padding:90px;*/
     text-align : left;
     font-weight: bold;
     font-size: 20px;
@@ -262,14 +323,16 @@ legend{
     box-shadow: 0 0 1px rgba(4,9,75,1);
     color: #FFF;
     font-weight:bold;
-    border-radius: 4px; 
-    padding: 2px;
-    margin: 0px;
+    border-radius: 10px; 
+    margin: 25px;
     border: none;
     cursor: pointer;
-    width: 8%;
-    font-size: 100%; 
+    width: 23%;
+    height: 35px;
+    font-size: 110%;
 }
+
+
 
 /*****************  ID  **********************/
 #mensaje{
@@ -311,7 +374,7 @@ legend{
 /* Pie de la página */
 footer{
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 100px;
     text-align: center;
     opacity: 0.8;
     filter:  alpha(opacity=50);

@@ -9,8 +9,6 @@
     <link rel="icon" href="img/logoIcono.ico" type="image/x-icon"/>
     
     <!--Para los iconos-->
-    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
-    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
     <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
     
     <title>Juego</title>
@@ -24,13 +22,15 @@
 
     <section>
         <h2>Juego</h2>
-
+        <div id="mensaje"></div> 
+        <div id="muro"></div>
         <section id="tablero" class="game">
             <p>Mueve la pelota</p>
             <canvas id="canvasJuego" width="720" height="324" 
                 onmousemove="mouseMove(event);"
                 onclick="mouseClick(event);"
-                onmousedown="mouse_down(event);"
+                onmousedown="mouse_down(event);""
+                onmouseup="mouse_up(event);"
                 >
             </canvas>
         </section> 
@@ -39,14 +39,18 @@
             <section class="game" id="jugadorRojo">
                 <p id="jugador1">Fichas equipo 1:</p>
                     <article class="fichas">
-                        <img class="img_peq" src="ficha_roja.svg" alt="">
-                        <img class="img_peq" src="ficha_roja.svg" alt="">
-                        <img class="img_peq" src="ficha_roja.svg" alt="">
-                        <img class="img_peq" src="ficha_roja.svg" alt="">
-                        <img class="img_peq" src="ficha_roja.svg" alt="">
+                        <!--<div id="demo1"><img id="fichar0" class="img_peq" src="ficha_roja.svg" alt="" onmousedown="ficha_seleccionada('r',0)" draggable="true"></div>
+                        <a href="javascript:void(0);" onclick="SINO('demo1')">Ocultar</a>-->
+                        <img id="fichar0" class="img_peq" src="ficha_roja.svg" onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha0">
+                        <img id="fichar1" class="img_peq" src="ficha_roja.svg" onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha1">
+                        <img id="fichar2" class="img_peq" src="ficha_roja.svg" onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha2">
+                        <img id="fichar3" class="img_peq" src="ficha_roja.svg" onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha3">
+                        <img id="fichar4" class="img_peq" src="ficha_roja.svg" onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha4">
                     </article>
                         
                 <article id="marcadorRojo"></aticle>
+
+                <button class="aleatorio" type="button">Colocar ficha</button>
 
             </section>
         </section>
@@ -55,15 +59,17 @@
             <section class="game" id="jugadorVerde">
                 <p id="jugador2">Fichas equipo 2:</p>
                     <article class="fichas">
-                        <img class="img_peq" src="ficha_verde.svg" alt="">
-                        <img class="img_peq" src="ficha_verde.svg" alt="">
-                        <img class="img_peq" src="ficha_verde.svg" alt="">
-                        <img class="img_peq" src="ficha_verde.svg" alt="">
-                        <img class="img_peq" src="ficha_verde.svg" alt=""> 
+                        <img id="fichav0" class="img_peq" src="ficha_verde.svg"  onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha0">
+                        <img id="fichav1" class="img_peq" src="ficha_verde.svg"  onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha1">
+                        <img id="fichav2" class="img_peq" src="ficha_verde.svg"  onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha2">
+                        <img id="fichav3" class="img_peq" src="ficha_verde.svg"  onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha3">
+                        <img id="fichav4" class="img_peq" src="ficha_verde.svg"  onmousedown="prepararDnD2();" onclick="ficha_seleccionada();" alt="ficha4"> 
                     </article>
 
                 
                 <article id="marcadorVerde"></aticle>
+
+                <button class="aleatorio" type="button">Colocar ficha</button>
 
             </section>
         </section>
@@ -77,7 +83,7 @@
             <a class="button" href="#" id="finalizar" onclick="finalizar()">Finalizar</a>
             <a class="button" href="#" id="botJugar" onclick="iniciar()">Jugar</a>-->
             <button onclick="reiniciar();" id="botJugar">Reiniciar</button>
-            <button onclick="iniciar();" id="botJugar">Jugar</button>
+            <!--<button onclick="iniciar();" id="botJugar">Jugar</button>-->
         </section>
 
     </section>
@@ -87,6 +93,11 @@
     </footer> 
 
     <script src="js/juego.js"></script> 
+
+    <!--<script>
+        prepararDnD2(); 
+    </script>-->
+
   
 
 </body>

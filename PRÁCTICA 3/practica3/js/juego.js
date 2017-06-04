@@ -12,28 +12,46 @@ ficha_verde.width = '40';
 ficha_verde.height = '40';
 
 
+
+/****** VARIABLES *****/
+var contR = 0;
+var contV = 0;
+var turnoRojo=true;
+var insertada=false;
+
+
 var ficha = -1;
 var color_ficha = 'n';
-var turnoRojo=true;
 var ficha_roja_colocada = [false,false,false,false,false];
 var ficha_verde_colocada = [false,false,false,false,false];
 
 
 var tablero = [];
-for(var i=0; i<18; i++) {
-    tablero[i] = new Array(5);
-  for(var j=0; j<9; j++){
+for(var i=0; i<9; i++) {
+    tablero[i] = new Array(10);
+  for(var j=0; j<18; j++){
     tablero[i][j]='n';    
   }
 }
 
 
+/*************** INICIO DE SESION ****************/
+
 function f1() {
     if(typeof(Storage) !== "undefined") {
       var usu1=document.getElementById("equipo1").value;
-      sessionStorage.setItem("login1",usu1);
-      document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend><br><br>";
+      if(usu1!=""){
+        sessionStorage.setItem("login1",usu1);
+        document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend><br><br>";
+       }else{
+          document.getElementById("mensaje").innerHTML="Debes introducir un nombre al equipo <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+          document.getElementById("mensaje").style.zIndex="5";
+          document.getElementById("mensaje").style.transition="opacity 1s linear";
+          document.getElementById("mensaje").style.opacity="1";
 
+          document.getElementById("muro").style.opacity="0.3";
+          document.getElementById("muro").style.zIndex="4";
+       }
       if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
         console.log("mostrar boton Jugar 1");
 
@@ -49,9 +67,18 @@ function f1() {
 function f2() {
     if(typeof(Storage) !== "undefined") {
       var usu2=document.getElementById("equipo2").value;
-      sessionStorage.setItem("login2",usu2);
-      document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend><br><br>";
+      if(usu2!=""){
+        sessionStorage.setItem("login2",usu2);
+        document.getElementById("form2").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login2")+"</legend><br><br>";
+      }else{
+          document.getElementById("mensaje").innerHTML="Debes introducir un nombre al equipo <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+          document.getElementById("mensaje").style.zIndex="5";
+          document.getElementById("mensaje").style.transition="opacity 1s linear";
+          document.getElementById("mensaje").style.opacity="1";
 
+          document.getElementById("muro").style.opacity="0.3";
+          document.getElementById("muro").style.zIndex="4";
+       }
       if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
         console.log("mostrar boton Jugar 1");
 
@@ -75,7 +102,10 @@ function f3(){
   }
 }
 
+
 function actualizaIndex(){
+
+  console.log("actualiza Index");
 
   if(sessionStorage.getItem("login1") && sessionStorage.getItem("login2")){
     document.getElementById("form1").innerHTML="<legend>Bienvenido "+sessionStorage.getItem("login1")+"</legend><br><br>";
@@ -113,7 +143,7 @@ function actualizaJuego(){
 
 /********************************/
 function dados(){
-  var x = Math.floor((Math.random()*10)+1);
+  var x = Math.floor((Math.random()*6)+1);
   document.getElementById("dados").innerHTML = x;
   ctx.drawImage(x,0,0);
 }
@@ -126,7 +156,7 @@ function iniciar(){
   document.getElementById("marcadorRojo").innerHTML ="<article class='cuadroMarcador'></article><br>";
   document.getElementById("marcadorVerde").innerHTML ="<article class='cuadroMarcador'></article><br>"
 
-  document.getElementById("lanzarDados").innerHTML = "<p>Dado</p><article class='cuadro'><p id='dados'></p></article><br><button onclick='dados();' class='button'>Lanzar</button><button onclick='logout();'' class='button'>Finalizar</button><br><br>";
+  document.getElementById("lanzarDados").innerHTML = "<p>Dado</p><article class='cuadro'><p id='dados'></p></article><br><button onclick='dados();' class='botonAct'>Lanzar</button><button onclick='logout();'' class='botonAct'>Finalizar</button>";
 
 }
 
@@ -142,9 +172,16 @@ function logout(){
     }
 }
 
-/***********************/
+function cerrarMensajeConFocus(){
+     document.getElementById("mensaje").style.zIndex="-1";
+     document.getElementById("muro").style.zIndex="-2";
+     document.getElementById("mensaje").style.opacity="0";
+     document.getElementById("muro").style.opacity="0";
+}
 
-function hacerRejilla(){// OKAY  ---  CAMPO DE FUTBOL
+/*********** CAMPO DE FUTBOL ************/
+
+function hacerRejilla(){  
 
   console.log("***HACIENDO REJILLA***");  
 
@@ -232,8 +269,13 @@ function hacerRejilla(){// OKAY  ---  CAMPO DE FUTBOL
 
 }
 
-
+/******************************* CLICK ******************************/
 function mouseClick(e){
+
+
+  console.log("mouseClick");
+
+
   let cv = e.target,
     x = e.offsetX,
     y = e.offsetY,
@@ -241,27 +283,153 @@ function mouseClick(e){
     fila = Math.floor(y / dim),
     columna = Math.floor(x / dim);
 
-  if(x<1 || x>cv.width-1 || y<1 || y>cv.height){}
-  //console.log('Fila: ' + fila + ' - Columna: ' + columna);
+    //if(x<1 || x>cv.width-1 || y<1 || y>cv.height){}
+    //console.log('Fila: ' + fila + ' - Columna: ' + columna);
 
-//para que se limpie el canvas cada vez que se pincha uno
-  cv.width = cv.width;
-  hacerRejilla();
+    //para que se limpie el canvas cada vez que se pincha uno
+    //cv.width = cv.width;
+    //hacerRejilla();
 
-  let ctx = cv.getContext('2d'),
-    img = new Image();
 
-  img.onload = function(){
-    ctx.drawImage(img, columna*dim, fila*dim, dim, dim);
-  };
+  if(turnoRojo && contR<5){
 
-  
-  img.src="ficha_roja.svg";
+      console.log("******** TURNO DEL EQUIPO ROJO ***********");
+      console.log("Ficha numero = " + contR);
 
-  ctx.beginPath();
-  ctx.strokeStyle = '#a00';
-  ctx.lineWidth = 4;
-  ctx.strokeRect(columna * dim, fila * dim, dim, dim);
+      if(columna>9){
+        document.getElementById("mensaje").innerHTML="Debes de poner la ficha en lado izquierdo del campo (roja) <div style='cursor:pointer;text-align: center;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+        document.getElementById("mensaje").style.zIndex="5";
+        document.getElementById("mensaje").style.transition="opacity 1s linear";
+        document.getElementById("mensaje").style.opacity="1";
+
+        document.getElementById("muro").style.opacity="0.3";
+        document.getElementById("muro").style.zIndex="4";
+        
+        //console.log("TIENES QUE PONER LA FICHA EN EL LADO IZQUIERDO DEL CAMPO ---- ROJO");
+      }
+
+      else{
+
+        insertada = false;
+        console.log("FILA ======= " + fila);
+        console.log("COLUMNA ======= " + columna);
+
+        //console.log("ESTA INSERTADA-------------------" + insertada);
+
+        insertarFicha(fila, columna, 'r');
+
+        //console.log("Y AHORA ESTA INSERTADA-------------------" + insertada);
+
+        if(insertada){
+
+          let ctx = cv.getContext('2d'),
+            img = new Image();
+
+          img.onload = function(){
+
+            ctx.drawImage(ficha_roja, columna*dim, fila*dim, dim, dim);
+            contR +=1;
+
+          };
+
+          img.src="ficha_roja.svg";
+
+          ctx.beginPath();
+          ctx.strokeStyle = '#000';
+          ctx.lineWidth = 3;
+          ctx.strokeRect(columna * dim, fila * dim, dim, dim);
+
+          //console.log("Turno Rojo = " + turnoRojo);
+          turnoRojo=false;
+          //console.log("Turno Verde = " + turnoRojo);
+          pintarTurno();
+
+        }
+
+        else{
+          document.getElementById("mensaje").innerHTML="Esta casilla está llena <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+          document.getElementById("mensaje").style.zIndex="5";
+          document.getElementById("mensaje").style.transition="opacity 1s linear";
+          document.getElementById("mensaje").style.opacity="1";
+
+          document.getElementById("muro").style.opacity="0.3";
+          document.getElementById("muro").style.zIndex="4";
+        }
+      }
+    }
+
+    else
+      if(!turnoRojo && contV<5){
+          console.log("********TURNO DEL EQUIPO VERDE***********")
+          console.log("Ficha numero = " + contV);
+        
+        if(columna<10){
+          document.getElementById("mensaje").innerHTML="Debes de poner la ficha en lado derecho del campo (verde) <div style='cursor:pointer;text-align: center;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+          document.getElementById("mensaje").style.zIndex="5";
+          document.getElementById("mensaje").style.transition="opacity 1s linear";
+          document.getElementById("mensaje").style.opacity="1";
+
+          document.getElementById("muro").style.opacity="0.3";
+          document.getElementById("muro").style.zIndex="4";
+          //console.log("TIENES QUE PONER LA FICHA EN EL LADO DERECHO DEL CAMPO ---- VERDE");
+        }
+
+        else{
+
+          insertada = false;
+          console.log("FILA ======= " + fila);
+          console.log("COLUMNA ======= " + columna);
+
+          //console.log("ESTA INSERTADA-------------------" + insertada);
+
+          insertarFicha(fila, columna, 'v');
+
+          //console.log("Y AHORA ESTA INSERTADA-------------------" + insertada);
+
+          if(insertada){
+            
+            let ctx = cv.getContext('2d'),
+              img = new Image();
+
+            img.onload = function(){
+              ctx.drawImage(ficha_verde, columna*dim, fila*dim, dim, dim);
+              contV +=1;
+            };
+
+            img.src="ficha_verde.svg";
+
+            ctx.beginPath();
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(columna * dim, fila * dim, dim, dim);
+
+            //console.log("Turno Verde = " + turnoRojo);
+
+            turnoRojo=true;
+
+            //console.log("Turno Rojo = " + turnoRojo);
+
+            pintarTurno();
+          }
+          else{
+            document.getElementById("mensaje").innerHTML="Esta casilla está llena <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+            document.getElementById("mensaje").style.zIndex="5";
+            document.getElementById("mensaje").style.transition="opacity 1s linear";
+            document.getElementById("mensaje").style.opacity="1";
+
+            document.getElementById("muro").style.opacity="0.3";
+            document.getElementById("muro").style.zIndex="4";
+            //console.log("CASILLA LLENA ------------ NO PUEDES!!!")
+          }
+        }
+    }
+
+    else{
+      //PONER MENSAJE
+      console.log("-------QUE EMPIECE EL JUEGO------");
+      document.getElementById("botones").innerHTML ="<button onclick='iniciar();' id='botJugar'>Jugar</button>";
+
+    }
 
 }
 
@@ -293,7 +461,7 @@ function mouse_down(e){
     fila = Math.floor(y / dim),
     columna = Math.floor(x / dim);
 
-  console.log("DOWN => fila: " + fila + " - columna: " + columna);
+  //console.log("DOWN => fila: " + fila + " - columna: " + columna);
   if(ficha.columna == columna && ficha.fila == fila){
     //Hay ficha
     cv.setAttribute('data-down', 'true');
@@ -308,21 +476,33 @@ function mouse_up(e){
     fila = Math.floor(y / dim),
     columna = Math.floor(x / dim);
 
-  console.log("UP => fila: " + fila + " - columna: " + columna);
+  //console.log("UP => fila: " + fila + " - columna: " + columna);
 
   cv.removeAttribute('data-down');
 }
 
-
-
-
-
-
 /************************************************************/
+
+function insertarFicha(fila, columna, color){
+
+    //insertada = false;
+      
+      console.log("ESTAS EN LA CASILLA = " + fila +","+ columna);
+      console.log("CASILLA LLENA? = " + tablero[fila][columna]);
+      console.log("COLOR QUE VAMOS A INSERTAR = " + color);
+
+      if(tablero[fila][columna]=='n' && insertada==false){
+        tablero[fila][columna]=color;
+        console.log("insertado color "+color+" en la fila "+ fila + " y en la columna " + columna);
+        insertada=true;        
+      }
+}
+
 
 function pintarTurno(){
 
-  console.log("///////////mi turno//////////////");
+  console.log("///////////cambio de turno//////////////");
+  console.log("turno rojo es ======== " + turnoRojo);
 
   if(turnoRojo==true){
     document.getElementById("jugadorRojo").style.backgroundColor="#A9E2F3";
@@ -335,5 +515,274 @@ function pintarTurno(){
 }
 
 
+function ficha_seleccionada(color,num){
+
+  limpia_ficha();
+
+  if(color=='r'){
+    if(ficha_roja_colocada[num]==false){
+      for(i=0;i<=5;i++){
+          if(i==num && ficha_roja_colocada[i]==false){
+
+            var c=document.getElementById("fichar"+i);
+            var ctx=c.getContext("2d");
+            ctx.strokeStyle = 'red';
+            ctx.strokeRect(0, 0, c.width, c.height);
+            ficha=i;
+            color_ficha='r';
+          }
+      }
+    }
+  }
+
+  else{
+    if(ficha_verde_colocada[num]==false){
+      for(i=0;i<=5;i++){
+        if(i==num && ficha_verde_colocada[i]==false){
+      
+            var c=document.getElementById("fichav"+i);
+            var ctx=c.getContext("2d");
+            ctx.strokeStyle = 'red';
+            ctx.strokeRect(0, 0, c.width, c.height);
+            ficha=i;
+            color_ficha='v';
+          }
+        }
+    }
+  }
+
+  console.log(ficha);   
+  console.log(color_ficha);
+
+}
+
+function limpia_ficha(){
+  if(ficha!=-1 && color_ficha!='n'){
+    if(color_ficha=='r'){
+    var c=document.getElementById("fichar"+ficha);
+    var ctx=c.getContext("2d");
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.drawImage(ficha_roja,0,0);
+  }else{
+    var c=document.getElementById("fichav"+ficha);
+    var ctx=c.getContext("2d");
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.drawImage(ficha_verde,0,0);
+  
+    }
+  }
+}
+
+/************************* ARRASTRAR -- Drag & Drop *************************/
+
+function prepararDnD2(){
 
 
+  insertada = true;
+
+  console.log("prepararDnD2");
+  //ZONA DRAG
+  let v = document.querySelectorAll('body>section>section>section>article>img');
+
+  for(let i = 0; i < v.length; i++){
+    v[i].setAttribute('draggable', 'true');
+    v[i].id = 'img' + i;
+    v[i].ondragstart = function(e){
+      e.dataTransfer.setData('text/plain', v[i].id);
+    };
+  }
+
+  //ZONA DROP
+  let cv = document.getElementById('canvasJuego');
+
+  if(turnoRojo && contR<=5){
+
+      console.log("******** TURNO DEL EQUIPO ROJO ***********");
+      console.log("Ficha numero = " + contR);
+
+      cv.ondragover = function(e){
+
+        if(turnoRojo && contR<5){
+
+          e.preventDefault();
+          e.stopPropagation();
+          let x = e.offsetX,
+            y = e.offsetY,
+            dim = cv.width/20,
+            fila= Math.floor(y/dim),
+            columna= Math.floor(x/dim),
+            ctx=cv.getContext('2d');
+
+            if(columna>9){
+              document.getElementById("mensaje").innerHTML="Debes de poner la ficha en lado izquierdo del campo (roja) <div style='cursor:pointer;text-align: center;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+              document.getElementById("mensaje").style.zIndex="5";
+              document.getElementById("mensaje").style.transition="opacity 1s linear";
+              document.getElementById("mensaje").style.opacity="1";
+
+              document.getElementById("muro").style.opacity="0.3";
+              document.getElementById("muro").style.zIndex="4";
+                            
+            }
+
+            hacerRejilla();       
+
+            ctx.beginPath();
+            ctx.strokeStyle= '#f00';
+            ctx.lineWidth= 3;
+            ctx.strokeRect(columna*dim, fila*dim, dim, dim);
+        }
+    }
+
+    cv.ondrop = function(e){
+
+      if(turnoRojo && contR<5){
+
+          e.preventDefault();
+          e.stopPropagation();
+
+          let x = e.offsetX,
+            y = e.offsetY,
+            dim = cv.width/20,
+            fila= Math.floor(y/dim),
+            columna= Math.floor(x/dim),
+            id = e.dataTransfer.getData('text/plain'),
+            ctx = cv.getContext('2d'),
+            img = new Image();
+
+            img.onload = function(){
+              //ctx.drawImage(img, x, y);
+              ctx.drawImage(img,columna*dim,fila*dim,dim, dim);
+              contR+=1;
+              console.log("llevamos " + contR + " fichas Rojas");
+            }
+
+
+            insertada = false;
+            
+            insertarFicha(fila, columna, 'r');
+
+            console.log("ARRASTRAR INSERTADA????????" + insertada);
+
+            if(!insertada){
+              document.getElementById("mensaje").innerHTML="Esta casilla está llena <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+              document.getElementById("mensaje").style.zIndex="5";
+              document.getElementById("mensaje").style.transition="opacity 1s linear";
+              document.getElementById("mensaje").style.opacity="1";
+
+              document.getElementById("muro").style.opacity="0.3";
+              document.getElementById("muro").style.zIndex="4";
+
+            }
+
+            else{
+
+              img.src = document.getElementById(id).src;
+
+              turnoRojo = false;
+
+              pintarTurno();
+            }
+        }
+      }
+    }
+
+  else
+    if(!turnoRojo && contV<5){
+
+        console.log("******** TURNO DEL EQUIPO VERDE ***********");
+        console.log("Ficha numero = " + contV);
+
+      cv.ondragover = function(e){
+        if(!turnoRojo && contV<=5){
+          e.preventDefault();
+          e.stopPropagation();
+          let x = e.offsetX,
+            y = e.offsetY,
+            dim = cv.width/20,
+            fila= Math.floor(y/dim),
+            columna= Math.floor(x/dim),
+            ctx=cv.getContext('2d');
+
+            if(columna<10){
+                document.getElementById("mensaje").innerHTML="Debes de poner la ficha en lado derecho del campo (verde) <div style='cursor:pointer;text-align: center;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+                document.getElementById("mensaje").style.zIndex="5";
+                document.getElementById("mensaje").style.transition="opacity 1s linear";
+                document.getElementById("mensaje").style.opacity="1";
+
+                document.getElementById("muro").style.opacity="0.3";
+                document.getElementById("muro").style.zIndex="4";
+              }
+
+            //hacerRejilla();
+
+            ctx.beginPath();
+            ctx.strokeStyle= '#f00';
+            ctx.lineWidth= 3;
+            ctx.strokeRect(columna*dim, fila*dim, dim, dim);
+        }
+
+    }
+
+    cv.ondrop = function(e){
+      if(!turnoRojo && contV<5){
+        e.preventDefault();
+        e.stopPropagation();
+
+        let x = e.offsetX,
+          y = e.offsetY,
+          dim = cv.width/20,
+          fila= Math.floor(y/dim),
+          columna= Math.floor(x/dim),
+          id = e.dataTransfer.getData('text/plain'),
+          ctx = cv.getContext('2d'),
+          img = new Image();
+
+        img.onload = function(){
+          //ctx.drawImage(img, x, y);
+          ctx.drawImage(img,columna*dim,fila*dim,dim, dim);
+          contV+=1;
+          console.log("llevamos " + contV + " fichas Verdes");
+        }
+
+          insertada = false;
+            
+          insertarFicha(fila, columna, 'v');
+
+          console.log("ARRASTRAR INSERTADA????????" + insertada);
+
+          if(!insertada){
+              document.getElementById("mensaje").innerHTML="Esta casilla está llena <div style='cursor:pointer;' id='botMensaje' onclick='cerrarMensajeConFocus()'>Cerrar</div>";
+              document.getElementById("mensaje").style.zIndex="5";
+              document.getElementById("mensaje").style.transition="opacity 1s linear";
+              document.getElementById("mensaje").style.opacity="1";
+
+              document.getElementById("muro").style.opacity="0.3";
+              document.getElementById("muro").style.zIndex="4";
+          }
+
+          else{
+        
+            img.src = document.getElementById(id).src;
+
+            turnoRojo = true;
+
+            pintarTurno();
+
+            hacerRejilla();
+          }
+      }
+
+    }
+  }
+
+  else{
+      //PONER MENSAJE
+      console.log("-------QUE EMPIECE EL JUEGO------");
+      document.getElementById("botones").innerHTML ="<button onclick='iniciar();' id='botJugar'>Jugar</button>";
+
+    }
+
+
+
+
+}

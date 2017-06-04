@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <title>Inicio</title>
 	<meta charset="UTF-8">
     <meta name="description" content="Practica2-PH2">
     <meta name="author" content="Nahiara&Maria">
@@ -11,39 +13,46 @@
     <link rel="icon" href="img/logoIcono.ico" type="image/x-icon"/>
     
     <!--Para los iconos-->
-    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello.css">
-    <link rel = "stylesheet" type = "text/css" href="iconos/css/fontello-embedded.css">
     <link rel = "stylesheet" type = "text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
         
-	<title>Inicio</title>
+	
     
 </head>
 <body onload="actualizaIndex()">    
      <!-- Cabecera -->
     <header>
-        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="230"></a> 
+        <a href="index.html"><img src="img/logo.png" id="logo" alt="Logo CRAZY TRIPS" width="125" style="padding-left: 30px;"></a> 
         <h1>Game Ball</h1>       
     </header>   
+
         <section>
             <h2>Empieza la partida</h2>
             <div id="mensaje"></div> 
-            <div id="muro"></div>  
-            <article class="login" id="formularioacceso" >  
+            <div id="muro"></div> 
+            <article class="login">  
+                <h3>Introduce los nombres de los equipos:</h3>
                 <article id="form1">
-                    <legend>Equipo 1:</legend>
-                    <label for = "equipo1">
-                    <input type="text" name ="login" placeholder="Nombre equipo 1" required id="equipo1">
-                    <button onclick="f1()" id = "boton1" class="button" type="button">Guardar</button></label>
+                    <h4>Equipo 1:</h4>
+                    
+                        <input type="text" id="equipo1" name ="equipo1" placeholder="Nombre Equipo 1" >
+                        <button onclick="f1()" class="button" type="button">Guardar</button>
+                 
                 </article>
+
                 <article id="form2"> 
-                    <legend>Equipo 2:</legend>
-                    <label for = "equipo2">
-                    <input type="text" name="pwd" placeholder="Nombre Equipo 2" required id="equipo2">
-                    <button onclick="f2()" id = "boton2" class="button" type="button">Guardar</button></label>
+                    <h4>Equipo 2:</h4>
+                    
+                        <input type="text" id="equipo2" name="equipo2" placeholder="Nombre Equipo 2" >
+                        <button onclick="f2()" class="button" type="button">Guardar</button>
+                    
                 </article>
-                <button onclick="f3();" id = "botonJugar" class="button" value = "Jugar">Jugar</button>
+
+                <div id=botonJugar></div>
+
+                <!--<button onclick="f3();" class="button" value = "Jugar">Jugar</button>-->
+
             </article>
-            </br></br></br></br></br></br>
+            
         </section>
 
     <footer>
